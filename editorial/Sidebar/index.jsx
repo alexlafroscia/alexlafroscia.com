@@ -1,4 +1,7 @@
 import { Component } from "react";
+import cx from "@sindresorhus/class-names";
+
+import Breakpoint from "../../utils/breakpoints";
 
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
@@ -7,7 +10,7 @@ export { default as Section } from "./Section";
 
 export default class Sidebar extends Component {
   state = {
-    inactive: false
+    inactive: undefined
   };
 
   toggleSidebarActivity = event => {
@@ -25,16 +28,28 @@ export default class Sidebar extends Component {
     const { inactive } = this.state;
 
     return (
-      <div id="sidebar" className={inactive ? "inactive" : undefined}>
-        <div className="inner">{children}</div>
-        <a
-          href="#sidebar"
-          className="toggle"
-          onClick={this.toggleSidebarActivity}
-        >
-          Toggle
-        </a>
-      </div>
+      <Breakpoint>
+        {breakpoint => (
+          <div
+            id="sidebar"
+            className={cx({
+              inactive:
+                typeof inactive !== "undefined"
+                  ? inactive
+                  : breakpoint !== "xlarge"
+            })}
+          >
+            <div className="inner">{children}</div>
+            <a
+              href="#sidebar"
+              className="toggle"
+              onClick={this.toggleSidebarActivity}
+            >
+              Toggle
+            </a>
+          </div>
+        )}
+      </Breakpoint>
     );
   }
 }
