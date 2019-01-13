@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import cx from "@sindresorhus/class-names";
 
 import Breakpoint from "../../utils/breakpoints";

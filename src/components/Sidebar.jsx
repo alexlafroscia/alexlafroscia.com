@@ -1,4 +1,5 @@
-import Link from "next/link";
+import React from "react";
+import { Link } from "gatsby";
 
 import Sidebar, { Header, Nav, Section, Footer } from "../editorial/Sidebar";
 
@@ -8,9 +9,7 @@ export default () => (
       <Header>Menu</Header>
       <ul>
         <li>
-          <Link href="/">
-            <a>Home</a>
-          </Link>
+          <Link to="/">Home</Link>
         </li>
       </ul>
     </Nav>
@@ -18,14 +17,10 @@ export default () => (
     <Section title="Find Me Online">
       <ul className="contact">
         <li className="fa-twitter">
-          <Link href="https://twitter.com/alexlafroscia">
-            <a>@alexlafroscia</a>
-          </Link>
+          <a href="https://twitter.com/alexlafroscia">@alexlafroscia</a>
         </li>
         <li className="fa-github">
-          <Link href="https://github.com/alexlafroscia">
-            <a>@alexlafroscia</a>
-          </Link>
+          <a href="https://github.com/alexlafroscia">@alexlafroscia</a>
         </li>
       </ul>
     </Section>

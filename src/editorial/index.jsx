@@ -1,4 +1,6 @@
-import Head from "next/head";
+import React from "react";
+import { withPrefix } from "gatsby";
+import { Helmet as Head } from "react-helmet";
 
 export default ({ sidebar, children }) => (
   <>
@@ -8,7 +10,10 @@ export default ({ sidebar, children }) => (
         name="viewport"
         content="width=device-width, initial-scale=1, user-scalable=no"
       />
-      <link rel="stylesheet" href="/static/editorial/assets/css/main.css" />
+      <link
+        rel="stylesheet"
+        href={withPrefix("/editorial/assets/css/main.css")}
+      />
     </Head>
     <div id="wrapper">
       <div id="main">

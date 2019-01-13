@@ -1,4 +1,4 @@
-import Link from "next/link";
+import React from "react";
 
 export const Icon = ({ href, icon, children }) => (
   <li>
@@ -9,9 +9,9 @@ export const Icon = ({ href, icon, children }) => (
 );
 
 export const Logo = ({ href = "/", children }) => (
-  <Link href={href}>
-    <a className="logo">{children}</a>
-  </Link>
+  <a href={href} className="logo">
+    {children}
+  </a>
 );
 
 export default ({ logo, children }) => (

@@ -1,3 +1,5 @@
+import React from "react";
+
 import Editorial from "../editorial";
 import Header, { Icon, Logo } from "../editorial/Header";
 

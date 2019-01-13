@@ -1,3 +1,5 @@
+import React from "react";
+
 const Nav = ({ children, ...rest }) => (
   <nav id="menu" {...rest}>
     {children}

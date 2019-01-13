@@ -1,7 +1,9 @@
+import React from "react";
+
 const Contribution = () => (
   <>
     Design{" "}
-    <a href="https://html5up.net" target="_blank">
+    <a href="https://html5up.net" target="_blank" rel="noopener noreferrer">
       HTML5 UP
     </a>
   </>
