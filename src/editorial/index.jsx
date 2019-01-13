@@ -1,6 +1,7 @@
 import React from "react";
-import { withPrefix } from "gatsby";
 import { Helmet as Head } from "react-helmet";
+
+import "./assets/css/main.css";
 
 export default ({ sidebar, children }) => (
   <>
@@ -9,10 +10,6 @@ export default ({ sidebar, children }) => (
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1, user-scalable=no"
-      />
-      <link
-        rel="stylesheet"
-        href={withPrefix("/editorial/assets/css/main.css")}
       />
     </Head>
     <div id="wrapper">
