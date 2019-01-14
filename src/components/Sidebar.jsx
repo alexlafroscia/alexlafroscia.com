@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 
 import Sidebar, { Header, Nav, Section, Footer } from "../editorial/Sidebar";
+import ExternalLink from "../components/ExternalLink";
 
 export default () => (
   <Sidebar>
@@ -16,11 +17,20 @@ export default () => (
 
     <Section title="Find Me Online">
       <ul className="contact">
-        <li className="fa-twitter">
-          <a href="https://twitter.com/alexlafroscia">@alexlafroscia</a>
-        </li>
         <li className="fa-github">
-          <a href="https://github.com/alexlafroscia">@alexlafroscia</a>
+          <ExternalLink href="https://github.com/alexlafroscia">
+            Github
+          </ExternalLink>
+        </li>
+        <li className="fa-twitter">
+          <ExternalLink href="https://twitter.com/alexlafroscia">
+            Twitter
+          </ExternalLink>
+        </li>
+        <li className="fa-medium">
+          <ExternalLink href="https://medium.com/@alexlafroscia">
+            Medium
+          </ExternalLink>
         </li>
       </ul>
     </Section>

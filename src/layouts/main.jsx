@@ -14,8 +14,14 @@ export default ({ children }) => (
         </Logo>
       )}
     >
+      <Icon icon="github" href="https://github.com/alexlafroscia">
+        Github
+      </Icon>
       <Icon icon="twitter" href="https://twitter.com/alexlafroscia">
         Twitter
+      </Icon>
+      <Icon icon="medium" href="https://medium.com/@alexlafroscia">
+        Medium
       </Icon>
     </Header>
 

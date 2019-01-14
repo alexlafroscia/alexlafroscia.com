@@ -1,10 +1,12 @@
 import React from "react";
 
+import ExternalLink from "../components/ExternalLink";
+
 export const Icon = ({ href, icon, children }) => (
   <li>
-    <a href={href} className={`icon fa-${icon}`}>
+    <ExternalLink href={href} className={`icon fa-${icon}`}>
       <span className="label">{children}</span>
-    </a>
+    </ExternalLink>
   </li>
 );
 
