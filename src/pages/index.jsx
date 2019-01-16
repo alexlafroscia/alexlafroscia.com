@@ -1,10 +1,14 @@
 import React from "react";
+import { Helmet as Head } from "react-helmet";
 import { Link, graphql } from "gatsby";
 
 import Main from "../layouts/main";
 
-export default ({ data: { recentPosts } }) => (
+export default ({ data: { recentPosts, site } }) => (
   <Main>
+    <Head>
+      <title>{site.siteMetadata.title}</title>
+    </Head>
     <section>
       <header className="major">
         <h3>Recent Posts</h3>
@@ -32,6 +36,11 @@ export default ({ data: { recentPosts } }) => (
 
 export const pageQuery = graphql`
   query IndexPage {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     recentPosts: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: 6
