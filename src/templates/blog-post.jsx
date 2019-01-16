@@ -1,8 +1,13 @@
 import React from "react";
 import { Helmet as Head } from "react-helmet";
+import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 
 import Main from "../layouts/main";
+
+const PostBody = styled.article`
+  font-size: 1.2em;
+`;
 
 export default ({ data: { post, site } }) => {
   return (
@@ -14,14 +19,11 @@ export default ({ data: { post, site } }) => {
         <meta name="description" content={post.excerpt} />
       </Head>
       <section>
-        <header className="main content">
+        <header className="main">
           <span className="date">{post.frontmatter.date}</span>
           <h1>{post.frontmatter.title}</h1>
         </header>
-        <div
-          className="content"
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
+        <PostBody dangerouslySetInnerHTML={{ __html: post.html }} />
       </section>
     </Main>
   );
