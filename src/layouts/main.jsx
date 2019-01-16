@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 import Editorial from "../editorial";
 import Header, { Icon, Logo } from "../editorial/Header";
@@ -7,6 +8,7 @@ import Sidebar from "../components/Sidebar";
 
 export default ({ children }) => (
   <Editorial sidebar={() => <Sidebar />}>
+    <Helmet htmlAttributes={{ lang: "en" }} />
     <Header
       logo={() => (
         <Logo>
