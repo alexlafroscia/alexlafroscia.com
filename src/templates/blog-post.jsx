@@ -11,6 +11,7 @@ export default ({ data: { post, site } }) => {
         <title>
           {post.frontmatter.title} | {site.siteMetadata.title}
         </title>
+        <meta name="description" content={post.excerpt} />
       </Head>
       <section>
         <header className="main content">
@@ -36,6 +37,7 @@ export const pageQuery = graphql`
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
+      excerpt
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
