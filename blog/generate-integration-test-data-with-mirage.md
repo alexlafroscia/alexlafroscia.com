@@ -47,4 +47,4 @@ module('Integration | Components | render-post', function(hooks) {
 
 **Note**: For the `setupMirage` definition, see [my previous blog post][qunit-api-blog-post] about the new QUnit API.
 
-[qunit-api-blog-post]: /ember-upgrade-to-new-qunit-api
+[qunit-api-blog-post]: https://alexlafroscia.com/ember-upgrade-to-new-qunit-api
