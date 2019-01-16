@@ -1,11 +1,17 @@
 import React from "react";
+import { Helmet as Head } from "react-helmet";
 import { graphql } from "gatsby";
 
 import Main from "../layouts/main";
 
-export default ({ data: { post } }) => {
+export default ({ data: { post, site } }) => {
   return (
     <Main>
+      <Head>
+        <title>
+          {post.frontmatter.title} | {site.siteMetadata.title}
+        </title>
+      </Head>
       <section>
         <header className="main content">
           <span className="date">{post.frontmatter.date}</span>
@@ -22,6 +28,11 @@ export default ({ data: { post } }) => {
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
