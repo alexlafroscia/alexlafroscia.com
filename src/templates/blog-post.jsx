@@ -9,9 +9,17 @@ const PostBody = styled.article`
   a {
     border-bottom: none;
 
+    code {
+      color: var(--theme-accent-color-darker);
+    }
+
     &:hover {
       border-bottom: dotted 1px;
     }
+  }
+
+  code {
+    color: var(--theme-darker-text-color);
   }
 `;
 
