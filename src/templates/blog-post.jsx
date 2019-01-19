@@ -3,15 +3,13 @@ import { Helmet as Head } from "react-helmet";
 import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 
-import Main from "../layouts/main";
-
 const PostBody = styled.article`
   font-size: 1.2em;
 `;
 
 export default ({ data: { post, site } }) => {
   return (
-    <Main>
+    <>
       <Head>
         <title>
           {post.frontmatter.title} | {site.siteMetadata.title}
@@ -25,7 +23,7 @@ export default ({ data: { post, site } }) => {
         </header>
         <PostBody dangerouslySetInnerHTML={{ __html: post.html }} />
       </section>
-    </Main>
+    </>
   );
 };
 

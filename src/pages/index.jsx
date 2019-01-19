@@ -2,10 +2,8 @@ import React from "react";
 import { Helmet as Head } from "react-helmet";
 import { Link, graphql } from "gatsby";
 
-import Main from "../layouts/main";
-
 export default ({ data: { recentPosts, site } }) => (
-  <Main>
+  <>
     <Head>
       <title>{site.siteMetadata.title}</title>
     </Head>
@@ -31,7 +29,7 @@ export default ({ data: { recentPosts, site } }) => (
           ))}
       </div>
     </section>
-  </Main>
+  </>
 );
 
 export const pageQuery = graphql`
