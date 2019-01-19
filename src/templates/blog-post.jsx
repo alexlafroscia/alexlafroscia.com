@@ -5,6 +5,14 @@ import { graphql } from "gatsby";
 
 const PostBody = styled.article`
   font-size: 1.2em;
+
+  a {
+    border-bottom: none;
+
+    &:hover {
+      border-bottom: dotted 1px;
+    }
+  }
 `;
 
 export default ({ data: { post, site } }) => {
