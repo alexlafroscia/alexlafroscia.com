@@ -35,6 +35,15 @@ export default () => (
       </ul>
     </Section>
 
-    <Footer />
+    <Footer>
+      {Contribution => (
+        <>
+          <Contribution /> <br />
+          Ported to React by Alex LaFroscia <br />
+          Built with{" "}
+          <ExternalLink href="https://www.gatsbyjs.org/">Gatsby</ExternalLink>
+        </>
+      )}
+    </Footer>
   </Sidebar>
 );
