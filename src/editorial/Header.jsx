@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 
 import ExternalLink from "../components/ExternalLink";
 
@@ -21,9 +22,9 @@ export const Icon = ({ href, icon, children }) => {
 };
 
 export const Logo = ({ href = "/", children }) => (
-  <a href={href} className="logo">
+  <Link to={href} className="logo">
     {children}
-  </a>
+  </Link>
 );
 
 export default ({ logo, children }) => (
