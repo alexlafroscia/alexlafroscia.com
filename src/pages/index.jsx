@@ -7,6 +7,16 @@ export default ({ data: { recentPosts, site } }) => (
     <Head>
       <title>{site.siteMetadata.title}</title>
     </Head>
+    <article id="banner">
+      <div className="content">
+        <header>
+          <h1>
+            <Link to="/">{site.siteMetadata.title}</Link>
+          </h1>
+          <p>Stuff I learned and want to share</p>
+        </header>
+      </div>
+    </article>
     <section>
       <header className="major">
         <h3>Recent Posts</h3>
