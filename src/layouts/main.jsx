@@ -37,6 +37,9 @@ export default ({ children }) => (
       <Icon icon="medium" href="https://medium.com/@alexlafroscia">
         Medium
       </Icon>
+      <Icon icon="rss" href="/rss.xml">
+        RSS
+      </Icon>
     </Header>
 
     {children}
