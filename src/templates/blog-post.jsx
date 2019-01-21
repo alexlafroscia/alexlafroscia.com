@@ -20,6 +20,12 @@ const PostBody = styled.article`
   }
 `;
 
+const Img = styled.img`
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+`;
+
 const Code = styled.code`
   color: var(--theme-darker-text-color);
 `;
@@ -27,7 +33,8 @@ const Code = styled.code`
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    code: Code
+    code: Code,
+    img: Img
   }
 }).Compiler;
 
