@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet as Head } from "react-helmet";
 import styled from "@emotion/styled";
 import { graphql } from "gatsby";
+import rehypeReact from "rehype-react";
 
 const PostBody = styled.article`
   font-size: 1.2em;
@@ -17,31 +18,36 @@ const PostBody = styled.article`
       border-bottom: dotted 1px;
     }
   }
-
-  code {
-    color: var(--theme-darker-text-color);
-  }
 `;
 
-export default ({ data: { post, site } }) => {
-  return (
-    <>
-      <Head>
-        <title>
-          {post.frontmatter.title} | {site.siteMetadata.title}
-        </title>
-        <meta name="description" content={post.excerpt} />
-      </Head>
-      <section>
-        <header className="main">
-          <span className="date">{post.frontmatter.date}</span>
-          <h1>{post.frontmatter.title}</h1>
-        </header>
-        <PostBody dangerouslySetInnerHTML={{ __html: post.html }} />
-      </section>
-    </>
-  );
-};
+const Code = styled.code`
+  color: var(--theme-darker-text-color);
+`;
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {
+    code: Code
+  }
+}).Compiler;
+
+export default ({ data: { post, site } }) => (
+  <>
+    <Head>
+      <title>
+        {post.frontmatter.title} | {site.siteMetadata.title}
+      </title>
+      <meta name="description" content={post.excerpt} />
+    </Head>
+    <section>
+      <header className="main">
+        <span className="date">{post.frontmatter.date}</span>
+        <h1>{post.frontmatter.title}</h1>
+      </header>
+      <PostBody>{renderAst(post.htmlAst)}</PostBody>
+    </section>
+  </>
+);
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -52,7 +58,7 @@ export const pageQuery = graphql`
     }
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      html
+      htmlAst
       excerpt
       frontmatter {
         title
