@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 path: /generate-ember-module-unification-app
 title: Generate an Ember app with the Module Unification layout
 date: 2018-03-14T07:06:10+08:00

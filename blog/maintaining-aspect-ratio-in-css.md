@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 path: /maintaining-aspect-ratio-in-css
 title: Maintaining aspect ratio in CSS
 date: 2017-07-19T16:00:35-07:00

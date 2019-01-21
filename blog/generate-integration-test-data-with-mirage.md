@@ -1,5 +1,4 @@
 ---
-templateKey: blog-post
 path: /generate-integration-test-data-with-mirage
 title: Generate Integration test data with Mirage
 date: 2018-02-25T08:11:29+08:00
