@@ -43,12 +43,12 @@ Additionally, you need to call the new `setApplication` function provided by `@e
 Finally, you'll need to ensure that your application doesn't start immediately but instead boots when your tests say so. You can configure this in your `config/environment.js` file like so:
 
 ```javascript
-'use strict';
+"use strict";
 
 module.exports = function(environment) {
   // ...
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Ensure app doesn't automatically start
     ENV.APP.autoboot = false;
   }
@@ -66,21 +66,21 @@ If you use use `ember-cli-page-objects`, the latest beta release allows it to wo
 Tests in the new style won't automatically start the Mirage server and set up the global `server` reference (which is probably a good thing!). After updating to Mirage `0.4.2` or later, you explicitly import a helper and pass in the `hooks`, much like the way you set up an Acceptance or Integration test:
 
 ```javascript
-import { module, test } from 'qunit';
-import { setupApplicationTest } from 'ember-qunit';
-import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
-import { currentRouteName, visit } from '@ember/test-helpers';
+import { module, test } from "qunit";
+import { setupApplicationTest } from "ember-qunit";
+import setupMirage from "ember-cli-mirage/test-support/setup-mirage";
+import { currentRouteName, visit } from "@ember/test-helpers";
 
-module('Acceptance | Projects | Show', function(hooks) {
+module("Acceptance | Projects | Show", function(hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  test('visiting a project', async function(assert) {
-    const project = this.server.create('project');
+  test("visiting a project", async function(assert) {
+    const project = this.server.create("project");
 
     await visit(`/project/${project.id}`);
 
-    assert.equal(currentRouteName(), 'project');
+    assert.equal(currentRouteName(), "project");
   });
 });
 ```
@@ -96,18 +96,17 @@ Here's a few other things that, while not necessary, are good improvement to mak
 The new `@ember/test-helpers` provides a great set of `jQuery`-less test helpers for interacting with the DOM. As Ember moves toward removing `jQuery` as a dependency, you might want to migrate to these new helpers. Thankfully, there is a codemod that you can find [here](https://github.com/simonihmig/ember-test-helpers-codemod) that transforms test code like this:
 
 ```javascript
-this.$('.foo').click();
+this.$(".foo").click();
 ```
 
 Into code like this (which doesn't require `jQuery`)
 
 ```javascript
-import { click } from '@ember/test-helpers';
+import { click } from "@ember/test-helpers";
 
-await click('.foo');
+await click(".foo");
 ```
 
-***
+---
 
 I hope this was useful guide. If you have any tips of your own or want suggestions on improvements, get in touch!
-

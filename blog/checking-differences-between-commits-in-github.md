@@ -9,6 +9,7 @@ tags:
   - git
   - github
 ---
+
 Changes are you use some dependencies that have their source code hosted on Github. It's useful to be able to check the differences between two commits to see what has changed, especially when determining what breaking changes there might be between two releases. `git` of course has this functionality, but accessing it through the Github UI is much more convenient. I couldn't find a nice way to access this feature, though, so I started to do a little digging.
 
 It turns out that it's actually really easy to create the URL for viewing the differences yourself. For any given project, you can go to the URL that looks like:

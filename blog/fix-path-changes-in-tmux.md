@@ -7,6 +7,7 @@ tags:
   - tmux
   - zsh
 ---
+
 I noticed that my `$PATH` was being set differently between `tmux` and a regular shell. Specifically, without `tmux` my Ruby installation from [`asdf`](https://github.com/asdf-vm/asdf) would override the default one but in `tmux` it would not.
 
 Eventually, I was tipped off by [this blog post](http://www.softec.lu/site/DevelopersCorner/MasteringThePathHelper) that the issue might be my `/etc/zprofile` file, and that was indeed the case; changing the code to this fixed it for me:
