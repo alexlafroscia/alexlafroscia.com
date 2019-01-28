@@ -4,6 +4,11 @@ import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import rehypeReact from "rehype-react";
 
+const Section = styled.section`
+  margin: 0 auto;
+  max-width: 900px;
+`;
+
 const PostBody = styled.article`
   font-size: 1.2em;
 
@@ -46,13 +51,13 @@ export default ({ data: { post, site } }) => (
       </title>
       <meta name="description" content={post.excerpt} />
     </Head>
-    <section>
+    <Section>
       <header className="main">
         <span className="date">{post.frontmatter.date}</span>
         <h1>{post.frontmatter.title}</h1>
       </header>
       <PostBody>{renderAst(post.htmlAst)}</PostBody>
-    </section>
+    </Section>
   </>
 );
 
