@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "gatsby";
 
-import Sidebar, { Header, Nav, Section, Footer } from "../editorial/Sidebar";
 import ExternalLink from "../components/ExternalLink";
+import Sidebar, { Header, Nav, Section, Footer } from "../editorial/Sidebar";
+import Link from "../elements/a";
 
 export default () => (
   <Sidebar>
@@ -10,7 +10,7 @@ export default () => (
       <Header>Menu</Header>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link href="/">Home</Link>
         </li>
       </ul>
     </Nav>

@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "gatsby";
 
 import ExternalLink from "../components/ExternalLink";
+import Link from "../elements/a";
 
 export const Icon = ({ href, icon, children }) => {
   const id = "icon-" + icon + "-" + Math.floor(Math.random() * 1000000);
@@ -22,7 +22,7 @@ export const Icon = ({ href, icon, children }) => {
 };
 
 export const Logo = ({ href = "/", children }) => (
-  <Link to={href} className="logo">
+  <Link href={href} className="logo">
     {children}
   </Link>
 );

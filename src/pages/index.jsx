@@ -1,6 +1,8 @@
 import React from "react";
 import { Helmet as Head } from "react-helmet";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
+
+import Link from "../elements/a";
 
 export default ({ data: { recentPosts, site } }) => (
   <>
@@ -11,7 +13,7 @@ export default ({ data: { recentPosts, site } }) => (
       <div className="content">
         <header>
           <h1>
-            <Link to="/">{site.siteMetadata.title}</Link>
+            <Link href="/">{site.siteMetadata.title}</Link>
           </h1>
           <p>Stuff I learned and want to share</p>
         </header>
@@ -30,7 +32,7 @@ export default ({ data: { recentPosts, site } }) => (
               <p>{post.frontmatter.description}</p>
               <ul className="actions">
                 <li>
-                  <Link to={post.fields.slug} className="button">
+                  <Link href={post.fields.slug} className="button">
                     Read It!
                   </Link>
                 </li>

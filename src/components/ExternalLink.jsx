@@ -1,9 +1,10 @@
 import React from "react";
+import Link from "../elements/a";
 
 const ExternalLink = ({ children, ...rest }) => (
-  <a target="_blank" rel="noopener noreferrer" {...rest}>
+  <Link target="_blank" rel="noopener noreferrer" {...rest}>
     {children}
-  </a>
+  </Link>
 );
 
 export default ExternalLink;

@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import rehypeReact from "rehype-react";
 
+import Link from "../elements/a";
+
 const Section = styled.section`
   margin: 0 auto;
   max-width: 900px;
@@ -38,6 +40,7 @@ const Code = styled.code`
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
+    a: Link,
     code: Code,
     img: Img
   }
