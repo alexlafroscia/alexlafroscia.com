@@ -1,6 +1,7 @@
 import React from "react";
 import { Link as GatsbyLink } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import styled from "@emotion/styled";
 
 /**
  * Borrowed from the Gatbsy docs to create a single `a` replacement component
@@ -28,4 +29,4 @@ const Link = ({ children, href, activeClassName, ...rest }) => {
   );
 };
 
-export default Link;
+export default styled(Link)``;

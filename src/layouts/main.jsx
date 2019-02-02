@@ -2,18 +2,18 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Global, css } from "@emotion/core";
 
+import Sidebar from "../components/Sidebar";
 import Editorial from "../editorial";
 import Header, { Icon, Logo } from "../editorial/Header";
-
-import Sidebar from "../components/Sidebar";
+import { blue, darkBlue } from "../theme/palette";
 
 const globalOverrides = css`
   body {
     --theme-primary-text-color: #5d6469;
     --theme-darker-text-color: #3d4449;
 
-    --theme-accent-color: #ec0000;
-    --theme-accent-color-darker: #e60000;
+    --theme-accent-color: ${blue};
+    --theme-accent-color-darker: ${darkBlue};
   }
 `;
 

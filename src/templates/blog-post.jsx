@@ -4,7 +4,8 @@ import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import rehypeReact from "rehype-react";
 
-import Link from "../elements/a";
+import { Code, Img, Link, Pre } from "../elements";
+import { darkBlue } from "../theme/palette";
 
 const Section = styled.section`
   margin: 0 auto;
@@ -14,27 +15,14 @@ const Section = styled.section`
 const PostBody = styled.article`
   font-size: 1.2em;
 
-  a {
-    border-bottom: none;
+  ${Link} {
+    border-bottom: dotted 1px;
+    color: ${darkBlue};
 
     code {
       color: var(--theme-accent-color-darker);
     }
-
-    &:hover {
-      border-bottom: dotted 1px;
-    }
   }
-`;
-
-const Img = styled.img`
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-`;
-
-const Code = styled.code`
-  color: var(--theme-darker-text-color);
 `;
 
 const renderAst = new rehypeReact({
@@ -42,7 +30,8 @@ const renderAst = new rehypeReact({
   components: {
     a: Link,
     code: Code,
-    img: Img
+    img: Img,
+    pre: Pre
   }
 }).Compiler;
 

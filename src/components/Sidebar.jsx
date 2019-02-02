@@ -38,8 +38,17 @@ export default () => (
     <Footer>
       {Contribution => (
         <>
-          <Contribution /> <br />
-          Ported to React by Alex LaFroscia <br />
+          <Contribution />
+          <br />
+          Color scheme from{" "}
+          <ExternalLink href="https://marketplace.visualstudio.com/items?itemName=sdras.night-owl">
+            Night Owl
+          </ExternalLink>{" "}
+          by{" "}
+          <ExternalLink href="https://sarahdrasnerdesign.com/">
+            Sarah Drasner
+          </ExternalLink>
+          <br />
           Built with{" "}
           <ExternalLink href="https://www.gatsbyjs.org/">Gatsby</ExternalLink>
         </>

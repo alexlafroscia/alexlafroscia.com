@@ -267,6 +267,7 @@ input, select, textarea {
 		padding: 0.5em 0 0.5em 2em;
 	}
 
+	/*
 	code {
 		background: rgba(230, 235, 237, 0.25);
 		border-radius: 0.375em;
@@ -276,6 +277,7 @@ input, select, textarea {
 		margin: 0 0.25em;
 		padding: 0.25em 0.65em;
 	}
+	*/
 
 	pre {
 		-webkit-overflow-scrolling: touch;
