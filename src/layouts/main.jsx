@@ -31,15 +31,35 @@ const DarkModeIcon = styled(IconButton)`
   --theme-accent-color: ${gold};
 `;
 
+const supportsDarkMode = () =>
+  window.matchMedia("(prefers-color-scheme: dark)").matches === true;
+
 class Layout extends React.Component {
   state = {
     mode: "light"
   };
 
+  componentDidMount() {
+    const lsDark = localStorage.getItem("dark-mode");
+
+    if (lsDark) {
+      this.setState({ mode: "dark" });
+    } else if (supportsDarkMode()) {
+      this.setState({ mode: "dark" });
+    }
+  }
+
   toggleDarkMode() {
-    this.setState(state => ({
-      mode: state.mode === "light" ? "dark" : "light"
-    }));
+    const { mode } = this.state;
+    const next = mode === "light" ? "dark" : "light";
+
+    if (next === "light") {
+      localStorage.removeItem("dark-mode");
+    } else {
+      localStorage.setItem("dark-mode", true);
+    }
+
+    this.setState({ mode: next });
   }
 
   render() {
