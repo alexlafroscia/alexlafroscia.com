@@ -1,11 +1,19 @@
 import React from "react";
+import styled from "@emotion/styled";
 
 import ExternalLink from "../components/ExternalLink";
 import Sidebar, { Header, Nav, Section, Footer } from "../editorial/Sidebar";
 import Link from "../elements/a";
+import { darkBlue } from "../theme/palette";
+
+const SidebarWithDarkMode = styled(Sidebar)`
+  html[theme-mode="dark"] & {
+    background-color: ${darkBlue} !important;
+  }
+`;
 
 export default () => (
-  <Sidebar>
+  <SidebarWithDarkMode>
     <Nav>
       <Header>Menu</Header>
       <ul>
@@ -54,5 +62,5 @@ export default () => (
         </>
       )}
     </Footer>
-  </Sidebar>
+  </SidebarWithDarkMode>
 );

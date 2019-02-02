@@ -24,7 +24,7 @@ export default class Sidebar extends Component {
   };
 
   render() {
-    const { children } = this.props;
+    const { children, className, ...rest } = this.props;
     const { inactive } = this.state;
 
     return (
@@ -32,12 +32,16 @@ export default class Sidebar extends Component {
         {breakpoint => (
           <div
             id="sidebar"
-            className={cx({
-              inactive:
-                typeof inactive !== "undefined"
-                  ? inactive
-                  : breakpoint !== "xlarge"
-            })}
+            className={cx(
+              {
+                inactive:
+                  typeof inactive !== "undefined"
+                    ? inactive
+                    : breakpoint !== "xlarge"
+              },
+              className
+            )}
+            {...rest}
           >
             <div className="inner">{children}</div>
             <a
