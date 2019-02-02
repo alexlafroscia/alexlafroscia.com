@@ -1,8 +1,18 @@
 import React from "react";
+import styled from "@emotion/styled";
 import { Helmet as Head } from "react-helmet";
 import { graphql } from "gatsby";
 
 import Link from "../elements/a";
+
+const Post = styled.article`
+  display: flex;
+  flex-direction: column;
+
+  p {
+    flex-grow: 1;
+  }
+`;
 
 export default ({ data: { recentPosts, site } }) => (
   <>
@@ -27,7 +37,7 @@ export default ({ data: { recentPosts, site } }) => (
         {recentPosts.edges
           .map(e => e.node)
           .map(post => (
-            <article key={post.id}>
+            <Post key={post.id}>
               <h3>{post.frontmatter.title}</h3>
               <p>{post.frontmatter.description}</p>
               <ul className="actions">
@@ -37,7 +47,7 @@ export default ({ data: { recentPosts, site } }) => (
                   </Link>
                 </li>
               </ul>
-            </article>
+            </Post>
           ))}
       </div>
     </section>
