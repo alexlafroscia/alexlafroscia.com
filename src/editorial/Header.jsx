@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "@emotion/styled";
 
 import ExternalLink from "../components/ExternalLink";
 import Link from "../elements/a";
@@ -17,6 +18,35 @@ export const Icon = ({ href, icon, children }) => {
           {children}
         </label>
       </ExternalLink>
+    </li>
+  );
+};
+
+const InnerIconButton = styled.button`
+  font-size: 1em;
+  padding: 0 1.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+
+  &:before {
+    margin: 0 auto !important;
+  }
+`;
+
+export const IconButton = ({ icon, children, className, ...rest }) => {
+  const id = "icon-" + icon + "-" + Math.floor(Math.random() * 1000000);
+
+  return (
+    <li>
+      <InnerIconButton
+        className={`button icon fa-${icon} ${className}`}
+        aria-labelledby={id}
+        {...rest}
+      >
+        <label id={id} className="label">
+          {children}
+        </label>
+      </InnerIconButton>
     </li>
   );
 };

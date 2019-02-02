@@ -30,6 +30,7 @@ const Code = styled.code`
 
   /* Inline code blocks */
   *:not(pre) > & {
+    color: var(--theme-darker-text-color);
     font-family: ${monospace};
     font-size: 0.9em;
     font-weight: bold;

@@ -1,5 +1,6 @@
 export const blue = "rgb(130, 170, 255)";
 export const darkBlue = "#011627";
+export const frost = "rgb(178, 204, 214)";
 export const gold = "rgb(255, 203, 139)";
 export const green = "rgb(173, 219, 103)";
 export const lavender = "rgb(199, 146, 234)";
@@ -7,4 +8,5 @@ export const orange = "rgb(247, 140, 108)";
 export const pink = "rgb(199, 146, 234)";
 export const red = "rgb(255, 88, 116)";
 export const rust = "rgba(239, 83, 80, 0.56)";
+export const steel = "rgb(214, 222, 235)";
 export const teal = "rgb(128, 203, 196)";
