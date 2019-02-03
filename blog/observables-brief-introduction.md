@@ -4,6 +4,9 @@ title: "Observables: A Brief Introduction"
 date: 2019-01-27T23:52:35+00:00
 description: >-
   The basics of observables and how to use them
+series:
+  slug: observables
+  title: A Brief Introduction
 tags:
   - observables
   - rxjs

@@ -35,6 +35,14 @@ module.exports = {
         ]
       }
     },
+    `gatsby-transformer-yaml`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/data`,
+        name: `data`
+      }
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {

@@ -1,25 +1,19 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { Helmet as Head } from "react-helmet";
 import { graphql } from "gatsby";
 
-import Link from "../elements/a";
+import { Link, Section } from "../elements";
+import Posts from "../components/Posts";
+import Post from "../components/Post";
 
-const Post = styled.article`
-  display: flex;
-  flex-direction: column;
-
-  p {
-    flex-grow: 1;
-  }
-`;
+const Article = Section.withComponent("article");
 
 export default ({ data: { recentPosts, site } }) => (
   <>
     <Head>
       <title>{site.siteMetadata.title}</title>
     </Head>
-    <article id="banner">
+    <Article id="banner">
       <div className="content">
         <header>
           <h1>
@@ -28,29 +22,17 @@ export default ({ data: { recentPosts, site } }) => (
           <p>Stuff I learned and want to share</p>
         </header>
       </div>
-    </article>
-    <section>
+    </Article>
+    <Section>
       <header className="major">
         <h3>Recent Posts</h3>
       </header>
-      <div className="posts">
-        {recentPosts.edges
-          .map(e => e.node)
-          .map(post => (
-            <Post key={post.id}>
-              <h3>{post.frontmatter.title}</h3>
-              <p>{post.frontmatter.description}</p>
-              <ul className="actions">
-                <li>
-                  <Link href={post.fields.slug} className="button">
-                    Read It!
-                  </Link>
-                </li>
-              </ul>
-            </Post>
-          ))}
-      </div>
-    </section>
+      <Posts>
+        {recentPosts.edges.map(({ node: post }) => (
+          <Post key={post.id} post={post} />
+        ))}
+      </Posts>
+    </Section>
   </>
 );
 

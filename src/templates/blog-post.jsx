@@ -4,12 +4,30 @@ import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import rehypeReact from "rehype-react";
 
-import { Code, Img, Link, Pre } from "../elements";
+import { Code, Img, Link, Pre, Section } from "../elements";
+import SeriesBase from "../components/Series";
 import { darkBlue } from "../theme/palette";
 
-const Section = styled.section`
-  margin: 0 auto;
-  max-width: 900px;
+const Columns = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media (min-width: 900px) {
+    align-items: flex-start;
+    flex-direction: row;
+  }
+`;
+
+const Series = styled(SeriesBase)`
+  @media (min-width: 900px) {
+    min-width: 200px;
+  }
+`;
+
+const SeriesLink = styled(Link)`
+  &.active {
+    font-weight: bold;
+  }
 `;
 
 const PostBody = styled.article`
@@ -39,31 +57,54 @@ const renderAst = new rehypeReact({
   }
 }).Compiler;
 
-export default ({ data: { post, site } }) => (
-  <>
-    <Head>
-      <title>
-        {post.frontmatter.title} | {site.siteMetadata.title}
-      </title>
-      <meta name="description" content={post.excerpt} />
-    </Head>
-    <Section>
-      <header className="main">
-        <span className="date">{post.frontmatter.date}</span>
-        <h1>{post.frontmatter.title}</h1>
-      </header>
-      <PostBody>{renderAst(post.htmlAst)}</PostBody>
-    </Section>
-  </>
-);
+export default ({ data: { post, site, series, seriesPosts } }) => {
+  return (
+    <>
+      <Head>
+        <title>
+          {post.frontmatter.title} | {site.siteMetadata.title}
+        </title>
+        <meta name="description" content={post.excerpt} />
+      </Head>
+      <Section>
+        <header className="main">
+          <span className="date">{post.frontmatter.date}</span>
+          <h1>{post.frontmatter.title}</h1>
+        </header>
+        {series ? (
+          <Columns>
+            <PostBody>{renderAst(post.htmlAst)}</PostBody>
+            <Series name={series.name}>
+              <ol>
+                {seriesPosts.edges.map(({ node: post }) => (
+                  <li key={post.id}>
+                    <SeriesLink
+                      href={post.fields.slug}
+                      activeClassName="active"
+                    >
+                      {post.frontmatter.series.title}
+                    </SeriesLink>
+                  </li>
+                ))}
+              </ol>
+            </Series>
+          </Columns>
+        ) : (
+          <PostBody>{renderAst(post.htmlAst)}</PostBody>
+        )}
+      </Section>
+    </>
+  );
+};
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!, $seriesSlug: String) {
     site {
       siteMetadata {
         title
       }
     }
+
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       htmlAst
@@ -71,6 +112,29 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
+      }
+    }
+
+    series: seriesYaml(slug: { eq: $seriesSlug }) {
+      name
+    }
+
+    seriesPosts: allMarkdownRemark(
+      filter: { frontmatter: { series: { slug: { eq: $seriesSlug } } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            series {
+              title
+            }
+          }
+        }
       }
     }
   }
