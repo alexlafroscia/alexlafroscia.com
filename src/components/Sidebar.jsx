@@ -49,7 +49,7 @@ export default () => (
           <Contribution />
           <br />
           Color scheme from{" "}
-          <ExternalLink href="https://marketplace.visualstudio.com/items?itemName=sdras.night-owl">
+          <ExternalLink href="http://aka.ms/nightowl">
             Night Owl
           </ExternalLink>{" "}
           by{" "}
