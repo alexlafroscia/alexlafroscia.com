@@ -6,7 +6,7 @@ import { blue } from "../theme/palette";
 const Pre = styled.pre`
   background: ${background};
   border-radius: 3px;
-  margin: 0.5em 0;
+  margin: 0.5em 0 2em;
   overflow: auto;
   padding: 1em;
 
