@@ -12,6 +12,7 @@ const globalOverrides = css`
   body {
     --theme-primary-text-color: #5d6469;
     --theme-darker-text-color: #3d4449;
+    --theme-secondary-background-color: #f5f6f7;
 
     --theme-accent-color: ${blue};
     --theme-accent-color-darker: ${darkBlue};
@@ -21,6 +22,7 @@ const globalOverrides = css`
     body {
       --theme-primary-text-color: white;
       --theme-darker-text-color: ${steel};
+      --theme-secondary-background-color: rgb(11, 41, 66);
 
       background-color: ${darkBlue};
     }
