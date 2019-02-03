@@ -1,2 +1,3 @@
-export const monospace =
-  "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace";
+import "./dank-mono.css";
+
+export const monospace = "dm";

@@ -10,7 +10,8 @@ const Code = styled.code`
   /* Highlighted code snippets */
   ${Pre} > &[class*='language-'] {
     color: #d6deeb;
-    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    font-family: ${monospace};
+    font-size: 1.1em;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
@@ -32,7 +33,6 @@ const Code = styled.code`
   *:not(pre) > & {
     color: var(--theme-darker-text-color);
     font-family: ${monospace};
-    font-size: 0.9em;
     font-weight: bold;
   }
 `;
