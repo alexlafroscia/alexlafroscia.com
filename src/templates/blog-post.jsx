@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { graphql } from "gatsby";
 import rehypeReact from "rehype-react";
 
-import { Code, Img, Link, Pre, Section } from "../elements";
+import { Code, Img, Link, P, Pre, Section } from "../elements";
 import SeriesBase from "../components/Series";
 import { darkBlue } from "../theme/palette";
 
@@ -53,6 +53,7 @@ const renderAst = new rehypeReact({
     a: Link,
     code: Code,
     img: Img,
+    p: P,
     pre: Pre
   }
 }).Compiler;
