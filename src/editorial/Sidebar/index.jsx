@@ -37,7 +37,7 @@ export default class Sidebar extends Component {
                 inactive:
                   typeof inactive !== "undefined"
                     ? inactive
-                    : breakpoint !== "xlarge"
+                    : !["xlarge", "xxlarge"].includes(breakpoint)
               },
               className
             )}

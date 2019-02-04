@@ -3,6 +3,7 @@ import { debounce } from "lodash";
 
 const DEFAULT_BREAKPOINT = "xxsmall";
 const breakpoints = {
+  xxlarge: { min: 1681, max: Infinity },
   xlarge: { min: 1281, max: 1680 },
   large: { min: 981, max: 1280 },
   medium: { min: 737, max: 980 },
