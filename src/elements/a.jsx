@@ -29,4 +29,8 @@ const Link = ({ children, href, activeClassName, ...rest }) => {
   );
 };
 
-export default styled(Link)``;
+export default styled(Link)`
+  &.footnote-ref {
+    margin-left: 0.3em;
+  }
+`;

@@ -6,4 +6,8 @@ export default styled.p`
       margin-bottom: 0;
     }
   }
+
+  .footnotes & {
+    margin-bottom: 1em;
+  }
 `;
