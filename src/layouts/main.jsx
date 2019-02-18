@@ -16,6 +16,8 @@ const globalOverrides = css`
 
     --theme-accent-color: ${blue};
     --theme-accent-color-darker: ${darkBlue};
+
+    --theme-divider-color: rgba(210, 215, 217, 0.75);
   }
 
   html[theme-mode="dark"] {
