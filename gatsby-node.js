@@ -1,11 +1,15 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
+const blogPost = path.resolve(`./src/templates/blog-post.jsx`);
+const articlesListPage = path.resolve(`./src/templates/articles-page.jsx`);
+const seriesPage = path.resolve(`./src/templates/series-page.jsx`);
+
+const POSTS_PER_PAGE = 6;
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  const blogPost = path.resolve(`./src/templates/blog-post.jsx`);
-  const seriesPage = path.resolve(`./src/templates/series-page.jsx`);
   return graphql(
     `
       {
@@ -61,6 +65,20 @@ exports.createPages = ({ graphql, actions }) => {
         }
       });
     });
+
+    // Create "articles" list for posts
+    const numListPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+    for (let i = 0; i < numListPages; i++) {
+      createPage({
+        path: `articles/${i + 1}`,
+        component: articlesListPage,
+        context: {
+          pageNumber: i + 1,
+          totalPages: numListPages,
+          skipArticles: POSTS_PER_PAGE * i
+        }
+      });
+    }
 
     // Create series pages
     const series = data.series.edges;

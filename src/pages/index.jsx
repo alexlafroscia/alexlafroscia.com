@@ -3,6 +3,7 @@ import { Helmet as Head } from "react-helmet";
 import { graphql } from "gatsby";
 
 import { Link, Section } from "../elements";
+import Pagination, { Link as PaginationLink } from "../components/Pagination";
 import Posts from "../components/Posts";
 import Post from "../components/Post";
 
@@ -33,6 +34,11 @@ export default ({ data: { recentPosts, site } }) => (
         ))}
       </Posts>
     </Section>
+    <Pagination
+      next={() => (
+        <PaginationLink href="/articles/2">Older Posts</PaginationLink>
+      )}
+    />
   </>
 );
 

@@ -12,6 +12,9 @@ export default () => (
         <li>
           <Link href="/">Home</Link>
         </li>
+        <li>
+          <Link href="/articles/1">All Posts</Link>
+        </li>
       </ul>
     </Nav>
 
