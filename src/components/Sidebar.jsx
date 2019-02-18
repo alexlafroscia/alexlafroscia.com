@@ -43,8 +43,8 @@ export default () => (
         <>
           <Contribution />
           <br />
-          Color scheme from{" "}
-          <ExternalLink href="http://aka.ms/nightowl">
+          Colors from{" "}
+          <ExternalLink href="https://aka.ms/nightowl">
             Night Owl
           </ExternalLink>{" "}
           by{" "}
