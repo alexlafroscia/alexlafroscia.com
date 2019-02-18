@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Helmet } from "react-helmet";
 import { Global, css } from "@emotion/core";
+import useDarkMode from "use-dark-mode";
 
 import Sidebar from "../components/Sidebar";
 import Editorial from "../editorial";
@@ -20,14 +21,12 @@ const globalOverrides = css`
     --theme-divider-color: rgba(210, 215, 217, 0.75);
   }
 
-  html[theme-mode="dark"] {
-    body {
-      --theme-primary-text-color: white;
-      --theme-darker-text-color: ${steel};
-      --theme-secondary-background-color: rgb(11, 41, 66);
+  body.dark-mode {
+    --theme-primary-text-color: white;
+    --theme-darker-text-color: ${steel};
+    --theme-secondary-background-color: rgb(11, 41, 66);
 
-      background-color: ${darkBlue};
-    }
+    background-color: ${darkBlue};
   }
 `;
 
@@ -35,78 +34,41 @@ const DarkModeIcon = styled(IconButton)`
   --theme-accent-color: ${gold};
 `;
 
-const supportsDarkMode = () =>
-  window.matchMedia("(prefers-color-scheme: dark)").matches === true;
+const Layout = ({ children }) => {
+  const darkMode = useDarkMode();
 
-class Layout extends React.Component {
-  state = {
-    mode: "light"
-  };
+  return (
+    <Editorial sidebar={() => <Sidebar />}>
+      <Global styles={globalOverrides} />
+      <Helmet htmlAttributes={{ lang: "en" }} />
+      <Header
+        logo={() => (
+          <Logo>
+            <strong>TIL</strong> by Alex LaFroscia
+          </Logo>
+        )}
+      >
+        <Icon icon="github" href="https://github.com/alexlafroscia">
+          Github
+        </Icon>
+        <Icon icon="twitter" href="https://twitter.com/alexlafroscia">
+          Twitter
+        </Icon>
+        <Icon icon="medium" href="https://medium.com/@alexlafroscia">
+          Medium
+        </Icon>
+        <Icon icon="rss" href="/rss.xml">
+          RSS
+        </Icon>
 
-  componentDidMount() {
-    const lsDark = localStorage.getItem("dark-mode");
+        <DarkModeIcon icon="lightbulb-o" onClick={darkMode.toggle}>
+          Toggle Dark Mode
+        </DarkModeIcon>
+      </Header>
 
-    if (lsDark) {
-      this.setState({ mode: "dark" });
-    } else if (supportsDarkMode()) {
-      this.setState({ mode: "dark" });
-    }
-  }
-
-  toggleDarkMode() {
-    const { mode } = this.state;
-    const next = mode === "light" ? "dark" : "light";
-
-    if (next === "light") {
-      localStorage.removeItem("dark-mode");
-    } else {
-      localStorage.setItem("dark-mode", true);
-    }
-
-    this.setState({ mode: next });
-  }
-
-  render() {
-    const { children } = this.props;
-    const { mode } = this.state;
-
-    return (
-      <Editorial sidebar={() => <Sidebar />}>
-        <Global styles={globalOverrides} />
-        <Helmet htmlAttributes={{ lang: "en", "theme-mode": mode }} />
-        <Header
-          logo={() => (
-            <Logo>
-              <strong>TIL</strong> by Alex LaFroscia
-            </Logo>
-          )}
-        >
-          <Icon icon="github" href="https://github.com/alexlafroscia">
-            Github
-          </Icon>
-          <Icon icon="twitter" href="https://twitter.com/alexlafroscia">
-            Twitter
-          </Icon>
-          <Icon icon="medium" href="https://medium.com/@alexlafroscia">
-            Medium
-          </Icon>
-          <Icon icon="rss" href="/rss.xml">
-            RSS
-          </Icon>
-
-          <DarkModeIcon
-            mode={mode}
-            icon="lightbulb-o"
-            onClick={() => this.toggleDarkMode()}
-          >
-            Toggle Dark Mode
-          </DarkModeIcon>
-        </Header>
-
-        {children}
-      </Editorial>
-    );
-  }
-}
+      {children}
+    </Editorial>
+  );
+};
 
 export default Layout;
