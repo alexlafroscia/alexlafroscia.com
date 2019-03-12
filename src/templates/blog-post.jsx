@@ -37,12 +37,8 @@ const PostBody = styled.article`
     border-bottom: dotted 1px;
     color: ${darkBlue};
 
-    html[theme-mode="dark"] & {
+    body.dark-mode & {
       color: var(--theme-darker-text-color);
-    }
-
-    code {
-      color: var(--theme-accent-color-darker);
     }
   }
 `;

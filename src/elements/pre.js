@@ -10,7 +10,7 @@ const Pre = styled.pre`
   overflow: auto;
   padding: 1em;
 
-  html[theme-mode="dark"] & {
+  body.dark-mode & {
     border: 2px solid ${blue};
   }
 `;
