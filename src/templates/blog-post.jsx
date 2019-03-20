@@ -118,6 +118,7 @@ export const pageQuery = graphql`
 
     seriesPosts: allMarkdownRemark(
       filter: { frontmatter: { series: { slug: { eq: $seriesSlug } } } }
+      sort: { fields: [frontmatter___date] }
     ) {
       edges {
         node {
