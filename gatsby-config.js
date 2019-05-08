@@ -103,6 +103,12 @@ module.exports = {
         trackingId: `UA-50234610-1`,
         respectDNT: true
       }
+    },
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        layout: require.resolve(`./src/layouts/index.jsx`)
+      }
     }
   ]
 };
