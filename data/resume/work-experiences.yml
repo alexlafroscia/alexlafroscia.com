@@ -1,0 +1,19 @@
+- company: Nest Labs (Google)
+  description: User Experience Engineer, May 2016 – present
+  details:
+    - Worked on the Ecommerce Store team, building the front-end of [the Nest Store](https://store.nest.com)
+    - Collaborated with designers, stakeholders and Integration Engineers to deliver features quickly and accurately
+
+- company: Qualaris Healthcare Solutions
+  description: Ember.js Developer, December 2014 – May 2016
+  details:
+    - Refactor existing code to promote reuse and take advantage of new features in Ember.js
+    - Redesign the UI of the produce to follow responsive design principles
+    - Improve test coverage for their front-end application by 94% using Unit- and Acceptance-testing techniques
+    - Develop a JavaScript styleguide and implement it throughout the codebase
+
+- company: Mysterious Trousers
+  description: Ruby on Rails and Ember.js Developer, April 2013 – December 2014
+  details:
+    - Design and develop a REST API in Ruby on Rails
+    - Build web applications in JavaScript with Ember.js, including a live-chat client using Express and Socket.io

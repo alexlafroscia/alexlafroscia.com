@@ -106,3 +106,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     });
   }
 };
+
+exports.onCreatePage = ({ page }) => {
+  if (page.path.match(/resume/)) {
+    page.context.layout = "none";
+  }
+};

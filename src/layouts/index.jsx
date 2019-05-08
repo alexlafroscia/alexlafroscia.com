@@ -1,3 +1,13 @@
+import React from "react";
+
 import Main from "./main";
 
-export default Main;
+const DefaultLayout = ({ pageContext, children }) => {
+  if (pageContext.layout === "none") {
+    return children;
+  }
+
+  return <Main>{children}</Main>;
+};
+
+export default DefaultLayout;

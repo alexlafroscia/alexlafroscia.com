@@ -1,0 +1,13 @@
+- name: alexlafroscia/ember-steps
+  details:
+    - Flexibile component for building Wizard-like experiences in Ember.js
+    - Can handle manually or dynamically generating steps, allowing for the experience to be data-driven
+
+- name: alexlafroscia/postcss-retina-bg-img
+  details:
+    - PostCSS plugin for automatically adding the retina version of background images to your CSS, to make stylesheets easier to maintain
+    - Will warn the developer if the retina version is missing
+
+- name: ember-cli/ember-ajax
+  details:
+    - Ember CLI addon for making AJAX requests
