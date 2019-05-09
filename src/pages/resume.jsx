@@ -104,7 +104,7 @@ export const query = graphql`
         }
       }
     }
-    workExperiences: allWorkExperiencesYaml {
+    workExperiences: allWorkExperiencesYaml(filter: { hide: { ne: true } }) {
       edges {
         node {
           company

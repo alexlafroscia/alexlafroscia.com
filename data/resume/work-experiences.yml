@@ -1,8 +1,15 @@
-- company: Nest Labs (Google)
-  description: User Experience Engineer, May 2016 – present
+- company: Netflix
+  description: Senior Software Engineer, December 2017 – present
   details:
-    - Worked on the Ecommerce Store team, building the front-end of [the Nest Store](https://store.nest.com)
-    - Collaborated with designers, stakeholders and Integration Engineers to deliver features quickly and accurately
+    - Maintain and extended a production visibility tool using modern Ember.js
+    - Create an integrated task management system for Netflix Studio employees using React and GraphQL
+    - Particilate in product design and system architecture by collaborating with designers, API engineers, product managers and users
+
+- company: Nest Labs (Google)
+  description: User Experience Engineer, May 2016 – December 2017
+  details:
+    - Building the front-end of [the Nest Store](https://store.nest.com) using Ember.js, Node and Express
+    - Design and implement a system for sharing UI elements across multiple teams through WebComponents
 
 - company: Qualaris Healthcare Solutions
   description: Ember.js Developer, December 2014 – May 2016
@@ -14,6 +21,7 @@
 
 - company: Mysterious Trousers
   description: Ruby on Rails and Ember.js Developer, April 2013 – December 2014
+  hide: true
   details:
     - Design and develop a REST API in Ruby on Rails
     - Build web applications in JavaScript with Ember.js, including a live-chat client using Express and Socket.io
