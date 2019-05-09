@@ -15,9 +15,8 @@
   description: Ember.js Developer, December 2014 – May 2016
   details:
     - Refactor existing code to promote reuse and take advantage of new features in Ember.js
-    - Redesign the UI of the produce to follow responsive design principles
-    - Improve test coverage for their front-end application by 94% using Unit- and Acceptance-testing techniques
-    - Develop a JavaScript styleguide and implement it throughout the codebase
+    - Redesign the UI of the product to follow responsive design principles
+    - Improve test coverage of the front-end application by 94%
 
 - company: Mysterious Trousers
   description: Ruby on Rails and Ember.js Developer, April 2013 – December 2014

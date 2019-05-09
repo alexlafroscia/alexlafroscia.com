@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Markdown from "markdown-to-jsx";
+import { Global, css } from "@emotion/core";
 import styled from "@emotion/styled";
 
 import Section from "../elements/section";
@@ -33,6 +34,23 @@ const ContactItem = styled.span`
 
 const Header = Section.withComponent("header");
 
+const printStyles = css`
+  @page {
+    margin: 0.3in;
+  }
+
+  @media print {
+    a {
+      color: inherit !important;
+      text-decoration: none !important;
+
+      &:visited {
+        color: inherit !important;
+      }
+    }
+  }
+`;
+
 export default function Resume({ data }) {
   const workExperiences = data.workExperiences.edges.map(e => e.node);
   const openSourceProjects = data.openSourceProjects.edges.map(e => e.node);
@@ -40,6 +58,7 @@ export default function Resume({ data }) {
   return (
     <>
       <Header>
+        <Global styles={printStyles} />
         <Title>Alex LaFroscia</Title>
         <ContactGroup>
           <ContactItem>1 (631) 365-4582</ContactItem>
@@ -84,10 +103,11 @@ export default function Resume({ data }) {
 
       <Section>
         <h2>Academics</h2>
-        University of Pittsburgh, College of Arts and Sciences, Class of 2016
         <ul>
-          <li>Majored in Computer Science</li>
-          <li>GPA: 3.658</li>
+          <li>
+            BS in Computed Science from University of Pittsburgh, College of
+            Arts and Sciences, Class of 2016.
+          </li>
         </ul>
       </Section>
     </>
