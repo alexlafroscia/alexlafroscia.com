@@ -2,12 +2,11 @@ import React from "react";
 import { Helmet as Head } from "react-helmet";
 import { Global } from "@emotion/core";
 
-import "./assets/css/main.css";
-
 import {
   core as fontAwesomeCore,
   usedIcons as fontAwesomeIcons
 } from "./global-styles/font-awesome";
+import { main as globalEditorialStyles } from "./assets/css/main";
 
 export default ({ sidebar, children }) => {
   return (
@@ -23,6 +22,7 @@ export default ({ sidebar, children }) => {
       </Head>
       <Global styles={fontAwesomeCore} />
       <Global styles={fontAwesomeIcons} />
+      <Global styles={globalEditorialStyles} />
       <div id="wrapper">
         <div id="main">
           <div className="inner">{children}</div>
