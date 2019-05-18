@@ -6,15 +6,36 @@ import styled from "@emotion/styled";
 
 import Section from "../elements/section";
 
+const SectionHeader = styled.h2`
+  text-align: center;
+  margin-bottom: 0;
+
+  @media (min-width: 700px) {
+    text-align: left;
+    margin-bottom: 1em;
+  }
+`;
+
 const ContactGroup = styled.div`
+  column-gap: 1em;
   display: grid;
-  grid-template-areas: "name website" "name email";
-  margin: 2em 6em;
+  grid-template-areas: "name name" "website email";
+  row-gap: 0.25em;
+
+  @media (min-width: 700px) {
+    grid-template-areas: "name website" "name email";
+    margin: 2em 6em;
+  }
 `;
 
 const Name = styled.h1`
   grid-area: name;
   margin: 0;
+  text-align: center;
+
+  @media (min-width: 700px) {
+    text-align: left;
+  }
 `;
 
 const Website = styled.span`
@@ -24,17 +45,39 @@ const Website = styled.span`
 
 const Email = styled.span`
   grid-area: email;
-  text-align: right;
+
+  @media (min-width: 700px) {
+    text-align: right;
+  }
 `;
 
 const Work = ({ work }) => (
   <div
     css={css`
       align-items: center;
+      column-gap: 1em;
       display: grid;
-      grid-template-areas: "name role time" "details details details";
+      grid-template-areas:
+        "name name name"
+        "role role role"
+        "time time time"
+        "details details details";
       grid-template-columns: auto 1fr auto;
       margin-bottom: 1em;
+      row-gap: 0.25em;
+
+      @media (min-width: 450px) {
+        grid-template-areas:
+          "name name name"
+          "role role time"
+          "details details details";
+      }
+
+      @media (min-width: 700px) {
+        grid-template-areas:
+          "name role time"
+          "details details details";
+      }
     `}
   >
     <h3
@@ -49,7 +92,6 @@ const Work = ({ work }) => (
       css={css`
         grid-area: role;
         margin: 0;
-        padding-left: 1em;
       `}
     >
       {work.role}
@@ -128,7 +170,7 @@ export default function Resume({ data }) {
       </Header>
 
       <Section>
-        <h2>Work Experiences</h2>
+        <SectionHeader>Work Experiences</SectionHeader>
 
         {workExperiences.map(work => (
           <Work key={work.company} work={work} />
@@ -136,7 +178,7 @@ export default function Resume({ data }) {
       </Section>
 
       <Section id="oss-projects">
-        <h2>Notable Open Source Projects</h2>
+        <SectionHeader>Notable Open Source Projects</SectionHeader>
 
         {openSourceProjects.map(project => (
           <div key={project.name}>
@@ -149,7 +191,7 @@ export default function Resume({ data }) {
       </Section>
 
       <Section>
-        <h2>Academics</h2>
+        <SectionHeader>Academics</SectionHeader>
         <ul>
           <li>
             BS in Computed Science from University of Pittsburgh, College of
