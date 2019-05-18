@@ -27,16 +27,13 @@ export const usedIcons = css`
 export const core = css`
   @font-face {
     font-family: "FontAwesome";
-    src: url("/editorial/assets/fonts/fontawesome-webfont.eot?v=4.7.0");
-    src: url("/editorial/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0")
+    src: url("/assets/fonts/fontawesome-webfont.eot?v=4.7.0");
+    src: url("/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0")
         format("embedded-opentype"),
-      url("/editorial/assets/fonts/fontawesome-webfont.woff2?v=4.7.0")
-        format("woff2"),
-      url("/editorial/assets/fonts/fontawesome-webfont.woff?v=4.7.0")
-        format("woff"),
-      url("/editorial/assets/fonts/fontawesome-webfont.ttf?v=4.7.0")
-        format("truetype"),
-      url("/editorial/assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular")
+      url("/assets/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),
+      url("/assets/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"),
+      url("/assets/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"),
+      url("/assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular")
         format("svg");
     font-weight: normal;
     font-style: normal;
