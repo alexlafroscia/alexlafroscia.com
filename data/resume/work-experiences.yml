@@ -1,25 +1,29 @@
 - company: Netflix
-  description: Senior Software Engineer, December 2017 – present
+  role: Senior Software Engineer
+  time: December 2017 – present
   details:
     - Maintain and extended a production visibility tool using modern Ember.js
     - Create an integrated task management system for Netflix Studio employees using React and GraphQL
     - Particilate in product design and system architecture by collaborating with designers, API engineers, product managers and users
 
 - company: Nest Labs (Google)
-  description: User Experience Engineer, May 2016 – December 2017
+  role: User Experience Engineer
+  time: May 2016 – December 2017
   details:
     - Building the front-end of [the Nest Store](https://store.nest.com) using Ember.js, Node and Express
     - Design and implement a system for sharing UI elements across multiple teams through WebComponents
 
 - company: Qualaris Healthcare Solutions
-  description: Ember.js Developer, December 2014 – May 2016
+  role: Ember.js Developer
+  time: December 2014 – May 2016
   details:
     - Refactor existing code to promote reuse and take advantage of new features in Ember.js
     - Redesign the UI of the product to follow responsive design principles
     - Improve test coverage of the front-end application by 94%
 
 - company: Mysterious Trousers
-  description: Ruby on Rails and Ember.js Developer, April 2013 – December 2014
+  role: Ruby on Rails and Ember.js Developer
+  time: April 2013 – December 2014
   hide: true
   details:
     - Design and develop a REST API in Ruby on Rails

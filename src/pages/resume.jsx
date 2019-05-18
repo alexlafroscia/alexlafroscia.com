@@ -6,12 +6,73 @@ import styled from "@emotion/styled";
 
 import Section from "../elements/section";
 
-const Title = styled.h1`
-  text-align: center;
+const ContactGroup = styled.div`
+  display: grid;
+  grid-template-areas: "name website" "name email";
+  margin: 2em 6em;
 `;
 
-const Details = ({ details }) => (
-  <ul>
+const Name = styled.h1`
+  grid-area: name;
+  margin: 0;
+`;
+
+const Website = styled.span`
+  grid-area: website;
+  text-align: right;
+`;
+
+const Email = styled.span`
+  grid-area: email;
+  text-align: right;
+`;
+
+const Work = ({ work }) => (
+  <div
+    css={css`
+      align-items: center;
+      display: grid;
+      grid-template-areas: "name role time" "details details details";
+      grid-template-columns: auto 1fr auto;
+      margin-bottom: 1em;
+    `}
+  >
+    <h3
+      css={css`
+        grid-area: name;
+        margin: 0;
+      `}
+    >
+      {work.company}
+    </h3>
+    <p
+      css={css`
+        grid-area: role;
+        margin: 0;
+        padding-left: 1em;
+      `}
+    >
+      {work.role}
+    </p>
+    <p
+      css={css`
+        grid-area: time;
+        margin: 0;
+      `}
+    >
+      {work.time}
+    </p>
+    <Details
+      css={css`
+        grid-area: details;
+      `}
+      details={work.details}
+    />
+  </div>
+);
+
+const Details = ({ details, ...rest }) => (
+  <ul {...rest}>
     {details.map(detail => (
       <li key={detail}>
         <Markdown>{detail}</Markdown>
@@ -20,19 +81,14 @@ const Details = ({ details }) => (
   </ul>
 );
 
-const ContactGroup = styled.div`
-  column-gap: 1em;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
+const Header = Section.withComponent("header");
 
-const ContactItem = styled.span`
-  &:nth-child(2n - 1) {
-    text-align: right;
+const globalStyles = css`
+  html {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif;
   }
 `;
-
-const Header = Section.withComponent("header");
 
 const printStyles = css`
   @page {
@@ -58,21 +114,16 @@ export default function Resume({ data }) {
   return (
     <>
       <Header>
+        <Global styles={globalStyles} />
         <Global styles={printStyles} />
-        <Title>Alex LaFroscia</Title>
         <ContactGroup>
-          <ContactItem>1 (631) 365-4582</ContactItem>
-          <ContactItem>
-            <a href="mailto:alex@lafroscia.com">alex@lafroscia.com</a>
-          </ContactItem>
-          <ContactItem>
+          <Name>Alex LaFroscia</Name>
+          <Website>
             <a href="http://alexlafroscia.com">alexlafroscia.com</a>
-          </ContactItem>
-          <ContactItem>
-            <a href="https://github.com/alexlafroscia">
-              github.com/alexlafroscia
-            </a>
-          </ContactItem>
+          </Website>
+          <Email>
+            <a href="mailto:alex@lafroscia.com">alex@lafroscia.com</a>
+          </Email>
         </ContactGroup>
       </Header>
 
@@ -80,16 +131,12 @@ export default function Resume({ data }) {
         <h2>Work Experiences</h2>
 
         {workExperiences.map(work => (
-          <div key={work.company}>
-            <h3>{work.company}</h3>
-            <p>{work.description}</p>
-            <Details details={work.details} />
-          </div>
+          <Work key={work.company} work={work} />
         ))}
       </Section>
 
       <Section id="oss-projects">
-        <h2>Open Source Projects</h2>
+        <h2>Notable Open Source Projects</h2>
 
         {openSourceProjects.map(project => (
           <div key={project.name}>
@@ -128,7 +175,8 @@ export const query = graphql`
       edges {
         node {
           company
-          description
+          role
+          time
           details
         }
       }
