@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { Component, ReactNode } from "react";
 import { debounce } from "lodash";
 
 const DEFAULT_BREAKPOINT = "xxsmall";
@@ -31,7 +31,17 @@ function getCurrentBreakpoint() {
   throw new Error("Could not find the breakpoint");
 }
 
-export default class Breakpoint extends Component {
+type BreakpointProps = {
+  children: (breakpoint: string) => ReactNode;
+};
+type BreakpointState = {
+  breakpoint: string;
+};
+
+export default class Breakpoint extends Component<
+  BreakpointProps,
+  BreakpointState
+> {
   // Initial state must match the SSR state
   state = { breakpoint: DEFAULT_BREAKPOINT };
 

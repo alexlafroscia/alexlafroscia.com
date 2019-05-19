@@ -25,6 +25,7 @@
     "gatsby-plugin-offline": "^2.1.0",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.0.36",
+    "gatsby-plugin-typescript": "^2.0.14",
     "gatsby-remark-copy-linked-files": "^2.0.12",
     "gatsby-remark-images": "^3.0.11",
     "gatsby-remark-prismjs": "^3.2.9",
@@ -40,5 +41,11 @@
     "react-helmet": "^5.2.1",
     "rehype-react": "^3.1.0",
     "use-dark-mode": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.129",
+    "@types/markdown-to-jsx": "^6.9.0",
+    "@types/react": "^16.8.17",
+    "@types/react-helmet": "^5.0.8"
   }
 }

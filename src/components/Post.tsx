@@ -12,8 +12,8 @@ const Post = styled.article`
   }
 `;
 
-export default ({ children, className, post, ...rest }) => (
-  <Post className={className} {...rest}>
+const PostWrapper = ({ post, ...rest }) => (
+  <Post {...rest}>
     <h3>{post.frontmatter.title || post.frontmatter.series.title}</h3>
     <p>{post.frontmatter.description}</p>
     <ul className="actions">
@@ -25,3 +25,5 @@ export default ({ children, className, post, ...rest }) => (
     </ul>
   </Post>
 );
+
+export default PostWrapper;

@@ -43,7 +43,7 @@ const ToggleButton = styled.button`
 `;
 
 const Content = styled.div`
-  display: ${props => (props.open ? "block" : "none")};
+  display: ${({ open }: { open: boolean }) => (open ? "block" : "none")};
   margin-top: 1em;
 
   @media (min-width: 900px) {
@@ -52,7 +52,10 @@ const Content = styled.div`
   }
 `;
 
-export default class Series extends Component {
+type SeriesProps = { name: string };
+type SeriesState = { open: boolean };
+
+export default class Series extends Component<SeriesProps, SeriesState> {
   state = {
     open: false
   };

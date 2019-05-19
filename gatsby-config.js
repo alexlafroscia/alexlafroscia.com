@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -107,7 +108,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        layout: require.resolve(`./src/layouts/index.jsx`)
+        layout: require.resolve(`./src/layouts/index.tsx`)
       }
     }
   ]

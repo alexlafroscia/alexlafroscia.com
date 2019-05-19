@@ -1,7 +1,15 @@
-import React from "react";
-import { Link as GatsbyLink } from "gatsby";
+import React, { FC } from "react";
+import { Link as GatsbyLink, GatsbyLinkProps } from "gatsby";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
 import styled from "@emotion/styled";
+
+type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
+
+type SafeLinkProps = Omit<GatsbyLinkProps<any>, "ref">;
+type LinkProps = Partial<SafeLinkProps> & {
+  href?: string;
+  newTab?: boolean;
+};
 
 /**
  * Borrowed from the Gatbsy docs to create a single `a` replacement component
@@ -11,7 +19,13 @@ import styled from "@emotion/styled";
  * 1. Use `href` to point to the URL (so that it plays nicely with Markdown)
  * 2. Use `OutboundLink` for Google Analytics for external URLs
  */
-const Link = ({ children, href, activeClassName, newTab, ...rest }) => {
+const Link: FC<LinkProps> = ({
+  children,
+  href,
+  activeClassName,
+  newTab,
+  ...rest
+}) => {
   const internal = /^\/(?!\/)/.test(href);
 
   if (newTab) {

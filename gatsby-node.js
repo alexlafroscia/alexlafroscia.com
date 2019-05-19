@@ -1,9 +1,9 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-const blogPost = path.resolve(`./src/templates/blog-post.jsx`);
-const articlesListPage = path.resolve(`./src/templates/articles-page.jsx`);
-const seriesPage = path.resolve(`./src/templates/series-page.jsx`);
+const blogPost = path.resolve(`./src/templates/blog-post.tsx`);
+const articlesListPage = path.resolve(`./src/templates/articles-page.tsx`);
+const seriesPage = path.resolve(`./src/templates/series-page.tsx`);
 
 const POSTS_PER_PAGE = 6;
 

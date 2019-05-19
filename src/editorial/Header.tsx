@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC, ComponentProps } from "react";
 import styled from "@emotion/styled";
 
 import Link from "../elements/a";
@@ -33,7 +33,16 @@ const InnerIconButton = styled.button`
   }
 `;
 
-export const IconButton = ({ icon, children, className, ...rest }) => {
+type IconButtonProps = ComponentProps<typeof InnerIconButton> & {
+  icon: string;
+};
+
+export const IconButton: FC<IconButtonProps> = ({
+  icon,
+  children,
+  className,
+  ...rest
+}) => {
   const id = "icon-" + icon + "-" + Math.floor(Math.random() * 1000000);
 
   return (

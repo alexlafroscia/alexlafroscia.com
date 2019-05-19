@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode, FC } from "react";
 import styled from "@emotion/styled";
 
 import { Link as BaseLink } from "../elements";
@@ -33,7 +33,19 @@ export const Link = ({ children, ...props }) => (
   </BaseLink>
 );
 
-export default ({ currentPage, totalPages, next, previous }) => (
+type PaginationProps = {
+  currentPage?: number;
+  next?: () => ReactNode;
+  previous?: () => ReactNode;
+  totalPages?: number;
+};
+
+const Pagination: FC<PaginationProps> = ({
+  currentPage,
+  totalPages,
+  next,
+  previous
+}) => (
   <Footer>
     <PreviousWrapper>{previous ? previous() : undefined}</PreviousWrapper>
     {currentPage && totalPages ? (
@@ -46,3 +58,5 @@ export default ({ currentPage, totalPages, next, previous }) => (
     <NextWrapper>{next ? next() : undefined}</NextWrapper>
   </Footer>
 );
+
+export default Pagination;

@@ -8,9 +8,12 @@ export { default as Header } from "./Header";
 export { default as Nav } from "./Nav";
 export { default as Section } from "./Section";
 
-export default class Sidebar extends Component {
+type SidebarProps = { className?: string };
+type SidebarState = { inactive: boolean };
+
+export default class Sidebar extends Component<SidebarProps, SidebarState> {
   state = {
-    inactive: undefined
+    inactive: true
   };
 
   toggleSidebarActivity = event => {
