@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-import ExternalLinkBase from "../components/ExternalLink";
 import Sidebar, { Header, Nav, Section, Footer } from "../editorial/Sidebar";
-import Link from "../elements/a";
+import LinkBase from "../elements/a";
 import { sanSerif } from "../theme/font";
 
-const ExternalLink = styled(ExternalLinkBase)`
+const Link = styled(LinkBase)`
   font-family: ${sanSerif};
 `;
 
@@ -30,19 +29,19 @@ export default () => (
     <Section title="Find Me Online">
       <ul className="contact">
         <li className="icon-github">
-          <ExternalLink href="https://github.com/alexlafroscia">
+          <Link newTab href="https://github.com/alexlafroscia">
             Github
-          </ExternalLink>
+          </Link>
         </li>
         <li className="icon-twitter">
-          <ExternalLink href="https://twitter.com/alexlafroscia">
+          <Link newTab href="https://twitter.com/alexlafroscia">
             Twitter
-          </ExternalLink>
+          </Link>
         </li>
         <li className="icon-medium">
-          <ExternalLink href="https://medium.com/@alexlafroscia">
+          <Link newTab href="https://medium.com/@alexlafroscia">
             Medium
-          </ExternalLink>
+          </Link>
         </li>
       </ul>
     </Section>
@@ -53,16 +52,18 @@ export default () => (
           <Contribution />
           <br />
           Colors from{" "}
-          <ExternalLink href="https://aka.ms/nightowl">
+          <Link newTab href="https://aka.ms/nightowl">
             Night Owl
-          </ExternalLink>{" "}
+          </Link>{" "}
           by{" "}
-          <ExternalLink href="https://sarahdrasnerdesign.com/">
+          <Link newTab href="https://sarahdrasnerdesign.com/">
             Sarah Drasner
-          </ExternalLink>
+          </Link>
           <br />
           Built with{" "}
-          <ExternalLink href="https://www.gatsbyjs.org/">Gatsby</ExternalLink>
+          <Link newTab href="https://www.gatsbyjs.org/">
+            Gatsby
+          </Link>
         </>
       )}
     </Footer>

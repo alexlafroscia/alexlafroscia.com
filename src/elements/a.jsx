@@ -11,8 +11,16 @@ import styled from "@emotion/styled";
  * 1. Use `href` to point to the URL (so that it plays nicely with Markdown)
  * 2. Use `OutboundLink` for Google Analytics for external URLs
  */
-const Link = ({ children, href, activeClassName, ...rest }) => {
+const Link = ({ children, href, activeClassName, newTab, ...rest }) => {
   const internal = /^\/(?!\/)/.test(href);
+
+  if (newTab) {
+    rest = {
+      ...rest,
+      target: "_blank",
+      rel: "noopener noreferrer"
+    };
+  }
 
   // Use Gatsby Link for internal links, and <a> for others
   if (internal) {

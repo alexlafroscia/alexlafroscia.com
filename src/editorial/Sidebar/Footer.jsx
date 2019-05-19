@@ -1,10 +1,13 @@
 import React from "react";
 
-import ExternalLink from "../../components/ExternalLink";
+import Link from "../../elements/a";
 
 const Contribution = () => (
   <>
-    Design <ExternalLink href="https://html5up.net">HTML5 UP</ExternalLink>
+    Design{" "}
+    <Link newTab href="https://html5up.net">
+      HTML5 UP
+    </Link>
   </>
 );
 

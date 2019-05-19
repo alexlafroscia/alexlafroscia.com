@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-import ExternalLink from "../components/ExternalLink";
 import Link from "../elements/a";
 
 export const Icon = ({ href, icon, children }) => {
@@ -9,15 +8,16 @@ export const Icon = ({ href, icon, children }) => {
 
   return (
     <li>
-      <ExternalLink
+      <Link
         href={href}
         className={`icon icon-${icon}`}
         aria-labelledby={id}
+        newTab
       >
         <label id={id} className="label">
           {children}
         </label>
-      </ExternalLink>
+      </Link>
     </li>
   );
 };
