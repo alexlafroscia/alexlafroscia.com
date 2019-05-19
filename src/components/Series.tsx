@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { FC, useState } from "react";
 import styled from "@emotion/styled";
 import cx from "@sindresorhus/class-names";
 
@@ -53,32 +53,26 @@ const Content = styled.div`
 `;
 
 type SeriesProps = { name: string };
-type SeriesState = { open: boolean };
 
-export default class Series extends Component<SeriesProps, SeriesState> {
-  state = {
-    open: false
-  };
+const Series: FC<SeriesProps> = ({ name, children, ...rest }) => {
+  const [open, setOpen] = useState(false);
 
-  render() {
-    const { name, children, ...rest } = this.props;
-    const { open } = this.state;
+  return (
+    <SeriesInner {...rest}>
+      <Title>
+        <span>
+          Series: <b>{name}</b>
+        </span>
+        <ToggleButton
+          className={cx("icon", open ? "icon-caret-down" : "icon-caret-left")}
+          onClick={() => {
+            setOpen(!open);
+          }}
+        />
+      </Title>
+      <Content open={open}>{children}</Content>
+    </SeriesInner>
+  );
+};
 
-    return (
-      <SeriesInner {...rest}>
-        <Title>
-          <span>
-            Series: <b>{name}</b>
-          </span>
-          <ToggleButton
-            className={cx("icon", open ? "icon-caret-down" : "icon-caret-left")}
-            onClick={() => {
-              this.setState(state => ({ open: !state.open }));
-            }}
-          />
-        </Title>
-        <Content open={open}>{children}</Content>
-      </SeriesInner>
-    );
-  }
-}
+export default Series;

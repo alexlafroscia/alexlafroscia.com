@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { FC, useCallback, useMemo, useState } from "react";
 import cx from "@sindresorhus/class-names";
 
-import Breakpoint from "../../utils/breakpoints";
+import useBreakpoint from "../../hooks/useBreakpoint";
 
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
@@ -9,54 +9,51 @@ export { default as Nav } from "./Nav";
 export { default as Section } from "./Section";
 
 type SidebarProps = { className?: string };
-type SidebarState = { inactive: boolean };
 
-export default class Sidebar extends Component<SidebarProps, SidebarState> {
-  state = {
-    inactive: true
-  };
-
-  toggleSidebarActivity = event => {
-    event.preventDefault();
-    event.stopPropagation();
-
-    this.setState(state => ({
-      ...state,
-      inactive: !state.inactive
-    }));
-  };
-
-  render() {
-    const { children, className, ...rest } = this.props;
-    const { inactive } = this.state;
-
-    return (
-      <Breakpoint>
-        {breakpoint => (
-          <div
-            id="sidebar"
-            className={cx(
-              {
-                inactive:
-                  typeof inactive !== "undefined"
-                    ? inactive
-                    : !["xlarge", "xxlarge"].includes(breakpoint)
-              },
-              className
-            )}
-            {...rest}
-          >
-            <div className="inner">{children}</div>
-            <a
-              href="#sidebar"
-              className="toggle"
-              onClick={this.toggleSidebarActivity}
-            >
-              Toggle
-            </a>
-          </div>
-        )}
-      </Breakpoint>
-    );
-  }
+enum SIDEBAR_ACTIVE {
+  "INITIAL",
+  "YES",
+  "NO"
 }
+
+const Sidebar: FC<SidebarProps> = ({ children, className, ...rest }) => {
+  const breakpoint = useBreakpoint();
+  const [active, setActive] = useState<SIDEBAR_ACTIVE>(SIDEBAR_ACTIVE.INITIAL);
+  const sidebarIsOpen = useMemo(
+    () =>
+      active === SIDEBAR_ACTIVE.INITIAL
+        ? ["xlarge", "xxlarge"].includes(breakpoint)
+        : active === SIDEBAR_ACTIVE.YES,
+    [active, breakpoint]
+  );
+
+  const toggleSidebarActivity = useCallback(
+    event => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      setActive(sidebarIsOpen ? SIDEBAR_ACTIVE.NO : SIDEBAR_ACTIVE.YES);
+    },
+    [sidebarIsOpen]
+  );
+
+  return (
+    <div
+      id="sidebar"
+      className={cx(
+        {
+          inactive: !sidebarIsOpen
+        },
+        className
+      )}
+      {...rest}
+    >
+      <div className="inner">{children}</div>
+      <a href="#sidebar" className="toggle" onClick={toggleSidebarActivity}>
+        Toggle
+      </a>
+    </div>
+  );
+};
+
+export default Sidebar;
