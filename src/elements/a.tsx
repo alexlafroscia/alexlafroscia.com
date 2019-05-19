@@ -5,11 +5,16 @@ import styled from "@emotion/styled";
 
 type Omit<T, K> = Pick<T, Exclude<keyof T, K>>;
 
-type SafeLinkProps = Omit<GatsbyLinkProps<any>, "ref">;
+type SafeLinkProps = Omit<GatsbyLinkProps<any>, "ref" | "style">;
 type LinkProps = Partial<SafeLinkProps> & {
   href?: string;
   newTab?: boolean;
 };
+
+const ASSET_EXTENSIONS = [".xml"];
+function isAsset(href: string): boolean {
+  return ASSET_EXTENSIONS.some(extension => href.endsWith(extension));
+}
 
 /**
  * Borrowed from the Gatbsy docs to create a single `a` replacement component
@@ -36,6 +41,15 @@ const Link: FC<LinkProps> = ({
     };
   }
 
+  // Use a regular old anchor if we're linking to some static asset
+  if (isAsset(href)) {
+    return (
+      <a href={href} {...rest}>
+        {children}
+      </a>
+    );
+  }
+
   // Use Gatsby Link for internal links, and <a> for others
   if (internal) {
     return (
@@ -44,6 +58,7 @@ const Link: FC<LinkProps> = ({
       </GatsbyLink>
     );
   }
+
   return (
     <OutboundLink href={href} {...rest}>
       {children}
