@@ -19,11 +19,15 @@ const SectionHeader = styled.h2`
 const ContactGroup = styled.div`
   column-gap: 1em;
   display: grid;
-  grid-template-areas: "name name" "website email";
+  grid-template-areas:
+    "name name"
+    "website email";
   row-gap: 0.25em;
 
   @media (min-width: 700px) {
-    grid-template-areas: "name website" "name email";
+    grid-template-areas:
+      "name website"
+      "name email";
     margin: 2em 6em;
   }
 `;
@@ -51,8 +55,12 @@ const Email = styled.span`
   }
 `;
 
+const InfoGroup = styled.div`
+  margin-bottom: 1em;
+`;
+
 const Work = ({ work }) => (
-  <div
+  <InfoGroup
     css={css`
       align-items: center;
       column-gap: 1em;
@@ -63,7 +71,6 @@ const Work = ({ work }) => (
         "time time time"
         "details details details";
       grid-template-columns: auto 1fr auto;
-      margin-bottom: 1em;
       row-gap: 0.25em;
 
       @media (min-width: 450px) {
@@ -110,13 +117,24 @@ const Work = ({ work }) => (
       `}
       details={work.details}
     />
-  </div>
+  </InfoGroup>
 );
 
 const Details = ({ details, ...rest }) => (
   <ul {...rest}>
     {details.map(detail => (
-      <li key={detail}>
+      <li
+        key={detail}
+        css={css`
+          &:not(:last-of-type) {
+            margin-bottom: 0.25em;
+          }
+
+          span {
+            line-height: 1.2em;
+          }
+        `}
+      >
         <Markdown>{detail}</Markdown>
       </li>
     ))}
@@ -130,14 +148,12 @@ const globalStyles = css`
     font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
       Roboto, "Helvetica Neue", Arial, sans-serif;
   }
-`;
-
-const printStyles = css`
-  @page {
-    margin: 0.3in;
-  }
 
   @media print {
+    html {
+      font-size: 12px;
+    }
+
     a {
       color: inherit !important;
       text-decoration: none !important;
@@ -157,7 +173,6 @@ export default function Resume({ data }) {
     <>
       <Header>
         <Global styles={globalStyles} />
-        <Global styles={printStyles} />
         <ContactGroup>
           <Name>Alex LaFroscia</Name>
           <Website>
@@ -181,12 +196,19 @@ export default function Resume({ data }) {
         <SectionHeader>Notable Open Source Projects</SectionHeader>
 
         {openSourceProjects.map(project => (
-          <div key={project.name}>
+          <InfoGroup key={project.name}>
             <h3>
-              <a href={`https://github.com/${project.name}`}>{project.name}</a>
+              <a
+                css={css`
+                  text-decoration: none;
+                `}
+                href={`https://github.com/${project.name}`}
+              >
+                {project.name}
+              </a>
             </h3>
             <Details details={project.details} />
-          </div>
+          </InfoGroup>
         ))}
       </Section>
 

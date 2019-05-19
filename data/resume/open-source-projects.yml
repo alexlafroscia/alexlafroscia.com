@@ -3,11 +3,12 @@
     - Flexibile component for building Wizard-like experiences in Ember.js
     - Can handle manually or dynamically generating steps, allowing for the experience to be data-driven
 
-- name: alexlafroscia/postcss-retina-bg-img
+- name: alexlafroscia/use-task
   details:
-    - PostCSS plugin for automatically adding the retina version of background images to your CSS, to make stylesheets easier to maintain
-    - Will warn the developer if the retina version is missing
+    - React Hook for handling interruptable sequences of asynchronous operations based on Generators
+    - Provides a means for more easily handling complex asynchronous actions in a clear, declarative way
 
 - name: ember-cli/ember-ajax
   details:
     - Ember CLI addon for making AJAX requests
+    - Part of the default set of addons installed in every new Ember application

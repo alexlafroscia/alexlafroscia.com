@@ -4,7 +4,7 @@ const PADDING = 16;
 
 const Section = styled.section`
   margin: 0 auto;
-  max-width: ${900 + 2 * PADDING}px;
+  max-width: ${740 + 2 * PADDING}px;
   padding: 0 ${PADDING}px;
 `;
 
