@@ -68,7 +68,7 @@ export default class Series extends Component {
             Series: <b>{name}</b>
           </span>
           <ToggleButton
-            className={cx("icon", open ? "fa-caret-down" : "fa-caret-left")}
+            className={cx("icon", open ? "icon-caret-down" : "icon-caret-left")}
             onClick={() => {
               this.setState(state => ({ open: !state.open }));
             }}

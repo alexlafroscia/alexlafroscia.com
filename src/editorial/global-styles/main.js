@@ -1,4 +1,5 @@
 import { css } from "@emotion/core";
+import { sanSerif } from "../../theme/font";
 
 export const main = css`
   html,
@@ -200,7 +201,7 @@ export const main = css`
   select,
   textarea {
     color: var(--theme-primary-text-color, #7f888f);
-    font-family: "Open Sans", sans-serif;
+    font-family: ${sanSerif};
     font-size: 13pt;
     font-weight: 400;
     line-height: 1.65;
@@ -276,7 +277,6 @@ export const main = css`
   h5,
   h6 {
     color: var(--theme-darker-text-color, #3d4449);
-    font-family: "Roboto Slab", serif;
     font-weight: 700;
     line-height: 1.5;
     margin: 0 0 1em 0;
@@ -363,7 +363,6 @@ export const main = css`
 
   pre {
     -webkit-overflow-scrolling: touch;
-    font-family: "Courier New", monospace;
     font-size: 0.9em;
     margin: 0 0 2em 0;
   }
@@ -403,7 +402,6 @@ export const main = css`
   }
 
   header p {
-    font-family: "Roboto Slab", serif;
     font-size: 1em;
     font-weight: 400;
     letter-spacing: 0.075em;
@@ -549,7 +547,7 @@ export const main = css`
   input[type="radio"] + label:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
+    font-family: icomoon;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
@@ -641,7 +639,7 @@ export const main = css`
   .icon:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
+    font-family: icomoon;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
@@ -880,7 +878,7 @@ export const main = css`
   ul.contact li:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
+    font-family: icomoon;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
@@ -1062,7 +1060,6 @@ export const main = css`
     color: var(--theme-accent-color, #f56a6a) !important;
     cursor: pointer;
     display: inline-block;
-    font-family: "Roboto Slab", serif;
     font-size: 0.8em;
     font-weight: 700;
     height: 3.5em;
@@ -1422,7 +1419,7 @@ export const main = css`
   #search form:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
+    font-family: icomoon;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
@@ -1530,7 +1527,7 @@ export const main = css`
   #sidebar .toggle:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
+    font-family: icomoon;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;
@@ -1678,7 +1675,6 @@ export const main = css`
   #header .logo {
     border-bottom: 0;
     color: inherit;
-    font-family: "Roboto Slab", serif;
     font-size: 1.125em;
   }
 
@@ -1824,8 +1820,6 @@ export const main = css`
     -ms-user-select: none;
     user-select: none;
     color: var(--theme-darker-text-color, #3d4449);
-    font-family: "Roboto Slab", serif;
-    font-family: 400;
     letter-spacing: 0.075em;
     list-style: none;
     margin-bottom: 0;
@@ -1863,7 +1857,7 @@ export const main = css`
   #menu ul span.opener:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: FontAwesome;
+    font-family: icomoon;
     font-style: normal;
     font-weight: normal;
     text-transform: none !important;

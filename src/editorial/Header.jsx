@@ -11,7 +11,7 @@ export const Icon = ({ href, icon, children }) => {
     <li>
       <ExternalLink
         href={href}
-        className={`icon fa-${icon}`}
+        className={`icon icon-${icon}`}
         aria-labelledby={id}
       >
         <label id={id} className="label">
@@ -39,7 +39,7 @@ export const IconButton = ({ icon, children, className, ...rest }) => {
   return (
     <li>
       <InnerIconButton
-        className={`button icon fa-${icon} ${className}`}
+        className={`button icon icon-${icon} ${className}`}
         aria-labelledby={id}
         {...rest}
       >

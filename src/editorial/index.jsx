@@ -2,11 +2,8 @@ import React from "react";
 import { Helmet as Head } from "react-helmet";
 import { Global } from "@emotion/core";
 
-import {
-  core as fontAwesomeCore,
-  usedIcons as fontAwesomeIcons
-} from "./global-styles/font-awesome";
-import { main as globalEditorialStyles } from "./assets/css/main";
+import { icomoon } from "./global-styles/icomoon";
+import { main as globalEditorialStyles } from "./global-styles/main";
 
 export default ({ sidebar, children }) => {
   return (
@@ -15,13 +12,8 @@ export default ({ sidebar, children }) => {
         <meta charSet="utf-8" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i|Roboto+Slab:400,700"
-          rel="stylesheet"
-        />
       </Head>
-      <Global styles={fontAwesomeCore} />
-      <Global styles={fontAwesomeIcons} />
+      <Global styles={icomoon} />
       <Global styles={globalEditorialStyles} />
       <div id="wrapper">
         <div id="main">

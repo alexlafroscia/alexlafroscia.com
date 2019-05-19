@@ -1,8 +1,14 @@
 import React from "react";
+import styled from "@emotion/styled";
 
-import ExternalLink from "../components/ExternalLink";
+import ExternalLinkBase from "../components/ExternalLink";
 import Sidebar, { Header, Nav, Section, Footer } from "../editorial/Sidebar";
 import Link from "../elements/a";
+import { sanSerif } from "../theme/font";
+
+const ExternalLink = styled(ExternalLinkBase)`
+  font-family: ${sanSerif};
+`;
 
 export default () => (
   <Sidebar>
@@ -20,17 +26,17 @@ export default () => (
 
     <Section title="Find Me Online">
       <ul className="contact">
-        <li className="fa-github">
+        <li className="icon-github">
           <ExternalLink href="https://github.com/alexlafroscia">
             Github
           </ExternalLink>
         </li>
-        <li className="fa-twitter">
+        <li className="icon-twitter">
           <ExternalLink href="https://twitter.com/alexlafroscia">
             Twitter
           </ExternalLink>
         </li>
-        <li className="fa-medium">
+        <li className="icon-medium">
           <ExternalLink href="https://medium.com/@alexlafroscia">
             Medium
           </ExternalLink>
