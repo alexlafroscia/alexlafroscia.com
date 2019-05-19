@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Alex LaFroscia's personal blog",
   "main": "index.js",
-  "repository": "https://github.com/alexlafroscia/blog",
+  "repository": "https://github.com/alexlafroscia/alexlafroscia.com",
   "author": "Alex LaFroscia <alex@lafroscia.com>",
   "license": "MIT",
   "private": true,
