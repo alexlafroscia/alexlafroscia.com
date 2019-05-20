@@ -2,34 +2,34 @@
   role: Senior Software Engineer
   time: December 2017 – June 2019
   details:
-    - Maintain and extended a production visibility tool using modern Ember.js
-    - Evaluate, plan and execute the re-write of a major feature of an Ember.js application into a standalone React application
-    - Create task management system that integrates with Netflix Studio data using React and GraphQL
-    - Contribute to API development by assisting in designing the GraphQL schema
-    - Drive product decisions through collaboration with designers and direct interaction with users
-    - Participate in the development of the internal design system for Netflix Studio by prototyping early implementations and providing feedback during the design and development process
-    - Help develop standards around UI development within Netflix Studio by implementing a pattern for application scaffolding that became the basis for shared tooling going forward
+    - Maintained and extended a production visibility tool using modern Ember.js
+    - Evaluated, planned and executed the re-write of a major feature of an Ember.js application into a standalone React application
+    - Created a task management system that integrates with Netflix Studio data using React and GraphQL
+    - Contributed to API development by assisting in designing the GraphQL schema
+    - Drove product decisions through collaboration with designers and direct interaction with users
+    - Participated in the development of the internal design system for Netflix Studio by prototyping early implementations and providing feedback during the design and development process
+    - Developed standards around UI development within Netflix Studio by implementing a pattern for application scaffolding that became the basis for shared tooling going forward
 
 - company: Google
   role: User Experience Engineer
   time: May 2016 – December 2017
   details:
-    - Build the front-end of the Nest Store using Ember.js, Node and Express
-    - Design and implement a system for sharing UI elements across multiple teams through Web Components
-    - Work with back-end engineers to design API contracts
+    - Built the front-end of the Nest Store using Ember.js, Node and Express
+    - Designed and implemented a system for sharing UI elements across multiple teams through Web Components
+    - Worked with back-end engineers to design API contracts
 
 - company: Qualaris Healthcare Solutions
   role: Ember.js Developer
   time: December 2014 – May 2016
   details:
-    - Refactor existing code to promote reuse and take advantage of new features in Ember.js
-    - Redesign the UI of the product to follow responsive design principles
-    - Improve test coverage of the front-end application by 94%
+    - Refactored existing code to promote reuse and take advantage of new features in Ember.js
+    - Redesigned the UI of the product to follow responsive design principles
+    - Improved test coverage of the front-end application by 94%
 
 - company: Mysterious Trousers
   role: Ruby on Rails and Ember.js Developer
   time: April 2013 – December 2014
   hide: true
   details:
-    - Design and develop a REST API in Ruby on Rails
-    - Build web applications in JavaScript with Ember.js, including a live-chat client using Express and Socket.io
+    - Designed and developed a REST API in Ruby on Rails
+    - Built web applications in JavaScript with Ember.js, including a live-chat client using Express and Socket.io
