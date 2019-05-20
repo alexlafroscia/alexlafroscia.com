@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useMemo, useState } from "react";
 import cx from "@sindresorhus/class-names";
 
-import useBreakpoint from "../../hooks/useBreakpoint";
+import useBreakpoint, { Breakpoint } from "../../hooks/useBreakpoint";
 
 export { default as Footer } from "./Footer";
 export { default as Header } from "./Header";
@@ -22,7 +22,7 @@ const Sidebar: FC<SidebarProps> = ({ children, className, ...rest }) => {
   const sidebarIsOpen = useMemo(
     () =>
       active === SIDEBAR_ACTIVE.INITIAL
-        ? ["xlarge", "xxlarge"].includes(breakpoint)
+        ? [Breakpoint.xlarge, Breakpoint.xxlarge].includes(breakpoint)
         : active === SIDEBAR_ACTIVE.YES,
     [active, breakpoint]
   );
