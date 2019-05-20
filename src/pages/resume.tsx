@@ -8,11 +8,9 @@ import Section from "../elements/section";
 
 const SectionHeader = styled.h2`
   text-align: center;
-  margin-bottom: 0;
 
   @media (min-width: 700px) {
     text-align: left;
-    margin-bottom: 1em;
   }
 `;
 
