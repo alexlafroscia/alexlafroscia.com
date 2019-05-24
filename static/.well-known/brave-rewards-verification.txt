@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: alexlafroscia.com
+Token: 6ca1c0abdc047b9216c7dbcb937050e892bf6a9c5c58b0500a25ce0f6c15e98d
