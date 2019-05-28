@@ -1594,7 +1594,7 @@ export const main = css`
     }
 
     #sidebar .toggle:after {
-      background: rgba(222, 225, 226, 0.75);
+      background: var(--theme-secondary-background-color);
       border-radius: 0.375em;
       content: "";
       height: 3.5em;
