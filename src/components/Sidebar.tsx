@@ -69,59 +69,69 @@ const Sidebar = () => {
 
   return (
     <EditorialSidebar>
-      <Nav>
-        <Header>Menu</Header>
-        <ul>
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/resume">Resume</Link>
-          </li>
-          <li>
-            <Link href="/articles/1">All Posts</Link>
-          </li>
-        </ul>
-      </Nav>
+      {({ reset }) => (
+        <>
+          <Nav>
+            <Header>Menu</Header>
+            <ul>
+              <li>
+                <Link href="/" onMouseUp={reset}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/resume" onMouseUp={reset}>
+                  Resume
+                </Link>
+              </li>
+              <li>
+                <Link href="/articles/1" onMouseUp={reset}>
+                  All Posts
+                </Link>
+              </li>
+            </ul>
+          </Nav>
 
-      <Section title="Find Me Online">
-        <ContactList>
-          {social.allSocialYaml.edges
-            .map(edge => edge.node)
-            .map((socialNode, index) => (
-              <Fragment key={socialNode.icon}>
-                {index !== 0 && index % 2 == 0 && <hr />}
-                <li className={`icon-${socialNode.icon}`}>
-                  <Link newTab href={socialNode.link}>
-                    {socialNode.name}
-                  </Link>
-                </li>
-              </Fragment>
-            ))}
-        </ContactList>
-      </Section>
+          <Section title="Find Me Online">
+            <ContactList>
+              {social.allSocialYaml.edges
+                .map(edge => edge.node)
+                .map((socialNode, index) => (
+                  <Fragment key={socialNode.icon}>
+                    {index !== 0 && index % 2 == 0 && <hr />}
+                    <li className={`icon-${socialNode.icon}`}>
+                      <Link newTab href={socialNode.link}>
+                        {socialNode.name}
+                      </Link>
+                    </li>
+                  </Fragment>
+                ))}
+            </ContactList>
+          </Section>
 
-      <Footer>
-        {Contribution => (
-          <>
-            <Contribution />
-            <br />
-            Colors from{" "}
-            <Link newTab href="https://aka.ms/nightowl">
-              Night Owl
-            </Link>{" "}
-            by{" "}
-            <Link newTab href="https://sarahdrasnerdesign.com/">
-              Sarah Drasner
-            </Link>
-            <br />
-            Built with{" "}
-            <Link newTab href="https://www.gatsbyjs.org/">
-              Gatsby
-            </Link>
-          </>
-        )}
-      </Footer>
+          <Footer>
+            {Contribution => (
+              <>
+                <Contribution />
+                <br />
+                Colors from{" "}
+                <Link newTab href="https://aka.ms/nightowl">
+                  Night Owl
+                </Link>{" "}
+                by{" "}
+                <Link newTab href="https://sarahdrasnerdesign.com/">
+                  Sarah Drasner
+                </Link>
+                <br />
+                Built with{" "}
+                <Link newTab href="https://www.gatsbyjs.org/">
+                  Gatsby
+                </Link>
+              </>
+            )}
+          </Footer>
+        </>
+      )}
     </EditorialSidebar>
   );
 };

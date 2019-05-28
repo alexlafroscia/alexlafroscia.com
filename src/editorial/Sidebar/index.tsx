@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useState } from "react";
+import React, { FC, ReactNode, useCallback, useMemo, useState } from "react";
 import cx from "@sindresorhus/class-names";
 
 import useBreakpoint, { Breakpoint } from "../../hooks/useBreakpoint";
@@ -8,7 +8,13 @@ export { default as Header } from "./Header";
 export { default as Nav } from "./Nav";
 export { default as Section } from "./Section";
 
-type SidebarProps = { className?: string };
+type SidebarActions = {
+  reset: () => void;
+};
+type SidebarProps = {
+  className?: string;
+  children: (actions: SidebarActions) => ReactNode;
+};
 
 enum SIDEBAR_ACTIVE {
   "INITIAL",
@@ -34,7 +40,14 @@ const Sidebar: FC<SidebarProps> = ({ children, className, ...rest }) => {
 
       setActive(sidebarIsOpen ? SIDEBAR_ACTIVE.NO : SIDEBAR_ACTIVE.YES);
     },
-    [sidebarIsOpen]
+    [setActive, sidebarIsOpen]
+  );
+
+  const actions: SidebarActions = useMemo(
+    () => ({
+      reset: () => setActive(SIDEBAR_ACTIVE.INITIAL)
+    }),
+    [setActive]
   );
 
   return (
@@ -48,7 +61,7 @@ const Sidebar: FC<SidebarProps> = ({ children, className, ...rest }) => {
       )}
       {...rest}
     >
-      <div className="inner">{children}</div>
+      <div className="inner">{children(actions)}</div>
       <a href="#sidebar" className="toggle" onClick={toggleSidebarActivity}>
         Toggle
       </a>
