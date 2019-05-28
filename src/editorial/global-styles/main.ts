@@ -862,55 +862,6 @@ export const main = css`
     font-size: 1.25em;
   }
 
-  ul.contact {
-    list-style: none;
-    padding: 0;
-  }
-
-  ul.contact li {
-    text-decoration: none;
-    border-top: solid 1px var(--theme-divider-color);
-    margin: 1.5em 0 0 0;
-    padding: 1.5em 0 0 3em;
-    position: relative;
-  }
-
-  ul.contact li:before {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    font-family: icomoon;
-    font-style: normal;
-    font-weight: normal;
-    text-transform: none !important;
-  }
-
-  ul.contact li:before {
-    color: var(--theme-accent-color, #f56a6a);
-    display: inline-block;
-    font-size: 1.5em;
-    height: 1.125em;
-    left: 0;
-    line-height: 1.125em;
-    position: absolute;
-    text-align: center;
-    top: 1em;
-    width: 1.5em;
-  }
-
-  ul.contact li:first-of-type {
-    border-top: 0;
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  ul.contact li:first-of-type:before {
-    top: 0;
-  }
-
-  ul.contact li a {
-    color: inherit;
-  }
-
   ul.pagination {
     cursor: default;
     list-style: none;
