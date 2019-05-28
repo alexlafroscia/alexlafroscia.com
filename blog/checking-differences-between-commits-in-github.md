@@ -1,5 +1,4 @@
 ---
-path: /github-compare-commits
 title: Checking Differences Between Commits in Github
 date: 2017-12-20T08:07:52.708Z
 description: >-

@@ -1,5 +1,4 @@
 ---
-path: /observables-brief-introduction
 title: "Observables: A Brief Introduction"
 date: 2019-01-27T23:52:35+00:00
 description: >-

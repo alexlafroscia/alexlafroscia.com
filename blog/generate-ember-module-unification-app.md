@@ -1,5 +1,4 @@
 ---
-path: /generate-ember-module-unification-app
 title: Generate an Ember app with the Module Unification layout
 date: 2018-03-14T07:06:10+08:00
 description: How to generate a new Ember app with Module Unification in one line of code

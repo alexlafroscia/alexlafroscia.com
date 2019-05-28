@@ -1,5 +1,4 @@
 ---
-path: /writing-js-in-vim
 title: Writing JS in Vim
 description: >-
   Learn about getting some of the best tools in the JavaScript community

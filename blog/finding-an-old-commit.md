@@ -1,5 +1,4 @@
 ---
-path: /finding-an-old-commit
 title: Finding an Old Commit
 date: 2016-10-18T14:30:54-07:00
 description: A tip about finding a git commit based on information in the message

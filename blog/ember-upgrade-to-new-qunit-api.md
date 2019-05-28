@@ -1,5 +1,4 @@
 ---
-path: /ember-upgrade-to-new-qunit-api
 title: Upgrading an Ember app to the new QUnit API
 date: 2018-02-21T18:10:00+08:00
 description: Some tips on upgrading to the new QUnit API in an Ember app

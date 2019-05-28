@@ -1,5 +1,4 @@
 ---
-path: /qunit-assert-converge-on
 title: Converging on a Condition in QUnit
 date: 2019-03-01T08:07:52.708Z
 description: >-
