@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "@emotion/styled";
 
 import EditorialSidebar, {
@@ -16,41 +16,38 @@ const Link = styled(LinkBase)`
 `;
 
 const ContactList = styled.ul`
+  display: grid;
+  grid-column-gap: 1.5em;
+  grid-row-gap: 0.75em;
+  grid-template-columns: 1fr 1fr;
   list-style: none;
   padding: 0;
 
   li {
+    align-items: center;
+    display: flex;
     text-decoration: none;
-    border-top: solid 1px var(--theme-divider-color);
-    margin: 1.5em 0 0 0;
-    padding: 1.5em 0 0 3em;
-    position: relative;
 
-    &:before {
+    &::before {
       color: var(--theme-accent-color, #f56a6a);
-      display: inline-block;
       font-size: 1.5em;
       height: 1.125em;
-      left: 0;
       line-height: 1.125em;
-      position: absolute;
       text-align: center;
-      top: 1em;
+      margin-right: 0.5em;
       width: 1.5em;
-    }
-
-    &:first-of-type {
-      border-top: 0;
-      margin-top: 0;
-      padding-top: 0;
-
-      &:before {
-        top: 0;
-      }
     }
 
     a {
       color: inherit;
+    }
+  }
+
+  hr {
+    grid-column: span 2;
+
+    &:last-child {
+      display: none;
     }
   }
 `;
@@ -91,12 +88,15 @@ const Sidebar = () => {
         <ContactList>
           {social.allSocialYaml.edges
             .map(edge => edge.node)
-            .map(socialNode => (
-              <li key={socialNode.icon} className={`icon-${socialNode.icon}`}>
-                <Link newTab href={socialNode.link}>
-                  {socialNode.name}
-                </Link>
-              </li>
+            .map((socialNode, index) => (
+              <Fragment key={socialNode.icon}>
+                {index !== 0 && index % 2 == 0 && <hr />}
+                <li className={`icon-${socialNode.icon}`}>
+                  <Link newTab href={socialNode.link}>
+                    {socialNode.name}
+                  </Link>
+                </li>
+              </Fragment>
             ))}
         </ContactList>
       </Section>
