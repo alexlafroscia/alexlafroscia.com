@@ -40,7 +40,9 @@ const Layout = ({ children }) => {
   return (
     <Editorial sidebar={() => <Sidebar />}>
       <Global styles={globalOverrides} />
-      <Helmet htmlAttributes={{ lang: "en" }} />
+      <Helmet htmlAttributes={{ lang: "en" }}>
+        <link href="https://micro.blog/alexlafroscia" rel="me" />
+      </Helmet>
       <Header
         logo={() => (
           <Logo>
