@@ -99,10 +99,9 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: 'gatsby-plugin-fathom',
       options: {
-        trackingId: `UA-50234610-1`,
-        respectDNT: true
+        siteId: 'NHEVCYHO'
       }
     },
     {
