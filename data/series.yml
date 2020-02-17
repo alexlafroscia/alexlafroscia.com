@@ -2,3 +2,8 @@
   name: Observables
   description: >-
     An introduction to and exploration of Observables, and how to use them in Ember
+
+- slug: github-actions
+  name: GitHub Actions for Library Maintenance
+  description: >-
+    Tips and tricks for using GitHub Actions to help maintain an open-source project
