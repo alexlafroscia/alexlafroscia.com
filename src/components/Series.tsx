@@ -52,17 +52,13 @@ const Content = styled.div`
   }
 `;
 
-type SeriesProps = { name: string };
-
-const Series: FC<SeriesProps> = ({ name, children, ...rest }) => {
+const Series: FC = ({ children, ...rest }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <SeriesInner {...rest}>
       <Title>
-        <span>
-          Series: <b>{name}</b>
-        </span>
+        <b>More in this Series</b>
         <ToggleButton
           className={cx("icon", open ? "icon-caret-down" : "icon-caret-left")}
           onClick={() => {

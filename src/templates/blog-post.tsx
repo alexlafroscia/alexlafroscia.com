@@ -8,6 +8,20 @@ import { Code, Img, Link, P, Pre, Section } from "../elements";
 import SeriesBase from "../components/Series";
 import { darkBlue } from "../theme/palette";
 
+const Header = styled.header`
+  margin-bottom: 1rem;
+`;
+
+const SeriesTitle = styled.span`
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 300;
+`;
+
+const Title = styled.h1`
+  margin: 0;
+`;
+
 const Columns = styled.div`
   display: flex;
   flex-direction: column-reverse;
@@ -59,19 +73,20 @@ export default ({ data: { post, site, series, seriesPosts } }) => {
     <>
       <Head>
         <title>
-          {post.frontmatter.title} | {site.siteMetadata.title}
+          {post.frontmatter.title} { series ? ` | ${series.name}` : undefined} | {site.siteMetadata.title}
         </title>
         <meta name="description" content={post.excerpt} />
       </Head>
       <Section>
-        <header className="main">
+        <Header className="main">
+          {series ? <SeriesTitle>Series: {series.name}</SeriesTitle> : undefined }
+          <Title>{post.frontmatter.title}</Title>
           <span className="date">{post.frontmatter.date}</span>
-          <h1>{post.frontmatter.title}</h1>
-        </header>
-        {series ? (
+        </Header>
+          {series && seriesPosts.edges.length > 1 ? (
           <Columns>
             <PostBody>{renderAst(post.htmlAst)}</PostBody>
-            <Series name={series.name}>
+            <Series>
               <ol>
                 {seriesPosts.edges.map(({ node: post }) => (
                   <li key={post.id}>
@@ -118,6 +133,7 @@ export const pageQuery = graphql`
 
     seriesPosts: allMarkdownRemark(
       filter: { frontmatter: { series: { slug: { eq: $seriesSlug } } } }
+      sort: { fields: frontmatter___date }
     ) {
       edges {
         node {
