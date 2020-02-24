@@ -1,19 +1,14 @@
-import React, { FC, ComponentProps } from "react";
-import styled from "@emotion/styled";
+import React, { FC, ComponentProps } from 'react';
+import styled from '@emotion/styled';
 
-import Link from "../elements/a";
+import Link from '../elements/a';
 
 export const Icon = ({ href, icon, children }) => {
-  const id = "icon-" + icon + "-" + Math.floor(Math.random() * 1000000);
+  const id = 'icon-' + icon + '-' + Math.floor(Math.random() * 1000000);
 
   return (
     <li>
-      <Link
-        href={href}
-        className={`icon icon-${icon}`}
-        aria-labelledby={id}
-        newTab
-      >
+      <Link href={href} className={`icon icon-${icon}`} aria-labelledby={id} newTab>
         <label id={id} className="label">
           {children}
         </label>
@@ -37,13 +32,8 @@ type IconButtonProps = ComponentProps<typeof InnerIconButton> & {
   icon: string;
 };
 
-export const IconButton: FC<IconButtonProps> = ({
-  icon,
-  children,
-  className,
-  ...rest
-}) => {
-  const id = "icon-" + icon + "-" + Math.floor(Math.random() * 1000000);
+export const IconButton: FC<IconButtonProps> = ({ icon, children, className, ...rest }) => {
+  const id = 'icon-' + icon + '-' + Math.floor(Math.random() * 1000000);
 
   return (
     <li>
@@ -60,7 +50,7 @@ export const IconButton: FC<IconButtonProps> = ({
   );
 };
 
-export const Logo = ({ href = "/", children }) => (
+export const Logo = ({ href = '/', children }) => (
   <Link href={href} className="logo">
     {children}
   </Link>

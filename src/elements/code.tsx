@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import { monospace } from "../theme/font";
+import { monospace } from '../theme/font';
 
-import Pre from "./pre";
+import Pre from './pre';
 
 const Code = styled.code`
   color: var(--theme-darker-text-color);

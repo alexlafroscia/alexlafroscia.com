@@ -1,5 +1,5 @@
-import { css } from "@emotion/core";
-import { sanSerif } from "../../theme/font";
+import { css } from '@emotion/core';
+import { sanSerif } from '../../theme/font';
 
 export const main = css`
   html,
@@ -123,7 +123,7 @@ export const main = css`
   blockquote:after,
   q:before,
   q:after {
-    content: "";
+    content: '';
     content: none;
   }
 
@@ -235,10 +235,8 @@ export const main = css`
   }
 
   a {
-    -moz-transition: color 0.2s ease-in-out,
-      border-bottom-color 0.2s ease-in-out;
-    -webkit-transition: color 0.2s ease-in-out,
-      border-bottom-color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
     border-bottom: dotted 1px;
@@ -432,12 +430,12 @@ export const main = css`
     margin: 0 0 1em 0;
   }
 
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="search"],
-  input[type="url"],
+  input[type='text'],
+  input[type='password'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='search'],
+  input[type='url'],
   select,
   textarea {
     -moz-appearance: none;
@@ -456,23 +454,23 @@ export const main = css`
     width: 100%;
   }
 
-  input[type="text"]:invalid,
-  input[type="password"]:invalid,
-  input[type="email"]:invalid,
-  input[type="tel"]:invalid,
-  input[type="search"]:invalid,
-  input[type="url"]:invalid,
+  input[type='text']:invalid,
+  input[type='password']:invalid,
+  input[type='email']:invalid,
+  input[type='tel']:invalid,
+  input[type='search']:invalid,
+  input[type='url']:invalid,
   select:invalid,
   textarea:invalid {
     box-shadow: none;
   }
 
-  input[type="text"]:focus,
-  input[type="password"]:focus,
-  input[type="email"]:focus,
-  input[type="tel"]:focus,
-  input[type="search"]:focus,
-  input[type="url"]:focus,
+  input[type='text']:focus,
+  input[type='password']:focus,
+  input[type='email']:focus,
+  input[type='tel']:focus,
+  input[type='search']:focus,
+  input[type='url']:focus,
   select:focus,
   textarea:focus {
     border-color: var(--theme-accent-color, #f56a6a);
@@ -480,7 +478,7 @@ export const main = css`
   }
 
   select {
-    background-image: url("data:text/plain;charset=utf-8;base64,ZGF0YTppbWFnZS9zdmcreG1sO2NoYXJzZXQ9dXRmOCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB3aWR0aD0nNDAnIGhlaWdodD0nNDAnIHByZXNlcnZlQXNwZWN0UmF0aW89J25vbmUnIHZpZXdCb3g9JzAgMCA0MCA0MCclM0UlM0NwYXRoIGQ9J005LjQsMTIuM2wxMC40LDEwLjRsMTAuNC0xMC40YzAuMi0wLjIsMC41LTAuNCwwLjktMC40YzAuMywwLDAuNiwwLjEsMC45LDAuNGwzLjMsMy4zYzAuMiwwLjIsMC40LDAuNSwwLjQsMC45IGMwLDAuNC0wLjEsMC42LTAuNCwwLjlMMjAuNywzMS45Yy0wLjIsMC4yLTAuNSwwLjQtMC45LDAuNGMtMC4zLDAtMC42LTAuMS0wLjktMC40TDQuMywxNy4zYy0wLjItMC4yLTAuNC0wLjUtMC40LTAuOSBjMC0wLjQsMC4xLTAuNiwwLjQtMC45bDMuMy0zLjNjMC4yLTAuMiwwLjUtMC40LDAuOS0wLjRTOS4xLDEyLjEsOS40LDEyLjN6JyBmaWxsPSdyZ2JhKDIxMCwgMjE1LCAyMTcsIDAuNzUpJyAvJTNFJTNDL3N2ZyUzRQ==");
+    background-image: url('data:text/plain;charset=utf-8;base64,ZGF0YTppbWFnZS9zdmcreG1sO2NoYXJzZXQ9dXRmOCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB3aWR0aD0nNDAnIGhlaWdodD0nNDAnIHByZXNlcnZlQXNwZWN0UmF0aW89J25vbmUnIHZpZXdCb3g9JzAgMCA0MCA0MCclM0UlM0NwYXRoIGQ9J005LjQsMTIuM2wxMC40LDEwLjRsMTAuNC0xMC40YzAuMi0wLjIsMC41LTAuNCwwLjktMC40YzAuMywwLDAuNiwwLjEsMC45LDAuNGwzLjMsMy4zYzAuMiwwLjIsMC40LDAuNSwwLjQsMC45IGMwLDAuNC0wLjEsMC42LTAuNCwwLjlMMjAuNywzMS45Yy0wLjIsMC4yLTAuNSwwLjQtMC45LDAuNGMtMC4zLDAtMC42LTAuMS0wLjktMC40TDQuMywxNy4zYy0wLjItMC4yLTAuNC0wLjUtMC40LTAuOSBjMC0wLjQsMC4xLTAuNiwwLjQtMC45bDMuMy0zLjNjMC4yLTAuMiwwLjUtMC40LDAuOS0wLjRTOS4xLDEyLjEsOS40LDEyLjN6JyBmaWxsPSdyZ2JhKDIxMCwgMjE1LCAyMTcsIDAuNzUpJyAvJTNFJTNDL3N2ZyUzRQ==');
     background-size: 1.25em;
     background-repeat: no-repeat;
     background-position: calc(100% - 1em) center;
@@ -502,12 +500,12 @@ export const main = css`
     display: none;
   }
 
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="tel"],
-  input[type="search"],
-  input[type="url"],
+  input[type='text'],
+  input[type='password'],
+  input[type='email'],
+  input[type='tel'],
+  input[type='search'],
+  input[type='url'],
   select {
     height: 2.75em;
   }
@@ -516,8 +514,8 @@ export const main = css`
     padding: 0.75em 1em;
   }
 
-  input[type="checkbox"],
-  input[type="radio"] {
+  input[type='checkbox'],
+  input[type='radio'] {
     -moz-appearance: none;
     -webkit-appearance: none;
     -ms-appearance: none;
@@ -530,8 +528,8 @@ export const main = css`
     z-index: -1;
   }
 
-  input[type="checkbox"] + label,
-  input[type="radio"] + label {
+  input[type='checkbox'] + label,
+  input[type='radio'] + label {
     text-decoration: none;
     color: var(--theme-primary-text-color, #7f888f);
     cursor: pointer;
@@ -543,8 +541,8 @@ export const main = css`
     position: relative;
   }
 
-  input[type="checkbox"] + label:before,
-  input[type="radio"] + label:before {
+  input[type='checkbox'] + label:before,
+  input[type='radio'] + label:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: icomoon;
@@ -553,12 +551,12 @@ export const main = css`
     text-transform: none !important;
   }
 
-  input[type="checkbox"] + label:before,
-  input[type="radio"] + label:before {
+  input[type='checkbox'] + label:before,
+  input[type='radio'] + label:before {
     background: #ffffff;
     border-radius: 0.375em;
     border: solid 1px var(--theme-divider-color);
-    content: "";
+    content: '';
     display: inline-block;
     height: 1.65em;
     left: 0;
@@ -569,25 +567,25 @@ export const main = css`
     width: 1.65em;
   }
 
-  input[type="checkbox"]:checked + label:before,
-  input[type="radio"]:checked + label:before {
+  input[type='checkbox']:checked + label:before,
+  input[type='radio']:checked + label:before {
     background: var(--theme-darker-text-color, #3d4449);
     border-color: var(--theme-darker-text-color, #3d4449);
     color: #ffffff;
-    content: "\f00c";
+    content: '\f00c';
   }
 
-  input[type="checkbox"]:focus + label:before,
-  input[type="radio"]:focus + label:before {
+  input[type='checkbox']:focus + label:before,
+  input[type='radio']:focus + label:before {
     border-color: var(--theme-accent-color, #f56a6a);
     box-shadow: 0 0 0 1px var(--theme-accent-color, #f56a6a);
   }
 
-  input[type="checkbox"] + label:before {
+  input[type='checkbox'] + label:before {
     border-radius: 0.375em;
   }
 
-  input[type="radio"] + label:before {
+  input[type='radio'] + label:before {
     border-radius: 100%;
   }
 
@@ -876,8 +874,7 @@ export const main = css`
 
   ul.pagination li > .page {
     -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out,
-      color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     border-bottom: 0;
@@ -990,9 +987,9 @@ export const main = css`
     border-top: 0;
   }
 
-  input[type="submit"],
-  input[type="reset"],
-  input[type="button"],
+  input[type='submit'],
+  input[type='reset'],
+  input[type='button'],
   button,
   .button {
     -moz-appearance: none;
@@ -1000,8 +997,7 @@ export const main = css`
     -ms-appearance: none;
     appearance: none;
     -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-    -webkit-transition: background-color 0.2s ease-in-out,
-      color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     background-color: transparent;
@@ -1023,49 +1019,49 @@ export const main = css`
     white-space: nowrap;
   }
 
-  input[type="submit"]:hover,
-  input[type="reset"]:hover,
-  input[type="button"]:hover,
+  input[type='submit']:hover,
+  input[type='reset']:hover,
+  input[type='button']:hover,
   button:hover,
   .button:hover {
     background-color: rgba(245, 106, 106, 0.05);
   }
 
-  input[type="submit"]:active,
-  input[type="reset"]:active,
-  input[type="button"]:active,
+  input[type='submit']:active,
+  input[type='reset']:active,
+  input[type='button']:active,
   button:active,
   .button:active {
     background-color: rgba(245, 106, 106, 0.15);
   }
 
-  input[type="submit"].icon:before,
-  input[type="reset"].icon:before,
-  input[type="button"].icon:before,
+  input[type='submit'].icon:before,
+  input[type='reset'].icon:before,
+  input[type='button'].icon:before,
   button.icon:before,
   .button.icon:before {
     margin-right: 0.5em;
   }
 
-  input[type="submit"].fit,
-  input[type="reset"].fit,
-  input[type="button"].fit,
+  input[type='submit'].fit,
+  input[type='reset'].fit,
+  input[type='button'].fit,
   button.fit,
   .button.fit {
     width: 100%;
   }
 
-  input[type="submit"].small,
-  input[type="reset"].small,
-  input[type="button"].small,
+  input[type='submit'].small,
+  input[type='reset'].small,
+  input[type='button'].small,
   button.small,
   .button.small {
     font-size: 0.6em;
   }
 
-  input[type="submit"].large,
-  input[type="reset"].large,
-  input[type="button"].large,
+  input[type='submit'].large,
+  input[type='reset'].large,
+  input[type='button'].large,
   button.large,
   .button.large {
     font-size: 1em;
@@ -1073,9 +1069,9 @@ export const main = css`
     line-height: 3.65em;
   }
 
-  input[type="submit"].primary,
-  input[type="reset"].primary,
-  input[type="button"].primary,
+  input[type='submit'].primary,
+  input[type='reset'].primary,
+  input[type='button'].primary,
   button.primary,
   .button.primary {
     background-color: var(--theme-accent-color, #f56a6a);
@@ -1083,28 +1079,28 @@ export const main = css`
     color: #ffffff !important;
   }
 
-  input[type="submit"].primary:hover,
-  input[type="reset"].primary:hover,
-  input[type="button"].primary:hover,
+  input[type='submit'].primary:hover,
+  input[type='reset'].primary:hover,
+  input[type='button'].primary:hover,
   button.primary:hover,
   .button.primary:hover {
     background-color: #f67878;
   }
 
-  input[type="submit"].primary:active,
-  input[type="reset"].primary:active,
-  input[type="button"].primary:active,
+  input[type='submit'].primary:active,
+  input[type='reset'].primary:active,
+  input[type='button'].primary:active,
   button.primary:active,
   .button.primary:active {
     background-color: #f45c5c;
   }
 
-  input[type="submit"].disabled,
-  input[type="submit"]:disabled,
-  input[type="reset"].disabled,
-  input[type="reset"]:disabled,
-  input[type="button"].disabled,
-  input[type="button"]:disabled,
+  input[type='submit'].disabled,
+  input[type='submit']:disabled,
+  input[type='reset'].disabled,
+  input[type='reset']:disabled,
+  input[type='button'].disabled,
+  input[type='button']:disabled,
   button.disabled,
   button:disabled,
   .button.disabled,
@@ -1142,7 +1138,7 @@ export const main = css`
 
   .posts article:before {
     background: var(--theme-divider-color);
-    content: "";
+    content: '';
     display: block;
     height: calc(100% + 6em);
     left: -3em;
@@ -1154,7 +1150,7 @@ export const main = css`
   .posts article:after {
     background: var(--theme-divider-color);
     bottom: -3em;
-    content: "";
+    content: '';
     display: block;
     height: 1px;
     position: absolute;
@@ -1382,7 +1378,7 @@ export const main = css`
     -ms-transform: scaleX(-1);
     transform: scaleX(-1);
     color: var(--theme-primary-text-color, #7f888f);
-    content: "\f002";
+    content: '\f002';
     cursor: default;
     display: block;
     font-size: 1.5em;
@@ -1396,7 +1392,7 @@ export const main = css`
     width: 2em;
   }
 
-  #search form input[type="text"] {
+  #search form input[type='text'] {
     padding-right: 2.75em;
   }
 
@@ -1485,7 +1481,7 @@ export const main = css`
   }
 
   #sidebar .toggle:before {
-    content: "\f0c9";
+    content: '\f0c9';
     font-size: 2rem;
     height: inherit;
     left: 0;
@@ -1558,7 +1554,7 @@ export const main = css`
     }
 
     #sidebar > .inner:after {
-      content: "";
+      content: '';
       display: block;
       height: 4em;
       width: 100%;
@@ -1596,7 +1592,7 @@ export const main = css`
     #sidebar .toggle:after {
       background: var(--theme-secondary-background-color);
       border-radius: 0.375em;
-      content: "";
+      content: '';
       height: 3.5em;
       left: 1em;
       position: absolute;
@@ -1817,12 +1813,11 @@ export const main = css`
   #menu ul a.opener:before,
   #menu ul span.opener:before {
     -moz-transition: color 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
-    -webkit-transition: color 0.2s ease-in-out,
-      -webkit-transform 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out, -ms-transform 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
     color: #9fa3a6;
-    content: "\f078";
+    content: '\f078';
     position: absolute;
     right: 0;
   }

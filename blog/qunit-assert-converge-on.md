@@ -12,17 +12,13 @@ tags:
 While writing some acceptance tests recently I kept running into slight race conditions between the state my application and an assertion I wanted to make. For example, one of the tests looked something like this:
 
 ```javascript
-test("creating a comment", async function(assert) {
-  assert.equal(
-    Task.comments.messages.length,
-    5,
-    "Starts with correct number of comments"
-  );
+test('creating a comment', async function(assert) {
+  assert.equal(Task.comments.messages.length, 5, 'Starts with correct number of comments');
 
-  await Task.comments.input.fillIn("A new comment");
+  await Task.comments.input.fillIn('A new comment');
   await Task.comments.send();
 
-  assert.equal(Task.comments.message.length, 6, "Adds a new comment");
+  assert.equal(Task.comments.message.length, 6, 'Adds a new comment');
 });
 ```
 
@@ -37,21 +33,17 @@ This, however, wasn't always working for me. Specifically, it worked locally but
 Ember ships with a useful helper function called `waitUntil`. You can give it a function, and it will create a `Promise` that resolves once your function returns `true`. We can use it to make sure that the new message is visible before our assertion is run to make the test a little more reliable.
 
 ```javascript
-import { waitUntil } from "@ember/test-helpers";
+import { waitUntil } from '@ember/test-helpers';
 
-test("creating a comment", async function(assert) {
-  assert.equal(
-    Task.comments.messages.length,
-    5,
-    "Starts with correct number of comments"
-  );
+test('creating a comment', async function(assert) {
+  assert.equal(Task.comments.messages.length, 5, 'Starts with correct number of comments');
 
-  await Task.comments.input.fillIn("A new comment");
+  await Task.comments.input.fillIn('A new comment');
   await Task.comments.send();
 
   await waitUntil(() => Task.comments.length === 6);
 
-  assert.equal(Task.comments.message.length, 6, "Adds a new comment");
+  assert.equal(Task.comments.message.length, 6, 'Adds a new comment');
 });
 ```
 
@@ -66,20 +58,13 @@ Based around the testing approach that [The Frontside](https://frontside.io) has
 The above test can be revised using it like so:
 
 ```javascript
-test("creating a comment", async function(assert) {
-  assert.equal(
-    Task.comments.messages.length,
-    5,
-    "Starts with correct number of comments"
-  );
+test('creating a comment', async function(assert) {
+  assert.equal(Task.comments.messages.length, 5, 'Starts with correct number of comments');
 
-  await Task.comments.input.fillIn("A new comment");
+  await Task.comments.input.fillIn('A new comment');
   await Task.comments.send();
 
-  await assert.convergeOn(
-    () => Task.comments.length === 6,
-    "Adds a new comment"
-  );
+  await assert.convergeOn(() => Task.comments.length === 6, 'Adds a new comment');
 });
 ```
 
@@ -88,8 +73,8 @@ The same effect is achieved, but without the duplication between the waiter and 
 If you want to leverage this pattern in your own tests, you can put the following in your `tests/test-helper.js` file:
 
 ```javascript
-import QUnit from "qunit";
-import { waitUntil } from "@ember/test-helpers";
+import QUnit from 'qunit';
+import { waitUntil } from '@ember/test-helpers';
 
 QUnit.extend(QUnit.assert, {
   async convergeOn(condition, message) {
@@ -98,7 +83,7 @@ QUnit.extend(QUnit.assert, {
 
       this.pushResult({ result: true, message });
     } catch (e) {
-      if (e.message === "waitUntil timed out") {
+      if (e.message === 'waitUntil timed out') {
         this.pushResult({ result: false, message });
       } else {
         throw e;

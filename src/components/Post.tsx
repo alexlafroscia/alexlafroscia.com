@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "@emotion/styled";
+import React from 'react';
+import styled from '@emotion/styled';
 
-import Link from "../elements/a";
+import Link from '../elements/a';
 
 const Post = styled.article`
   display: flex;

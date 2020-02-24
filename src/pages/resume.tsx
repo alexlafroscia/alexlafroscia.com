@@ -1,10 +1,10 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Markdown from "markdown-to-jsx";
-import { Global, css } from "@emotion/core";
-import styled from "@emotion/styled";
+import React from 'react';
+import { graphql } from 'gatsby';
+import Markdown from 'markdown-to-jsx';
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
-import Section from "../elements/section";
+import Section from '../elements/section';
 
 const SectionHeader = styled.h2`
   text-align: center;
@@ -18,14 +18,14 @@ const ContactGroup = styled.div`
   column-gap: 1em;
   display: grid;
   grid-template-areas:
-    "name name"
-    "website email";
+    'name name'
+    'website email';
   row-gap: 0.25em;
 
   @media (min-width: 700px) {
     grid-template-areas:
-      "name website"
-      "name email";
+      'name website'
+      'name email';
     margin: 2em 6em;
   }
 `;
@@ -64,24 +64,24 @@ const Work = ({ work }) => (
       column-gap: 1em;
       display: grid;
       grid-template-areas:
-        "name name name"
-        "role role role"
-        "time time time"
-        "details details details";
+        'name name name'
+        'role role role'
+        'time time time'
+        'details details details';
       grid-template-columns: auto 1fr auto;
       row-gap: 0.25em;
 
       @media (min-width: 450px) {
         grid-template-areas:
-          "name name name"
-          "role role time"
-          "details details details";
+          'name name name'
+          'role role time'
+          'details details details';
       }
 
       @media (min-width: 700px) {
         grid-template-areas:
-          "name role time"
-          "details details details";
+          'name role time'
+          'details details details';
       }
     `}
   >
@@ -139,12 +139,12 @@ const Details = ({ details, ...rest }) => (
   </ul>
 );
 
-const Header = Section.withComponent("header");
+const Header = Section.withComponent('header');
 
 const globalStyles = css`
   html {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+      Arial, sans-serif;
   }
 
   @media print {
@@ -214,8 +214,8 @@ export default function Resume({ data }) {
         <SectionHeader>Academics</SectionHeader>
         <ul>
           <li>
-            BS in Computed Science from University of Pittsburgh, College of
-            Arts and Sciences, Class of 2016.
+            BS in Computed Science from University of Pittsburgh, College of Arts and Sciences,
+            Class of 2016.
           </li>
         </ul>
       </Section>

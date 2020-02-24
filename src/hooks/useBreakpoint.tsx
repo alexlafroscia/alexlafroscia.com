@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import { debounce } from "lodash";
+import { useEffect, useState } from 'react';
+import { debounce } from 'lodash';
 
 export enum Breakpoint {
-  xxlarge = "xxlarge",
-  xlarge = "xlarge",
-  large = "large",
-  medium = "medium",
-  small = "small",
-  xsmall = "xsmall",
-  xxsmall = "xxsmall"
+  xxlarge = 'xxlarge',
+  xlarge = 'xlarge',
+  large = 'large',
+  medium = 'medium',
+  small = 'small',
+  xsmall = 'xsmall',
+  xxsmall = 'xxsmall'
 }
 
 type BreakpointSizeMap = {
   [key in Breakpoint]: {
     min: number;
     max: number;
-  }
+  };
 };
 
 const DEFAULT_BREAKPOINT = Breakpoint.xxsmall;
@@ -31,7 +31,7 @@ const breakpoints: BreakpointSizeMap = {
 
 function getCurrentBreakpoint(): Breakpoint {
   // Use the default in a SSR environment
-  if (typeof document === "undefined") {
+  if (typeof document === 'undefined') {
     return DEFAULT_BREAKPOINT;
   }
 
@@ -45,7 +45,7 @@ function getCurrentBreakpoint(): Breakpoint {
     }
   }
 
-  throw new Error("Could not find the breakpoint");
+  throw new Error('Could not find the breakpoint');
 }
 
 function useBreakpoint(): Breakpoint {
@@ -60,10 +60,10 @@ function useBreakpoint(): Breakpoint {
       // Immeditately queue an update to the real screen size
       setCurrentBreakpoint();
 
-      window.addEventListener("resize", setCurrentBreakpoint);
+      window.addEventListener('resize', setCurrentBreakpoint);
 
       return () => {
-        window.removeEventListener("resize", setCurrentBreakpoint);
+        window.removeEventListener('resize', setCurrentBreakpoint);
       };
     },
     [setCurrentBreakpoint]

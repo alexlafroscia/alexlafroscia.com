@@ -1,12 +1,12 @@
-import React, { ReactNode, FC } from "react";
-import styled from "@emotion/styled";
+import React, { ReactNode, FC } from 'react';
+import styled from '@emotion/styled';
 
-import { Link as BaseLink } from "../elements";
+import { Link as BaseLink } from '../elements';
 
 const Footer = styled.footer`
   border-top: 1px solid var(--theme-divider-color);
   display: grid;
-  grid-template-areas: "previous pointer next";
+  grid-template-areas: 'previous pointer next';
   grid-template-columns: 1fr auto 1fr;
   padding: 2em 0;
 `;
@@ -40,12 +40,7 @@ type PaginationProps = {
   totalPages?: number;
 };
 
-const Pagination: FC<PaginationProps> = ({
-  currentPage,
-  totalPages,
-  next,
-  previous
-}) => (
+const Pagination: FC<PaginationProps> = ({ currentPage, totalPages, next, previous }) => (
   <Footer>
     <PreviousWrapper>{previous ? previous() : undefined}</PreviousWrapper>
     {currentPage && totalPages ? (

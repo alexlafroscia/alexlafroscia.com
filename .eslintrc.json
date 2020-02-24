@@ -1,0 +1,36 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "@movable/eslint-config",
+    "@movable/eslint-config-react",
+    "prettier/@typescript-eslint",
+    "prettier/react",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off"
+  },
+  "overrides": [
+    {
+      "files": ["gatsby-config.js", "gatsby-node.js", "postcss.config.js", "tailwind.config.js"],
+      "env": {
+        "node": true
+      }
+    },
+    {
+      "files": ["**/*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

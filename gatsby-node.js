@@ -13,10 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
   return graphql(
     `
       {
-        posts: allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
+        posts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
           edges {
             node {
               fields {
@@ -49,8 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
     // Create blog posts pages.
     const posts = data.posts.edges;
     posts.forEach((post, index) => {
-      const previous =
-        index === posts.length - 1 ? null : posts[index + 1].node;
+      const previous = index === posts.length - 1 ? null : posts[index + 1].node;
       const next = index === 0 ? null : posts[index - 1].node;
 
       createPage({
@@ -58,8 +54,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: blogPost,
         context: {
           slug: post.node.fields.slug,
-          seriesSlug:
-            post.node.frontmatter.series && post.node.frontmatter.series.slug,
+          seriesSlug: post.node.frontmatter.series && post.node.frontmatter.series.slug,
           previous,
           next
         }
@@ -109,6 +104,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.onCreatePage = ({ page }) => {
   if (page.path.match(/resume/)) {
-    page.context.layout = "none";
+    page.context.layout = 'none';
   }
 };

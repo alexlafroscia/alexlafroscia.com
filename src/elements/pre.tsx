@@ -1,7 +1,7 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
-import { background } from "../theme";
-import { blue } from "../theme/palette";
+import { background } from '../theme';
+import { blue } from '../theme/palette';
 
 const Pre = styled.pre`
   background: ${background};

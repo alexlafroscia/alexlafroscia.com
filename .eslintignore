@@ -1,0 +1,12 @@
+# Build Output
+.cache
+coverage
+dist
+public
+tmp
+
+# Dependencies
+node_modules
+
+# ESLint Config
+!.eslintrc.json

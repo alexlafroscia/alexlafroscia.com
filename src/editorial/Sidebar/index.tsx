@@ -1,12 +1,12 @@
-import React, { FC, ReactNode, useCallback, useMemo, useState } from "react";
-import cx from "@sindresorhus/class-names";
+import React, { FC, ReactNode, useCallback, useMemo, useState } from 'react';
+import cx from '@sindresorhus/class-names';
 
-import useBreakpoint, { Breakpoint } from "../../hooks/useBreakpoint";
+import useBreakpoint, { Breakpoint } from '../../hooks/useBreakpoint';
 
-export { default as Footer } from "./Footer";
-export { default as Header } from "./Header";
-export { default as Nav } from "./Nav";
-export { default as Section } from "./Section";
+export { default as Footer } from './Footer';
+export { default as Header } from './Header';
+export { default as Nav } from './Nav';
+export { default as Section } from './Section';
 
 type SidebarActions = {
   reset: () => void;
@@ -17,9 +17,9 @@ type SidebarProps = {
 };
 
 enum SIDEBAR_ACTIVE {
-  "INITIAL",
-  "YES",
-  "NO"
+  'INITIAL',
+  'YES',
+  'NO'
 }
 
 const Sidebar: FC<SidebarProps> = ({ children, className, ...rest }) => {

@@ -1,15 +1,10 @@
-import React, { Fragment } from "react";
-import styled from "@emotion/styled";
+import React, { Fragment } from 'react';
+import styled from '@emotion/styled';
 
-import EditorialSidebar, {
-  Header,
-  Nav,
-  Section,
-  Footer
-} from "../editorial/Sidebar";
-import LinkBase from "../elements/a";
-import { sanSerif } from "../theme/font";
-import { useStaticQuery, graphql } from "gatsby";
+import EditorialSidebar, { Header, Nav, Section, Footer } from '../editorial/Sidebar';
+import LinkBase from '../elements/a';
+import { sanSerif } from '../theme/font';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const Link = styled(LinkBase)`
   font-family: ${sanSerif};
@@ -114,16 +109,16 @@ const Sidebar = () => {
               <>
                 <Contribution />
                 <br />
-                Colors from{" "}
+                Colors from{' '}
                 <Link newTab href="https://aka.ms/nightowl">
                   Night Owl
-                </Link>{" "}
-                by{" "}
+                </Link>{' '}
+                by{' '}
                 <Link newTab href="https://sarahdrasnerdesign.com/">
                   Sarah Drasner
                 </Link>
                 <br />
-                Built with{" "}
+                Built with{' '}
                 <Link newTab href="https://www.gatsbyjs.org/">
                   Gatsby
                 </Link>

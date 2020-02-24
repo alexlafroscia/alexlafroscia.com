@@ -1,6 +1,6 @@
-import React, { FC, useState } from "react";
-import styled from "@emotion/styled";
-import cx from "@sindresorhus/class-names";
+import React, { FC, useState } from 'react';
+import styled from '@emotion/styled';
+import cx from '@sindresorhus/class-names';
 
 const SeriesInner = styled.div`
   background-color: var(--theme-secondary-background-color);
@@ -43,7 +43,7 @@ const ToggleButton = styled.button`
 `;
 
 const Content = styled.div`
-  display: ${({ open }: { open: boolean }) => (open ? "block" : "none")};
+  display: ${({ open }: { open: boolean }) => (open ? 'block' : 'none')};
   margin-top: 1em;
 
   @media (min-width: 900px) {
@@ -64,7 +64,7 @@ const Series: FC<SeriesProps> = ({ name, children, ...rest }) => {
           Series: <b>{name}</b>
         </span>
         <ToggleButton
-          className={cx("icon", open ? "icon-caret-down" : "icon-caret-left")}
+          className={cx('icon', open ? 'icon-caret-down' : 'icon-caret-left')}
           onClick={() => {
             setOpen(!open);
           }}

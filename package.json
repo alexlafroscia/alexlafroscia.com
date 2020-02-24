@@ -10,7 +10,8 @@
   "scripts": {
     "build": "gatsby build",
     "start": "gatsby develop",
-    "now-build": "gatsby build"
+    "now-build": "gatsby build",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
   "dependencies": {
     "@emotion/core": "^10.0.10",
@@ -43,9 +44,28 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
+    "@movable/eslint-config": "^0.5.0",
+    "@movable/eslint-config-react": "^0.5.0",
+    "@movable/prettier-config": "^0.3.0",
     "@types/lodash": "^4.14.129",
     "@types/markdown-to-jsx": "^6.9.0",
     "@types/react": "^16.8.17",
-    "@types/react-helmet": "^5.0.8"
+    "@types/react-helmet": "^5.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
+    "typescript": "^3.8.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{json,md,yaml,yml}": "prettier --write"
   }
 }

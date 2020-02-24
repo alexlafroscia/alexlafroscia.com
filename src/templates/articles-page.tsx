@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { Helmet as Head } from "react-helmet";
-import { graphql } from "gatsby";
+import React from 'react';
+import styled from '@emotion/styled';
+import { Helmet as Head } from 'react-helmet';
+import { graphql } from 'gatsby';
 
-import { Section } from "../elements";
-import Posts from "../components/Posts";
-import Post from "../components/Post";
-import Pagination, { Link as PaginationLink } from "../components/Pagination";
+import { Section } from '../elements';
+import Posts from '../components/Posts';
+import Post from '../components/Post';
+import Pagination, { Link as PaginationLink } from '../components/Pagination';
 
 const TagHeader = styled.header`
   margin-bottom: 4em;
@@ -43,9 +43,7 @@ export default ({ pageContext, data: { site, posts } }) => {
           previous={
             pageContext.pageNumber > 1
               ? () => (
-                  <PaginationLink
-                    href={`/articles/${pageContext.pageNumber - 1}`}
-                  >
+                  <PaginationLink href={`/articles/${pageContext.pageNumber - 1}`}>
                     Newer
                   </PaginationLink>
                 )
@@ -54,9 +52,7 @@ export default ({ pageContext, data: { site, posts } }) => {
           next={
             pageContext.pageNumber < pageContext.totalPages
               ? () => (
-                  <PaginationLink
-                    href={`/articles/${pageContext.pageNumber + 1}`}
-                  >
+                  <PaginationLink href={`/articles/${pageContext.pageNumber + 1}`}>
                     Older
                   </PaginationLink>
                 )

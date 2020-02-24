@@ -1,12 +1,12 @@
-import React from "react";
-import { Helmet as Head } from "react-helmet";
-import styled from "@emotion/styled";
-import { graphql } from "gatsby";
-import rehypeReact from "rehype-react";
+import React from 'react';
+import { Helmet as Head } from 'react-helmet';
+import styled from '@emotion/styled';
+import { graphql } from 'gatsby';
+import rehypeReact from 'rehype-react';
 
-import { Code, Img, Link, P, Pre, Section } from "../elements";
-import SeriesBase from "../components/Series";
-import { darkBlue } from "../theme/palette";
+import { Code, Img, Link, P, Pre, Section } from '../elements';
+import SeriesBase from '../components/Series';
+import { darkBlue } from '../theme/palette';
 
 const Columns = styled.div`
   display: flex;
@@ -75,10 +75,7 @@ export default ({ data: { post, site, series, seriesPosts } }) => {
               <ol>
                 {seriesPosts.edges.map(({ node: post }) => (
                   <li key={post.id}>
-                    <SeriesLink
-                      href={post.fields.slug}
-                      activeClassName="active"
-                    >
+                    <SeriesLink href={post.fields.slug} activeClassName="active">
                       {post.frontmatter.series.title}
                     </SeriesLink>
                   </li>

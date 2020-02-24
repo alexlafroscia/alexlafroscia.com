@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "@emotion/styled";
-import { Helmet } from "react-helmet";
-import { Global, css } from "@emotion/core";
-import useDarkMode from "use-dark-mode";
+import React from 'react';
+import styled from '@emotion/styled';
+import { Helmet } from 'react-helmet';
+import { Global, css } from '@emotion/core';
+import useDarkMode from 'use-dark-mode';
 
-import Sidebar from "../components/Sidebar";
-import Editorial from "../editorial";
-import Header, { Icon, IconButton, Logo } from "../editorial/Header";
-import { blue, darkBlue, gold, steel } from "../theme/palette";
+import Sidebar from '../components/Sidebar';
+import Editorial from '../editorial';
+import Header, { Icon, IconButton, Logo } from '../editorial/Header';
+import { blue, darkBlue, gold, steel } from '../theme/palette';
 
 const globalOverrides = css`
   body {
@@ -40,7 +40,7 @@ const Layout = ({ children }) => {
   return (
     <Editorial sidebar={() => <Sidebar />}>
       <Global styles={globalOverrides} />
-      <Helmet htmlAttributes={{ lang: "en" }}>
+      <Helmet htmlAttributes={{ lang: 'en' }}>
         <link href="https://micro.blog/alexlafroscia" rel="me" />
       </Helmet>
       <Header

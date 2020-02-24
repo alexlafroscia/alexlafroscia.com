@@ -1,13 +1,13 @@
-import React from "react";
-import { Helmet as Head } from "react-helmet";
-import { graphql } from "gatsby";
+import React from 'react';
+import { Helmet as Head } from 'react-helmet';
+import { graphql } from 'gatsby';
 
-import { Link, Section } from "../elements";
-import Pagination, { Link as PaginationLink } from "../components/Pagination";
-import Posts from "../components/Posts";
-import Post from "../components/Post";
+import { Link, Section } from '../elements';
+import Pagination, { Link as PaginationLink } from '../components/Pagination';
+import Posts from '../components/Posts';
+import Post from '../components/Post';
 
-const Article = Section.withComponent("article");
+const Article = Section.withComponent('article');
 
 export default ({ data: { recentPosts, site } }) => (
   <>
@@ -34,11 +34,7 @@ export default ({ data: { recentPosts, site } }) => (
         ))}
       </Posts>
     </Section>
-    <Pagination
-      next={() => (
-        <PaginationLink href="/articles/2">Older Posts</PaginationLink>
-      )}
-    />
+    <Pagination next={() => <PaginationLink href="/articles/2">Older Posts</PaginationLink>} />
   </>
 );
 
@@ -49,10 +45,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    recentPosts: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: 6
-    ) {
+    recentPosts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 6) {
       edges {
         node {
           id

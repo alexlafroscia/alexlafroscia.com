@@ -1,40 +1,38 @@
-import { css } from "@emotion/core";
+import { css } from '@emotion/core';
 
 export const usedIcons = css`
   .fa-caret-down:before {
-    content: "\f0d7";
+    content: '\f0d7';
   }
   .fa-caret-left:before {
-    content: "\f0d9";
+    content: '\f0d9';
   }
   .fa-github:before {
-    content: "\f09b";
+    content: '\f09b';
   }
   .fa-twitter:before {
-    content: "\f099";
+    content: '\f099';
   }
   .fa-medium:before {
-    content: "\f23a";
+    content: '\f23a';
   }
   .fa-rss:before {
-    content: "\f09e";
+    content: '\f09e';
   }
   .fa-lightbulb-o:before {
-    content: "\f0eb";
+    content: '\f0eb';
   }
 `;
 
 export const core = css`
   @font-face {
-    font-family: "FontAwesome";
-    src: url("/assets/fonts/fontawesome-webfont.eot?v=4.7.0");
-    src: url("/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0")
-        format("embedded-opentype"),
-      url("/assets/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"),
-      url("/assets/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"),
-      url("/assets/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"),
-      url("/assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular")
-        format("svg");
+    font-family: 'FontAwesome';
+    src: url('/assets/fonts/fontawesome-webfont.eot?v=4.7.0');
+    src: url('/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'),
+      url('/assets/fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'),
+      url('/assets/fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'),
+      url('/assets/fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'),
+      url('/assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg');
     font-weight: normal;
     font-style: normal;
   }
