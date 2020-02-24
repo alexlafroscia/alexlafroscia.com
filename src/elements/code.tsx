@@ -1,23 +1,14 @@
 import styled from '@emotion/styled';
 
-import { monospace } from '../theme/font';
-
-import Pre from './pre';
-
 const Code = styled.code`
-  color: var(--theme-darker-text-color);
-
   /* Highlighted code snippets */
-  ${Pre} > &[class*='language-'] {
+  pre > &[class*='language-'] {
     color: #d6deeb;
-    font-family: ${monospace};
-    font-size: 1.1em;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
-    line-height: 1.5;
 
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -31,8 +22,6 @@ const Code = styled.code`
 
   /* Inline code blocks */
   *:not(pre) > & {
-    color: var(--theme-darker-text-color);
-    font-family: ${monospace};
     font-weight: bold;
   }
 `;

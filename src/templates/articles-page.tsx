@@ -1,21 +1,14 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Helmet as Head } from 'react-helmet';
 import { graphql } from 'gatsby';
 
-import { Section } from '../elements';
 import Posts from '../components/Posts';
-import Post from '../components/Post';
-import Pagination, { Link as PaginationLink } from '../components/Pagination';
+import Pagination, { NextLink, PreviousLink } from '../components/Pagination';
+import { asPageWidth } from '../components/PageWidth';
+import AsSectionHeader from '../styles/section-header';
 
-const TagHeader = styled.header`
-  margin-bottom: 4em;
-  text-align: center;
-
-  @media (min-width: 738px) {
-    margin-bottom: 6em;
-  }
-`;
+const Section = asPageWidth('section');
+const PageHeader = AsSectionHeader('h2');
 
 export default ({ pageContext, data: { site, posts } }) => {
   return (
@@ -25,37 +18,26 @@ export default ({ pageContext, data: { site, posts } }) => {
         <meta name="description" content="All posts on TIL by Alex LaFroscia" />
       </Head>
       <Section>
-        <TagHeader>
-          <h1>All Posts</h1>
-        </TagHeader>
-        <header className="major">
-          <h3>Page {pageContext.pageNumber}</h3>
+        <header className="mb-8 text-center">
+          <h1 className="text-4xl font-bold">All Posts</h1>
         </header>
-        <Posts>
-          {posts.edges.map(({ node: post }) => (
-            <Post key={post.id} post={post} />
-          ))}
-          {posts.edges.length % 2 !== 0 && <article />}
-        </Posts>
+        <PageHeader>Page {pageContext.pageNumber}</PageHeader>
+        <Posts posts={posts.edges.map(({ node }) => node)}></Posts>
         <Pagination
           currentPage={pageContext.pageNumber}
           totalPages={pageContext.totalPages}
           previous={
             pageContext.pageNumber > 1
               ? () => (
-                  <PaginationLink href={`/articles/${pageContext.pageNumber - 1}`}>
+                  <PreviousLink href={`/articles/${pageContext.pageNumber - 1}`}>
                     Newer
-                  </PaginationLink>
+                  </PreviousLink>
                 )
               : undefined
           }
           next={
             pageContext.pageNumber < pageContext.totalPages
-              ? () => (
-                  <PaginationLink href={`/articles/${pageContext.pageNumber + 1}`}>
-                    Older
-                  </PaginationLink>
-                )
+              ? () => <NextLink href={`/articles/${pageContext.pageNumber + 1}`}>Older</NextLink>
               : undefined
           }
         />

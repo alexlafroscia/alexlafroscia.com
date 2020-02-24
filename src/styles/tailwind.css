@@ -1,6 +1,26 @@
 @tailwind base;
 
+body {
+  --theme-darker-text-color: #3d4449;
+  --theme-secondary-background-color: #f5f6f7;
+
+  --theme-accent-color: theme('colors.blue');
+  --theme-accent-color-darker: theme('colors.dark-blue');
+
+  --theme-divider-color: rgba(210, 215, 217, 0.75);
+}
+
+body.dark-mode {
+  --theme-darker-text-color: theme('colors.steel');
+  --theme-secondary-background-color: theme('colors.blue.dark');
+}
+
 @tailwind components;
 
 @tailwind utilities;
+
+.hidden-from-screen {
+  @apply absolute top-auto w-px h-px overflow-hidden;
+  left: -10000px;
+}
 

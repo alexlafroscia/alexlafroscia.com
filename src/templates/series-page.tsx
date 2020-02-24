@@ -1,52 +1,43 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { Helmet as Head } from 'react-helmet';
 import { graphql } from 'gatsby';
 
-import { Section } from '../elements';
+import { asPageWidth } from '../components/PageWidth';
 import Posts from '../components/Posts';
-import Post from '../components/Post';
 
-const TagHeader = styled.header`
-  margin-bottom: 4em;
-  text-align: center;
+const Section = asPageWidth('section');
 
-  @media (min-width: 738px) {
-    margin-bottom: 6em;
-  }
-`;
-
-const Description = styled.p`
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
-export default ({ data: { series, posts } }) => (
+export default ({ data: { site, series, posts } }) => (
   <>
     <Head>
-      <title>{series.name}</title>
+      <title>
+        {series.name} | {site.siteMetadata.title}
+      </title>
       <meta name="description" content={series.description} />
     </Head>
     <Section>
-      <TagHeader>
-        <h1>{series.name}</h1>
-        <Description>{series.description}</Description>
-      </TagHeader>
-      <Posts>
-        {posts.edges.map(({ node: post }) => (
-          <Post key={post.id} post={post} />
-        ))}
-      </Posts>
+      <header className="mb-12 text-center">
+        <h1 className="mb-2 text-4xl font-bold">{series.name}</h1>
+        <p className="text-center">{series.description}</p>
+      </header>
+      <Posts posts={posts.edges.map(({ node }) => node)} />
     </Section>
   </>
 );
 
 export const pageQuery = graphql`
   query PostsInSeries($seriesSlug: String!) {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+
     series: seriesYaml(slug: { eq: $seriesSlug }) {
       name
       description
     }
+
     posts: allMarkdownRemark(
       filter: { frontmatter: { series: { slug: { eq: $seriesSlug } } } }
       sort: { fields: [frontmatter___date] }

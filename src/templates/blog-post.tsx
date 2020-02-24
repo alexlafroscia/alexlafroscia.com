@@ -1,95 +1,123 @@
 import React from 'react';
 import { Helmet as Head } from 'react-helmet';
-import styled from '@emotion/styled';
+import cx from '@sindresorhus/class-names';
 import { graphql } from 'gatsby';
 import rehypeReact from 'rehype-react';
 
-import { Code, Img, Link, P, Pre, Section } from '../elements';
-import SeriesBase from '../components/Series';
-import { darkBlue } from '../theme/palette';
+import { Code, Img, Link, P } from '../elements';
+import Series from '../components/Series';
 
-const Columns = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-
-  @media (min-width: 900px) {
-    align-items: flex-start;
-    flex-direction: row;
-  }
-`;
-
-const Series = styled(SeriesBase)`
-  @media (min-width: 900px) {
-    min-width: 200px;
-  }
-`;
-
-const SeriesLink = styled(Link)`
-  &.active {
-    font-weight: bold;
-  }
-`;
-
-const PostBody = styled.article`
-  font-size: 1.2em;
-
-  ${Link} {
-    border-bottom: dotted 1px;
-    color: ${darkBlue};
-
-    body.dark-mode & {
-      color: var(--theme-darker-text-color);
-    }
-  }
-`;
+const documentElementClasses = ['mb-4', 'max-w-full'];
+const headerClasses = ['font-bold', 'leading-snug', 'mt-8'];
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
   components: {
-    a: Link,
+    a: ({ className, ...rest }) => (
+      <Link
+        className={cx('border-b', 'border-dotted', 'text-dark-blue', 'dark:text-white', className)}
+        {...rest}
+      />
+    ),
+    h1: ({ className = undefined, ...rest }) => (
+      <h1
+        className={cx('text-4xl', ...documentElementClasses, ...headerClasses, className)}
+        {...rest}
+      />
+    ),
+    h2: ({ className, ...rest }) => (
+      <h2
+        className={cx('text-3xl', ...documentElementClasses, ...headerClasses, className)}
+        {...rest}
+      />
+    ),
+    h3: ({ className, ...rest }) => (
+      <h3
+        className={cx('text-2xl', ...documentElementClasses, ...headerClasses, className)}
+        {...rest}
+      />
+    ),
+    h4: ({ className, ...rest }) => (
+      <h4
+        className={cx('text-xl', ...documentElementClasses, ...headerClasses, className)}
+        {...rest}
+      />
+    ),
+    h5: ({ className, ...rest }) => (
+      <h5
+        className={cx('text-lg', ...documentElementClasses, ...headerClasses, className)}
+        {...rest}
+      />
+    ),
+    hr: ({ className, ...rest }) => (
+      <hr className={cx(...documentElementClasses, className)} {...rest} />
+    ),
     code: Code,
     img: Img,
-    p: P,
-    pre: Pre
+    ol: ({ className, ...rest }) => (
+      <ol className={cx('list-decimal', 'ml-5', ...documentElementClasses, className)} {...rest} />
+    ),
+    p: ({ className, ...rest }) => (
+      <P className={cx(...documentElementClasses, className)} {...rest} />
+    ),
+    pre: ({ className, ...rest }) => (
+      <pre
+        className={cx(
+          'bg-dark-blue',
+          'p-4',
+          'rounded-lg',
+          'overflow-auto',
+          'border-2',
+          'border-dark-blue',
+          'dark:border-blue',
+          ...documentElementClasses,
+          className
+        )}
+        {...rest}
+      />
+    ),
+    ul: ({ className, ...rest }) => (
+      <ul className={cx('list-disc', 'ml-5', ...documentElementClasses, className)} {...rest} />
+    )
   }
 }).Compiler;
 
-export default ({ data: { post, site, series, seriesPosts } }) => {
-  return (
-    <>
-      <Head>
-        <title>
-          {post.frontmatter.title} | {site.siteMetadata.title}
-        </title>
-        <meta name="description" content={post.excerpt} />
-      </Head>
-      <Section>
-        <header className="main">
-          <span className="date">{post.frontmatter.date}</span>
-          <h1>{post.frontmatter.title}</h1>
-        </header>
-        {series ? (
-          <Columns>
-            <PostBody>{renderAst(post.htmlAst)}</PostBody>
-            <Series name={series.name}>
-              <ol>
-                {seriesPosts.edges.map(({ node: post }) => (
-                  <li key={post.id}>
-                    <SeriesLink href={post.fields.slug} activeClassName="active">
-                      {post.frontmatter.series.title}
-                    </SeriesLink>
-                  </li>
-                ))}
-              </ol>
-            </Series>
-          </Columns>
-        ) : (
-          <PostBody>{renderAst(post.htmlAst)}</PostBody>
-        )}
-      </Section>
-    </>
-  );
-};
+export default ({ data: { post, site, series, seriesPosts } }) => (
+  <>
+    <Head>
+      <title>
+        {post.frontmatter.title} | {site.siteMetadata.title}
+      </title>
+      <meta name="description" content={post.excerpt} />
+    </Head>
+    <div className="max-w-full px-4 mx-auto sm:px-8">
+      <header className="mb-4 max-w-readable">
+        <span className="text-sm">{post.frontmatter.date}</span>
+        <h1 className="text-4xl font-bold leading-snug">{post.frontmatter.title}</h1>
+      </header>
+      {series ? (
+        <Series className="mb-4" name={series.name}>
+          <ol className="ml-5 list-decimal">
+            {seriesPosts.edges.map(({ node: post }) => (
+              <li key={post.id}>
+                <Link
+                  href={post.fields.slug}
+                  className="whitespace-no-wrap text-blue"
+                  activeClassName="active"
+                >
+                  {post.frontmatter.series.title}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </Series>
+      ) : (
+        undefined
+      )}
+      <article className="mb-16 max-w-readable">{renderAst(post.htmlAst)}</article>
+    </div>
+  </>
+);
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!, $seriesSlug: String) {

@@ -4,52 +4,16 @@ import Markdown from 'markdown-to-jsx';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import Section from '../elements/section';
+import { asPageWidth } from '../components/PageWidth';
+
+const Header = asPageWidth('header');
+const Section = asPageWidth('section');
 
 const SectionHeader = styled.h2`
   text-align: center;
 
   @media (min-width: 700px) {
     text-align: left;
-  }
-`;
-
-const ContactGroup = styled.div`
-  column-gap: 1em;
-  display: grid;
-  grid-template-areas:
-    'name name'
-    'website email';
-  row-gap: 0.25em;
-
-  @media (min-width: 700px) {
-    grid-template-areas:
-      'name website'
-      'name email';
-    margin: 2em 6em;
-  }
-`;
-
-const Name = styled.h1`
-  grid-area: name;
-  margin: 0;
-  text-align: center;
-
-  @media (min-width: 700px) {
-    text-align: left;
-  }
-`;
-
-const Website = styled.span`
-  grid-area: website;
-  text-align: right;
-`;
-
-const Email = styled.span`
-  grid-area: email;
-
-  @media (min-width: 700px) {
-    text-align: right;
   }
 `;
 
@@ -139,14 +103,7 @@ const Details = ({ details, ...rest }) => (
   </ul>
 );
 
-const Header = Section.withComponent('header');
-
 const globalStyles = css`
-  html {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
-      Arial, sans-serif;
-  }
-
   @media print {
     html {
       font-size: 12px;
@@ -171,15 +128,17 @@ export default function Resume({ data }) {
     <>
       <Header>
         <Global styles={globalStyles} />
-        <ContactGroup>
-          <Name>Alex LaFroscia</Name>
-          <Website>
+        <div className="mx-24 my-8 grid grid-cols-2 gap-4">
+          <h1 className="text-3xl font-bold text-center md:text-left col-span-2 md:col-span-1 md:row-span-2">
+            Alex LaFroscia
+          </h1>
+          <span className="text-right">
             <a href="http://alexlafroscia.com">alexlafroscia.com</a>
-          </Website>
-          <Email>
+          </span>
+          <span className="md:text-right">
             <a href="mailto:alex@lafroscia.com">alex@lafroscia.com</a>
-          </Email>
-        </ContactGroup>
+          </span>
+        </div>
       </Header>
 
       <Section>

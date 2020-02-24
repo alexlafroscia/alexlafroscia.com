@@ -2,39 +2,34 @@ import React from 'react';
 import { Helmet as Head } from 'react-helmet';
 import { graphql } from 'gatsby';
 
-import { Link, Section } from '../elements';
-import Pagination, { Link as PaginationLink } from '../components/Pagination';
+import { asPageWidth } from '../components/PageWidth';
+import Pagination, { NextLink as PaginationLink } from '../components/Pagination';
 import Posts from '../components/Posts';
-import Post from '../components/Post';
+import AsSectionHeader from '../styles/section-header';
 
-const Article = Section.withComponent('article');
+const Header = asPageWidth('header');
+const Section = asPageWidth('section');
+const SectionHeader = AsSectionHeader('h2');
 
 export default ({ data: { recentPosts, site } }) => (
   <>
     <Head>
       <title>{site.siteMetadata.title}</title>
     </Head>
-    <Article id="banner">
-      <div className="content">
-        <header>
-          <h1>
-            <Link href="/">{site.siteMetadata.title}</Link>
-          </h1>
-          <p>Stuff I learned and want to share</p>
-        </header>
-      </div>
-    </Article>
+    <Header className="py-8">
+      <h1 className="text-4xl font-bold">{site.siteMetadata.title}</h1>
+      <p className="text-sm tracking-wider uppercase">Stuff I learned and want to share</p>
+    </Header>
     <Section>
-      <header className="major">
-        <h3>Recent Posts</h3>
+      <header className="md:mb-4">
+        <SectionHeader>Recent Posts</SectionHeader>
       </header>
-      <Posts>
-        {recentPosts.edges.map(({ node: post }) => (
-          <Post key={post.id} post={post} />
-        ))}
-      </Posts>
+      <Posts posts={recentPosts.edges.map(({ node }) => node)} />
+      <Pagination
+        className="mx-8 lg:w-2/3 lg:mx-auto"
+        next={() => <PaginationLink href="/articles/2">Older Posts</PaginationLink>}
+      />
     </Section>
-    <Pagination next={() => <PaginationLink href="/articles/2">Older Posts</PaginationLink>} />
   </>
 );
 

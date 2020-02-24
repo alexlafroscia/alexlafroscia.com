@@ -1,76 +1,37 @@
-import React, { FC, useState } from 'react';
+import React, { FC, HTMLProps, useState } from 'react';
 import styled from '@emotion/styled';
 import cx from '@sindresorhus/class-names';
 
 const SeriesInner = styled.div`
   background-color: var(--theme-secondary-background-color);
-  border-radius: 3px;
-  margin-bottom: 3em;
-  padding: 1.5em;
-
-  @media (min-width: 900px) {
-    margin-bottom: 0;
-    margin-left: 2em;
-  }
-
-  b {
-    padding-left: 0.1em;
-  }
-
-  ol {
-    margin-bottom: 0;
-  }
 `;
 
-const Title = styled.span`
-  display: flex;
-  justify-content: space-between;
-`;
+type SeriesProps = { name: string } & HTMLProps<HTMLDivElement>;
 
-const ToggleButton = styled.button`
-  align-self: flex-end;
-  height: 2em;
-  line-height: 2em;
-  padding: 0 1em;
-
-  &::before {
-    margin-right: 0 !important;
-  }
-
-  @media (min-width: 900px) {
-    display: none;
-  }
-`;
-
-const Content = styled.div`
-  display: ${({ open }: { open: boolean }) => (open ? 'block' : 'none')};
-  margin-top: 1em;
-
-  @media (min-width: 900px) {
-    display: block;
-    margin-top: 0.5em;
-  }
-`;
-
-type SeriesProps = { name: string };
-
-const Series: FC<SeriesProps> = ({ name, children, ...rest }) => {
+const Series: FC<SeriesProps> = ({ name, className = '', children, ...rest }) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <SeriesInner {...rest}>
-      <Title>
-        <span>
-          Series: <b>{name}</b>
-        </span>
-        <ToggleButton
-          className={cx('icon', open ? 'icon-caret-down' : 'icon-caret-left')}
+    <SeriesInner className={cx('rounded-lg', 'p-4', 'lg:p-6', className)} {...rest}>
+      <div className="flex items-center space-between">
+        Series: <b className="flex-grow pl-2">{name}</b>
+        <button
+          className={cx(
+            'icon',
+            'border-2',
+            'border-current',
+            'text-blue',
+            'w-8',
+            'rounded',
+            'lg:hidden',
+            open ? 'icon-caret-down' : 'icon-caret-left'
+          )}
           onClick={() => {
             setOpen(!open);
           }}
         />
-      </Title>
-      <Content open={open}>{children}</Content>
+      </div>
+      <div className={cx('mt-2', 'lg:block', open ? 'block' : 'hidden')}>{children}</div>
     </SeriesInner>
   );
 };
