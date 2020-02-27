@@ -85,11 +85,6 @@ const Layout = ({ children }) => {
                 </Link>
               </li>
               <li className="mb-2">
-                <Link href="/resume" className="hover:text-blue">
-                  Resume
-                </Link>
-              </li>
-              <li className="mb-2">
                 <Link href="/articles/1" className="hover:text-blue">
                   All Posts
                 </Link>
