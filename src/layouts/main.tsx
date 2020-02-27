@@ -99,7 +99,7 @@ const Layout = ({ children }) => {
                 .map(socialNode => (
                   <span
                     key={socialNode.icon}
-                    className={`flex text-blue items-center icon-${socialNode.icon}`}
+                    className={`flex text-blue items-center icon icon-${socialNode.icon}`}
                   >
                     <Link
                       className="pl-2 font-sans text-black dark:text-white"

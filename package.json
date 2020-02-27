@@ -47,6 +47,7 @@
     "use-dark-mode": "^2.3.1"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
     "@movable/eslint-config": "^0.5.0",
     "@movable/eslint-config-react": "^0.5.0",
     "@movable/prettier-config": "^0.3.0",
