@@ -134,7 +134,7 @@ const Layout = ({ children }) => {
           </section>
         </div>
         <div className="flex flex-col items-stretch flex-grow overflow-y-scroll">
-          <header className="flex items-center pb-4 mx-4 mt-4 mb-4 border-b-4 md:mt-16 sm:mx-8 border-blue">
+          <header className="flex items-center flex-shrink-0 pb-4 mx-4 mt-4 mb-4 border-b-4 md:mt-16 sm:mx-8 border-blue">
             <button
               aria-checked={sidebarIsOpen}
               className={cx('mr-2', {
