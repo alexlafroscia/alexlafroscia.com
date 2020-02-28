@@ -1,1 +1,1 @@
-import './src/theme/prism-theme-night-owl.css';
+import './src/styles/app.css';

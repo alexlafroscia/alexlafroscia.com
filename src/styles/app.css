@@ -1,3 +1,7 @@
+@import './icomoon.css';
+@import './dank-mono.css';
+@import './prism-theme-night-owl.css';
+
 @tailwind base;
 
 body {
