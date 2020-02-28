@@ -25,10 +25,7 @@ export default ({ data: { recentPosts, site } }) => (
         <SectionHeader>Recent Posts</SectionHeader>
       </header>
       <Posts posts={recentPosts.edges.map(({ node }) => node)} />
-      <Pagination
-        className="mx-8 lg:w-2/3 lg:mx-auto"
-        next={() => <PaginationLink href="/articles/2">Older Posts</PaginationLink>}
-      />
+      <Pagination next={() => <PaginationLink href="/articles/2">Older Posts</PaginationLink>} />
     </Section>
   </>
 );
