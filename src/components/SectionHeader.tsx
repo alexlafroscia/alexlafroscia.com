@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from '@sindresorhus/class-names';
 
-export default function SectionHeader(Tag) {
+export function asSectionHeader(Tag) {
   return ({ className = undefined, ...rest }) => {
     return (
       <Tag

@@ -5,10 +5,10 @@ import { graphql } from 'gatsby';
 import Posts from '../components/Posts';
 import Pagination, { NextLink, PreviousLink } from '../components/Pagination';
 import { asPageWidth } from '../components/PageWidth';
-import AsSectionHeader from '../styles/section-header';
+import { asSectionHeader } from '../components/SectionHeader';
 
 const Section = asPageWidth('section');
-const PageHeader = AsSectionHeader('h2');
+const PageHeader = asSectionHeader('h2');
 
 export default ({ pageContext, data: { site, posts } }) => {
   return (

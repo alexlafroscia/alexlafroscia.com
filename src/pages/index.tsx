@@ -5,11 +5,11 @@ import { graphql } from 'gatsby';
 import { asPageWidth } from '../components/PageWidth';
 import Pagination, { NextLink as PaginationLink } from '../components/Pagination';
 import Posts from '../components/Posts';
-import AsSectionHeader from '../styles/section-header';
+import { asSectionHeader } from '../components/SectionHeader';
 
 const Header = asPageWidth('header');
 const Section = asPageWidth('section');
-const SectionHeader = AsSectionHeader('h2');
+const SectionHeader = asSectionHeader('h2');
 
 export default ({ data: { recentPosts, site } }) => (
   <>

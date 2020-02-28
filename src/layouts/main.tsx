@@ -5,15 +5,12 @@ import useDarkMode from 'use-dark-mode';
 import cx from '@sindresorhus/class-names';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import '../theme/dank-mono.css';
-import '../theme/icomoon.css';
-
 import { Icon, IconButton } from '../components/Icon';
 import Link from '../elements/a';
 
-import AsSectionHeader from '../styles/section-header';
+import { asSectionHeader } from '../components/SectionHeader';
 
-const SectionHeader = AsSectionHeader('h2');
+const SectionHeader = asSectionHeader('h2');
 
 const Layout = ({ children }) => {
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
@@ -137,7 +134,7 @@ const Layout = ({ children }) => {
           </section>
         </div>
         <div className="flex flex-col items-stretch flex-grow overflow-y-scroll">
-          <header className="flex items-center pb-4 mx-4 mt-16 mb-4 border-b-4 sm:mx-8 border-blue">
+          <header className="flex items-center pb-4 mx-4 mt-4 mb-4 border-b-4 md:mt-16 sm:mx-8 border-blue">
             <button
               aria-checked={sidebarIsOpen}
               className={cx('mr-2', {
