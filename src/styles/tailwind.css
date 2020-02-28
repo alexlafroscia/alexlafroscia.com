@@ -13,6 +13,8 @@ body {
 body.dark-mode {
   --theme-darker-text-color: theme('colors.steel');
   --theme-secondary-background-color: theme('colors.blue.dark');
+
+  @apply bg-dark-blue;
 }
 
 @tailwind components;
