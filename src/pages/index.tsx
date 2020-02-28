@@ -17,7 +17,7 @@ export default ({ data: { recentPosts, site } }) => (
       <title>{site.siteMetadata.title}</title>
     </Head>
     <Header className="py-8">
-      <h1 className="text-4xl font-bold">{site.siteMetadata.title}</h1>
+      <h1 className="text-4xl font-bold leaading-tight">{site.siteMetadata.title}</h1>
       <p className="text-sm tracking-wider uppercase">Stuff I learned and want to share</p>
     </Header>
     <Section>

@@ -8,7 +8,7 @@ import { Code, Img, Link, P } from '../elements';
 import Series from '../components/Series';
 
 const documentElementClasses = ['mb-4', 'max-w-full'];
-const headerClasses = ['font-bold', 'leading-snug', 'mt-8'];
+const headerClasses = ['font-bold', 'leading-tight', 'mt-8'];
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -93,7 +93,7 @@ export default ({ data: { post, site, series, seriesPosts } }) => (
     <div className="max-w-full px-4 mx-auto sm:px-8">
       <header className="mb-4 max-w-readable">
         <span className="text-sm">{post.frontmatter.date}</span>
-        <h1 className="text-4xl font-bold leading-snug">{post.frontmatter.title}</h1>
+        <h1 className="text-4xl font-bold leading-tight">{post.frontmatter.title}</h1>
       </header>
       {series ? (
         <Series className="mb-4" name={series.name}>
