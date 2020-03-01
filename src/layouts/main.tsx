@@ -50,90 +50,92 @@ const Layout = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="https://micro.blog/alexlafroscia" rel="me" />
       </Helmet>
-      <div className="flex h-screen dark:text-white dark:bg-dark-blue">
+      <div className="flex items-stretch dark:text-white dark:bg-dark-blue">
         <div
           className={cx(
-            'flex-shrink-0 h-full p-8 bg-gray-light absolute md:static dark:bg-blue-dark shadow-2xl md:shadow-lg',
+            'flex-shrink-0 top-0 bottom-0 p-8 bg-gray-light fixed md:static dark:bg-blue-dark shadow-2xl md:shadow-lg',
             {
               hidden: !sidebarIsOpen
             }
           )}
         >
-          <section className="mb-12">
-            <div className="flex items-center justify-between mb-4">
-              <SectionHeader>Menu</SectionHeader>
-              <button className="md:hidden" onClick={() => setSidebarIsOpen(false)}>
-                <span className="hidden-from-screen">Close Sidebar</span>
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path d="M14.7 15.3a1 1 0 0 1-1.4 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.4 1.4L11.42 12l3.3 3.3z" />
-                </svg>
-              </button>
-            </div>
-            <ul>
-              <li className="mb-2">
-                <Link href="/" className="hover:text-blue">
-                  Home
-                </Link>
-              </li>
-              <li className="mb-2">
-                <Link href="/articles/1" className="hover:text-blue">
-                  All Posts
-                </Link>
-              </li>
-            </ul>
-          </section>
-          <section className="mb-12">
-            <SectionHeader className="mb-4 col-span-2">Find Me Online</SectionHeader>
-            <div className="grid grid-cols-2 gap-4">
-              {social.allSocialYaml.edges
-                .map(edge => edge.node)
-                .map(socialNode => (
-                  <span
-                    key={socialNode.icon}
-                    className={`flex text-blue items-center icon icon-${socialNode.icon}`}
+          <div className="sticky top-0">
+            <section className="mb-12">
+              <div className="flex items-center justify-between mb-4">
+                <SectionHeader>Menu</SectionHeader>
+                <button className="md:hidden" onClick={() => setSidebarIsOpen(false)}>
+                  <span className="hidden-from-screen">Close Sidebar</span>
+                  <svg
+                    className="fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
                   >
-                    <Link
-                      className="pl-2 font-sans text-black dark:text-white"
-                      href={socialNode.link}
+                    <path d="M14.7 15.3a1 1 0 0 1-1.4 1.4l-4-4a1 1 0 0 1 0-1.4l4-4a1 1 0 0 1 1.4 1.4L11.42 12l3.3 3.3z" />
+                  </svg>
+                </button>
+              </div>
+              <ul>
+                <li className="mb-2">
+                  <Link href="/" className="hover:text-blue">
+                    Home
+                  </Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="/articles/1" className="hover:text-blue">
+                    All Posts
+                  </Link>
+                </li>
+              </ul>
+            </section>
+            <section className="mb-12">
+              <SectionHeader className="mb-4 col-span-2">Find Me Online</SectionHeader>
+              <div className="grid grid-cols-2 gap-4">
+                {social.allSocialYaml.edges
+                  .map(edge => edge.node)
+                  .map(socialNode => (
+                    <span
+                      key={socialNode.icon}
+                      className={`flex text-blue items-center icon icon-${socialNode.icon}`}
                     >
-                      {socialNode.name}
-                    </Link>
-                  </span>
-                ))}
-            </div>
-          </section>
-          <section className="pt-2 text-xs border-t border-gray text-gray dark:text-white">
-            <ul>
-              <li>
-                Colors from{' '}
-                <Link newTab href="https://aka.ms/nightowl" className="border-b border-dotted">
-                  Night Owl
-                </Link>{' '}
-                by{' '}
-                <Link
-                  newTab
-                  href="https://sarahdrasnerdesign.com/"
-                  className="border-b border-dotted"
-                >
-                  Sarah Drasner
-                </Link>
-              </li>
-              <li>
-                Built with{' '}
-                <Link newTab href="https://www.gatsbyjs.org/" className="border-b border-dotted">
-                  Gatsby
-                </Link>
-              </li>
-            </ul>
-          </section>
+                      <Link
+                        className="pl-2 font-sans text-black dark:text-white"
+                        href={socialNode.link}
+                      >
+                        {socialNode.name}
+                      </Link>
+                    </span>
+                  ))}
+              </div>
+            </section>
+            <section className="pt-2 text-xs border-t border-gray text-gray dark:text-white">
+              <ul>
+                <li>
+                  Colors from{' '}
+                  <Link newTab href="https://aka.ms/nightowl" className="border-b border-dotted">
+                    Night Owl
+                  </Link>{' '}
+                  by{' '}
+                  <Link
+                    newTab
+                    href="https://sarahdrasnerdesign.com/"
+                    className="border-b border-dotted"
+                  >
+                    Sarah Drasner
+                  </Link>
+                </li>
+                <li>
+                  Built with{' '}
+                  <Link newTab href="https://www.gatsbyjs.org/" className="border-b border-dotted">
+                    Gatsby
+                  </Link>
+                </li>
+              </ul>
+            </section>
+          </div>
         </div>
-        <div className="flex flex-col items-stretch flex-grow overflow-y-scroll">
+        <div className="flex flex-col items-stretch flex-grow">
           <header className="flex items-center flex-shrink-0 pb-4 mx-4 mt-4 mb-4 border-b-4 md:mt-16 sm:mx-8 border-blue">
             <button
               aria-checked={sidebarIsOpen}
