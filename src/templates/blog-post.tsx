@@ -93,7 +93,10 @@ export default ({ data: { post, site, series, seriesPosts } }) => (
     <div className="max-w-full px-4 mx-auto sm:px-8">
       <header className="mb-4 max-w-readable">
         <span className="text-sm">{post.frontmatter.date}</span>
-        <h1 className="text-4xl font-bold leading-tight">{post.frontmatter.title}</h1>
+        <h1 className="text-4xl font-bold leading-tight">
+          {series ? <span className="hidden-from-screen">{series.name}: </span> : undefined}
+          {post.frontmatter.title}
+        </h1>
       </header>
       {series ? (
         <Series className="mb-4" name={series.name}>
