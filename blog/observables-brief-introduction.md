@@ -5,7 +5,6 @@ description: >-
   The basics of observables and how to use them
 series:
   slug: observables
-  title: A Brief Introduction
 tags:
   - observables
   - rxjs

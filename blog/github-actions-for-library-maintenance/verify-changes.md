@@ -6,7 +6,6 @@ description: >-
   an Open Source library maintainer.
 series:
   slug: github-actions
-  title: Verifying Changes
 tags:
   - Open Source
   - GitHub Actions

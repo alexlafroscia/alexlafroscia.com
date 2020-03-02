@@ -105,7 +105,7 @@ export default ({ data: { post, site, series, seriesPosts } }) => (
                   className="whitespace-no-wrap text-blue"
                   activeClassName="active"
                 >
-                  {post.frontmatter.series.title}
+                  {post.frontmatter.title}
                 </Link>
               </li>
             ))}
@@ -152,9 +152,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            series {
-              title
-            }
           }
         }
       }
