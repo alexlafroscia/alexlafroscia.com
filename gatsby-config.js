@@ -60,35 +60,60 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }] // eslint-disable-line @typescript-eslint/camelcase
-                });
+            serialize: ({ query: { site, posts, allSeries } }) => {
+              return posts.nodes.map(post => {
+                let series;
+
+                if (post.frontmatter.series) {
+                  series = allSeries.nodes.find(
+                    series => series.slug === post.frontmatter.series.slug
+                  );
+
+                  if (!series) {
+                    throw new Error(
+                      `Could not find series matching slug: ${post.frontmatter.slug}`
+                    );
+                  }
+                }
+
+                return {
+                  title: series
+                    ? `${series.name}: ${post.frontmatter.title}`
+                    : post.frontmatter.title,
+                  description: post.excerpt,
+                  date: post.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + post.fields.slug,
+                  guid: site.siteMetadata.siteUrl + post.fields.slug,
+                  custom_elements: [{ 'content:encoded': post.html }] // eslint-disable-line @typescript-eslint/camelcase
+                };
               });
             },
             query: `
               {
-                allMarkdownRemark(
+                posts: allMarkdownRemark(
                   limit: 1000,
                   sort: { order: DESC, fields: [frontmatter___date] }
                 ) {
-                  edges {
-                    node {
-                      excerpt
-                      html
-                      fields {
+                  nodes {
+                    excerpt
+                    html
+                    fields {
+                      slug
+                    }
+                    frontmatter {
+                      title
+                      date
+                      series {
                         slug
                       }
-                      frontmatter {
-                        title
-                        date
-                      }
                     }
+                  }
+                }
+
+                allSeries: allSeriesYaml {
+                  nodes {
+                    name
+                    slug
                   }
                 }
               }
