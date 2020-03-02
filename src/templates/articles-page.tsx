@@ -10,7 +10,7 @@ import { asSectionHeader } from '../components/SectionHeader';
 const Section = asPageWidth('section');
 const PageHeader = asSectionHeader('h2');
 
-export default ({ pageContext, data: { site, posts } }) => {
+export default ({ pageContext, data: { site, posts, series } }) => {
   return (
     <>
       <Head>
@@ -22,7 +22,7 @@ export default ({ pageContext, data: { site, posts } }) => {
           <h1 className="text-4xl font-bold">All Posts</h1>
         </header>
         <PageHeader>Page {pageContext.pageNumber}</PageHeader>
-        <Posts posts={posts.edges.map(({ node }) => node)}></Posts>
+        <Posts posts={posts.edges.map(({ node }) => node)} series={series.nodes}></Posts>
         <Pagination
           currentPage={pageContext.pageNumber}
           totalPages={pageContext.totalPages}
@@ -70,8 +70,18 @@ export const pageQuery = graphql`
             title
             description
             date(formatString: "MMMM DD, YYYY")
+            series {
+              slug
+            }
           }
         }
+      }
+    }
+
+    series: allSeriesYaml {
+      nodes {
+        slug
+        name
       }
     }
   }

@@ -5,13 +5,22 @@ import Link from '../elements/a';
 
 type PostProps = {
   post: PostLike;
+  series?: SeriesLike;
 } & HTMLProps<HTMLDivElement>;
 
-const Post: FC<PostProps> = ({ post, className = undefined, ...rest }) => (
+const Post: FC<PostProps> = ({ post, series, className = undefined, ...rest }) => (
   <article className={cx('flex', 'flex-col', 'items-start', className)} {...rest}>
-    <h3 className="mb-2 text-lg font-bold">
-      {post.frontmatter.title || post.frontmatter.series.title}
-    </h3>
+    <h3 className="mb-2 text-lg font-bold">{post.frontmatter.title}</h3>
+    {series ? (
+      <div className="w-full p-2 mb-2 text-sm rounded bg-gray-light dark:bg-blue-dark">
+        Series:
+        <Link href={`/series/${series.slug}/`} className="pl-1 font-bold">
+          {series.name}
+        </Link>
+      </div>
+    ) : (
+      undefined
+    )}
     <p className="flex-grow mb-8">{post.frontmatter.description}</p>
     <Link
       href={post.fields.slug}
@@ -33,7 +42,12 @@ export interface PostLike {
     title: string;
     description: string;
     series?: {
-      title: string;
+      slug: string;
     };
   };
+}
+
+export interface SeriesLike {
+  slug: string;
+  name: string;
 }

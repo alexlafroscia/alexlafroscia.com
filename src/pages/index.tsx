@@ -11,7 +11,7 @@ const Header = asPageWidth('header');
 const Section = asPageWidth('section');
 const SectionHeader = asSectionHeader('h2');
 
-export default ({ data: { recentPosts, site } }) => (
+export default ({ data: { recentPosts, series, site } }) => (
   <>
     <Head>
       <title>{site.siteMetadata.title}</title>
@@ -24,7 +24,7 @@ export default ({ data: { recentPosts, site } }) => (
       <header className="md:mb-4">
         <SectionHeader>Recent Posts</SectionHeader>
       </header>
-      <Posts posts={recentPosts.edges.map(({ node }) => node)} />
+      <Posts posts={recentPosts.edges.map(({ node }) => node)} series={series.nodes} />
       <Pagination next={() => <PaginationLink href="/articles/2">Older Posts</PaginationLink>} />
     </Section>
   </>
@@ -37,6 +37,7 @@ export const pageQuery = graphql`
         title
       }
     }
+
     recentPosts: allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 6) {
       edges {
         node {
@@ -48,8 +49,18 @@ export const pageQuery = graphql`
             title
             description
             date
+            series {
+              slug
+            }
           }
         }
+      }
+    }
+
+    series: allSeriesYaml {
+      nodes {
+        slug
+        name
       }
     }
   }
