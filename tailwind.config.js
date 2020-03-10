@@ -33,7 +33,8 @@ module.exports = {
         mono: 'dm'
       },
       maxWidth: {
-        readable: '80ch'
+        readable: '80ch',
+        screen: '100vw'
       }
     }
   },

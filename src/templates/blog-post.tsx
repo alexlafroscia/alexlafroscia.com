@@ -90,7 +90,7 @@ export default ({ data: { post, site, series, seriesPosts } }) => (
       </title>
       <meta name="description" content={post.excerpt} />
     </Head>
-    <div className="max-w-full px-4 mx-auto sm:px-8">
+    <div className="px-4 mx-auto max-w-screen sm:px-8">
       <header className="mb-4 max-w-readable">
         <span className="text-sm">{post.frontmatter.date}</span>
         <h1 className="text-4xl font-bold leading-tight">
