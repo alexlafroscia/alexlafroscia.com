@@ -27,7 +27,7 @@
     "gatsby-plugin-postcss": "^2.1.20",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-sharp": "^2.0.36",
-    "gatsby-plugin-typescript": "^2.0.14",
+    "gatsby-plugin-typescript": "^2.3.1",
     "gatsby-remark-copy-linked-files": "^2.0.12",
     "gatsby-remark-images": "^3.0.11",
     "gatsby-remark-prismjs": "^3.2.9",
