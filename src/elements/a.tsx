@@ -24,7 +24,7 @@ const Link: FC<LinkProps> = ({ children, href, activeClassName, newTab, ...rest 
     rest = {
       ...rest,
       target: '_blank',
-      rel: 'noopener noreferrer'
+      rel: 'noopener noreferrer',
     };
   }
 

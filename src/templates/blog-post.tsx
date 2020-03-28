@@ -78,8 +78,8 @@ const renderAst = new rehypeReact({
     ),
     ul: ({ className, ...rest }) => (
       <ul className={cx('list-disc', 'ml-5', ...documentElementClasses, className)} {...rest} />
-    )
-  }
+    ),
+  },
 }).Compiler;
 
 export default ({ data: { post, site, series, seriesPosts } }) => (
@@ -114,9 +114,7 @@ export default ({ data: { post, site, series, seriesPosts } }) => (
             ))}
           </ol>
         </Series>
-      ) : (
-        undefined
-      )}
+      ) : undefined}
       <article className="mb-16 max-w-readable">{renderAst(post.htmlAst)}</article>
     </div>
   </>

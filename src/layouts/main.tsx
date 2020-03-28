@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
   `);
 
   useEffect(
-    function() {
+    function () {
       const unsubscribe = globalHistory.listen(({ action }) => {
         if (action === 'PUSH') {
           setSidebarIsOpen(false);
@@ -55,7 +55,7 @@ const Layout = ({ children }) => {
           className={cx(
             'flex-shrink-0 top-0 bottom-0 p-8 bg-gray-light fixed md:static dark:bg-blue-dark shadow-2xl md:shadow-lg',
             {
-              hidden: !sidebarIsOpen
+              hidden: !sidebarIsOpen,
             }
           )}
         >
@@ -93,8 +93,8 @@ const Layout = ({ children }) => {
               <SectionHeader className="mb-4 col-span-2">Find Me Online</SectionHeader>
               <div className="grid grid-cols-2 gap-4">
                 {social.allSocialYaml.edges
-                  .map(edge => edge.node)
-                  .map(socialNode => (
+                  .map((edge) => edge.node)
+                  .map((socialNode) => (
                     <span
                       key={socialNode.icon}
                       className={`flex text-blue items-center icon icon-${socialNode.icon}`}
@@ -140,7 +140,7 @@ const Layout = ({ children }) => {
             <button
               aria-checked={sidebarIsOpen}
               className={cx('mr-2', {
-                'text-blue': sidebarIsOpen
+                'text-blue': sidebarIsOpen,
               })}
               onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
               role="switch"

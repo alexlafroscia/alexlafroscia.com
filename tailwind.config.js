@@ -17,32 +17,32 @@ module.exports = {
       white: 'white',
       blue: {
         default: 'rgb(130, 170, 255)',
-        dark: 'rgb(11, 41, 66)'
+        dark: 'rgb(11, 41, 66)',
       },
       gray: {
         light: '#f5f6f7',
         default: '#5d6469',
-        dark: '#3d4449'
-      }
+        dark: '#3d4449',
+      },
     },
     extend: {
       borderColor: {
-        current: 'currentColor'
+        current: 'currentColor',
       },
       fontFamily: {
-        mono: 'dm'
+        mono: 'dm',
       },
       maxWidth: {
         readable: '80ch',
-        screen: '100vw'
-      }
-    }
+        screen: '100vw',
+      },
+    },
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'dark'],
     borderColor: ['responsive', 'hover', 'focus', 'dark', 'dark-hover'],
     textColor: ['responsive', 'hover', 'focus', 'dark', 'dark-hover'],
-    padding: ['responsive', 'odd', 'even']
+    padding: ['responsive', 'odd', 'even'],
   },
-  plugins: [require('tailwindcss-dark-mode')()]
+  plugins: [require('tailwindcss-dark-mode')()],
 };

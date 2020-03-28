@@ -90,9 +90,7 @@ const Pagination: FC<PaginationProps & HTMLProps<HTMLDivElement>> = ({
       <Pointer>
         {currentPage} out of {totalPages}
       </Pointer>
-    ) : (
-      undefined
-    )}
+    ) : undefined}
     <NextWrapper>{next ? next() : undefined}</NextWrapper>
   </Footer>
 );

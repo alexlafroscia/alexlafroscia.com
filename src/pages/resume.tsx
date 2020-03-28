@@ -84,7 +84,7 @@ const Work = ({ work }) => (
 
 const Details = ({ details, ...rest }) => (
   <ul {...rest}>
-    {details.map(detail => (
+    {details.map((detail) => (
       <li
         key={detail}
         css={css`
@@ -121,8 +121,8 @@ const globalStyles = css`
 `;
 
 export default function Resume({ data }) {
-  const workExperiences = data.workExperiences.edges.map(e => e.node);
-  const openSourceProjects = data.openSourceProjects.edges.map(e => e.node);
+  const workExperiences = data.workExperiences.edges.map((e) => e.node);
+  const openSourceProjects = data.openSourceProjects.edges.map((e) => e.node);
 
   return (
     <>
@@ -144,7 +144,7 @@ export default function Resume({ data }) {
       <Section>
         <SectionHeader>Work Experiences</SectionHeader>
 
-        {workExperiences.map(work => (
+        {workExperiences.map((work) => (
           <Work key={work.company} work={work} />
         ))}
       </Section>
@@ -152,7 +152,7 @@ export default function Resume({ data }) {
       <Section id="oss-projects">
         <SectionHeader>Notable Open Source Projects</SectionHeader>
 
-        {openSourceProjects.map(project => (
+        {openSourceProjects.map((project) => (
           <InfoGroup key={project.name}>
             <h3>
               <a

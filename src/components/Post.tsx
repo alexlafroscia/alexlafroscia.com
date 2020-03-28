@@ -18,9 +18,7 @@ const Post: FC<PostProps> = ({ post, series, className = undefined, ...rest }) =
           {series.name}
         </Link>
       </div>
-    ) : (
-      undefined
-    )}
+    ) : undefined}
     <p className="flex-grow mb-8">{post.frontmatter.description}</p>
     <Link
       href={post.fields.slug}

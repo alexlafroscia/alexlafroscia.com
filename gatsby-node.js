@@ -56,8 +56,8 @@ exports.createPages = ({ graphql, actions }) => {
           slug: post.node.fields.slug,
           seriesSlug: post.node.frontmatter.series && post.node.frontmatter.series.slug,
           previous,
-          next
-        }
+          next,
+        },
       });
     });
 
@@ -70,20 +70,20 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           pageNumber: i + 1,
           totalPages: numListPages,
-          skipArticles: POSTS_PER_PAGE * i
-        }
+          skipArticles: POSTS_PER_PAGE * i,
+        },
       });
     }
 
     // Create series pages
     const series = data.series.edges;
-    series.forEach(series => {
+    series.forEach((series) => {
       createPage({
         path: `series/${series.node.slug}`,
         component: seriesPage,
         context: {
-          seriesSlug: series.node.slug
-        }
+          seriesSlug: series.node.slug,
+        },
       });
     });
   });
@@ -97,7 +97,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       name: `slug`,
       node,
-      value
+      value,
     });
   }
 };

@@ -10,9 +10,9 @@ type PostsProps = HTMLProps<HTMLDivElement> & {
 const Posts: FC<PostsProps> = ({ className, posts, series: allSeries = [], ...rest }) => {
   return (
     <div className={cx('grid', 'md:grid-cols-2', 'gap-px', 'bg-steel', className)} {...rest}>
-      {posts.map(post => {
+      {posts.map((post) => {
         const series = allSeries.find(
-          series => post.frontmatter.series && series.slug === post.frontmatter.series.slug
+          (series) => post.frontmatter.series && series.slug === post.frontmatter.series.slug
         );
 
         return (

@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title,
     author: `Alex LaFroscia`,
-    siteUrl: `https://alexlafroscia.com`
+    siteUrl: `https://alexlafroscia.com`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,33 +17,33 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/blog`,
-        name: `blog`
-      }
+        name: `blog`,
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-prismjs`
+            resolve: `gatsby-remark-prismjs`,
           },
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 590
-            }
+              maxWidth: 590,
+            },
           },
-          `gatsby-remark-copy-linked-files`
-        ]
-      }
+          `gatsby-remark-copy-linked-files`,
+        ],
+      },
     },
     `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/data`,
-        name: `data`
-      }
+        name: `data`,
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -61,12 +61,12 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, posts, allSeries } }) => {
-              return posts.nodes.map(post => {
+              return posts.nodes.map((post) => {
                 let series;
 
                 if (post.frontmatter.series) {
                   series = allSeries.nodes.find(
-                    series => series.slug === post.frontmatter.series.slug
+                    (series) => series.slug === post.frontmatter.series.slug
                   );
 
                   if (!series) {
@@ -84,7 +84,7 @@ module.exports = {
                   date: post.frontmatter.date,
                   url: site.siteMetadata.siteUrl + post.fields.slug,
                   guid: site.siteMetadata.siteUrl + post.fields.slug,
-                  custom_elements: [{ 'content:encoded': post.html }] // eslint-disable-line @typescript-eslint/camelcase
+                  custom_elements: [{ 'content:encoded': post.html }], // eslint-disable-line @typescript-eslint/camelcase
                 };
               });
             },
@@ -119,22 +119,22 @@ module.exports = {
               }
             `,
             output: `/rss.xml`,
-            title
-          }
-        ]
-      }
+            title,
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-plugin-fathom',
       options: {
-        siteId: 'NHEVCYHO'
-      }
+        siteId: 'NHEVCYHO',
+      },
     },
     {
       resolve: `gatsby-plugin-layout`,
       options: {
-        layout: require.resolve(`./src/layouts/index.tsx`)
-      }
-    }
-  ]
+        layout: require.resolve(`./src/layouts/index.tsx`),
+      },
+    },
+  ],
 };

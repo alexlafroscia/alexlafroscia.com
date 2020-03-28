@@ -7,14 +7,14 @@ const purgecss = require('@fullhuman/postcss-purgecss')({
   content: ['./src/**/*.tsx', './src/**/*.css'],
 
   // Include any special characters you're using in this regular expression
-  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 
   whitelistPatterns: [
     // Ensure that the icon classes are not stripped
-    /^icon/
-  ]
+    /^icon/,
+  ],
 });
 
 module.exports = () => ({
-  plugins: [require('tailwindcss'), ...(isProduction || process.env.PURGE_CSS ? [purgecss] : [])]
+  plugins: [require('tailwindcss'), ...(isProduction || process.env.PURGE_CSS ? [purgecss] : [])],
 });

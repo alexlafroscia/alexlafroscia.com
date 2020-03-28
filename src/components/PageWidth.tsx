@@ -20,7 +20,7 @@ const PageWidth: FC<Props> = ({ className = undefined, as = 'div', ...rest }) =>
 export default PageWidth;
 
 export function asPageWidth(tagName: keyof JSX.IntrinsicElements) {
-  return function({ ...rest }) {
+  return function ({ ...rest }) {
     return <PageWidth as={tagName} {...rest} />;
   };
 }
