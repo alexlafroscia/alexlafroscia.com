@@ -44,7 +44,7 @@ Finally, you'll need to ensure that your application doesn't start immediately b
 ```javascript
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   // ...
 
   if (environment === 'test') {
@@ -70,11 +70,11 @@ import { setupApplicationTest } from 'ember-qunit';
 import setupMirage from 'ember-cli-mirage/test-support/setup-mirage';
 import { currentRouteName, visit } from '@ember/test-helpers';
 
-module('Acceptance | Projects | Show', function(hooks) {
+module('Acceptance | Projects | Show', function (hooks) {
   setupApplicationTest(hooks);
   setupMirage(hooks);
 
-  test('visiting a project', async function(assert) {
+  test('visiting a project', async function (assert) {
     const project = this.server.create('project');
 
     await visit(`/project/${project.id}`);

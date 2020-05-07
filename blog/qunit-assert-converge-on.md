@@ -12,7 +12,7 @@ tags:
 While writing some acceptance tests recently I kept running into slight race conditions between the state my application and an assertion I wanted to make. For example, one of the tests looked something like this:
 
 ```javascript
-test('creating a comment', async function(assert) {
+test('creating a comment', async function (assert) {
   assert.equal(Task.comments.messages.length, 5, 'Starts with correct number of comments');
 
   await Task.comments.input.fillIn('A new comment');
@@ -35,7 +35,7 @@ Ember ships with a useful helper function called `waitUntil`. You can give it a 
 ```javascript
 import { waitUntil } from '@ember/test-helpers';
 
-test('creating a comment', async function(assert) {
+test('creating a comment', async function (assert) {
   assert.equal(Task.comments.messages.length, 5, 'Starts with correct number of comments');
 
   await Task.comments.input.fillIn('A new comment');
@@ -58,7 +58,7 @@ Based around the testing approach that [The Frontside](https://frontside.io) has
 The above test can be revised using it like so:
 
 ```javascript
-test('creating a comment', async function(assert) {
+test('creating a comment', async function (assert) {
   assert.equal(Task.comments.messages.length, 5, 'Starts with correct number of comments');
 
   await Task.comments.input.fillIn('A new comment');
@@ -89,7 +89,7 @@ QUnit.extend(QUnit.assert, {
         throw e;
       }
     }
-  }
+  },
 });
 ```
 

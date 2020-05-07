@@ -35,7 +35,7 @@ Let's dig into some details on what an `Observable` is and how to use them.
 Much like a you call `then` on a promise to receive a value from it, you can call `subscribe` on an observable to begin receiving values
 
 ```javascript
-const subscription = observable.subscribe(value => {
+const subscription = observable.subscribe((value) => {
   console.log(value);
 });
 ```
@@ -44,9 +44,9 @@ The act of subscribing to the observable creates a **subscription**. The callbac
 
 ```javascript
 const subscription = observable.subscribe({
-  next: value => {
+  next: (value) => {
     console.log(value);
-  }
+  },
 });
 ```
 
@@ -55,7 +55,7 @@ Unlike a promise, where your handler is called at most one time, the `next` call
 Since we do not know how many values we will receive or when we will receive them, we may run into a case where we need to signal that we are no longer interested. The subscription allows us to `unsubscribe` when we no longer want to receive values
 
 ```javascript
-const subscription = observable.subscribe(value => {
+const subscription = observable.subscribe((value) => {
   console.log(value);
 });
 
@@ -83,12 +83,12 @@ While an observable _can_ represent an infinite source of values, it is possible
 
 ```javascript
 const subscription = observable.subscribe({
-  next: value => {
+  next: (value) => {
     console.log(value);
   },
   complete: () => {
     console.log('Done producing values!');
-  }
+  },
 });
 ```
 
