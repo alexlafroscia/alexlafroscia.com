@@ -19,6 +19,19 @@ const renderAst = new rehypeReact({
         {...rest}
       />
     ),
+    blockquote: ({ className, ...rest }) => (
+      <blockquote
+        className={cx(
+          'border-l-4',
+          'pl-4',
+          'border-gray-light',
+          'dark:border-blue-dark',
+          ...documentElementClasses,
+          className
+        )}
+        {...rest}
+      />
+    ),
     h1: ({ className = undefined, ...rest }) => (
       <h1
         className={cx('text-4xl', ...documentElementClasses, ...headerClasses, className)}
