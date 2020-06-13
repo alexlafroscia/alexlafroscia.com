@@ -125,12 +125,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-fathom',
-      options: {
-        siteId: 'NHEVCYHO',
-      },
-    },
-    {
       resolve: `gatsby-plugin-layout`,
       options: {
         layout: require.resolve(`./src/layouts/index.tsx`),
