@@ -1887,12 +1887,12 @@
   resolved "https://registry.yarnpkg.com/@mikaelkristiansson/domready/-/domready-1.0.10.tgz#f6d69866c0857664e70690d7a0bfedb72143adb5"
   integrity sha512-6cDuZeKSCSJ1KvfEQ25Y8OXUjqDJZ+HgUs6dhASWbAX8fxVraTfPsSeRe2bN+4QJDsgUaXaMWBYfRomCr04GGg==
 
-"@movable/eslint-config-react@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@movable/eslint-config-react/-/eslint-config-react-0.5.1.tgz#4d6f6f6fb87942c55e70a9e5a9a5ded5ed2f7cc3"
-  integrity sha512-tZLgEUs8kkJKQi9/m1N9h4fNI0PK3QzFG4V6Q4EF/n3+KSyakWBslzowob4lyxD8nArst5aQ54l19fFFc0L1HA==
+"@movable/eslint-config-react@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@movable/eslint-config-react/-/eslint-config-react-0.6.0.tgz#12447718f4d790108de84309185b4c7ae69a25a7"
+  integrity sha512-uFRGDqLaNphPmP8clhmMw35wIvEQT8zuejruz5xNQZo9pFNjQGLEwGJ268BMFGFLaRBSQ1FQzKfs0ufY1Sp7SQ==
   dependencies:
-    eslint-plugin-react "^7.19.0"
+    eslint-plugin-react "^7.20.0"
 
 "@movable/eslint-config@^0.5.1":
   version "0.5.1"
@@ -6104,7 +6104,7 @@ eslint-plugin-react-hooks@^1.7.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.7.0.tgz#6210b6d5a37205f0b92858f895a4e827020a7d04"
   integrity sha512-iXTCFcOmlWvw4+TOE8CLWj6yX1GwzT0Y6cUfHHZqWnSk144VmVIRcVGtUAzrLES7C798lmvnt02C7rxaOX1HNA==
 
-eslint-plugin-react@^7.19.0, eslint-plugin-react@^7.20.0:
+eslint-plugin-react@^7.20.0:
   version "7.20.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.20.0.tgz#f98712f0a5e57dfd3e5542ef0604b8739cd47be3"
   integrity sha512-rqe1abd0vxMjmbPngo4NaYxTcR3Y4Hrmc/jg4T+sYz63yqlmJRknpEQfmWY+eDWPuMmix6iUIK+mv0zExjeLgA==
