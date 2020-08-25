@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.3.0",
-    "@movable/eslint-config": "^0.5.1",
+    "@movable/eslint-config": "^0.6.5",
     "@movable/eslint-config-react": "^0.6.3",
     "@movable/prettier-config": "^0.3.2",
     "@types/lodash": "^4.14.160",
