@@ -28,7 +28,7 @@
     "gatsby-plugin-sharp": "^2.6.29",
     "gatsby-plugin-typescript": "^2.4.18",
     "gatsby-remark-copy-linked-files": "^2.3.12",
-    "gatsby-remark-images": "^3.3.26",
+    "gatsby-remark-images": "^3.3.27",
     "gatsby-remark-prismjs": "^3.5.10",
     "gatsby-source-filesystem": "^2.3.26",
     "gatsby-transformer-remark": "^2.8.30",
