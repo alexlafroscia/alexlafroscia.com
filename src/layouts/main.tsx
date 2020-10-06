@@ -76,15 +76,20 @@ const Layout = ({ children }) => {
                   </svg>
                 </button>
               </div>
-              <ul>
-                <li className="mb-2">
+              <ul className="space-y-2">
+                <li>
                   <Link href="/" className="hover:text-blue">
                     Home
                   </Link>
                 </li>
-                <li className="mb-2">
+                <li>
                   <Link href="/articles/1" className="hover:text-blue">
                     All Posts
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/resume" className="hover:text-blue">
+                    Resume
                   </Link>
                 </li>
               </ul>

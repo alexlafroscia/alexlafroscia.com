@@ -1,48 +1,41 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
+import { Helmet as Head } from 'react-helmet';
 import { graphql } from 'gatsby';
 import Markdown from 'markdown-to-jsx';
 import { Global, css } from '@emotion/core';
-import styled from '@emotion/styled';
 
-import { asPageWidth } from '../components/PageWidth';
+import PageWidth from '../components/PageWidth';
+import Link from '../elements/a';
 
-const Header = asPageWidth('header');
-const Section = asPageWidth('section');
+const Section = ({ children, className = '', id = undefined }) => (
+  <PageWidth as="section" className={`space-y-4 ${className}`} id={id}>
+    {children}
+  </PageWidth>
+);
 
-const SectionHeader = styled.h2`
-  text-align: center;
-
-  @media (min-width: 700px) {
-    text-align: left;
-  }
-`;
-
-const InfoGroup = styled.div`
-  margin-bottom: 1em;
-`;
+const SectionHeader = ({ children, className = '' }) => (
+  <h2 className={`text-xl font-bold text-center md:text-left ${className}`}>{children}</h2>
+);
 
 const Work = ({ work }) => (
-  <InfoGroup
+  <div
+    className="items-center grid gap-x-4 gap-y-1"
     css={css`
-      align-items: center;
-      column-gap: 1em;
-      display: grid;
       grid-template-areas:
         'name name name'
         'role role role'
         'time time time'
         'details details details';
       grid-template-columns: auto 1fr auto;
-      row-gap: 0.25em;
 
-      @media (min-width: 450px) {
+      @media (min-width: 640px) {
         grid-template-areas:
           'name name name'
           'role role time'
           'details details details';
       }
 
-      @media (min-width: 700px) {
+      @media (min-width: 768px) {
         grid-template-areas:
           'name role time'
           'details details details';
@@ -50,9 +43,9 @@ const Work = ({ work }) => (
     `}
   >
     <h3
+      className="font-bold"
       css={css`
         grid-area: name;
-        margin: 0;
       `}
     >
       {work.company}
@@ -60,7 +53,6 @@ const Work = ({ work }) => (
     <p
       css={css`
         grid-area: role;
-        margin: 0;
       `}
     >
       {work.role}
@@ -68,30 +60,29 @@ const Work = ({ work }) => (
     <p
       css={css`
         grid-area: time;
-        margin: 0;
       `}
     >
       {work.time}
     </p>
     <Details
+      details={work.details}
       css={css`
         grid-area: details;
       `}
-      details={work.details}
     />
-  </InfoGroup>
+  </div>
 );
 
-const Details = ({ details, ...rest }) => (
-  <ul {...rest}>
+const Details: FunctionComponent<{ details: string[]; className?: string }> = ({
+  details,
+  className,
+  ...rest
+}) => (
+  <ul className={`list-disc ml-5 space-y-1 ${className}`} {...rest}>
     {details.map((detail) => (
       <li
         key={detail}
         css={css`
-          &:not(:last-of-type) {
-            margin-bottom: 0.25em;
-          }
-
           span {
             line-height: 1.2em;
           }
@@ -103,45 +94,41 @@ const Details = ({ details, ...rest }) => (
   </ul>
 );
 
-const globalStyles = css`
-  @media print {
-    html {
-      font-size: 12px;
-    }
-
-    a {
-      color: inherit !important;
-      text-decoration: none !important;
-
-      &:visited {
-        color: inherit !important;
-      }
-    }
-  }
-`;
-
 export default function Resume({ data }) {
   const workExperiences = data.workExperiences.edges.map((e) => e.node);
   const openSourceProjects = data.openSourceProjects.edges.map((e) => e.node);
 
   return (
     <>
-      <Header>
-        <Global styles={globalStyles} />
-        <div className="mx-24 my-8 grid grid-cols-2 gap-4">
-          <h1 className="text-3xl font-bold text-center md:text-left col-span-2 md:col-span-1 md:row-span-2">
-            Alex LaFroscia
-          </h1>
-          <span className="text-right">
-            <a href="http://alexlafroscia.com">alexlafroscia.com</a>
-          </span>
-          <span className="md:text-right">
-            <a href="mailto:alex@lafroscia.com">alex@lafroscia.com</a>
-          </span>
-        </div>
-      </Header>
+      <Head>
+        <title>Resume for Alex LaFroscia</title>
 
-      <Section>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <Global
+        styles={css`
+          @media print {
+            html {
+              font-size: 12px;
+            }
+          }
+        `}
+      />
+      <PageWidth as="header" className="flex flex-col mx-24 my-8 md:flex-row md:justify-between">
+        <h1 className="text-3xl font-bold text-center md:text-left">Alex LaFroscia</h1>
+        <div className="flex justify-center md:flex-col md:items-end">
+          <Link className="mr-4 text-right md:mr-0" href="/">
+            alexlafroscia.com
+          </Link>
+          <a className="md:text-right" href="mailto:alex@lafroscia.com">
+            alex@lafroscia.com
+          </a>
+        </div>
+      </PageWidth>
+
+      <Section className="mb-6">
         <SectionHeader>Work Experiences</SectionHeader>
 
         {workExperiences.map((work) => (
@@ -149,27 +136,28 @@ export default function Resume({ data }) {
         ))}
       </Section>
 
-      <Section id="oss-projects">
+      <Section className="mb-6" id="oss-projects">
         <SectionHeader>Notable Open Source Projects</SectionHeader>
 
-        {openSourceProjects.map((project) => (
-          <InfoGroup key={project.name}>
-            <h3>
-              <a
-                css={css`
-                  text-decoration: none;
-                `}
-                href={`https://github.com/${project.name}`}
-              >
-                {project.name}
-              </a>
-            </h3>
-            <Details details={project.details} />
-          </InfoGroup>
-        ))}
+        {openSourceProjects.map((project) => {
+          const githubSlug = project.name.includes('/')
+            ? project.name
+            : `alexlafroscia/${project.name}`;
+
+          return (
+            <div key={project.name}>
+              <h3>
+                <a className="font-bold" href={`https://github.com/${githubSlug}`}>
+                  {project.name}
+                </a>
+              </h3>
+              <Details details={project.details} />
+            </div>
+          );
+        })}
       </Section>
 
-      <Section>
+      <Section className="mb-6">
         <SectionHeader>Academics</SectionHeader>
         <ul>
           <li>
@@ -184,7 +172,7 @@ export default function Resume({ data }) {
 
 export const query = graphql`
   {
-    openSourceProjects: allOpenSourceProjectsYaml {
+    openSourceProjects: allOpenSourceProjectsYaml(filter: { hide: { ne: true } }) {
       edges {
         node {
           name

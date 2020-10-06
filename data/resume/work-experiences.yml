@@ -1,12 +1,19 @@
+- company: Movable Ink
+  role: Principle Front-End Engineer, Infrastructure
+  time: August 2019 – Present
+  details:
+    - Defined and documented best-practices for writing JavaScript and CSS while migrating legacy code to meet those standards
+    - Upgraded all of the company's applications to the latest version of Ember.js, adopting community-recommended patterns along the way
+    - Improved build-time performance by auditing dependencies and removing unused code
+    - Implemented design-system components focused on consistency and accessibility
+    - Introduced tools like TailwindCSS to aid in front-end development, making it easier for full-stack developers to contribute to the codebase
+
 - company: Netflix
   role: Senior Software Engineer
   time: December 2017 – June 2019
   details:
     - Maintained and extended a production visibility tool using modern Ember.js
-    - Evaluated, planned and executed the re-write of a major feature of an Ember.js application into a standalone React application
-    - Created a task management system that integrates with Netflix Studio data using React and GraphQL
-    - Contributed to API development by assisting in designing the GraphQL schema
-    - Drove product decisions through collaboration with designers and direct interaction with users
+    - Evaluated, planned and executed the creation a task management system that integrates with Netflix Studio data using React and GraphQL
     - Participated in the development of the internal design system for Netflix Studio by prototyping early implementations and providing feedback during the design and development process
     - Developed standards around UI development within Netflix Studio by implementing a pattern for application scaffolding that became the basis for shared tooling going forward
 
@@ -21,6 +28,7 @@
 - company: Qualaris Healthcare Solutions
   role: Ember.js Developer
   time: December 2014 – May 2016
+  hide: true
   details:
     - Refactored existing code to promote reuse and take advantage of new features in Ember.js
     - Redesigned the UI of the product to follow responsive design principles
