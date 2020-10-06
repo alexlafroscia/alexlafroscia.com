@@ -7,6 +7,7 @@
     - Improved build-time performance by auditing dependencies and removing unused code
     - Implemented design-system components focused on consistency and accessibility
     - Introduced tools like TailwindCSS to aid in front-end development, making it easier for full-stack developers to contribute to the codebase
+    - Re-built the front-end testing pipeline to maximally parallelize work and increase resilience to flakey tests
 
 - company: Netflix
   role: Senior Software Engineer
