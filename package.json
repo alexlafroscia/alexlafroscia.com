@@ -36,7 +36,7 @@
     "gatsby-transformer-yaml": "^2.4.14",
     "lodash": "^4.17.20",
     "markdown-to-jsx": "^7.0.1",
-    "prismjs": "^1.21.0",
+    "prismjs": "^1.22.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
