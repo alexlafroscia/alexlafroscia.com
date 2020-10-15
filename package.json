@@ -37,7 +37,7 @@
     "lodash": "^4.17.20",
     "markdown-to-jsx": "^7.0.1",
     "prismjs": "^1.22.0",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "rehype-react": "^6.1.0",
