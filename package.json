@@ -41,7 +41,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
     "rehype-react": "^6.1.0",
-    "tailwindcss": "^1.9.5",
+    "tailwindcss": "^1.9.6",
     "tailwindcss-dark-mode": "^1.1.7",
     "use-dark-mode": "^2.3.1"
   },
