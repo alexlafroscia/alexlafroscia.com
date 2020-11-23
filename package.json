@@ -35,7 +35,7 @@
     "gatsby-transformer-sharp": "^2.7.0",
     "gatsby-transformer-yaml": "^2.6.0",
     "lodash": "^4.17.20",
-    "markdown-to-jsx": "^7.0.1",
+    "markdown-to-jsx": "^7.1.0",
     "prismjs": "^1.22.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
