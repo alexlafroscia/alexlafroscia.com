@@ -1793,10 +1793,10 @@
   resolved "https://registry.yarnpkg.com/@mikaelkristiansson/domready/-/domready-1.0.10.tgz#f6d69866c0857664e70690d7a0bfedb72143adb5"
   integrity sha512-6cDuZeKSCSJ1KvfEQ25Y8OXUjqDJZ+HgUs6dhASWbAX8fxVraTfPsSeRe2bN+4QJDsgUaXaMWBYfRomCr04GGg==
 
-"@movable/eslint-config-react@^0.6.5":
-  version "0.6.5"
-  resolved "https://registry.yarnpkg.com/@movable/eslint-config-react/-/eslint-config-react-0.6.5.tgz#b100ce7be0197a3c2c8a0d44b316bf65073cec32"
-  integrity sha512-hB1PQrrjtkitOXjrDOMLru22ojw8LxRdpO0KxnqhKim0UQ5Zsm0bjKzKWMXX3CcAn4mL7Yu4K0EaURg3BpJ47A==
+"@movable/eslint-config-react@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@movable/eslint-config-react/-/eslint-config-react-0.6.6.tgz#b8db5908cfc588d7473f5493d0c771ad1da0f2bf"
+  integrity sha512-oUTgNkM60Y2nzbdQAEL0tTeE1QUFsCj7nBQY/q45PWvGEwjBnU7fufXdCZCwerj2fYX5Dm2TdsvtGruJKbfIfg==
   dependencies:
     eslint-plugin-react "^7.22.0"
 
