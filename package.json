@@ -19,7 +19,7 @@
     "@emotion/styled": "^10.0.27",
     "@sindresorhus/class-names": "^1.1.0",
     "gatsby": "^2.32.12",
-    "gatsby-image": "^3.3.0",
+    "gatsby-image": "^3.4.0",
     "gatsby-plugin-emotion": "^4.5.0",
     "gatsby-plugin-feed": "^2.13.1",
     "gatsby-plugin-layout": "^1.10.0",
