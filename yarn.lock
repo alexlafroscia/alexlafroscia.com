@@ -1871,10 +1871,10 @@
     prop-types "^15.6.1"
     react-lifecycles-compat "^3.0.4"
 
-"@sindresorhus/class-names@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/class-names/-/class-names-1.1.0.tgz#0169df27fcd7cdc0cf565cbd4ee9f30095fa4a0d"
-  integrity sha512-08ZNyv6o1ynBFg+JuMOxGikXiF6TU9Y7xr3Nzb6r6e/D5OAOU+W+BS+BV2AQqpXOqFLYrGLow2Mc2PlRc4bNoQ==
+"@sindresorhus/class-names@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sindresorhus/class-names/-/class-names-2.0.0.tgz#ad8d7a1819491732021b1c6131cd58d5b99dc256"
+  integrity sha512-TB+lfchVEdXDVZ0huItEbKT7EMnMrGT9gfCI5B9Mg5CjUgyeqwQBcRA66Kwcu4FU3jtOUpUyMYWI1/nDq+VS0Q==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
