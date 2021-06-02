@@ -53,7 +53,7 @@
     "@movable/prettier-config": "^0.3.2",
     "@types/lodash": "^4.14.170",
     "@types/markdown-to-jsx": "^7.0.1",
-    "@types/react": "^17.0.8",
+    "@types/react": "^17.0.9",
     "@types/react-helmet": "^6.1.1",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.34.0",
