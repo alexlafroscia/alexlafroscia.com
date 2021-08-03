@@ -51,7 +51,7 @@
     "@movable/eslint-config": "^0.5.1",
     "@movable/eslint-config-react": "^1.0.1",
     "@movable/prettier-config": "^0.3.2",
-    "@types/lodash": "^4.14.171",
+    "@types/lodash": "^4.14.172",
     "@types/markdown-to-jsx": "^7.0.1",
     "@types/react": "^17.0.15",
     "@types/react-helmet": "^6.1.2",
