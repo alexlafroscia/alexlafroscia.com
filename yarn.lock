@@ -131,19 +131,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:next":
-  version: 1.0.0-next.188
-  resolution: "@sveltejs/kit@npm:1.0.0-next.188"
+"@sveltejs/kit@npm:^1.0.0-next.1":
+  version: 1.0.0-next.191
+  resolution: "@sveltejs/kit@npm:1.0.0-next.191"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.30
     cheap-watch: ^1.0.4
     sade: ^1.7.4
-    vite: ^2.6.10
+    vite: ^2.6.12
   peerDependencies:
     svelte: ^3.44.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 0ae53b4006f1f2e034dedb3c514d450d9c2a5a5b76943ef2084bc27c0acfcd98817383a8d48757c418990f10a3383c3cbab23e197fb6dbcf426205c4c74da4cd
+  checksum: e58b741ba92219272bddf85fe1fe202674243716d15fc98768edfb2c051b9176f5a8beb0e67aabfee4b478b66f7aff9c7a52ffe6834ba27445f6e499764f3db3
   languageName: node
   linkType: hard
 
@@ -1859,7 +1859,7 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "my-app@workspace:."
   dependencies:
-    "@sveltejs/kit": next
+    "@sveltejs/kit": ^1.0.0-next.1
     "@typescript-eslint/eslint-plugin": ^4.31.1
     "@typescript-eslint/parser": ^4.31.1
     eslint: ^7.32.0
@@ -1869,9 +1869,9 @@ fsevents@~2.3.2:
     prettier: ^2.4.1
     prettier-plugin-svelte: ^2.4.0
     sass: ^1.43.3
-    svelte: ^3.42.6
-    svelte-check: ^2.2.6
-    svelte-preprocess: ^4.9.4
+    svelte: ^3.44.0
+    svelte-check: ^2.2.7
+    svelte-preprocess: ^4.9.8
     tslib: ^2.3.1
     typescript: ^4.4.3
   languageName: unknown
@@ -2527,7 +2527,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"svelte-check@npm:^2.2.6":
+"svelte-check@npm:^2.2.7":
   version: 2.2.7
   resolution: "svelte-check@npm:2.2.7"
   dependencies:
@@ -2557,7 +2557,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.9.4":
+"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.9.8":
   version: 4.9.8
   resolution: "svelte-preprocess@npm:4.9.8"
   dependencies:
@@ -2606,7 +2606,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"svelte@npm:^3.42.6":
+"svelte@npm:^3.44.0":
   version: 3.44.0
   resolution: "svelte@npm:3.44.0"
   checksum: f02a9b5aa27f40c4b5bde8f44b4357c8da4ca4c0009b3c5b41ed556cf34bd0c5bcdeb5023dac71374926b1158a5ead314f96a75292d9b310e1d3f98f0284f712
@@ -2759,9 +2759,9 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"vite@npm:^2.6.10":
-  version: 2.6.10
-  resolution: "vite@npm:2.6.10"
+"vite@npm:^2.6.12":
+  version: 2.6.13
+  resolution: "vite@npm:2.6.13"
   dependencies:
     esbuild: ^0.13.2
     fsevents: ~2.3.2
@@ -2784,7 +2784,7 @@ resolve@^1.20.0:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 802b59c275ac099d6cfcf17636d1034cb6d3e7a363a33a4bf990cbe859059cec35249e958a26a59d5cfde3dbbbf207b8ac8817eb127063c96957d2e573389370
+  checksum: 59e09d8650328eac44990de9aaa9f49011113e3c1d8c3b54d9b8550496c8d290ec14149048bbbd49b39f78a80f23c4019130bd55924bfd139f63423be8d4754a
   languageName: node
   linkType: hard
 
