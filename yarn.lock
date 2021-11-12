@@ -769,9 +769,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:^1.0.0-next.1":
-  version: 1.0.0-next.191
-  resolution: "@sveltejs/kit@npm:1.0.0-next.191"
+"@sveltejs/kit@npm:^1.0.0-next.196":
+  version: 1.0.0-next.196
+  resolution: "@sveltejs/kit@npm:1.0.0-next.196"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.30
     cheap-watch: ^1.0.4
@@ -781,7 +781,7 @@ __metadata:
     svelte: ^3.44.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: e58b741ba92219272bddf85fe1fe202674243716d15fc98768edfb2c051b9176f5a8beb0e67aabfee4b478b66f7aff9c7a52ffe6834ba27445f6e499764f3db3
+  checksum: b956ef7871ff4b2d4aa3cda77b47ddd68b34252bb9687f41a1aabfbfd1c7845ef0d88f0227db8443dbafc3fb0b3e73a24c656c6d3e726e9ebc1df47a7ede49d9
   languageName: node
   linkType: hard
 
@@ -3926,7 +3926,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-app@workspace:."
   dependencies:
-    "@sveltejs/kit": ^1.0.0-next.1
+    "@sveltejs/kit": ^1.0.0-next.196
     "@types/jest": ^27.0.2
     "@typescript-eslint/eslint-plugin": ^4.31.1
     "@typescript-eslint/parser": ^4.31.1
@@ -3939,7 +3939,7 @@ __metadata:
     prettier: ^2.4.1
     prettier-plugin-svelte: ^2.4.0
     sass: ^1.43.3
-    svelte: ^3.44.0
+    svelte: ^3.44.1
     svelte-check: ^2.2.7
     svelte-preprocess: ^4.9.8
     ts-jest: ^27.0.7
@@ -4982,10 +4982,10 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"svelte@npm:^3.44.0":
-  version: 3.44.0
-  resolution: "svelte@npm:3.44.0"
-  checksum: f02a9b5aa27f40c4b5bde8f44b4357c8da4ca4c0009b3c5b41ed556cf34bd0c5bcdeb5023dac71374926b1158a5ead314f96a75292d9b310e1d3f98f0284f712
+"svelte@npm:^3.44.1":
+  version: 3.44.1
+  resolution: "svelte@npm:3.44.1"
+  checksum: 851f597c3e15b06261a9a907b7ddeb678ecf992070f06988dc9ba1445d437be19b11b6eea0eef839a932fdfe34c6a6132bed230a14fb0925ee795cfc66660662
   languageName: node
   linkType: hard
 
