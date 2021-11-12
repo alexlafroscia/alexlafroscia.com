@@ -2,11 +2,13 @@ import fs from "fs";
 import { resolve as resolvePath, parse as parsePath } from "path";
 import { compile } from "mdsvex";
 import { walk } from "$lib/walk";
+import { findPkg } from "$lib/find-pkg";
 import { collect } from "$lib/async-iter";
 
 const currentFileUrl = new URL(import.meta.url);
-const { dir: DIRNAME } = parsePath(currentFileUrl.pathname);
-const rootPostDirName = resolvePath(DIRNAME, "../routes/tech");
+const pkgPath = findPkg(currentFileUrl.pathname);
+const { dir: packageRootDir } = parsePath(pkgPath);
+const rootPostDirName = resolvePath(packageRootDir, "src/routes/tech");
 const POST_EXTENSIONS = new Set([".md", ".svx"]);
 
 export type Post = {
