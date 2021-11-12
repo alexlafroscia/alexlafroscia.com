@@ -5,7 +5,9 @@
 <aside id="sidebar">
   <span class="bold menu-header">Menu</span>
 
-  <a href={base}>home</a>
+  <a href={`${base}/`}>home</a>
+
+  <a href={`${base}/tech`}>tech blog</a>
 </aside>
 
 <style>

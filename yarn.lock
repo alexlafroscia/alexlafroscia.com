@@ -942,6 +942,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/unist@npm:^2.0.0, @types/unist@npm:^2.0.2, @types/unist@npm:^2.0.3":
+  version: 2.0.6
+  resolution: "@types/unist@npm:2.0.6"
+  checksum: 25cb860ff10dde48b54622d58b23e66214211a61c84c0f15f88d38b61aa1b53d4d46e42b557924a93178c501c166aa37e28d7f6d994aba13d24685326272d5db
+  languageName: node
+  linkType: hard
+
 "@types/yargs-parser@npm:*":
   version: 20.2.1
   resolution: "@types/yargs-parser@npm:20.2.1"
@@ -3713,6 +3720,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mdsvex@npm:^0.9.8":
+  version: 0.9.8
+  resolution: "mdsvex@npm:0.9.8"
+  dependencies:
+    "@types/unist": ^2.0.3
+    prism-svelte: ^0.4.7
+    prismjs: ^1.17.1
+    vfile-message: ^2.0.4
+  peerDependencies:
+    svelte: 3.x
+  checksum: d19f18fed167542d479c85dfc575d10f50d02816d538f438bd30311b8ae5cbaac5927cfb19f3195b526bb6d60ed8081dbf9d88aba57dd560de1def4ddb5aa16c
+  languageName: node
+  linkType: hard
+
 "merge-stream@npm:^2.0.0":
   version: 2.0.0
   resolution: "merge-stream@npm:2.0.0"
@@ -3913,6 +3934,7 @@ __metadata:
     eslint-config-prettier: ^8.3.0
     eslint-plugin-svelte3: ^3.2.1
     jest: ^27.3.1
+    mdsvex: ^0.9.8
     modern-normalize: ^1.1.0
     prettier: ^2.4.1
     prettier-plugin-svelte: ^2.4.0
@@ -4266,6 +4288,20 @@ __metadata:
     ansi-styles: ^5.0.0
     react-is: ^17.0.1
   checksum: 2979eae85a4f7ba1c3946faa8f5c6497cc80dc64ba499ccd5fdada267f82dc664f315a4c1cdd4c0b4b97edbae399a7bf0a957cc1b87feb91cd95f1e436834fed
+  languageName: node
+  linkType: hard
+
+"prism-svelte@npm:^0.4.7":
+  version: 0.4.7
+  resolution: "prism-svelte@npm:0.4.7"
+  checksum: 7f3648ba67558eb510380587fecc511e903164f7c5eed856cbd16bbc00b144e1398eda84537f0e48cbc1a14cdb3835aba3a266f357848aa0e80f5b28d848d0b5
+  languageName: node
+  linkType: hard
+
+"prismjs@npm:^1.17.1":
+  version: 1.25.0
+  resolution: "prismjs@npm:1.25.0"
+  checksum: 04d8eae9d1b26b76c350bc65621584c8f8cab80ace7da3953f8aef2f9a8dd4b4f71c1d15bc5c67f126ddc90cd5af613919dc1340589a6c57355bed86fa3ac010
   languageName: node
   linkType: hard
 
@@ -5170,7 +5206,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-"typescript@*, typescript@^4.4.3":
+"typescript@*, typescript@npm:^4.4.3":
   version: 4.4.4
   resolution: "typescript@npm:4.4.4"
   bin:
@@ -5205,6 +5241,15 @@ resolve@^1.20.0:
   dependencies:
     imurmurhash: ^0.1.4
   checksum: 5b6876a645da08d505dedb970d1571f6cebdf87044cb6b740c8dbb24f0d6e1dc8bdbf46825fd09f994d7cf50760e6f6e063cfa197d51c5902c00a861702eb75a
+  languageName: node
+  linkType: hard
+
+"unist-util-stringify-position@npm:^2.0.0":
+  version: 2.0.3
+  resolution: "unist-util-stringify-position@npm:2.0.3"
+  dependencies:
+    "@types/unist": ^2.0.2
+  checksum: f755cadc959f9074fe999578a1a242761296705a7fe87f333a37c00044de74ab4b184b3812989a57d4cd12211f0b14ad397b327c3a594c7af84361b1c25a7f09
   languageName: node
   linkType: hard
 
@@ -5246,6 +5291,16 @@ resolve@^1.20.0:
     convert-source-map: ^1.6.0
     source-map: ^0.7.3
   checksum: c7dabf9567e0c210b24d0720e553803cbe1ff81edb1ec7f2080eb4be01ed081a40286cc9f4aaa86d1bf8d57840cefae8fdf326b7cb8faa316ba50c7b948030d4
+  languageName: node
+  linkType: hard
+
+"vfile-message@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "vfile-message@npm:2.0.4"
+  dependencies:
+    "@types/unist": ^2.0.0
+    unist-util-stringify-position: ^2.0.0
+  checksum: 1bade499790f46ca5aba04bdce07a1e37c2636a8872e05cf32c26becc912826710b7eb063d30c5754fdfaeedc8a7658e78df10b3bc535c844890ec8a184f5643
   languageName: node
   linkType: hard
 

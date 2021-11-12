@@ -20,7 +20,7 @@
       />
     </svg>
   </button>
-  <a class="bold" href={base}>home</a>
+  <a class="bold" href={`${base}/`}>home</a>
 </header>
 
 <style>
