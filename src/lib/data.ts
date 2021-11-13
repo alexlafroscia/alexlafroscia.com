@@ -1,5 +1,5 @@
 import fs from "fs";
-import { resolve as resolvePath, parse as parsePath } from "path";
+import { join as joinPath, parse as parsePath } from "path";
 import { compile } from "mdsvex";
 import { walk } from "$lib/walk";
 import { findPkg } from "$lib/find-pkg";
@@ -8,7 +8,7 @@ import { collect } from "$lib/async-iter";
 const currentFileUrl = new URL(import.meta.url);
 const pkgPath = findPkg(currentFileUrl.pathname);
 const { dir: packageRootDir } = parsePath(pkgPath);
-const rootPostDirName = resolvePath(packageRootDir, "src/routes/tech");
+const rootPostDirName = joinPath(packageRootDir, "src/routes/tech");
 const POST_EXTENSIONS = new Set([".md", ".svx"]);
 
 export type Post = {
@@ -26,6 +26,8 @@ export class Store {
   }
 
   private async loadPostsIntoCache(): Promise<void> {
+    // Retrieve the same `mdsvex` config that we use at build-time
+    const { mdsvexConfig } = await import(joinPath(packageRootDir, "svelte.config.js"));
     const paths = await collect(walk(rootPostDirName));
     const posts: Post[] = await Promise.all(
       paths
@@ -41,7 +43,11 @@ export class Store {
 
           const fileContentBuffer = await fs.promises.readFile(entry);
           const fileContentString = fileContentBuffer.toString();
-          const result = await compile(fileContentString);
+          const result = await compile(fileContentString, {
+            ...mdsvexConfig,
+            // Need to provide the file name for layout-application purposes
+            filename: entry,
+          });
 
           const {
             data: { fm: frontmatter = {} },

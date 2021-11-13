@@ -1,6 +1,17 @@
+import { join, parse } from "path";
 import staticAdapter from "@sveltejs/adapter-static";
 import preprocess from "svelte-preprocess";
 import { mdsvex } from "mdsvex";
+
+const { pathname: filename } = new URL(import.meta.url);
+const { dir: rootDir } = parse(filename);
+
+export const mdsvexConfig = {
+  layout: {
+    tech: join(rootDir, "./src/layouts/tech.svelte"),
+  },
+  extensions: [".md", ".svx"],
+};
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,12 +19,7 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [
-    mdsvex({
-      extensions: [".md", ".svx"],
-    }),
-    preprocess(),
-  ],
+  preprocess: [mdsvex(mdsvexConfig), preprocess()],
 
   kit: {
     // hydrate the <div id="svelte"> element in src/app.html

@@ -1,6 +1,9 @@
 import { existsSync } from "fs";
 import { join, parse } from "path";
 
+/**
+ * Returns the path to the nearest `package.json`
+ */
 export function findPkg(location: string): string {
   const { dir } = parse(location);
 
