@@ -1,8 +1,23 @@
 <script lang="ts">
-  import { base } from "$app/paths";
   import { createEventDispatcher } from "svelte";
+  import { derived } from "svelte/store";
+  import { base } from "$app/paths";
+  import { page } from "$app/stores";
 
   const dispatch = createEventDispatcher();
+
+  const pathParts = derived(page, ({ path }) => {
+    return path.split("/").reduce((acc, part) => {
+      // Handle root
+      if (part === "") {
+        return acc;
+      }
+
+      const previous = acc[acc.length - 1] || { href: base };
+
+      return [...acc, { label: part, href: `${previous.href}/${part}` }];
+    }, []);
+  });
 
   export let sidebarOpen = false;
 
@@ -20,7 +35,19 @@
       />
     </svg>
   </button>
-  <a class="bold" href={`${base}/`}>home</a>
+
+  <nav aria-label="breadcrumbs">
+    <ol>
+      <li>
+        <a class="bold" href={`${base}/`}>home</a>
+      </li>
+      {#each $pathParts as part}
+        <li>
+          <a class="bold" href={part.href}>{part.label}</a>
+        </li>
+      {/each}
+    </ol>
+  </nav>
 </header>
 
 <style>
@@ -36,8 +63,8 @@
     margin-bottom: 1rem;
   }
 
-  header * + * {
-    margin-left: 0.5rem;
+  header > * + * {
+    margin-left: 1rem;
   }
 
   button {
@@ -46,6 +73,31 @@
     color: inherit;
     padding: 0;
     margin: 0;
+    line-height: 0;
+  }
+
+  nav {
+    overflow: auto;
+  }
+
+  ol {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+  }
+
+  li:not(:last-of-type)::after {
+    content: "/";
+    padding: 0px 0.5rem;
+  }
+
+  a {
+    white-space: nowrap;
   }
 
   .icon {
