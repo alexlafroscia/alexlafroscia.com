@@ -7,12 +7,11 @@
 
   // Dark mode class on `body`
   if (browser) {
-    const body = document.querySelector("body");
     isDarkMode.subscribe((isDarkMode) => {
       if (isDarkMode) {
-        body.classList.add("dark");
+        document.body.classList.add("dark");
       } else {
-        body.classList.remove("dark");
+        document.body.classList.remove("dark");
       }
     });
   }

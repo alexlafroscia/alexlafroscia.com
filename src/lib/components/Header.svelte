@@ -4,6 +4,11 @@
   import { base } from "$app/paths";
   import { page } from "$app/stores";
 
+  type PathPart = {
+    label: string;
+    href: string;
+  };
+
   const dispatch = createEventDispatcher();
 
   const pathParts = derived(page, ({ path }) => {
@@ -13,10 +18,10 @@
         return acc;
       }
 
-      const previous = acc[acc.length - 1] || { href: base };
+      const previous = acc[acc.length - 1] ?? { href: base };
 
       return [...acc, { label: part, href: `${previous.href}/${part}` }];
-    }, []);
+    }, [] as PathPart[]);
   });
 
   export let sidebarOpen = false;
