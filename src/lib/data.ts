@@ -49,9 +49,12 @@ export class Store {
             filename: entry,
           });
 
-          const {
-            data: { fm: frontmatter = {} },
-          } = result;
+          // `result` can be undefined; not sure _when_ though
+          if (!result) {
+            throw new Error(`mdsvex could not compile "${entry}"`);
+          }
+
+          const { data: { fm: frontmatter = {} } = {} } = result;
 
           return {
             slug,
