@@ -1,9 +1,9 @@
-import { Store } from "$lib/data";
-import type { Post } from "$lib/data";
+import { Store } from "$lib/db";
+import type { SerializedPost } from "$lib/db/post";
 
 type Response = {
   body: {
-    posts: Post[];
+    posts: SerializedPost[];
   };
 };
 
@@ -12,7 +12,7 @@ export async function get(): Promise<Response> {
 
   return {
     body: {
-      posts,
+      posts: posts.map((post) => post.toJSON()),
     },
   };
 }

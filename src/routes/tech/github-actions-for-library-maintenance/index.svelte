@@ -1,18 +1,19 @@
 <script context="module" lang="ts">
-  import type { Post } from "$lib/data";
   import { base } from "$app/paths";
-
-  type ListResponse = {
-    posts: Post[];
-  };
+  import { Post } from "$lib/db/post";
+  import type { SerializedPost } from "$lib/db/post";
 
   export async function load({ fetch }) {
     const res = await fetch(`${base}/tech.json`);
-    const { posts }: ListResponse = await res.json();
+    let { posts }: { posts: SerializedPost[] } = await res.json();
 
     return {
       props: {
-        posts: posts.filter((post) => post.slug.includes("github-actions-for-library-maintenance")),
+        posts: posts
+          .map((post) => new Post(post))
+          .filter((post) => post.slug.includes("github-actions-for-library-maintenance"))
+          .sort(Post.compare)
+          .reverse(),
       },
     };
   }

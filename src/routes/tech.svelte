@@ -1,22 +1,25 @@
-<script context="module">
+<script context="module" lang="ts">
   import { base } from "$app/paths";
+  import { Post } from "$lib/db/post";
+  import type { SerializedPost } from "$lib/db/post";
 
   export async function load({ fetch }) {
-    // Handle redirecting URLs from the old blog, where posts had no namespace,
-    // to the new blog where they *do* have a namespace
     const res = await fetch(`${base}/tech.json`);
-    const { posts } = await res.json();
+    let { posts }: { posts: SerializedPost[] } = await res.json();
 
     return {
       props: {
-        posts,
+        posts: posts
+          .map((post) => new Post(post))
+          .sort(Post.compare)
+          .reverse(),
       },
     };
   }
 </script>
 
-<script>
-  export let posts;
+<script lang="ts">
+  export let posts: Post[];
 </script>
 
 <ul>

@@ -13,6 +13,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@js-temporal/polyfill": "^0.2.0",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "^1.0.0-next.196",
     "@types/jest": "^27.0.2",
