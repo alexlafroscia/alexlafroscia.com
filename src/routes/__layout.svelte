@@ -1,6 +1,7 @@
 <script lang="ts">
   import "../app.scss";
 
+  import { navigating } from "$app/stores";
   import { browser } from "$app/env";
   import { Header, Sidebar } from "$lib/components";
   import { isDarkMode } from "$lib/dark-mode";
@@ -22,6 +23,11 @@
   function toggleSidebar() {
     sidebarIsOpen = !sidebarIsOpen;
   }
+
+  navigating.subscribe(() => {
+    // Close the sidebar when navigating
+    sidebarIsOpen = false;
+  });
 </script>
 
 <div class="layout">
