@@ -17,6 +17,11 @@
       },
     };
   }
+
+  /**
+   * Pre-render the page at build-time
+   */
+  export const prerender = true;
 </script>
 
 <script lang="ts">
