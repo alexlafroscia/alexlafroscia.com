@@ -2,6 +2,7 @@
   import { base } from "$app/paths";
   import { Post } from "$lib/db/post";
   import type { SerializedPost } from "$lib/db/post";
+  import { Post as RenderPost } from "$lib/components";
 
   export async function load({ fetch }) {
     const res = await fetch(`${base}/tech.json`);
@@ -36,12 +37,9 @@
 <main class="w-readable">
   <h1 class="lowercase">Home</h1>
   <section>
-    <h1>Recent Articles</h1>
-    <article>
-      <h1>
-        {firstPost.slug}
-      </h1>
-    </article>
+    <h1>Latest Article</h1>
+
+    <RenderPost post={firstPost} />
   </section>
 </main>
 

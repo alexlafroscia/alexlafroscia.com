@@ -2,6 +2,7 @@
   import { base } from "$app/paths";
   import { Post } from "$lib/db/post";
   import type { SerializedPost } from "$lib/db/post";
+  import { PostList } from "$lib/components";
 
   export async function load({ fetch }) {
     const res = await fetch(`${base}/tech.json`);
@@ -28,8 +29,8 @@
   export let posts: Post[];
 </script>
 
-<ul>
-  {#each posts as post}
-    <li><a href={`${base}/tech/${post.slug}`}>{post.slug}</a></li>
-  {/each}
-</ul>
+<main class="w-readable">
+  <h1>2020 Tech Posts</h1>
+
+  <PostList {posts} />
+</main>
