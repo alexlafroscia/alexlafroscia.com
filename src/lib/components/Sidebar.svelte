@@ -1,29 +1,43 @@
 <script lang="ts">
   import { base } from "$app/paths";
+
+  export let hidden = false;
 </script>
 
-<aside id="sidebar">
-  <span class="bold menu-header">Menu</span>
+<nav id="sidebar" class:hidden>
+  <h1 class="bold menu-header">Menu</h1>
 
-  <a href={`${base}/`}>home</a>
+  <ol>
+    <li><a href={`${base}/`}>home</a></li>
 
-  <a href={`${base}/tech`}>tech blog</a>
-</aside>
+    <li><a href={`${base}/tech`}>tech blog</a></li>
+  </ol>
+</nav>
 
-<style>
-  aside {
+<style lang="scss">
+  nav {
     display: flex;
     flex-direction: column;
     background: var(--background-secondary);
     padding: 2rem;
     min-width: 250px;
+
+    &.hidden {
+      display: none;
+    }
   }
 
   .menu-header {
     margin-bottom: 1rem;
   }
 
-  aside * + * {
+  nav * + * {
     margin-top: 1rem;
+  }
+
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 </style>

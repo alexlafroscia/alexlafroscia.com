@@ -42,6 +42,7 @@
   </button>
 
   <nav aria-label="breadcrumbs">
+    <h1 class="sr-only">Breadcrumbs</h1>
     <ol>
       <li>
         <a class="bold" href={`${base}/`}>home</a>

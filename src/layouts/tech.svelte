@@ -7,7 +7,7 @@
   export let title = "";
 </script>
 
-<article>
+<article class="w-readable">
   {#if title}
     <h1>{title}</h1>
   {/if}
@@ -16,13 +16,6 @@
 </article>
 
 <style>
-  article {
-    /* Ensure article is a comfortable width */
-    width: 80ch;
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
   article > :global(p) {
     line-height: 1.5rem;
   }

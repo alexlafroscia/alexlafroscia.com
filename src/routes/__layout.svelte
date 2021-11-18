@@ -18,18 +18,18 @@
 </script>
 
 <div class="layout">
-  {#if sidebarIsOpen}
-    <Sidebar />
-  {/if}
+  <Sidebar hidden={!sidebarIsOpen} />
 
-  <main>
+  <div class="wrapper">
     <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
 
-    <slot />
-  </main>
+    <div class="content">
+      <slot />
+    </div>
+  </div>
 </div>
 
-<style>
+<style lang="scss">
   .layout {
     background: var(--background-primary);
     color: var(--text-primary);
@@ -37,19 +37,25 @@
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+
+    @media (min-width: 600px) {
+      flex-direction: row;
+    }
   }
 
-  main {
+  .wrapper {
     display: flex;
     flex-direction: column;
     overflow: auto;
     flex-grow: 1;
     padding: 0 1rem 1rem 1rem;
+
+    @media (min-width: 600px) {
+      min-height: 100vh;
+    }
   }
 
-  @media (min-width: 600px) {
-    .layout {
-      flex-direction: row;
-    }
+  .content {
+    flex-grow: 1;
   }
 </style>

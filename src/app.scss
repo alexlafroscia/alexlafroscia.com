@@ -63,3 +63,13 @@ a {
   white-space: nowrap;
   border-width: 0;
 }
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.w-readable {
+  width: 80ch;
+  max-width: 100%;
+  margin: 0 auto;
+}

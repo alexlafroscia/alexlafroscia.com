@@ -27,8 +27,11 @@
   export let posts: Post[];
 </script>
 
-<ul>
-  {#each posts as post}
-    <li><a href={`${base}/tech/${post.slug}`}>{post.slug}</a></li>
-  {/each}
-</ul>
+<main class="w-readable">
+  <h1>All Tech Posts</h1>
+  <ul>
+    {#each posts as post}
+      <li><a href={`${base}/tech/${post.slug}`}>{post.slug}</a></li>
+    {/each}
+  </ul>
+</main>
