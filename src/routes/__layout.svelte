@@ -2,20 +2,7 @@
   import "../app.scss";
 
   import { navigating } from "$app/stores";
-  import { browser } from "$app/env";
   import { Header, Sidebar } from "$lib/components";
-  import { isDarkMode } from "$lib/dark-mode";
-
-  // Dark mode class on `body`
-  if (browser) {
-    isDarkMode.subscribe((isDarkMode) => {
-      if (isDarkMode) {
-        document.body.classList.add("dark");
-      } else {
-        document.body.classList.remove("dark");
-      }
-    });
-  }
 
   // Sidebar state management
   let sidebarIsOpen = false;

@@ -23,10 +23,12 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-body.dark {
-  --background-primary: var(--gray-900);
-  --background-secondary: var(--gray-800);
-  --text-primary: white;
+@media (prefers-color-scheme: dark) {
+  body {
+    --background-primary: var(--gray-900);
+    --background-secondary: var(--gray-800);
+    --text-primary: white;
+  }
 }
 
 a {
@@ -37,7 +39,7 @@ a {
     color: var(--indigo-700);
   }
 
-  .dark & {
+  @media (prefers-color-scheme: dark) {
     color: var(--blue-300);
 
     &:visited {
