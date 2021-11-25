@@ -16,7 +16,9 @@
     </h1>
     <div>
       {post.date.toLocaleString("en-US", {
-        hour: undefined,
+        month: "long",
+        day: "numeric",
+        year: "numeric",
       })}
     </div>
   </header>
