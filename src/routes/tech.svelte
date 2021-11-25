@@ -25,11 +25,33 @@
 </script>
 
 <script lang="ts">
+  import Fuse from "fuse.js";
+
   export let posts: Post[];
+
+  const fuse = new Fuse(posts, {
+    keys: ["title"],
+  });
+  let search = "";
+
+  // If there is a search term, fuzzy-find by it
+  $: searchResults = search === "" ? posts : fuse.search(search).map(({ item }) => item);
 </script>
 
 <main class="w-readable">
   <h1>All Tech Posts</h1>
 
-  <PostList {posts} />
+  <input bind:value={search} placeholder="Filter tech posts" />
+
+  <PostList posts={searchResults} />
 </main>
+
+<style>
+  input {
+    background-color: var(--background-secondary);
+    padding: 0.5rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+  }
+</style>
