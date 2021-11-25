@@ -10,7 +10,7 @@
   <ol>
     <li><a href={`${base}/`}>home</a></li>
 
-    <li><a href={`${base}/tech`}>tech blog</a></li>
+    <li><a href={`${base}/tech`}>tech</a></li>
   </ol>
 </nav>
 
@@ -28,7 +28,13 @@
   }
 
   .menu-header {
+    margin-top: 0;
     margin-bottom: 1rem;
+
+    @media (min-width: 600px) {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
   }
 
   nav * + * {
