@@ -1,5 +1,5 @@
 import { join, parse } from "path";
-import staticAdapter from "@sveltejs/adapter-static";
+import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
 import { mdsvex } from "mdsvex";
 
@@ -25,7 +25,7 @@ const config = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
 
-    adapter: staticAdapter({}),
+    adapter: vercel({}),
   },
 };
 
