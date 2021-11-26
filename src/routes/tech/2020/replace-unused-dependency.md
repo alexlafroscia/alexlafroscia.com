@@ -4,6 +4,7 @@ date: 2020-05-07
 description: >-
   If you ever run into the need to replace a dependency that is causing problems and that you can safely ignore,
   here's what to do!
+legacy: true
 ---
 
 I recently ran into a bit of an odd situation regarding a problematic `npm` dependency. Our app depended on an old version of `d3`, which had a dependency on an old version of `jsdom`, which itself depended on `contextify`. `contextify` is not supported on modern versions of Node and would fail to install. Upgrading `d3` to a modern version without the dependency on `jsdom` was too hard, but we needed _some_ way to move forward.

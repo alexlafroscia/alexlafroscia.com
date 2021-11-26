@@ -4,6 +4,7 @@ date: 2020-06-14
 description: >-
   Have you ever run into issues around overriding properties of your shared CSS
   classes? Variables can help!
+legacy: true
 ---
 
 A recent project at work had me defining some shared button styles for us to use in conjunction with [Tailwind CSS](https://tailwindcss.com/). The styling is much like you might expect; a base `button` class with some specific "types" of buttons in different styles. For the purpose of illustration, imagine something like this:

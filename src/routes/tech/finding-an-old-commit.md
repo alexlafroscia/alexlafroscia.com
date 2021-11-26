@@ -4,6 +4,7 @@ date: 2016-10-18T14:30:54-07:00
 description: A tip about finding a git commit based on information in the message
 tags:
   - git
+legacy: true
 ---
 
 If you end up in a situation where you want to grab an old commit (from some other branch, even) but don’t know the commit hash, you want to access the `reflog`. It allows you to access old commits easily:

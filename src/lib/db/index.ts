@@ -16,10 +16,10 @@ const rootPostDirName = joinPath(packageRootDir, "src/routes/tech");
 const POST_EXTENSIONS = new Set([".md", ".svx"]);
 
 function extractTitleFromPost(code: string[]): string {
-  const h1 = code.find(line => line.startsWith('<h1>') && line.endsWith('</h1>'))
+  const h1 = code.find((line) => line.startsWith("<h1>") && line.endsWith("</h1>"));
 
   if (!h1) {
-    throw new Error('Could not locate title in post');
+    throw new Error("Could not locate title in post");
   }
 
   return h1.slice(3, h1.length - 6);
@@ -73,6 +73,7 @@ export class Store {
             title: frontmatter.title ?? extractTitleFromPost(code),
             slug,
             date: Temporal.Instant.from((frontmatter.date as Date).toISOString()),
+            legacy: frontmatter.legacy ?? false,
           })
       )
     );
@@ -88,5 +89,13 @@ export class Store {
     }
 
     return Array.from(this.cache.values());
+  }
+
+  async findBySlug(slug: string): Promise<Post | undefined> {
+    if (!this.hasPopulatedCache) {
+      await this.loadPostsIntoCache();
+    }
+
+    return this.cache.get(slug);
   }
 }

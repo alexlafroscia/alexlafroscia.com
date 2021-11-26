@@ -8,6 +8,7 @@ series:
 tags:
   - observables
   - rxjs
+legacy: true
 ---
 
 Lately I’ve been thinking a lot about "pull" and "push" with regard to the way functions interact with each other. Imagine two functions, `a` and `b`, where `a` depends on receiving a value from `b`. The value is _pulled_ if `a` determines when the value is delivered; it is _pushed_ if `b` determines the timing.

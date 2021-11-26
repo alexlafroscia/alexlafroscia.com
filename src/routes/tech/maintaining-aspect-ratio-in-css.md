@@ -7,6 +7,7 @@ description: >-
 tags:
   - css
   - flexbox
+legacy: true
 ---
 
 I had to use a bit of a hack this week to ensure that a box always appeared at a 1:1 aspect ratio. Basically, by doing something like:

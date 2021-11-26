@@ -5,6 +5,7 @@ description: Some tips on upgrading to the new QUnit API in an Ember app
 tags:
   - ember.js
   - qunit
+legacy: true
 ---
 
 I recently upgraded a large Ember app to the new API and ran into a few problems along the way. Here's a few tips for making your transition smoother than mine was.

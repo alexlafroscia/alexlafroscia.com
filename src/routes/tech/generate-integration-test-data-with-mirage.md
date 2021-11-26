@@ -6,6 +6,7 @@ tags:
   - ember.js
   - qunit
   - mirage
+legacy: true
 ---
 
 <script context="module">

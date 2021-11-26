@@ -5,6 +5,7 @@ description: Fixing unwanted changed to $PATH in tmux
 tags:
   - tmux
   - zsh
+legacy: true
 ---
 
 I noticed that my `$PATH` was being set differently between `tmux` and a regular shell. Specifically, without `tmux` my Ruby installation from [`asdf`](https://github.com/asdf-vm/asdf) would override the default one but in `tmux` it would not.

@@ -7,6 +7,7 @@ tags:
   - testing
   - qunit
   - ember.js
+legacy: true
 ---
 
 While writing some acceptance tests recently I kept running into slight race conditions between the state my application and an assertion I wanted to make. For example, one of the tests looked something like this:

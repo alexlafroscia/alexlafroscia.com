@@ -8,6 +8,7 @@ tags:
   - Vim
   - Prettier
   - ESLint
+legacy: true
 ---
 
 <script context="module">

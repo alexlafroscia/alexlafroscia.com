@@ -9,6 +9,7 @@ series:
 tags:
   - Open Source
   - GitHub Actions
+legacy: true
 ---
 
 Recently, [Movable Ink](https://movableink.com/), the company where I work, released our configuration for [Tailwind](https://tailwindcss.com/) as an open-source project. While it's only being used internally, making it Open Source has been a motivating factor to keep the code clean and be thoughtful about how we're maintaining it. Using [GitHub Actions](https://help.github.com/en/actions/getting-started-with-github-actions/about-github-actions) has been key in helping us achieve that goal. In this series of posts, I'll be covering all the ways we're putting GitHub Actions to work for us.
