@@ -7,7 +7,7 @@
   export let title = "";
 </script>
 
-<article class="w-readable">
+<article class="w-readable max-w-full mx-auto space-y-4">
   {#if title}
     <h1>{title}</h1>
   {/if}
@@ -16,24 +16,49 @@
 </article>
 
 <style>
+  article > :global(h1) {
+    @apply font-bold;
+    @apply text-3xl;
+  }
+
+  article > :global(h2) {
+    @apply font-bold;
+    @apply text-2xl;
+  }
+
   article > :global(p) {
-    line-height: 1.5rem;
+    @apply leading-6;
   }
 
   article > :global(p) > :global(img) {
     /* Ensure images are only as wide as the text */
-    max-width: 100%;
+    @apply max-w-full;
+  }
+
+  article > :global(p) > :global(code),
+  article > :global(p) > :global(a) > :global(code) {
+    /* Style inline code snippets */
+    @apply bg-gray-200;
+    @apply p-1;
+    @apply rounded;
+
+    @media (prefers-color-scheme: dark) {
+      @apply bg-gray-800;
+    }
   }
 
   article > :global(pre) {
-    border-radius: 4px;
-    padding: 1rem;
+    @apply bg-gray-200;
+
+    @apply rounded;
+    @apply p-4;
 
     /* Ensure code snippets do not increase max page width */
-    max-width: 100%;
-    overflow-x: auto;
+    @apply max-w-full;
+    @apply overflow-x-auto;
 
-    /* Use "secondary" background color for code blocks */
-    background: var(--background-secondary);
+    @media (prefers-color-scheme: dark) {
+      @apply bg-gray-800;
+    }
   }
 </style>

@@ -5,21 +5,10 @@
   export let posts: Post[];
 </script>
 
-<ol>
+<ol class="divide-y divide-current">
   {#each posts as post}
     <li>
       <RenderPost {post} />
     </li>
   {/each}
 </ol>
-
-<style>
-  ol {
-    list-style: none;
-    padding: 0;
-  }
-
-  li + li {
-    border-top: 1px solid currentColor;
-  }
-</style>

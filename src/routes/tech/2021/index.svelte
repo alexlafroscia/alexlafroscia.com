@@ -29,8 +29,8 @@
   export let posts: Post[];
 </script>
 
-<main class="w-readable">
-  <h1>2021 Tech Posts</h1>
+<main class="space-y-4 w-readable max-w-full mx-auto">
+  <h1 class="font-bold text-3xl">2021 Tech Posts</h1>
 
   <PostList {posts} />
 </main>

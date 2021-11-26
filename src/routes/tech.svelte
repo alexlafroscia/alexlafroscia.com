@@ -38,20 +38,14 @@
   $: searchResults = search === "" ? posts : fuse.search(search).map(({ item }) => item);
 </script>
 
-<main class="w-readable">
-  <h1>All Tech Posts</h1>
+<main class="space-y-4 w-readable max-w-full mx-auto">
+  <h1 class="font-bold text-3xl">All Tech Posts</h1>
 
-  <input bind:value={search} placeholder="Filter tech posts" />
+  <input
+    class="text-black dark:text-white bg-gray-200 dark:bg-gray-800 p-2 rounded-lg"
+    bind:value={search}
+    placeholder="Filter tech posts"
+  />
 
   <PostList posts={searchResults} />
 </main>
-
-<style>
-  input {
-    background-color: var(--background-secondary);
-    padding: 0.5rem;
-    border: 0;
-    border-radius: 0.5rem;
-    color: var(--text-primary);
-  }
-</style>

@@ -9,9 +9,9 @@
   export { className as class };
 </script>
 
-<article class={className}>
-  <header>
-    <h1>
+<article class={`${className} flex py-4`}>
+  <header class="space-y-2">
+    <h1 class="text-xl">
       <a href={`${base}/tech/${post.slug}`}>{post.title}</a>
     </h1>
     <div>
@@ -23,18 +23,3 @@
     </div>
   </header>
 </article>
-
-<style lang="scss">
-  article {
-    display: flex;
-    padding: 1rem 0;
-  }
-
-  header > * + * {
-    margin-top: 0.5rem;
-  }
-
-  h1 {
-    margin: 0;
-  }
-</style>

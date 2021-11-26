@@ -34,17 +34,11 @@
   <title>home</title>
 </svelte:head>
 
-<main class="w-readable">
-  <h1 class="lowercase">Home</h1>
+<main class="space-y-16 w-readable max-w-full mx-auto">
+  <h1 class="text-3xl lowercase mt-8">Home</h1>
   <section>
-    <h1>Latest Article</h1>
+    <h1 class="text-2xl">Latest Article</h1>
 
     <RenderPost post={firstPost} />
   </section>
 </main>
-
-<style>
-  main > * + * {
-    margin-top: 4rem;
-  }
-</style>

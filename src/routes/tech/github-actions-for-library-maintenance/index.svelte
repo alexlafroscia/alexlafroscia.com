@@ -29,8 +29,8 @@
   export let posts: Post[];
 </script>
 
-<main class="w-readable">
-  <h1>Series: GitHub Actions for Library Maintenance</h1>
+<main class="space-y-4 w-readable max-w-full mx-auto">
+  <h1 class="font-bold text-3xl">Series: GitHub Actions for Library Maintenance</h1>
 
   <PostList {posts} />
 </main>

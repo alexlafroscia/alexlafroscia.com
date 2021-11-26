@@ -1,0 +1,27 @@
+@tailwind base;
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  @apply text-blue-700;
+}
+
+a:visited {
+  @apply text-indigo-700;
+}
+
+@media (prefers-color-scheme: dark) {
+  a {
+    @apply text-blue-300;
+  }
+
+  a:visited {
+    @apply text-indigo-300;
+  }
+}
+
+@tailwind components;
+
+@tailwind utilities;

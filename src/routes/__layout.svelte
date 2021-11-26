@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "../app.scss";
+  import "../tailwind.css";
 
   import { navigating } from "$app/stores";
   import { Header, Sidebar } from "$lib/components";
@@ -17,45 +17,16 @@
   });
 </script>
 
-<div class="layout">
+<div
+  class="bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col sm:flex-row w-screen h-screen"
+>
   <Sidebar hidden={!sidebarIsOpen} />
 
-  <div class="wrapper">
+  <div class="pb-4 pl-4 pr-4 flex flex-col flex-grow overflow-auto sm:min-h-screen">
     <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
 
-    <div class="content">
+    <div class="flex-grow">
       <slot />
     </div>
   </div>
 </div>
-
-<style lang="scss">
-  .layout {
-    background: var(--background-primary);
-    color: var(--text-primary);
-    display: flex;
-    flex-direction: column;
-    width: 100vw;
-    height: 100vh;
-
-    @media (min-width: 600px) {
-      flex-direction: row;
-    }
-  }
-
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    flex-grow: 1;
-    padding: 0 1rem 1rem 1rem;
-
-    @media (min-width: 600px) {
-      min-height: 100vh;
-    }
-  }
-
-  .content {
-    flex-grow: 1;
-  }
-</style>
