@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import type { Post } from "$lib/db/post";
+  import type { Post } from "$lib/post";
 
   let className = "";
 

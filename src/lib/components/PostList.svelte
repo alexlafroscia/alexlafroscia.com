@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Post } from "$lib/db/post";
+  import type { Post } from "$lib/post";
   import { Post as RenderPost } from "$lib/components";
 
   export let posts: Post[];

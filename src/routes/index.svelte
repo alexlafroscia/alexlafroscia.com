@@ -1,17 +1,11 @@
 <script context="module" lang="ts">
-  import { base } from "$app/paths";
-  import { Post } from "$lib/db/post";
-  import type { SerializedPost } from "$lib/db/post";
+  import { Post } from "$lib/post";
   import { Post as RenderPost } from "$lib/components";
 
   export async function load({ fetch }) {
-    const res = await fetch(`${base}/tech.json`);
-    let { posts: postJson }: { posts: SerializedPost[] } = await res.json();
+    let posts = await Post.fetchAll(fetch);
 
-    const posts = postJson
-      .map((post) => new Post(post))
-      .sort(Post.compare)
-      .reverse();
+    posts = posts.sort(Post.compare).reverse();
 
     return {
       props: {

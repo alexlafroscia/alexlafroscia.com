@@ -1,17 +1,13 @@
 <script context="module" lang="ts">
-  import { base } from "$app/paths";
-  import { Post } from "$lib/db/post";
-  import type { SerializedPost } from "$lib/db/post";
+  import { Post } from "$lib/post";
   import { PostList } from "$lib/components";
 
   export async function load({ fetch }) {
-    const res = await fetch(`${base}/tech.json`);
-    let { posts }: { posts: SerializedPost[] } = await res.json();
+    const posts = await Post.fetchAll(fetch);
 
     return {
       props: {
         posts: posts
-          .map((post) => new Post(post))
           .filter((post) => post.slug.includes("github-actions-for-library-maintenance"))
           .sort(Post.compare)
           .reverse(),

@@ -1,5 +1,7 @@
 import type { MaybePromise } from "./types";
 
+type AnyIterable<T> = AsyncIterable<T> | Iterable<T>;
+
 export async function collect<T>(gen: AsyncIterableIterator<T>): Promise<T[]> {
   const result: Array<T> = [];
 
@@ -38,7 +40,7 @@ export async function* log<T>(
 
 export function map<T, U>(
   mapCallback: (item: T) => MaybePromise<U>
-): (input: AsyncIterableIterator<T>) => AsyncIterableIterator<U> {
+): (input: AnyIterable<T>) => AsyncIterableIterator<U> {
   return async function* (input) {
     for await (const element of input) {
       yield await mapCallback(element);

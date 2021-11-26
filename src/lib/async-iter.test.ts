@@ -39,14 +39,25 @@ test("log", async () => {
   expect(log).toHaveBeenCalledWith(2);
 });
 
-test("map", async () => {
-  async function* run() {
-    yield Promise.resolve(1);
-    yield Promise.resolve(2);
-  }
+describe("map", () => {
+  test("with an async iterable", async () => {
+    async function* run() {
+      yield Promise.resolve(1);
+      yield Promise.resolve(2);
+    }
 
-  const doubleMapper = map((num: number) => num * 2);
-  const doubled = doubleMapper(run());
+    const doubleMapper = map((num: number) => num * 2);
+    const doubled = doubleMapper(run());
 
-  expect(await collect(doubled)).toEqual([2, 4]);
+    expect(await collect(doubled)).toEqual([2, 4]);
+  });
+
+  test("with an iterable", async () => {
+    const content = [1, 2];
+
+    const doubleMapper = map((num: number) => num * 2);
+    const doubled = doubleMapper(content);
+
+    expect(await collect(doubled)).toEqual([2, 4]);
+  });
 });
