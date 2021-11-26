@@ -779,16 +779,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-static@npm:^1.0.0-next.21":
+"@sveltejs/adapter-static@npm:^1.0.0-next.0":
   version: 1.0.0-next.21
   resolution: "@sveltejs/adapter-static@npm:1.0.0-next.21"
   checksum: 453c05ed00977b7e37749e503b5b566576478d07103f14a751036389572f8dc02ea1783e3166beaee88c597279441be1d2b5627f932000d8555a451ee98c5a46
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:^1.0.0-next.200":
-  version: 1.0.0-next.200
-  resolution: "@sveltejs/kit@npm:1.0.0-next.200"
+"@sveltejs/kit@npm:^1.0.0-next.1":
+  version: 1.0.0-next.201
+  resolution: "@sveltejs/kit@npm:1.0.0-next.201"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.30
     cheap-watch: ^1.0.4
@@ -798,7 +798,7 @@ __metadata:
     svelte: ^3.44.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 82f9a23bba4b989a548f44f3c53ecc98263c07d2c3a2f36fcab7112be1234934aadcb1e0d65dc9dd3f01dc23a66cddd251f6ea2a25452a9cfbee29c957dff403
+  checksum: a0856bde8dd9264cd408a8b689439f1bd7fd828944a8abc1babaf82b09e6fac5284db5b71e3949272347a841ecd71388ca642726cef77adf90e38773a4401692
   languageName: node
   linkType: hard
 
@@ -4166,8 +4166,8 @@ __metadata:
   resolution: "my-app@workspace:."
   dependencies:
     "@js-temporal/polyfill": ^0.2.0
-    "@sveltejs/adapter-static": ^1.0.0-next.21
-    "@sveltejs/kit": ^1.0.0-next.200
+    "@sveltejs/adapter-static": ^1.0.0-next.0
+    "@sveltejs/kit": ^1.0.0-next.1
     "@types/jest": ^27.0.2
     "@typescript-eslint/eslint-plugin": ^4.31.1
     "@typescript-eslint/parser": ^4.31.1
