@@ -30,6 +30,11 @@ export class Post {
   date: Temporal.Instant;
 
   /**
+   * Present when generated on the server, but not provided to the client
+   */
+  content?: string;
+
+  /**
    * `true` for posts from the "original" Gatsby site, that need a redirect from the "old" URL
    */
   legacy: boolean;
@@ -38,12 +43,14 @@ export class Post {
     return Temporal.Instant.compare(a.date, b.date);
   }
 
-  constructor(slug: string, _code: MdxvexModuleResult, frontmatter: Frontmatter) {
+  constructor(slug: string, code: MdxvexModuleResult, frontmatter: Frontmatter) {
     this.slug = slug;
 
     this.title = frontmatter.title ?? ""; // TODO: extract title from post if not in frontmatter
     this.date = frontmatter.date ? Temporal.Instant.from(frontmatter.date) : Temporal.Now.instant();
     this.legacy = frontmatter.legacy ?? false;
+
+    this.content = code.html;
   }
 
   static fromJSON(serialized: SerializedPost): Post {

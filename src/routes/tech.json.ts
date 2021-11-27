@@ -10,11 +10,10 @@ type Response = {
   };
 };
 
-export async function get(): Promise<Response> {
+export async function findAllPosts(): Promise<Post[]> {
   const modules = import.meta.glob("./tech/**/*.{md,svx}");
 
-  // Retrieve the same `mdsvex` config that we use at build-time
-  const posts = await pipe(
+  return await pipe(
     Object.entries(modules),
     map(async function ([entry, importModule]) {
       const slug = entry
@@ -34,6 +33,10 @@ export async function get(): Promise<Response> {
     map(({ code, frontmatter, slug }) => new Post(slug, code, frontmatter)),
     collect
   );
+}
+
+export async function get(): Promise<Response> {
+  const posts = await findAllPosts();
 
   return {
     body: {

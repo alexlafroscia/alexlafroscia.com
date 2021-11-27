@@ -17,6 +17,14 @@
   });
 </script>
 
+<svelte:head>
+  <link
+    rel="alternate"
+    type="application/atom+xml"
+    title="Tech | Alex LaFroscia"
+    href="/tech.atom"
+  />
+</svelte:head>
 <div
   class="bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col sm:flex-row w-screen h-screen"
 >
