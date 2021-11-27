@@ -4,3 +4,5 @@ node_modules
 /.svelte-kit
 /package
 .yarn
+.vercel
+.vercel_build_output
