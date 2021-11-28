@@ -5,7 +5,7 @@
   export let posts: Post[];
 </script>
 
-<ol class="divide-y divide-current">
+<ol class="divide-y divide-gray-200 dark:divide-gray-800">
   {#each posts as post}
     <li>
       <RenderPost {post} />
