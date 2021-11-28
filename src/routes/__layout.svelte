@@ -24,6 +24,13 @@
     title="Tech | Alex LaFroscia"
     href="/tech.atom"
   />
+
+  <!-- Fathom Analytics -->
+  <script
+    src="https://nutritious-intuitive.alexlafroscia.com/script.js"
+    data-site="NHEVCYHO"
+    data-spa="auto"
+    defer></script>
 </svelte:head>
 <div
   class="bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col sm:flex-row w-screen h-screen"
