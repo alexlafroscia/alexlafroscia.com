@@ -11,5 +11,7 @@
     <li><a href={`${base}/`}>home</a></li>
 
     <li><a href={`${base}/tech`}>tech</a></li>
+
+    <li><a href={`${base}/resume`}>resume</a></li>
   </ol>
 </nav>

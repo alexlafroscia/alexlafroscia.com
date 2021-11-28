@@ -2,6 +2,7 @@ import { join, parse } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
 import { mdsvex } from "mdsvex";
+import rollupPluginYaml from "@rollup/plugin-yaml";
 
 const { pathname: filename } = new URL(import.meta.url);
 const { dir: rootDir } = parse(filename);
@@ -36,6 +37,10 @@ const config = {
         // Pre-render the RSS feed
         "/tech.atom",
       ],
+    },
+
+    vite: {
+      plugins: [rollupPluginYaml()],
     },
   },
 };
