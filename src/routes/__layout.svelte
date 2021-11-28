@@ -33,11 +33,11 @@
     defer></script>
 </svelte:head>
 <div
-  class="bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col sm:flex-row w-screen h-screen"
+  class="bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col sm:flex-row w-screen sm:h-screen"
 >
   <Sidebar hidden={!sidebarIsOpen} />
 
-  <div class="pb-4 pl-4 pr-4 flex flex-col flex-grow overflow-auto sm:min-h-screen">
+  <div class="pb-4 pl-4 pr-4 flex flex-col flex-grow overflow-auto sm:min-h-full">
     <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
 
     <div class="flex-grow">
