@@ -473,6 +473,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iarna/toml@npm:^2.2.5":
+  version: 2.2.5
+  resolution: "@iarna/toml@npm:2.2.5"
+  checksum: b63b2b2c4fd67969a6291543ada0303d45593801ee744b60f5390f183c03d9192bc67a217abb24be945158f1935f02840d9ffff40c0142aa171b5d3b6b6a3ea5
+  languageName: node
+  linkType: hard
+
 "@istanbuljs/load-nyc-config@npm:^1.0.0":
   version: 1.1.0
   resolution: "@istanbuljs/load-nyc-config@npm:1.1.0"
@@ -805,7 +812,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:^1.0.0-next.0":
+"@sveltejs/adapter-auto@npm:next":
+  version: 1.0.0-next.3
+  resolution: "@sveltejs/adapter-auto@npm:1.0.0-next.3"
+  dependencies:
+    "@sveltejs/adapter-cloudflare": 1.0.0-next.2
+    "@sveltejs/adapter-netlify": 1.0.0-next.35
+    "@sveltejs/adapter-vercel": 1.0.0-next.31
+  checksum: a4cb333036368f70511f58b587366cb943ee4a254a22de2e3dcf39cffe71928acbf12d6de8a6d9d39b68ca58245c0dd5f3de82aaed2811677076c3a118462d07
+  languageName: node
+  linkType: hard
+
+"@sveltejs/adapter-cloudflare@npm:1.0.0-next.2":
+  version: 1.0.0-next.2
+  resolution: "@sveltejs/adapter-cloudflare@npm:1.0.0-next.2"
+  dependencies:
+    esbuild: ^0.13.4
+  checksum: 30b1a92fbb820b61b8cceedff668c333985062760102af888214c2d33e896a25ce70c0487934c92226596d83d80dc8c1cb6ae26d19cac011fb60a40e54cccb4a
+  languageName: node
+  linkType: hard
+
+"@sveltejs/adapter-netlify@npm:1.0.0-next.35":
+  version: 1.0.0-next.35
+  resolution: "@sveltejs/adapter-netlify@npm:1.0.0-next.35"
+  dependencies:
+    "@iarna/toml": ^2.2.5
+    esbuild: ^0.13.4
+  checksum: cbb6b7e13d2518323b786c1df824a8afbf5b5ab13dbf649dff8355d8b6362b8266a98e1b7f8981c9fe9e9a181e73697ffb92db83dca9bd1fe082d6edbda0538a
+  languageName: node
+  linkType: hard
+
+"@sveltejs/adapter-vercel@npm:1.0.0-next.31":
   version: 1.0.0-next.31
   resolution: "@sveltejs/adapter-vercel@npm:1.0.0-next.31"
   dependencies:
@@ -4865,7 +4902,7 @@ __metadata:
   dependencies:
     "@js-temporal/polyfill": ^0.2.0
     "@rollup/plugin-yaml": ^3.1.0
-    "@sveltejs/adapter-vercel": ^1.0.0-next.0
+    "@sveltejs/adapter-auto": next
     "@sveltejs/kit": ^1.0.0-next.1
     "@types/jest": ^27.0.2
     "@types/unist": ^2.0.6
