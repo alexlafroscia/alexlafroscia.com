@@ -1,3 +1,4 @@
+import { describe, expect, test, vi } from "vitest";
 import { collect, filter, log as logEach, map } from "./async-iter";
 
 test("collect", async () => {
@@ -22,7 +23,7 @@ test("filter", async () => {
 });
 
 test("log", async () => {
-  const log = jest.fn();
+  const log = vi.fn();
   async function* run() {
     yield Promise.resolve(1);
     yield Promise.resolve(2);

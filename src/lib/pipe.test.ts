@@ -1,3 +1,4 @@
+import { expect, test } from "vitest";
 import { pipe } from "./pipe";
 
 test("piping a value through multiple synchronous functions", async () => {

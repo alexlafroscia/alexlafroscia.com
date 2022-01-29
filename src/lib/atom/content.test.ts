@@ -1,3 +1,4 @@
+import { expect, test } from "vitest";
 import { prepare } from "./content";
 
 test("it removes the wrapping `article` element", async () => {
