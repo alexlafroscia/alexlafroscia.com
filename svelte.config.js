@@ -1,5 +1,5 @@
 import { join, parse } from "path";
-import adapter from "@sveltejs/adapter-auto";
+import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
 import { mdsvex } from "mdsvex";
 import rollupPluginYaml from "@rollup/plugin-yaml";
@@ -26,7 +26,7 @@ const config = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
 
-    adapter: adapter({}),
+    adapter: vercel({}),
 
     prerender: {
       entries: [
