@@ -71,4 +71,9 @@
       @apply bg-gray-800;
     }
   }
+
+  article > :global(ul) {
+    @apply list-disc;
+    @apply pl-5;
+  }
 </style>
