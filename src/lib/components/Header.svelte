@@ -11,8 +11,8 @@
 
   const dispatch = createEventDispatcher();
 
-  const pathParts = derived(page, ({ path }) => {
-    return path.split("/").reduce((acc, part) => {
+  const pathParts = derived(page, ({ url }) => {
+    return url.pathname.split("/").reduce((acc, part) => {
       // Handle root
       if (part === "") {
         return acc;
