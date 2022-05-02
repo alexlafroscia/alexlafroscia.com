@@ -29,7 +29,7 @@
     "feed": "^4.2.2",
     "fuse.js": "^6.4.6",
     "jsdom": "^19.0.0",
-    "mdsvex": "^0.9.8",
+    "mdsvex": "^0.10.5",
     "postcss": "^8.4.1",
     "prettier": "^2.5.1",
     "prettier-plugin-svelte": "^2.6.0",

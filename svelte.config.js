@@ -1,18 +1,18 @@
 import { join, parse } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
-import { mdsvex } from "mdsvex";
+import { defineMDSveXConfig, mdsvex } from "mdsvex";
 import rollupPluginYaml from "@rollup/plugin-yaml";
 
 const { pathname: filename } = new URL(import.meta.url);
 const { dir: rootDir } = parse(filename);
 
-export const mdsvexConfig = {
+export const mdsvexConfig = defineMDSveXConfig({
   layout: {
     tech: join(rootDir, "./src/layouts/tech.svelte"),
   },
   extensions: [".md", ".svx"],
-};
+});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
