@@ -1,8 +1,9 @@
 <script context="module" lang="ts">
+  import type { Load } from "./index.d";
   import { Post } from "$lib/post";
   import { Post as RenderPost } from "$lib/components";
 
-  export async function load({ fetch }) {
+  export const load: Load = async ({ fetch }) => {
     let posts = await Post.fetchAll(fetch);
 
     posts = posts.sort(Post.compare).reverse();
@@ -12,7 +13,7 @@
         firstPost: posts[0],
       },
     };
-  }
+  };
 
   /**
    * Pre-render the page at build-time

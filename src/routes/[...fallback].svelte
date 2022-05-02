@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
+  import type { Load } from "./[...fallback].d";
   import { base } from "$app/paths";
   import { Post } from "$lib/post";
 
-  /** @type {import('@sveltejs/kit').Load} */
-  export async function load({ fetch, page }) {
-    const { fallback: slug } = page.params;
+  export const load: Load = async ({ fetch, params }) => {
+    const { fallback: slug } = params;
 
     const techPosts = await Post.fetchAll(fetch);
     const techPostMatchingSlug = techPosts.find((post) => post.slug === slug);
@@ -16,5 +16,9 @@
         redirect: `${base}/tech/${techPostMatchingSlug.slug}`,
       };
     }
-  }
+
+    return {
+      status: 404,
+    };
+  };
 </script>

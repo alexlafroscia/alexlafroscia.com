@@ -1,14 +1,9 @@
+import type { RequestHandler } from "./tech.atom.d";
 import { Feed } from "feed";
 import { prepare } from "$lib/atom/content";
 import { findAllPosts } from "./tech.json";
 
-type Response = {
-  headers: Record<string, string>;
-  body: string;
-};
-
-/** @type {import('@sveltejs/kit').RequestHandler} */
-export async function get(): Promise<Response> {
+export const get: RequestHandler = async () => {
   const feed = new Feed({
     title: "Tech | Alex LaFroscia",
     description: "Tech posts by Alex LaFroscia",
@@ -46,4 +41,4 @@ export async function get(): Promise<Response> {
     },
     body: feed.atom1(),
   };
-}
+};

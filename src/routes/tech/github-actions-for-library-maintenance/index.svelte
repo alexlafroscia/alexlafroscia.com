@@ -1,8 +1,9 @@
 <script context="module" lang="ts">
+  import type { Load } from "./index.d";
   import { Post } from "$lib/post";
   import { PostList } from "$lib/components";
 
-  export async function load({ fetch }) {
+  export const load: Load = async ({ fetch }) => {
     const posts = await Post.fetchAll(fetch);
 
     return {
@@ -13,7 +14,7 @@
           .reverse(),
       },
     };
-  }
+  };
 
   /**
    * Pre-render the page at build-time

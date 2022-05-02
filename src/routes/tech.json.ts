@@ -1,14 +1,9 @@
+import type { RequestHandler } from "./tech.json.d";
 import { pipe } from "$lib/pipe";
 import { collect, filter, map } from "$lib/async-iter";
 import { Post } from "$lib/post";
-import type { Frontmatter, SerializedPost } from "$lib/post";
+import type { Frontmatter } from "$lib/post";
 import type { MdxvexModuleResult } from "$lib/types";
-
-type Response = {
-  body: {
-    posts: SerializedPost[];
-  };
-};
 
 export async function findAllPosts(): Promise<Post[]> {
   const modules = import.meta.glob("./tech/**/*.{md,svx}");
@@ -35,7 +30,10 @@ export async function findAllPosts(): Promise<Post[]> {
   );
 }
 
-export async function get(): Promise<Response> {
+// @ts-expect-error `RequestHandler` wants the `body` to be a specific type,
+//                  which includes an index signature on each JSON object in
+//                  the response, but I don't want to add that to `SerializedPost`
+export const get: RequestHandler = async () => {
   const posts = await findAllPosts();
 
   return {
@@ -43,4 +41,4 @@ export async function get(): Promise<Response> {
       posts: posts.map((post) => post.toJSON()),
     },
   };
-}
+};
