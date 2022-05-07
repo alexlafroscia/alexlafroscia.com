@@ -17,7 +17,7 @@
   <slot />
 </article>
 
-<style>
+<style lang="postcss">
   article :global(h1) {
     @apply font-bold;
     @apply text-3xl;

@@ -74,7 +74,7 @@
   </ul>
 </section>
 
-<style>
+<style lang="postcss">
   @media print {
     :global(html) {
       font-size: 12px;
