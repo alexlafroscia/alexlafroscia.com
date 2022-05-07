@@ -1,4 +1,6 @@
 <script>
+  import "../styles/prism-theme-night-owl.css";
+
   /**
    * Provided by mdsvex frontmatter
    *

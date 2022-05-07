@@ -2,6 +2,7 @@ import { join, parse } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
 import { defineMDSveXConfig, mdsvex } from "mdsvex";
+import rehypePrism from "@mapbox/rehype-prism";
 import rollupPluginYaml from "@rollup/plugin-yaml";
 
 const { pathname: filename } = new URL(import.meta.url);
@@ -11,6 +12,7 @@ export const mdsvexConfig = defineMDSveXConfig({
   layout: {
     tech: join(rootDir, "./src/layouts/tech.svelte"),
   },
+  rehypePlugins: [rehypePrism],
   extensions: [".md", ".svx"],
 });
 
