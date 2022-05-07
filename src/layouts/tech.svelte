@@ -74,8 +74,16 @@
     }
   }
 
+  article > :global(ol),
+  article > :global(ul) {
+    @apply list-inside;
+  }
+
+  article > :global(ol) {
+    @apply list-decimal;
+  }
+
   article > :global(ul) {
     @apply list-disc;
-    @apply pl-5;
   }
 </style>
