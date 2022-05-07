@@ -195,9 +195,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:^1.0.0-next.324":
-  version: 1.0.0-next.324
-  resolution: "@sveltejs/kit@npm:1.0.0-next.324"
+"@sveltejs/kit@npm:^1.0.0-next.326":
+  version: 1.0.0-next.326
+  resolution: "@sveltejs/kit@npm:1.0.0-next.326"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.32
     chokidar: ^3.5.3
@@ -207,7 +207,7 @@ __metadata:
     svelte: ^3.44.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 89f6a0cea4cabbed49de998647a6a7f3cfe7238de90c7909684e89fa53aeadedfe9dae5079734dac3ce96a67cb9314920bd401cbf54298484e54290c57ce3768
+  checksum: 50299f24484744ffa4a89640e3808ce6a1abb85bf5ed8f061e755bce14495bd205b08828904e6ccd05f0e9d7e786c3d5afe59b36ee86c69afeb75022083bad8c
   languageName: node
   linkType: hard
 
@@ -3816,7 +3816,7 @@ __metadata:
     "@mapbox/rehype-prism": ^0.8.0
     "@rollup/plugin-yaml": ^3.1.0
     "@sveltejs/adapter-vercel": ^1.0.0-next.50
-    "@sveltejs/kit": ^1.0.0-next.324
+    "@sveltejs/kit": ^1.0.0-next.326
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.42
     "@types/unist": ^2.0.6
     "@types/xml": ^1.0.6

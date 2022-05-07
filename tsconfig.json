@@ -1,10 +1,6 @@
 {
   "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "node",
-    "module": "es2020",
-    "lib": ["es2020", "DOM", "WebWorker"],
-    "target": "es2020",
     /**
       To have warnings/errors of the Svelte compiler at the correct position,
       enable source maps by default.
