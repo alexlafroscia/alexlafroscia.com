@@ -21,6 +21,7 @@
 
 <script lang="ts">
   import Fuse from "fuse.js";
+  import { onMount } from "svelte";
 
   export let posts: Post[];
 
@@ -31,6 +32,14 @@
 
   // If there is a search term, fuzzy-find by it
   $: searchResults = search === "" ? posts : fuse.search(search).map(({ item }) => item);
+
+  /** Disable input when JavaScript is disabled */
+
+  let inputDisabled = true;
+
+  onMount(() => {
+    inputDisabled = false;
+  });
 </script>
 
 <main class="space-y-4 w-readable max-w-full mx-auto">
@@ -38,6 +47,8 @@
 
   <input
     class="text-black dark:text-white bg-gray-200 dark:bg-gray-800 p-2 rounded-lg"
+    class:opacity-50={inputDisabled}
+    disabled={inputDisabled}
     bind:value={search}
     placeholder="Filter tech posts"
   />
