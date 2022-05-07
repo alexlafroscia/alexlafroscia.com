@@ -25,6 +25,10 @@
     href="/tech.atom"
   />
 
+  <!-- Set theme colors to style browser "chrome" like page background -->
+  <meta name="theme-color" content="white" />
+  <meta name="theme-color" content="rgb(17 24 39)" media="(prefers-color-scheme: dark)" />
+
   <!-- Fathom Analytics -->
   <script
     src="https://nutritious-intuitive.alexlafroscia.com/script.js"
