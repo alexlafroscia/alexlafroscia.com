@@ -1,0 +1,9 @@
+body {
+  @apply bg-white text-black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-gray-900 text-white;
+  }
+}

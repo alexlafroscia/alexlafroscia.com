@@ -1,5 +1,6 @@
 <script lang="ts">
   import "../tailwind.css";
+  import "../styles/main-site-background.css";
 
   import { navigating } from "$app/stores";
   import { Header, Sidebar } from "$lib/components";
@@ -37,9 +38,8 @@
     data-spa="auto"
     defer></script>
 </svelte:head>
-<div
-  class="bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col sm:flex-row w-screen sm:h-screen"
->
+
+<div class="flex flex-col sm:flex-row w-screen sm:h-screen">
   <Sidebar hidden={!sidebarIsOpen} />
 
   <div class="pb-4 pl-4 pr-4 flex flex-col flex-grow overflow-auto sm:min-h-full">
