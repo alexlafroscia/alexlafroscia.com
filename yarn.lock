@@ -195,9 +195,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:^1.0.0-next.326":
-  version: 1.0.0-next.326
-  resolution: "@sveltejs/kit@npm:1.0.0-next.326"
+"@sveltejs/kit@npm:^1.0.0-next.329":
+  version: 1.0.0-next.329
+  resolution: "@sveltejs/kit@npm:1.0.0-next.329"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.32
     chokidar: ^3.5.3
@@ -207,16 +207,17 @@ __metadata:
     svelte: ^3.44.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: 50299f24484744ffa4a89640e3808ce6a1abb85bf5ed8f061e755bce14495bd205b08828904e6ccd05f0e9d7e786c3d5afe59b36ee86c69afeb75022083bad8c
+  checksum: c3cebabebc30b19dc8a71c315df2984468bb8aba1029b763149903cb03b1e4aa935c8a98bc8471b528e609f17de8a05eb50c28c1f057fddbb4628fdea0b9d2e9
   languageName: node
   linkType: hard
 
-"@sveltejs/vite-plugin-svelte@npm:^1.0.0-next.32, @sveltejs/vite-plugin-svelte@npm:^1.0.0-next.42":
-  version: 1.0.0-next.42
-  resolution: "@sveltejs/vite-plugin-svelte@npm:1.0.0-next.42"
+"@sveltejs/vite-plugin-svelte@npm:^1.0.0-next.32, @sveltejs/vite-plugin-svelte@npm:^1.0.0-next.44":
+  version: 1.0.0-next.44
+  resolution: "@sveltejs/vite-plugin-svelte@npm:1.0.0-next.44"
   dependencies:
     "@rollup/pluginutils": ^4.2.1
     debug: ^4.3.4
+    deepmerge: ^4.2.2
     kleur: ^4.1.4
     magic-string: ^0.26.1
     svelte-hmr: ^0.14.11
@@ -227,7 +228,7 @@ __metadata:
   peerDependenciesMeta:
     diff-match-patch:
       optional: true
-  checksum: adb11ee3b87cba2fb69eed1c2325c14a0e73862695ccbceea10616c0b18cedfb4f5c851b175a7a5ddc0e5294b93090517351723beb8142c1be99fb1da7e58f4f
+  checksum: c222a4a63f30618fa098caca631999a9252b3a282821e1b7731f6f5999a4085a1c7dee7202a1602d4348ca3c9f9d4338f187afca744c6b91da41c2eecb11a3fa
   languageName: node
   linkType: hard
 
@@ -1446,6 +1447,13 @@ __metadata:
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: edb65dd0d7d1b9c40b2f50219aef30e116cedd6fc79290e740972c132c09106d2e80aa0bc8826673dd5a00222d4179c84b36a790eef63a4c4bca75a37ef90804
+  languageName: node
+  linkType: hard
+
+"deepmerge@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "deepmerge@npm:4.2.2"
+  checksum: a8c43a1ed8d6d1ed2b5bf569fa4c8eb9f0924034baf75d5d406e47e157a451075c4db353efea7b6bcc56ec48116a8ce72fccf867b6e078e7c561904b5897530b
   languageName: node
   linkType: hard
 
@@ -3816,8 +3824,8 @@ __metadata:
     "@mapbox/rehype-prism": ^0.8.0
     "@rollup/plugin-yaml": ^3.1.0
     "@sveltejs/adapter-vercel": ^1.0.0-next.50
-    "@sveltejs/kit": ^1.0.0-next.326
-    "@sveltejs/vite-plugin-svelte": ^1.0.0-next.42
+    "@sveltejs/kit": ^1.0.0-next.329
+    "@sveltejs/vite-plugin-svelte": ^1.0.0-next.44
     "@types/unist": ^2.0.6
     "@types/xml": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.21.0
@@ -3834,9 +3842,9 @@ __metadata:
     prettier: ^2.6.2
     prettier-plugin-svelte: ^2.7.0
     rehype: ^11.0.0
-    svelte: ^3.46.3
+    svelte: ^3.48.0
     svelte-check: ^2.7.0
-    svelte-preprocess: ^4.9.8
+    svelte-preprocess: ^4.10.6
     tailwindcss: ^3.0.18
     tslib: ^2.3.1
     typescript: ^4.5.5
@@ -5289,9 +5297,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.9.8":
-  version: 4.9.8
-  resolution: "svelte-preprocess@npm:4.9.8"
+"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.10.6":
+  version: 4.10.6
+  resolution: "svelte-preprocess@npm:4.10.6"
   dependencies:
     "@types/pug": ^2.0.4
     "@types/sass": ^1.16.0
@@ -5302,12 +5310,12 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.10.2
     coffeescript: ^2.5.1
-    less: ^3.11.3
+    less: ^3.11.3 || ^4.0.0
     postcss: ^7 || ^8
     postcss-load-config: ^2.1.0 || ^3.0.0
     pug: ^3.0.0
     sass: ^1.26.8
-    stylus: ^0.54.7
+    stylus: ^0.55.0
     sugarss: ^2.0.0
     svelte: ^3.23.0
     typescript: ^3.9.5 || ^4.0.0
@@ -5334,14 +5342,14 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 4a270ca101628ef816b3e3db75b504004bbf4f69334e1c201a8ce72ef26a2900b75cb514d283a9a6297e8ac481425a179e50973487d7d031762064c9d99b242a
+  checksum: ef6408349d17cec86cf2f23f4f3e889cbf5cae127a225b96ab0ee4c9823599e41c539f6361f446184b38c543345871aff1ec07fa637a25cd412cd48b7625b004
   languageName: node
   linkType: hard
 
-"svelte@npm:^3.46.3":
-  version: 3.46.3
-  resolution: "svelte@npm:3.46.3"
-  checksum: 58659dd03edaf7f4e21e029bb92babe53c26b727d8e1d2beb61baebb360131829016f2ff4c222fa23d789dbbb3e1d092ece79178f441fa385378456b425044f7
+"svelte@npm:^3.48.0":
+  version: 3.48.0
+  resolution: "svelte@npm:3.48.0"
+  checksum: d72587582b6967bf083ff7dc254f8067c22b57d4678182b48ca51010e0f3a1d98a33a00365046aee0c70ed3ffc716b73141207ec5ac6c44f1f5e34c5477e61ea
   languageName: node
   linkType: hard
 
