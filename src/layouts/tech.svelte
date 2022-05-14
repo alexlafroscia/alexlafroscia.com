@@ -34,8 +34,27 @@
     @apply text-2xl;
   }
 
-  article :global(a) :global(svg) {
+  article :global(h1) :global(a),
+  article :global(h2) :global(a),
+  article :global(h3) :global(a),
+  article :global(h4) :global(a) {
+    @apply text-current;
+  }
+
+  article :global(h1) :global(a) :global(svg),
+  article :global(h2) :global(a) :global(svg),
+  article :global(h3) :global(a) :global(svg),
+  article :global(h4) :global(a) :global(svg) {
     @apply w-5 h-5;
+    @apply opacity-40;
+    @apply transition-opacity duration-300 delay-200;
+  }
+
+  article :global(h1) :global(a):hover :global(svg),
+  article :global(h2) :global(a):hover :global(svg),
+  article :global(h3) :global(a):hover :global(svg),
+  article :global(h4) :global(a):hover :global(svg) {
+    @apply opacity-75;
   }
 
   article :global(p) {
