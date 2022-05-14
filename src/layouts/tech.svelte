@@ -37,10 +37,16 @@
     @apply max-w-full;
   }
 
+  article :global(h1) :global(code),
+  article :global(h2) :global(code),
+  article :global(h3) :global(code),
+  article :global(h4) :global(code),
+  article :global(li) :global(code),
   article :global(p) :global(code) {
     /* Style inline code snippets */
+    @apply text-sm;
     @apply bg-gray-200;
-    @apply p-1;
+    @apply px-1 py-0.5;
     @apply rounded;
 
     @media (prefers-color-scheme: dark) {
