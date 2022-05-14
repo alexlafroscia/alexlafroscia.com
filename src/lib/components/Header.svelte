@@ -32,7 +32,7 @@
 </script>
 
 <header
-  class="leading-6 text-black dark:text-white bg-white dark:bg-gray-900 flex items-center sticky top-0 p-4 -m-4 mb-4 space-x-4"
+  class="leading-6 text-black dark:text-white bg-white dark:bg-gray-900 flex items-center sticky top-0 z-10 p-4 -m-4 mb-4 space-x-4"
 >
   <button
     class="bg-transparent border-none p-0 m-0 leading-none"
