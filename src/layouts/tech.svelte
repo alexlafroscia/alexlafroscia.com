@@ -18,14 +18,24 @@
 </article>
 
 <style lang="postcss">
-  article :global(h1) {
+  article :global(h1),
+  article :global(h2) {
     @apply font-bold;
+
+    /* For header-link behavior */
+    @apply flex items-center gap-1;
+  }
+
+  article :global(h1) {
     @apply text-3xl;
   }
 
   article :global(h2) {
-    @apply font-bold;
     @apply text-2xl;
+  }
+
+  article :global(a) :global(svg) {
+    @apply w-5 h-5;
   }
 
   article :global(p) {
