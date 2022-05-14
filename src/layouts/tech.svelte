@@ -54,6 +54,10 @@
     }
   }
 
+  article :global(a) {
+    @apply underline;
+  }
+
   article :global(blockquote) {
     @apply pl-4;
     @apply py-1;
