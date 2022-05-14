@@ -70,7 +70,8 @@
   }
 
   article > :global(pre) {
-    @apply bg-gray-200;
+    @apply text-white;
+    @apply bg-gray-800;
 
     @apply rounded;
     @apply p-4;
@@ -78,10 +79,6 @@
     /* Ensure code snippets do not increase max page width */
     @apply max-w-full;
     @apply overflow-x-auto;
-
-    @media (prefers-color-scheme: dark) {
-      @apply bg-gray-800;
-    }
   }
 
   article > :global(ol),
