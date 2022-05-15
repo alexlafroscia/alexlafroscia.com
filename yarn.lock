@@ -186,18 +186,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:^1.0.0-next.50":
-  version: 1.0.0-next.50
-  resolution: "@sveltejs/adapter-vercel@npm:1.0.0-next.50"
+"@sveltejs/adapter-vercel@npm:^1.0.0-next.51":
+  version: 1.0.0-next.51
+  resolution: "@sveltejs/adapter-vercel@npm:1.0.0-next.51"
   dependencies:
     esbuild: ^0.14.21
-  checksum: a5b478d8fb2ee1b0e56f592c43d12eb098b4f8241e48822bb5a3fba4dee474c93f01e1864557f96e21eff75d5fc2fd8a6918853f3f85e77661365d3d6b2f14dc
+  checksum: 9fd82e86892d8d85489a7c438a07b448e3085e2329e5e290f7f26c98bfd82049ac947456984e1e80dc373ad00bfcd365fdcaee416195987f5c696139932b4fd4
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:^1.0.0-next.329":
-  version: 1.0.0-next.329
-  resolution: "@sveltejs/kit@npm:1.0.0-next.329"
+"@sveltejs/kit@npm:^1.0.0-next.330":
+  version: 1.0.0-next.330
+  resolution: "@sveltejs/kit@npm:1.0.0-next.330"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.32
     chokidar: ^3.5.3
@@ -207,7 +207,7 @@ __metadata:
     svelte: ^3.44.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: c3cebabebc30b19dc8a71c315df2984468bb8aba1029b763149903cb03b1e4aa935c8a98bc8471b528e609f17de8a05eb50c28c1f057fddbb4628fdea0b9d2e9
+  checksum: 15f4bb4975c6b5e12f98c61eabc6988bd66fd04c9a5295a4f5d2b388951aa14f6b0b4724f0cd7563d775ba3deeee2eb6b315beb6a3fdec7d89c935a8086324d1
   languageName: node
   linkType: hard
 
@@ -957,9 +957,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001272, caniuse-lite@npm:^1.0.30001274":
-  version: 1.0.30001282
-  resolution: "caniuse-lite@npm:1.0.30001282"
-  checksum: 62797fd756e88bfa01f0f983bea9de7814293b209456e8f0b20596b03d2880246f63dc90f947a1fa63f92806ebefbb86fc7811dbecb7839927886d07996938be
+  version: 1.0.30001341
+  resolution: "caniuse-lite@npm:1.0.30001341"
+  checksum: 7262b093fb0bf49dbc5328418f5ce4e3dbb0b13e39c015f986ba1807634c123ac214efc94df7d095a336f57f86852b4b63ee61838f18dcc3a4a35f87b390c8f5
   languageName: node
   linkType: hard
 
@@ -3908,8 +3908,8 @@ __metadata:
     "@js-temporal/polyfill": ^0.4.1
     "@mapbox/rehype-prism": ^0.8.0
     "@rollup/plugin-yaml": ^3.1.0
-    "@sveltejs/adapter-vercel": ^1.0.0-next.50
-    "@sveltejs/kit": ^1.0.0-next.329
+    "@sveltejs/adapter-vercel": ^1.0.0-next.51
+    "@sveltejs/kit": ^1.0.0-next.330
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.44
     "@types/unist": ^2.0.6
     "@types/xml": ^1.0.6
