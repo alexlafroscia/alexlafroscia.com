@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import type { Load } from "./[...fallback].d";
+  import type { Load } from "./__types/[...fallback]";
   import { base } from "$app/paths";
   import { Post } from "$lib/post";
 

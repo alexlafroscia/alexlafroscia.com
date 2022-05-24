@@ -1,4 +1,4 @@
-import type { RequestHandler } from "./tech.json.d";
+import type { RequestHandler } from "./__types/tech.json";
 import { pipe } from "$lib/pipe";
 import { collect, filter, map } from "$lib/async-iter";
 import { Post } from "$lib/post";

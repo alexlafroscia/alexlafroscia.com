@@ -1,4 +1,4 @@
-import type { RequestHandler } from "./tech.atom.d";
+import type { RequestHandler } from "./__types/tech.atom";
 import { Feed } from "feed";
 import { prepare } from "$lib/atom/content";
 import { findAllPosts } from "./tech.json";

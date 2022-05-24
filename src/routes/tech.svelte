@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-  import type { Load } from "./tech.d";
+  import type { Load } from "./__types/index";
   import { Post } from "$lib/post";
   import { PostList } from "$lib/components";
 
