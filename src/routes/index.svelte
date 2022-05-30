@@ -32,7 +32,7 @@
 <main class="space-y-16 w-readable max-w-full mx-auto">
   <h1 class="text-3xl lowercase mt-8">Home</h1>
   <section>
-    <h1 class="text-2xl">Latest Article</h1>
+    <h1 class="text-2xl">Latest Post</h1>
 
     <RenderPost post={firstPost} />
   </section>
