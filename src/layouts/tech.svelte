@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import "../styles/prism-theme-night-owl.css";
 
   /**
@@ -7,6 +7,12 @@
    * @type {string}
    */
   export let title = "";
+
+  let dateString = "";
+
+  $: date = new Date(dateString);
+
+  export { dateString as date };
 </script>
 
 <svelte:head>
@@ -14,9 +20,17 @@
 </svelte:head>
 
 <article class="w-readable max-w-full mx-auto space-y-4 my-8">
-  {#if title}
-    <h1>{title}</h1>
-  {/if}
+  <header class="flex flex-col space-y-2">
+    {#if title}
+      <h1>{title}</h1>
+    {/if}
+
+    <div class="p-2 rounded text-sm bg-gray-200 dark:bg-gray-800">
+      <span>
+        Posted <time datetime={date.toISOString()}>{date.toLocaleDateString("en-US")}</time>
+      </span>
+    </div>
+  </header>
 
   <slot />
 </article>
