@@ -99,7 +99,7 @@ export class Post {
         map(async function ([entry, importModule]) {
           const slug = entry
             // Remove directory from path
-            .replace("./tech", "")
+            .replace("../routes/tech", "")
             // Trim leading slash
             .replace(/^\//, "")
             // Remove file extension
