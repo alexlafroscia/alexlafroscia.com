@@ -9,6 +9,10 @@
   export let title = "";
 </script>
 
+<svelte:head>
+  <title>{title}</title>
+</svelte:head>
+
 <article class="w-readable max-w-full mx-auto space-y-4 my-8">
   {#if title}
     <h1>{title}</h1>
