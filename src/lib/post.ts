@@ -32,7 +32,7 @@ export class Post {
    */
   legacy: boolean;
 
-  static compare(a: Post, b: Post): Temporal.ComparisonResult {
+  static compare(a: Post | SerializedPost, b: Post | SerializedPost): Temporal.ComparisonResult {
     return Temporal.Instant.compare(a.date, b.date);
   }
 
