@@ -42,6 +42,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>All Tech Posts</title>
+</svelte:head>
+
 <main class="space-y-4 w-readable max-w-full mx-auto">
   <h1 class="font-bold text-3xl">All Tech Posts</h1>
 
