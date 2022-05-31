@@ -1,7 +1,7 @@
 import type { RequestHandler } from "./__types/tech.atom";
 import { Feed } from "feed";
 import { prepare } from "$lib/atom/content";
-import { findAllPosts } from "./tech.json";
+import { Post } from "$lib/post";
 
 export const get: RequestHandler = async () => {
   const feed = new Feed({
@@ -23,7 +23,7 @@ export const get: RequestHandler = async () => {
 
   feed.addCategory("Tech");
 
-  for (const post of await findAllPosts()) {
+  for (const post of await Post.all()) {
     const url = `https://alexlafroscia.com/tech/${post.slug}`;
 
     feed.addItem({

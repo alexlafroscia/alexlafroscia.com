@@ -1,16 +1,9 @@
-import { base } from "$app/paths";
 import { Temporal } from "@js-temporal/polyfill";
+import { browser } from "$app/env";
+import { base } from "$app/paths";
+import { pipe } from "$lib/pipe";
+import { collect, filter, map } from "$lib/async-iter";
 import type { MdxvexModuleResult } from "./types";
-
-function extractTitleFromPost(code: string[]): string {
-  const h1 = code.find((line) => line.startsWith("<h1>") && line.endsWith("</h1>"));
-
-  if (!h1) {
-    throw new Error("Could not locate title in post");
-  }
-
-  return h1.slice(3, h1.length - 6);
-}
 
 export type Frontmatter = {
   title?: string;
@@ -75,15 +68,54 @@ export class Post {
     };
   }
 
-  /**
-   * Retrieve the full set of Posts
-   *
-   * Requires that SvelteKit's `fetch` implementation is passed in, since its only available in `load`
-   */
   static async fetchAll(fetch: typeof window.fetch): Promise<Post[]> {
     const res = await fetch(`${base}/tech.json`);
     const { posts }: { posts: SerializedPost[] } = await res.json();
 
     return posts.map((post) => Post.fromJSON(post));
+  }
+
+  /**
+   * Store a cache of posts read from the file system
+   */
+  private static posts?: Post[];
+
+  /**
+   * Retrieve the full set of Posts
+   *
+   * Requires that SvelteKit's `fetch` implementation is passed in, since its only available in `load`
+   */
+  static async all(): Promise<Post[]> {
+    if (browser) {
+      throw new Error("Invalid API call from client; use `fetchAll` to load through the network");
+    }
+
+    // Initialize the cache if we have not done so already
+    if (!this.posts) {
+      const modules = import.meta.glob("../routes/tech/**/*.{md,svx}");
+
+      this.posts = await pipe(
+        Object.entries(modules),
+        map(async function ([entry, importModule]) {
+          const slug = entry
+            // Remove directory from path
+            .replace("./tech", "")
+            // Trim leading slash
+            .replace(/^\//, "")
+            // Remove file extension
+            .replace(/\.(svx|md)$/, "");
+
+          const { default: mod, metadata: frontmatter = {} } = await importModule();
+          const code: MdxvexModuleResult = mod.render();
+
+          return { code, frontmatter: frontmatter as Frontmatter, slug };
+        }),
+        filter((post) => !!post.frontmatter.date),
+        map(({ code, frontmatter, slug }) => new Post(slug, code, frontmatter)),
+        collect
+      );
+    }
+
+    return this.posts;
   }
 }
