@@ -98,16 +98,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@js-temporal/polyfill@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@js-temporal/polyfill@npm:0.4.1"
-  dependencies:
-    jsbi: ^4.1.0
-    tslib: ^2.3.1
-  checksum: 0d7523918fe89353501e1d8c75ec2548f790765b55f6c9cdab5c9336025e93566adff8d9aca69b163becad51c155f9557a89cc352c5eb3e00ed037efdeede53e
-  languageName: node
-  linkType: hard
-
 "@mapbox/node-pre-gyp@npm:^1.0.5":
   version: 1.0.9
   resolution: "@mapbox/node-pre-gyp@npm:1.0.9"
@@ -3482,13 +3472,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsbi@npm:^4.1.0":
-  version: 4.3.0
-  resolution: "jsbi@npm:4.3.0"
-  checksum: 27c4f178eb7fd9d1756144066fdebc62f4a0176e877f55e646e8ce84075c13551bd575a316b9959ccdcca9d5dc05a81c9907cfa09f0cfeb43c9777797e36b0e9
-  languageName: node
-  linkType: hard
-
 "jsdom@npm:^19.0.0":
   version: 19.0.0
   resolution: "jsdom@npm:19.0.0"
@@ -4105,7 +4088,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "my-app@workspace:."
   dependencies:
-    "@js-temporal/polyfill": ^0.4.1
     "@mapbox/rehype-prism": ^0.8.0
     "@rollup/plugin-yaml": ^3.1.0
     "@sveltejs/adapter-vercel": ^1.0.0-next.58

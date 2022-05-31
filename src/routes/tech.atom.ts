@@ -30,7 +30,7 @@ export const get: RequestHandler = async () => {
       title: post.title,
       id: url,
       link: url,
-      date: new Date(post.date.epochMilliseconds),
+      date: post.date,
       content: post.content ? await prepare(post.content) : undefined,
     });
   }

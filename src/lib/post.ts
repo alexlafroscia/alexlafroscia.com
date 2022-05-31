@@ -1,4 +1,3 @@
-import { Temporal } from "@js-temporal/polyfill";
 import { browser } from "$app/env";
 import { base } from "$app/paths";
 import { pipe } from "$lib/pipe";
@@ -20,7 +19,7 @@ export interface SerializedPost extends Required<Pick<Frontmatter, "title" | "da
 export class Post {
   title: string;
   slug: string;
-  date: Temporal.Instant;
+  date: Date;
 
   /**
    * Present when generated on the server, but not provided to the client
@@ -32,15 +31,19 @@ export class Post {
    */
   legacy: boolean;
 
-  static compare(a: Post | SerializedPost, b: Post | SerializedPost): Temporal.ComparisonResult {
-    return Temporal.Instant.compare(a.date, b.date);
+  static compare(a: Post | SerializedPost, b: Post | SerializedPost): number {
+    const aDate = a instanceof Post ? a.date : new Date(a.date);
+    const bDate = b instanceof Post ? b.date : new Date(b.date);
+
+    // @ts-expect-error you can totally subtract `Date` instances
+    return aDate - bDate;
   }
 
   constructor(slug: string, code: MdxvexModuleResult, frontmatter: Frontmatter) {
     this.slug = slug;
 
     this.title = frontmatter.title ?? ""; // TODO: extract title from post if not in frontmatter
-    this.date = frontmatter.date ? Temporal.Instant.from(frontmatter.date) : Temporal.Now.instant();
+    this.date = frontmatter.date ? new Date(frontmatter.date) : new Date();
     this.legacy = frontmatter.legacy ?? false;
 
     this.content = code.html;
