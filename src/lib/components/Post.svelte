@@ -1,10 +1,12 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import type { Post } from "$lib/post";
+  import type { SerializedPost } from "$lib/post";
 
   let className = "";
 
-  export let post: Post;
+  export let post: SerializedPost;
+
+  $: date = new Date(post.date);
 
   export { className as class };
 </script>
@@ -15,7 +17,7 @@
       <a href={`${base}/tech/${post.slug}`}>{post.title}</a>
     </h1>
     <div>
-      {post.date.toLocaleString("en-US", {
+      {date.toLocaleString("en-US", {
         month: "long",
         day: "numeric",
         year: "numeric",

@@ -71,11 +71,11 @@ export class Post {
     };
   }
 
-  static async fetchAll(fetch: typeof window.fetch): Promise<Post[]> {
+  static async fetchAll(fetch: typeof window.fetch): Promise<SerializedPost[]> {
     const res = await fetch(`${base}/tech.json`);
     const { posts }: { posts: SerializedPost[] } = await res.json();
 
-    return posts.map((post) => Post.fromJSON(post));
+    return posts;
   }
 
   /**

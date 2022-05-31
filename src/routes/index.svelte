@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
   import type { Load } from "./__types/index";
-  import { Post } from "$lib/post";
+  import { Post, type SerializedPost } from "$lib/post";
   import { Post as RenderPost } from "$lib/components";
 
   export const load: Load = async ({ fetch }) => {
@@ -22,7 +22,7 @@
 </script>
 
 <script lang="ts">
-  export let firstPost: Post;
+  export let firstPost: SerializedPost;
 </script>
 
 <svelte:head>

@@ -1,14 +1,14 @@
 <script lang="ts">
-  import type { Post } from "$lib/post";
-  import { Post as RenderPost } from "$lib/components";
+  import type { SerializedPost } from "$lib/post";
+  import { Post } from "$lib/components";
 
-  export let posts: Post[];
+  export let posts: SerializedPost[];
 </script>
 
 <ol class="divide-y divide-gray-200 dark:divide-gray-800">
   {#each posts as post}
     <li>
-      <RenderPost {post} />
+      <Post {post} />
     </li>
   {/each}
 </ol>

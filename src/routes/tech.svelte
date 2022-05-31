@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
   import type { Load } from "./__types/index";
-  import { Post } from "$lib/post";
+  import { Post, type SerializedPost } from "$lib/post";
   import { PostList } from "$lib/components";
 
   export const load: Load = async ({ fetch }) => {
@@ -23,7 +23,7 @@
   import Fuse from "fuse.js";
   import { onMount } from "svelte";
 
-  export let posts: Post[];
+  export let posts: SerializedPost[];
 
   const fuse = new Fuse(posts, {
     keys: ["title"],
