@@ -6,7 +6,7 @@ description: >-
 tags:
   - testing
   - qunit
-  - ember.js
+  - ember
 legacy: true
 ---
 

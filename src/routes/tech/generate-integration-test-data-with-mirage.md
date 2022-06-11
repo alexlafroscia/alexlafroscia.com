@@ -3,7 +3,7 @@ title: Generate Integration test data with Mirage
 date: 2018-02-25T08:11:29+08:00
 description: Need Ember Data models in Integration tests? You can use Mirage, even if the component doesn't fetch the data itself.
 tags:
-  - ember.js
+  - ember
   - qunit
   - mirage
 legacy: true
