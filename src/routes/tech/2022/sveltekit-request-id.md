@@ -1,6 +1,9 @@
 ---
 title: Setting a Request ID in SvelteKit
 date: 2022-05-30
+tags:
+  - sveltejs
+  - sveltekit
 ---
 
 I have been working on a full-stack application in [SvelteKit](https://kit.svelte.dev) recently. As the complexity of the application grew, it started getting harder to understand what was happening during each page render. I knew I needed something to help track down what was happening in my application during each request. The solution to my problem was a familiar one: request IDs!

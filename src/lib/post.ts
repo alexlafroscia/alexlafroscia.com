@@ -12,7 +12,7 @@ export type Frontmatter = {
   legacy?: boolean;
 };
 
-export interface SerializedPost extends Required<Pick<Frontmatter, "title" | "date" | "legacy">> {
+export interface SerializedPost extends Required<Omit<Frontmatter, "description">> {
   slug: string;
 }
 
@@ -20,6 +20,7 @@ export class Post {
   title: string;
   slug: string;
   date: Date;
+  tags: string[];
 
   /**
    * Present when generated on the server, but not provided to the client
@@ -44,6 +45,7 @@ export class Post {
 
     this.title = frontmatter.title ?? ""; // TODO: extract title from post if not in frontmatter
     this.date = frontmatter.date ? new Date(frontmatter.date) : new Date();
+    this.tags = frontmatter.tags ?? [];
     this.legacy = frontmatter.legacy ?? false;
 
     this.content = code.html;
@@ -67,6 +69,7 @@ export class Post {
       title: this.title,
       slug: this.slug,
       date: this.date.toString(),
+      tags: this.tags,
       legacy: this.legacy,
     };
   }

@@ -1,4 +1,5 @@
-<script lang="ts">
+<script>
+  import { base } from "$app/paths";
   import "../styles/prism-theme-night-owl.css";
 
   /**
@@ -7,6 +8,11 @@
    * @type {string}
    */
   export let title = "";
+
+  /**
+   * @type {string[]}
+   */
+  export let tags = [];
 
   let dateString = "";
 
@@ -25,10 +31,19 @@
       <h1>{title}</h1>
     {/if}
 
-    <div class="p-2 rounded text-sm bg-gray-200 dark:bg-gray-800">
+    <div class="flex flex-col space-y-2 p-2 rounded text-sm bg-gray-200 dark:bg-gray-800">
       <span>
         Posted <time datetime={date.toISOString()}>{date.toLocaleDateString("en-US")}</time>
       </span>
+
+      {#if tags.length}
+        <ul class="flex space-x-2">
+          <li>Topics:</li>
+          {#each tags as tag}
+            <li><a href={`${base}/tech/topic/${tag}`}>{tag}</a></li>
+          {/each}
+        </ul>
+      {/if}
     </div>
   </header>
 

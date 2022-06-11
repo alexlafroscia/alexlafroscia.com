@@ -20,7 +20,7 @@
 
       const previous = acc[acc.length - 1] ?? { href: base };
 
-      return [...acc, { label: part, href: `${previous.href}/${part}` }];
+      return [...acc, { label: decodeURIComponent(part), href: `${previous.href}/${part}` }];
     }, [] as PathPart[]);
   });
 
