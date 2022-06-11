@@ -229,19 +229,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:^1.0.0-next.347":
-  version: 1.0.0-next.347
-  resolution: "@sveltejs/kit@npm:1.0.0-next.347"
+"@sveltejs/kit@npm:^1.0.0-next.350":
+  version: 1.0.0-next.350
+  resolution: "@sveltejs/kit@npm:1.0.0-next.350"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.46
     chokidar: ^3.5.3
     sade: ^1.8.1
-    vite: ^2.9.9
+    vite: ^2.9.10
   peerDependencies:
     svelte: ^3.44.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: d0420de6668bef543e72388f37b10df63061a0a5e11bea6bf4a2ed0bdee493bfef240bd1d234bf1b9696ce1cf6a7812bfa76bc7a07a5690d7984bf937e752aea
+  checksum: db8bb192eeda77ccb4b39d471a8022216fcacaddeb6cb89fd5ffe96a01d331db97846e0025ee2376458b3742d6b528bc04f90b41804834f0a02e584ec9e6a35a
   languageName: node
   linkType: hard
 
@@ -4091,8 +4091,7 @@ __metadata:
     "@mapbox/rehype-prism": ^0.8.0
     "@rollup/plugin-yaml": ^3.1.0
     "@sveltejs/adapter-vercel": ^1.0.0-next.58
-    "@sveltejs/kit": ^1.0.0-next.347
-    "@sveltejs/vite-plugin-svelte": ^1.0.0-next.46
+    "@sveltejs/kit": ^1.0.0-next.350
     "@types/unist": ^2.0.6
     "@types/xml": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.23.0
@@ -4114,7 +4113,7 @@ __metadata:
     rehype-slug: ^5.0.1
     svelte: ^3.48.0
     svelte-check: ^2.7.1
-    svelte-preprocess: ^4.10.6
+    svelte-preprocess: ^4.10.7
     tailwindcss: ^3.0.18
     tslib: ^2.3.1
     typescript: ^4.5.5
@@ -5743,9 +5742,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.10.6":
-  version: 4.10.6
-  resolution: "svelte-preprocess@npm:4.10.6"
+"svelte-preprocess@npm:^4.0.0, svelte-preprocess@npm:^4.10.7":
+  version: 4.10.7
+  resolution: "svelte-preprocess@npm:4.10.7"
   dependencies:
     "@types/pug": ^2.0.4
     "@types/sass": ^1.16.0
@@ -5758,7 +5757,7 @@ __metadata:
     coffeescript: ^2.5.1
     less: ^3.11.3 || ^4.0.0
     postcss: ^7 || ^8
-    postcss-load-config: ^2.1.0 || ^3.0.0
+    postcss-load-config: ^2.1.0 || ^3.0.0 || ^4.0.0
     pug: ^3.0.0
     sass: ^1.26.8
     stylus: ^0.55.0
@@ -5788,7 +5787,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: ef6408349d17cec86cf2f23f4f3e889cbf5cae127a225b96ab0ee4c9823599e41c539f6361f446184b38c543345871aff1ec07fa637a25cd412cd48b7625b004
+  checksum: 51a0820c14bcc411ddf3b1cf4c772e73873626ed0b6c54dfca9e06bd6a6b22c9502436df3f1a4dab9eb3a404bba95002fd70cadea29a84fc36da3071309a8b91
   languageName: node
   linkType: hard
 
@@ -6420,9 +6419,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^2.9.9":
-  version: 2.9.9
-  resolution: "vite@npm:2.9.9"
+"vite@npm:^2.9.10, vite@npm:^2.9.9":
+  version: 2.9.12
+  resolution: "vite@npm:2.9.12"
   dependencies:
     esbuild: ^0.14.27
     fsevents: ~2.3.2
@@ -6445,7 +6444,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 9292b8ba510a393d0c61c407ebfb4eaa818b2d8d106b3476cdc94cb57a0c59348a535936d698db04b35910a1cfdb16aeaf872f0f995b54cf6d7ed31bc7886deb
+  checksum: 33cf8b6bfbbcae4b7f856d739ae519bed6b1ce23fc652ca98db1d4878bf35424885951c13e0d2536248423a0836d91ef7cae744ff40cbcbd6e7ffe495bd15ea5
   languageName: node
   linkType: hard
 
