@@ -8,10 +8,7 @@
 
     return {
       props: {
-        posts: posts
-          .filter((post) => post.slug.includes("2020"))
-          .sort(Post.compare)
-          .reverse(),
+        posts: posts.filter((post) => post.slug.includes("2020")).sort(Post.compare),
       },
     };
   };

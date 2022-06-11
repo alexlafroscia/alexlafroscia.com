@@ -8,7 +8,7 @@
 
     return {
       props: {
-        posts: posts.sort(Post.compare).reverse(),
+        posts: posts.sort(Post.compare),
       },
     };
   };

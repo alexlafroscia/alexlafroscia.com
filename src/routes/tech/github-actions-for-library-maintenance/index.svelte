@@ -10,8 +10,7 @@
       props: {
         posts: posts
           .filter((post) => post.slug.includes("github-actions-for-library-maintenance"))
-          .sort(Post.compare)
-          .reverse(),
+          .sort(Post.compare),
       },
     };
   };

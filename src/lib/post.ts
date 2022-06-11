@@ -37,7 +37,7 @@ export class Post {
     const bDate = b instanceof Post ? b.date : new Date(b.date);
 
     // @ts-expect-error you can totally subtract `Date` instances
-    return aDate - bDate;
+    return bDate - aDate;
   }
 
   constructor(slug: string, code: MdxvexModuleResult, frontmatter: Frontmatter) {

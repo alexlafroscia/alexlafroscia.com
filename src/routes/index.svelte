@@ -6,7 +6,7 @@
   export const load: Load = async ({ fetch }) => {
     let posts = await Post.fetchAll(fetch);
 
-    posts = posts.sort(Post.compare).reverse();
+    posts = posts.sort(Post.compare);
 
     return {
       props: {

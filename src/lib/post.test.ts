@@ -18,8 +18,8 @@ describe("compare", () => {
       tags: [],
     });
 
-    expect(Post.compare(a, b)).toBeLessThan(0);
-    expect(Post.compare(b, a)).toBeGreaterThan(0);
+    expect(Post.compare(a, b)).toBeGreaterThan(0);
+    expect(Post.compare(b, a)).toBeLessThan(0);
   });
 
   it("works with SerializedPost", () => {
@@ -38,7 +38,7 @@ describe("compare", () => {
       tags: [],
     };
 
-    expect(Post.compare(a, b)).toBeLessThan(0);
-    expect(Post.compare(b, a)).toBeGreaterThan(0);
+    expect(Post.compare(a, b)).toBeGreaterThan(0);
+    expect(Post.compare(b, a)).toBeLessThan(0);
   });
 });
