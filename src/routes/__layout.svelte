@@ -39,14 +39,12 @@
     defer></script>
 </svelte:head>
 
-<div class="flex flex-col sm:flex-row w-screen sm:h-screen">
+<div class="flex flex-col sm:flex-row w-screen">
   <Sidebar hidden={!sidebarIsOpen} />
 
-  <div class="pb-4 pl-4 pr-4 flex flex-col flex-grow overflow-auto sm:min-h-full">
+  <div class="pb-4 px-4 overflow-auto flex-grow">
     <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
 
-    <div class="flex-grow">
-      <slot />
-    </div>
+    <slot />
   </div>
 </div>
