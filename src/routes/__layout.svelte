@@ -28,7 +28,7 @@
 
   <!-- Set theme colors to style browser "chrome" like page background -->
   <meta name="color-scheme" content="dark light" />
-  <meta name="theme-color" content="white" />
+  <meta name="theme-color" content="white" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="rgb(17, 24, 39)" media="(prefers-color-scheme: dark)" />
 
   <!-- Fathom Analytics -->
