@@ -2,20 +2,7 @@
   import "../tailwind.css";
   import "../styles/main-site-background.css";
 
-  import { navigating } from "$app/stores";
-  import { Header, Sidebar } from "$lib/components";
-
-  // Sidebar state management
-  let sidebarIsOpen = false;
-
-  function toggleSidebar() {
-    sidebarIsOpen = !sidebarIsOpen;
-  }
-
-  navigating.subscribe(() => {
-    // Close the sidebar when navigating
-    sidebarIsOpen = false;
-  });
+  import { Header } from "$lib/components";
 </script>
 
 <svelte:head>
@@ -40,10 +27,8 @@
 </svelte:head>
 
 <div class="flex flex-col sm:flex-row w-screen">
-  <Sidebar hidden={!sidebarIsOpen} />
-
   <div class="pb-4 px-4 overflow-auto flex-grow">
-    <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
+    <Header />
 
     <slot />
   </div>
