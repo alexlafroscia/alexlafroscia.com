@@ -26,10 +26,8 @@
     defer></script>
 </svelte:head>
 
-<div class="flex flex-col sm:flex-row w-screen">
-  <div class="pb-4 px-4 overflow-auto flex-grow">
-    <Header />
+<div class="pb-4 px-4">
+  <Header />
 
-    <slot />
-  </div>
+  <slot />
 </div>
