@@ -4284,7 +4284,6 @@ __metadata:
     typescript: ^4.7.3
     vite: ^3.0.4
     vitest: ^0.14.2
-    vitest-svelte-kit: ^0.0.6
   languageName: unknown
   linkType: soft
 
@@ -6616,13 +6615,6 @@ __metadata:
   bin:
     vite: bin/vite.js
   checksum: f13eceb94f7b399942ce5e7c10df73314f7b073171d6594228b078cc1203042c4cdb9e8356fe64ad444c3533c31437abb3c64ac56478f0865fab598e924cf68b
-  languageName: node
-  linkType: hard
-
-"vitest-svelte-kit@npm:^0.0.6":
-  version: 0.0.6
-  resolution: "vitest-svelte-kit@npm:0.0.6"
-  checksum: a4c2c2cafb7fd344bf3fe2a3aed647b8c1a100badbaa3bf461509dabdbf14015e437bfe097f531c04a717abbee3415b6981c4c4ea2d2790d1325660287db0281
   languageName: node
   linkType: hard
 
