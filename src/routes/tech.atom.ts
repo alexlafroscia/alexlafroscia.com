@@ -3,7 +3,7 @@ import { Feed } from "feed";
 import { prepare } from "$lib/atom/content";
 import { Post } from "$lib/post";
 
-export const get: RequestHandler = async () => {
+export const GET: RequestHandler = async () => {
   const feed = new Feed({
     title: "Tech | Alex LaFroscia",
     description: "Tech posts by Alex LaFroscia",
