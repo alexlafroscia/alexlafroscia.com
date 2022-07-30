@@ -4,7 +4,7 @@ import { Post } from "$lib/post";
 // @ts-expect-error `RequestHandler` wants the `body` to be a specific type,
 //                  which includes an index signature on each JSON object in
 //                  the response, but I don't want to add that to `SerializedPost`
-export const get: RequestHandler = async ({ params }) => {
+export const GET: RequestHandler = async ({ params }) => {
   const allPosts = await Post.all();
   const postsWithTopic = allPosts
     .filter((post) => post.tags.includes(params.topic))

@@ -2,7 +2,6 @@ import { join, parse } from "path";
 import vercel from "@sveltejs/adapter-vercel";
 import preprocess from "svelte-preprocess";
 import { defineMDSveXConfig, mdsvex } from "mdsvex";
-import rollupPluginYaml from "@rollup/plugin-yaml";
 
 import rehypePrism from "@mapbox/rehype-prism";
 import rehypeSlug from "rehype-slug";
@@ -59,10 +58,6 @@ const config = {
         // Pre-render the RSS feed
         "/tech.atom",
       ],
-    },
-
-    vite: {
-      plugins: [rollupPluginYaml()],
     },
   },
 };
