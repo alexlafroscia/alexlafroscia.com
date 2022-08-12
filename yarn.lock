@@ -272,10 +272,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chai@npm:*, @types/chai@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "@types/chai@npm:4.3.1"
-  checksum: 2ee246b76c469cd620a7a1876a73bc597074361b67d547b4bd96a0c1adb43597ede2d8589ab626192e14349d83cbb646cc11e2c179eeeb43ff11596de94d82c4
+"@types/chai@npm:*, @types/chai@npm:^4.3.3":
+  version: 4.3.3
+  resolution: "@types/chai@npm:4.3.3"
+  checksum: 20cd094753e137cfc35939cae7f0ed78ecda7861e5c94704efab6979b9121a63807e9b631bdcf3a2792d6c6dba44050b13387262f9e63ebb040741c01c345f0a
   languageName: node
   linkType: hard
 
@@ -3976,7 +3976,7 @@ __metadata:
     tslib: ^2.4.0
     typescript: ^4.7.4
     vite: ^3.0.7
-    vitest: ^0.19.1
+    vitest: ^0.21.1
   languageName: unknown
   linkType: soft
 
@@ -6252,11 +6252,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^0.19.1":
-  version: 0.19.1
-  resolution: "vitest@npm:0.19.1"
+"vitest@npm:^0.21.1":
+  version: 0.21.1
+  resolution: "vitest@npm:0.21.1"
   dependencies:
-    "@types/chai": ^4.3.1
+    "@types/chai": ^4.3.3
     "@types/chai-subset": ^1.3.3
     "@types/node": "*"
     chai: ^4.3.6
@@ -6287,7 +6287,7 @@ __metadata:
       optional: true
   bin:
     vitest: vitest.mjs
-  checksum: f5f6bd69f2c196c072d9729805323d31dce06240cd18218e1b4387502d8c0f9cc4d2fad1e1f99a0fcbfe187d5c5e04d4ea2dd352cb99d3f06227b343e5cb4c6d
+  checksum: 27c8cd0a1e2443e1311b1ed236d66caad77dcea2c4b49364475688d89d6f8dba2074b1a2da8e7ca529ded15bd5314ff4b36119a0010a33d2dcd34333d4043bd5
   languageName: node
   linkType: hard
 
