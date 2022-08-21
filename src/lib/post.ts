@@ -108,6 +108,8 @@ export class Post {
             .replace("../routes/tech", "")
             // Trim leading slash
             .replace(/^\//, "")
+            // Remove SvelteKit file naming conventions
+            .replace("/+page", "")
             // Remove file extension
             .replace(/\.(svx|md)$/, "");
 
