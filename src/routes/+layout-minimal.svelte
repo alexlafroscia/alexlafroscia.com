@@ -1,5 +1,20 @@
 <script lang="ts">
   import "../tailwind.css";
+
+  import { browser } from "$app/env";
+  import { page } from "$app/stores";
+  import { webVitals } from "$lib/vitals";
+
+  let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+
+  $: if (browser && analyticsId) {
+    webVitals({
+      path: $page.url.pathname,
+      params: $page.params,
+      analyticsId,
+      debug: true,
+    });
+  }
 </script>
 
 <svelte:head>
