@@ -1,5 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { Post, type SerializedPost } from "./post";
+
+vi.mock("$app/environment", () => ({ browser: false }));
 
 describe("compare", () => {
   it("works with Post", () => {
