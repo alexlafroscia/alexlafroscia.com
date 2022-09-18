@@ -1,4 +1,4 @@
-import { browser } from "$app/env";
+import { browser } from "$app/environment";
 import { base } from "$app/paths";
 import { pipe } from "$lib/pipe";
 import { collect, filter, map } from "$lib/async-iter";

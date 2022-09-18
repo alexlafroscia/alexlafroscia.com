@@ -3,6 +3,8 @@ import { Feed } from "feed";
 import { prepare } from "$lib/atom/content";
 import { Post } from "$lib/post";
 
+export const prerender = true;
+
 export const GET: RequestHandler = async () => {
   const feed = new Feed({
     title: "Tech | Alex LaFroscia",

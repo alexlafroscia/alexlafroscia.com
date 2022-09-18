@@ -2,7 +2,7 @@
   import "../tailwind.css";
   import "../styles/main-site-background.css";
 
-  import { browser } from "$app/env";
+  import { browser } from "$app/environment";
   import { page, navigating } from "$app/stores";
   import { Header, Sidebar } from "$lib/components";
   import { webVitals } from "$lib/vitals";

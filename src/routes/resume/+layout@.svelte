@@ -1,7 +1,7 @@
 <script lang="ts">
-  import "../tailwind.css";
+  import "../../tailwind.css";
 
-  import { browser } from "$app/env";
+  import { browser } from "$app/environment";
   import { page } from "$app/stores";
   import { webVitals } from "$lib/vitals";
 

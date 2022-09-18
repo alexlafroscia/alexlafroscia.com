@@ -48,17 +48,6 @@ const config = {
 
   kit: {
     adapter: vercel({}),
-
-    prerender: {
-      entries: [
-        // Default behavior
-        // https://github.com/sveltejs/kit/blob/f95801ee10be3f5888e27672b100688c47a20a99/packages/kit/src/core/config/options.js#L120
-        "*",
-
-        // Pre-render the RSS feed
-        "/tech.atom",
-      ],
-    },
   },
 };
 
