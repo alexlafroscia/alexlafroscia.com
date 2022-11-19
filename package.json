@@ -46,7 +46,7 @@
     "vitest": "^0.21.1",
     "web-vitals": "^3.0.2"
   },
-  "packageManager": "yarn@3.1.0",
+  "packageManager": "yarn@3.3.0",
   "volta": {
     "node": "16.15.0",
     "yarn": "1.22.17"
