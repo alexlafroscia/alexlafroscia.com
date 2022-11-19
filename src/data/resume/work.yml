@@ -1,6 +1,10 @@
+- company: Apple Inc. via PRO Consulting
+  role: Software Consultant
+  time: January 2022 - Present
+
 - company: Movable Ink
   role: Principle Front-End Engineer, Infrastructure
-  time: August 2019 – Present
+  time: August 2019 – December 2021
   details:
     - Defined and documented best-practices for writing JavaScript and CSS while migrating legacy code to meet those standards
     - Upgraded all of the company's applications to the latest version of Ember.js, adopting community-recommended patterns along the way

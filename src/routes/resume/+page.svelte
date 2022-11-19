@@ -37,7 +37,7 @@
       <p class="work-role">{work.role}</p>
       <p class="work-time">{work.time}</p>
       <ul class="work-details list-disc ml-5 space-y-1">
-        {#each work.details as detail}
+        {#each work.details ?? [] as detail}
           <li class="work-detail">{detail}</li>
         {/each}
       </ul>
