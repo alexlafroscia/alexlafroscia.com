@@ -1,10 +1,8 @@
 <script lang="ts">
   import "../tailwind.css";
-  import "../styles/main-site-background.css";
 
   import { browser } from "$app/environment";
-  import { page, navigating } from "$app/stores";
-  import { Header, Sidebar } from "$lib/components";
+  import { page } from "$app/stores";
   import { webVitals } from "$lib/vitals";
 
   let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
@@ -17,28 +15,9 @@
       debug: true,
     });
   }
-
-  // Sidebar state management
-  let sidebarIsOpen = false;
-
-  function toggleSidebar() {
-    sidebarIsOpen = !sidebarIsOpen;
-  }
-
-  navigating.subscribe(() => {
-    // Close the sidebar when navigating
-    sidebarIsOpen = false;
-  });
 </script>
 
 <svelte:head>
-  <link
-    rel="alternate"
-    type="application/atom+xml"
-    title="Tech | Alex LaFroscia"
-    href="/tech.atom"
-  />
-
   <!-- Set theme colors to style browser "chrome" like page background -->
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="white" media="(prefers-color-scheme: light)" />
@@ -52,12 +31,4 @@
     defer></script>
 </svelte:head>
 
-<div class="flex flex-col sm:flex-row w-screen">
-  <Sidebar hidden={!sidebarIsOpen} />
-
-  <div class="pb-4 px-4 overflow-auto flex-grow">
-    <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
-
-    <slot />
-  </div>
-</div>
+<slot />
