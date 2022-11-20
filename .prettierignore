@@ -6,3 +6,4 @@ node_modules
 .yarn
 .vercel
 .vercel_build_output
+/playwright-report

@@ -28,7 +28,8 @@
     src="https://nutritious-intuitive.alexlafroscia.com/script.js"
     data-site="NHEVCYHO"
     data-spa="auto"
-    defer></script>
+    defer
+  ></script>
 </svelte:head>
 
 <slot />

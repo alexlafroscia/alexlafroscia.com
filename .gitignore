@@ -17,6 +17,8 @@ node_modules
 !.yarn/versions
 
 .vercel
+
+# Playwright
 /test-results/
 /playwright-report/
 /playwright/.cache/
