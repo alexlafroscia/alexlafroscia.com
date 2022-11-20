@@ -88,4 +88,41 @@ jobs:
 
       # Do the work
       - run: yarn build
-      - run: yarn test
+      - run: yarn test:unit
+
+  playwright:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      # Check out code
+      - uses: actions/checkout@v3
+
+      # Set up Node and global `yarn` executable through Volta
+      - uses: volta-cli/action@v1
+
+      # Set up Yarn cache
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+      - uses: actions/cache@v3
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # Install dependencies
+      - run: yarn
+      - run: yarn playwright install --with-deps
+
+      # Do the work
+      - run: yarn test:acceptance
+
+      # Upload results
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
