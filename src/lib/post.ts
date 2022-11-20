@@ -2,7 +2,7 @@ import { browser } from "$app/environment";
 import { base } from "$app/paths";
 import { pipe } from "$lib/pipe";
 import { collect, filter, map } from "$lib/async-iter";
-import type { MdxvexModuleResult } from "./types";
+import type { MDsveXModule, MDsveXModuleResult } from "./types";
 
 export type Frontmatter = {
   title?: string;
@@ -40,7 +40,7 @@ export class Post {
     return bDate - aDate;
   }
 
-  constructor(slug: string, code: MdxvexModuleResult, frontmatter: Frontmatter) {
+  constructor(slug: string, code: MDsveXModuleResult, frontmatter: Frontmatter) {
     this.slug = slug;
 
     this.title = frontmatter.title ?? ""; // TODO: extract title from post if not in frontmatter
@@ -98,7 +98,7 @@ export class Post {
 
     // Initialize the cache if we have not done so already
     if (!this.posts) {
-      const modules = import.meta.glob("../routes/\\(with-nav\\)/tech/**/*.{md,svx}");
+      const modules = import.meta.glob<MDsveXModule>("../routes/\\(with-nav\\)/tech/**/*.{md,svx}");
 
       this.posts = await pipe(
         Object.entries(modules),
@@ -114,7 +114,7 @@ export class Post {
             .replace(/\.(svx|md)$/, "");
 
           const { default: mod, metadata: frontmatter = {} } = await importModule();
-          const code: MdxvexModuleResult = mod.render();
+          const code = mod.render();
 
           return { code, frontmatter: frontmatter as Frontmatter, slug };
         }),
