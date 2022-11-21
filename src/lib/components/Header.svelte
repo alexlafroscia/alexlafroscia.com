@@ -58,11 +58,11 @@
     <h1 class="sr-only">Breadcrumbs</h1>
     <ol class="flex">
       <li class="flex">
-        <a class="bold whitespace-nowrap" href={`${base}/`}>home</a>
+        <a class="bold whitespace-nowrap accent-color" href={`${base}/`}>home</a>
       </li>
       {#each $pathParts as part}
         <li class="flex">
-          <a class="bold whitespace-nowrap" href={part.href}>{part.label}</a>
+          <a class="bold whitespace-nowrap accent-color" href={part.href}>{part.label}</a>
         </li>
       {/each}
     </ol>
@@ -73,5 +73,9 @@
   li:not(:last-of-type)::after {
     content: "/";
     padding: 0px 0.5rem;
+  }
+
+  .accent-color {
+    color: var(--accent-color);
   }
 </style>

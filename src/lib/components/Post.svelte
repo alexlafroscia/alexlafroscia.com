@@ -14,7 +14,7 @@
 <article class={`${className} flex py-4`}>
   <header class="space-y-2">
     <h1 class="text-xl">
-      <a href={`${base}/tech/${post.slug}`}>{post.title}</a>
+      <a class="title-link" href={`${base}/tech/${post.slug}`}>{post.title}</a>
     </h1>
     <div>
       {date.toLocaleString("en-US", {
@@ -25,3 +25,9 @@
     </div>
   </header>
 </article>
+
+<style>
+  .title-link {
+    color: var(--accent-color);
+  }
+</style>
