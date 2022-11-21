@@ -12,8 +12,11 @@ test("listing the posts", async ({ page }) => {
   await expect(page).toHaveURL("/tech/2022/sveltekit-request-id");
 });
 
-test("redirecting from an old post URL", async ({ page }) => {
-  await page.goto("/2020/replace-unused-dependency");
+test("redirecting from an old post URL", async ({ request }) => {
+  const response = await request.get("/2020/replace-unused-dependency", {
+    maxRedirects: 0,
+  });
 
-  await expect(page).toHaveURL("/tech/2020/replace-unused-dependency");
+  expect(response.status()).toBe(301);
+  expect(response.headers().location).toBe("/tech/2020/replace-unused-dependency");
 });
