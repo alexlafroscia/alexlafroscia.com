@@ -1,0 +1,4 @@
+{
+  // Configure Vitest test search to match configuration
+  "vitest.include": ["src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"]
+}
