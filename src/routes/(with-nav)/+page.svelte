@@ -15,7 +15,7 @@
 </svelte:head>
 
 <main class="space-y-16 w-readable max-w-full mx-auto">
-  <h1 class="text-3xl lowercase mt-8">Home</h1>
+  <h1 class="text-3xl lowercase">Home</h1>
   <section>
     <nav>
       <ul class="flex gap-2">

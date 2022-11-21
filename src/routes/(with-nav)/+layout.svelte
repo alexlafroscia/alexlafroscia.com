@@ -38,7 +38,9 @@
   <div class="pb-4 px-4 overflow-auto flex-grow">
     <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
 
-    <slot />
+    <div class="mt-8">
+      <slot />
+    </div>
   </div>
 </div>
 
