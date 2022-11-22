@@ -17,6 +17,8 @@
 
       <li><a href={`${base}/tech`}>tech</a></li>
 
+      <li><a href={`${base}/outdoors`}>outdoors</a></li>
+
       <li><a href={`${base}/resume`}>resume</a></li>
     </ol>
 
@@ -29,6 +31,10 @@
 
       <li>
         <a href="https://github.com/alexlafroscia">GitHub</a>
+      </li>
+
+      <li>
+        <a href="https://www.alltrails.com/members/alex-lafroscia">AllTrails</a>
       </li>
     </ol>
   </div>
