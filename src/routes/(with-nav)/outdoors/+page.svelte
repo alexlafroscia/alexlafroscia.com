@@ -6,3 +6,7 @@
     <p>This section is being developed right now</p>
   </div>
 </main>
+
+<svelte:head>
+  <title>outdoors</title>
+</svelte:head>
