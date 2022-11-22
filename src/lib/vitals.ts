@@ -2,14 +2,6 @@ import { type Metric, onCLS, onFCP, onFID, onLCP, onTTFB } from "web-vitals";
 
 const VITALS_URL = "https://vitals.vercel-analytics.com/v1/vitals";
 
-function getConnectionSpeed(): string {
-  return "connection" in navigator &&
-    navigator["connection"] &&
-    "effectiveType" in navigator["connection"]
-    ? navigator["connection"]["effectiveType"]
-    : "";
-}
-
 interface Options {
   params: { [s: string]: any } | ArrayLike<any>;
   path: string;
@@ -30,7 +22,7 @@ function sendToAnalytics(metric: Metric, options: Options) {
     href: location.href,
     event_name: metric.name,
     value: metric.value.toString(),
-    speed: getConnectionSpeed(),
+    speed: "",
   };
 
   if (options.debug) {
