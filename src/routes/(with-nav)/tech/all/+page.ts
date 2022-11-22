@@ -3,11 +3,9 @@ import { Post } from "$lib/post";
 
 export const load: PageLoad = async ({ fetch }) => {
   const posts = await Post.fetchAll(fetch);
-  const duplicatedTopics = posts.flatMap((post) => post.tags).sort();
 
   return {
-    posts: posts.sort(Post.compare).slice(0, 5),
-    topics: Array.from(new Set(duplicatedTopics)).slice(0, 5),
+    posts: posts.sort(Post.compare),
   };
 };
 
