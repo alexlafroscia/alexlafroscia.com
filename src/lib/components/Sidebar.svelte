@@ -19,5 +19,17 @@
 
       <li><a href={`${base}/resume`}>resume</a></li>
     </ol>
+
+    <hr class="border-current my-8" />
+
+    <ol class="space-y-4">
+      <li>
+        <a rel="me" href="https://mastodon.social/@alexlafroscia">Mastodon</a>
+      </li>
+
+      <li>
+        <a href="https://github.com/alexlafroscia">GitHub</a>
+      </li>
+    </ol>
   </div>
 </nav>
