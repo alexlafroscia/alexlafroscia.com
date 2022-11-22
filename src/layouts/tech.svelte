@@ -1,5 +1,5 @@
 <script>
-  import { base } from "$app/paths";
+  import TopicList from "$lib/components/TopicList.svelte";
   import "../styles/prism-theme-night-owl.css";
 
   /**
@@ -37,12 +37,9 @@
       </span>
 
       {#if tags.length}
-        <ul class="flex space-x-2">
-          <li>Topics:</li>
-          {#each tags as tag}
-            <li><a href={`${base}/tech/topic/${tag}`}>{tag}</a></li>
-          {/each}
-        </ul>
+        <TopicList topics={tags}>
+          <li slot="before">Topics:</li>
+        </TopicList>
       {/if}
     </div>
   </header>
@@ -116,7 +113,7 @@
     }
   }
 
-  article :global(a) {
+  article :global(a:not(.no-underline)) {
     @apply underline;
   }
 
