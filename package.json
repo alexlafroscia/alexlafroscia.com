@@ -10,6 +10,7 @@
     "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .prettierignore .",
     "format": "prettier --write --plugin-search-dir=. .",
+    "test": "run-p --print-label 'test:*'",
     "test:unit": "vitest run",
     "test:acceptance": "yarn build && PLAYWRIGHT_BASE_URL=http://localhost:4173 start-server-and-test 'yarn preview' http://localhost:4173 'yarn test:acceptance:run'",
     "test:acceptance:run": "playwright test"
@@ -32,6 +33,7 @@
     "hastscript": "^7.0.2",
     "jsdom": "^19.0.0",
     "mdsvex": "^0.10.5",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.8.1",
