@@ -11,7 +11,7 @@
     "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .prettierignore .",
     "format": "prettier --write --plugin-search-dir=. .",
     "test:unit": "vitest",
-    "test:acceptance": "yarn build && PLAYWRIGHT_BASE_URL=http://localhost:4173 start-server-and-test preview http://localhost:4173 test:acceptance:run",
+    "test:acceptance": "yarn build && PLAYWRIGHT_BASE_URL=http://localhost:4173 start-server-and-test 'yarn preview' http://localhost:4173 'yarn test:acceptance:run'",
     "test:acceptance:run": "playwright test"
   },
   "devDependencies": {
