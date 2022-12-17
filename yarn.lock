@@ -407,19 +407,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sveltejs/adapter-vercel@npm:^1.0.0-next.85":
-  version: 1.0.0-next.85
-  resolution: "@sveltejs/adapter-vercel@npm:1.0.0-next.85"
+"@sveltejs/adapter-vercel@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@sveltejs/adapter-vercel@npm:1.0.0"
   dependencies:
     "@vercel/nft": ^0.22.1
     esbuild: ^0.16.3
-  checksum: 8c2387354de5aa210b8f135c260d1e7d2fe04834d46c3d88baa70fb7bb99e87e5d85a831029146a5cb68ff119c003cc0e58adeb1d756323c60a246065ca93a87
+  peerDependencies:
+    "@sveltejs/kit": ^1.0.0
+  checksum: 52d2f8103a0c7116c7f449ef5c8252bcade3adf0542897837dc33de1fa9a8f838acffb62a8b034008da8f651be0ec3f5c13eb08df8faebada76cbae3180ee395
   languageName: node
   linkType: hard
 
-"@sveltejs/kit@npm:^1.0.0-next.582":
-  version: 1.0.0-next.582
-  resolution: "@sveltejs/kit@npm:1.0.0-next.582"
+"@sveltejs/kit@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@sveltejs/kit@npm:1.0.1"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^2.0.0
     "@types/cookie": ^0.5.1
@@ -439,7 +441,7 @@ __metadata:
     vite: ^4.0.0
   bin:
     svelte-kit: svelte-kit.js
-  checksum: ab2f008ff2a6ba6565fd3345ec37649d49142954f924ade1fd0cec03623835906a308c4cfae40c624f9c7d062a7792d9ecb00c57f9202eecc58f67ba1b595f99
+  checksum: cb1fd4ee7e98fd022fee5d21a2917f1fd40a8f38f4c776fdf0fd4b56e1b9440c3bff248c3badfe0c907181f839b37c161554d691f83610004a3720d376c8db13
   languageName: node
   linkType: hard
 
@@ -4554,8 +4556,8 @@ __metadata:
     "@mapbox/rehype-prism": ^0.8.0
     "@playwright/test": ^1.28.0
     "@rollup/plugin-yaml": ^4.0.1
-    "@sveltejs/adapter-vercel": ^1.0.0-next.85
-    "@sveltejs/kit": ^1.0.0-next.582
+    "@sveltejs/adapter-vercel": ^1.0.0
+    "@sveltejs/kit": ^1.0.1
     "@types/unist": ^2.0.6
     "@types/xml": ^1.0.6
     "@typescript-eslint/eslint-plugin": ^5.43.0
