@@ -25,7 +25,7 @@
   <title>{title}</title>
 </svelte:head>
 
-<article class="w-readable max-w-full mx-auto space-y-4 my-8">
+<article class="w-readable max-w-full mx-auto space-y-4">
   <header class="flex flex-col space-y-2">
     {#if title}
       <h1>{title}</h1>

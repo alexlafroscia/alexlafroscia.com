@@ -2,7 +2,7 @@
   import "../../styles/main-site-background.css";
 
   import { page, navigating } from "$app/stores";
-  import { Header, Sidebar } from "$lib/components";
+  import { Footer, Header, ReadableWidth } from "$lib/components";
 
   // Sidebar state management
   let sidebarIsOpen = false;
@@ -30,18 +30,20 @@
 </svelte:head>
 
 <div
-  class="flex flex-col min-h-screen sm:flex-row w-screen accent-color-default"
+  class="flex flex-col min-h-screen accent-color-default"
   class:accent-color-green={useOutdoorTheme}
 >
-  <Sidebar hidden={!sidebarIsOpen} />
-
   <div class="pb-4 px-4 overflow-auto flex-grow">
-    <Header sidebarOpen={sidebarIsOpen} on:toggle={toggleSidebar} />
+    <ReadableWidth>
+      <Header />
+    </ReadableWidth>
 
-    <div class="mt-8">
+    <div class="mt-4">
       <slot />
     </div>
   </div>
+
+  <Footer />
 </div>
 
 <style>
