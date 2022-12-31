@@ -12,6 +12,16 @@
     "baseUrl": ".",
     "allowJs": true,
     "checkJs": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+
+    "paths": {
+      // Our "paths" config overwrites the base config, so we need to
+      // include the SvelteKit-required values explicitly
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"],
+      // Thwn we can add the custom stuff
+      "$assets/*": ["./src/assets/*"],
+      "$data/*": ["./src/data/*"]
+    }
   }
 }

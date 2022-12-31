@@ -3,13 +3,13 @@
 
   import ReadableWidth from "./ReadableWidth.svelte";
 
-  import common from "../../data/common.yml";
+  import common from "$data/common.yml";
 
   /* === Picture of Me === */
 
-  import me1x from "../../assets/me.webp";
-  import me1_5x from "../../assets/me@1_5x.webp";
-  import me2x from "../../assets/me@2x.webp";
+  import me1x from "$assets/me.webp";
+  import me1_5x from "$assets/me@1_5x.webp";
+  import me2x from "$assets/me@2x.webp";
 
   const meSrcSet = `${me1x}, ${me1_5x} 1.5x, ${me2x} 2x`;
 </script>
