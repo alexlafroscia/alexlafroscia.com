@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <nav>
+    <nav class="flex md:justify-center">
       <ol class="space-y-2">
         <li class="font-bold">here</li>
 
@@ -41,20 +41,22 @@
       </ol>
     </nav>
 
-    <ol class="space-y-2">
-      <li class="font-bold">other places</li>
+    <div class="flex md:justify-center">
+      <ol class="space-y-2">
+        <li class="font-bold">other places</li>
 
-      <li>
-        <a rel="me" href="https://mastodon.social/@alexlafroscia">Mastodon</a>
-      </li>
+        <li>
+          <a rel="me" href="https://mastodon.social/@alexlafroscia">Mastodon</a>
+        </li>
 
-      <li>
-        <a href="https://github.com/alexlafroscia">GitHub</a>
-      </li>
+        <li>
+          <a href="https://github.com/alexlafroscia">GitHub</a>
+        </li>
 
-      <li>
-        <a href="https://www.alltrails.com/members/alex-lafroscia">AllTrails</a>
-      </li>
-    </ol>
+        <li>
+          <a href="https://www.alltrails.com/members/alex-lafroscia">AllTrails</a>
+        </li>
+      </ol>
+    </div>
   </ReadableWidth>
 </footer>
