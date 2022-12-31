@@ -38,8 +38,6 @@
         <li><a href={`${base}/tech`}>tech</a></li>
 
         <li><a href={`${base}/outdoors`}>outdoors</a></li>
-
-        <li><a href={`${base}/resume`}>resume</a></li>
       </ol>
     </nav>
 
