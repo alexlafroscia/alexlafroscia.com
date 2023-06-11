@@ -50,7 +50,7 @@
         </li>
 
         <li>
-          <a href="https://github.com/alexlafroscia">GitHub</a>
+          <a rel="me" href="https://github.com/alexlafroscia">GitHub</a>
         </li>
 
         <li>
