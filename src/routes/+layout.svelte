@@ -44,6 +44,9 @@
     title="Tech | Alex LaFroscia"
     href="/tech.atom"
   />
+
+  <!-- Support web mentions through `webmention.io` -->
+  <link rel="webmention" href="https://webmention.io/alexlafroscia.com/webmention" />
 </svelte:head>
 
 <div
