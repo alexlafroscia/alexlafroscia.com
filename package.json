@@ -17,6 +17,7 @@
     "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
     "@mapbox/rehype-prism": "^0.8.0",
     "@playwright/test": "^1.28.0",
     "@rollup/plugin-yaml": "^4.0.1",

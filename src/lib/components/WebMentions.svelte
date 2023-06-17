@@ -20,19 +20,19 @@
   </div>
 
   {#await webmentions then value}
-    <div class="p-3 border-t-2" transition:slide>
+    <div class="px-3 py-1 border-t-2" transition:slide>
       {#if value.children.length}
-        <ul>
+        <ul class="divide-y-2">
           {#each value.children as child}
             {#if "in-reply-to" in child}
-              <li>
+              <li class="py-2">
                 <Reply reply={child} />
               </li>
             {/if}
           {/each}
         </ul>
       {:else}
-        <p class="italics">There are no WebMentions for this page yet</p>
+        <p class="py-2 italics">There are no WebMentions for this page yet</p>
       {/if}
     </div>
   {/await}

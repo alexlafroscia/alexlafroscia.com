@@ -12,7 +12,7 @@ export interface Like {
   "wm-property": "like-of";
 }
 
-export interface Reply {
+interface FullReplyPayload {
   author: Author;
   content: {
     html: string;
@@ -33,6 +33,12 @@ export interface Reply {
   "wm-source": string;
   "wm-target": string;
 }
+
+// Reduced `Reply` surface area, to ease testing
+// The actual payload is the whole `FullReplyPayload`
+export type Reply = Pick<FullReplyPayload, "author" | "in-reply-to"> & {
+  content: Pick<FullReplyPayload["content"], "html">;
+};
 
 export type WebMention = Reply | Like;
 
