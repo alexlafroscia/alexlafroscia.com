@@ -1,7 +1,7 @@
 <script lang="ts">
   import { slide } from "svelte/transition";
 
-  import type { LayoutData } from "../../routes/tech/$types";
+  import type { LayoutData } from "../../routes/(with-site-nav)/tech/$types";
 
   import Reply from "./WebMention/Reply.svelte";
 

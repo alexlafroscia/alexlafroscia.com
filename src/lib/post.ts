@@ -98,14 +98,18 @@ export class Post {
 
     // Initialize the cache if we have not done so already
     if (!this.posts) {
-      const modules = import.meta.glob<MDsveXModule>("../routes/tech/**/*.{md,svx}");
+      // Note: the glob pattern uses `*` in place of `(` and `)` because the latter had trouble
+      // actually matching the files. I couldn't find a way to escape the characters that worked
+      const modules = import.meta.glob<MDsveXModule>(
+        "../routes/*with-site-nav*/tech/**/*.{md,svx}",
+      );
 
       this.posts = await pipe(
         Object.entries(modules),
         map(async function ([entry, importModule]) {
           const slug = entry
             // Remove directory from path
-            .replace("../routes/tech", "")
+            .replace("../routes/(with-site-nav)/tech", "")
             // Trim leading slash
             .replace(/^\//, "")
             // Remove SvelteKit file naming conventions
