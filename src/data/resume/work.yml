@@ -1,6 +1,11 @@
 - company: Apple Inc. via PRO Consulting
   role: Software Consultant
-  time: January 2022 - Present
+  time: January 2022 - July 2023
+  details:
+    - Developed prototypes for multiple internal applications to support cross-team collaboration
+    - Replaced outdated tooling with modern alternatives, dramatically improving the developer experience of working on the affected apps
+    - Collaborated with full-time engineers to build reusable server-side application frameworks using Node.js
+    - Mentored and educated other engineers on advanced JavaScript topics, especially around build tools
 
 - company: Movable Ink
   role: Principle Front-End Engineer, Infrastructure
