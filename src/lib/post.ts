@@ -60,7 +60,7 @@ export class Post {
       // created the serialized form
       { html: "" },
       // Everything else is frontmatter
-      frontmatter
+      frontmatter,
     );
   }
 
@@ -120,7 +120,7 @@ export class Post {
         }),
         filter((post) => !!post.frontmatter.date),
         map(({ code, frontmatter, slug }) => new Post(slug, code, frontmatter)),
-        collect
+        collect,
       );
     }
 

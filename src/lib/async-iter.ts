@@ -13,7 +13,7 @@ export async function collect<T>(gen: AsyncIterableIterator<T>): Promise<T[]> {
 }
 
 export function filter<T>(
-  filterCallback: (item: T) => boolean
+  filterCallback: (item: T) => boolean,
 ): (input: AsyncIterableIterator<T>) => AsyncIterableIterator<T> {
   return async function* (input) {
     for await (const element of input) {
@@ -30,7 +30,7 @@ interface Logger {
 
 export async function* log<T>(
   input: AsyncIterableIterator<T>,
-  logger: Logger = console
+  logger: Logger = console,
 ): AsyncIterableIterator<T> {
   for await (const element of input) {
     logger.log(element);
@@ -39,7 +39,7 @@ export async function* log<T>(
 }
 
 export function map<T, U>(
-  mapCallback: (item: T) => MaybePromise<U>
+  mapCallback: (item: T) => MaybePromise<U>,
 ): (input: AnyIterable<T>) => AsyncIterableIterator<U> {
   return async function* (input) {
     for await (const element of input) {

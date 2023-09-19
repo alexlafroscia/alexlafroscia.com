@@ -12,7 +12,7 @@ interface Options {
 function sendToAnalytics(metric: Metric, options: Options) {
   const page = Object.entries(options.params).reduce(
     (acc, [key, value]) => acc.replace(value, `[${key}]`),
-    options.path
+    options.path,
   );
 
   const body = {
