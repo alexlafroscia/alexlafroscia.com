@@ -1,8 +1,8 @@
-import type { SvelteComponentDev } from "svelte/internal";
+import type { SvelteComponent } from "svelte";
 
 export type MaybePromise<T> = Promise<T> | T;
 
-declare class MDsveXComponent extends SvelteComponentDev {
+declare class MDsveXComponent extends SvelteComponent {
   render(): MDsveXModuleResult;
 }
 
