@@ -1,3 +1,4 @@
+import { render } from "svelte/server";
 import { browser } from "$app/environment";
 import { base } from "$app/paths";
 import { pipe } from "$lib/pipe";
@@ -118,7 +119,9 @@ export class Post {
             .replace(/\.(svx|md)$/, "");
 
           const { default: mod, metadata: frontmatter = {} } = await importModule();
-          const code = mod.render();
+          const code = render(mod, {
+            props: {},
+          });
 
           return { code, frontmatter: frontmatter as Frontmatter, slug };
         }),
