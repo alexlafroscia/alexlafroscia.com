@@ -4919,7 +4919,7 @@ __metadata:
     typescript: ^5.2.2
     vite: ^5.2.11
     vite-tsconfig-paths: ^4.0.3
-    vitest: ^1.0.0
+    vitest: ^1.6.0
     web-vitals: ^3.1.0
   languageName: unknown
   linkType: soft
@@ -14812,7 +14812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^1.0.0":
+"vitest@npm:^1.6.0":
   version: 1.6.0
   resolution: "vitest@npm:1.6.0"
   dependencies:
