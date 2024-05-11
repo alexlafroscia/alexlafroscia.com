@@ -10,7 +10,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
   // If we can't find any posts with that topic, the topic does not exist
   if (postsWithTopic.length === 0) {
-    throw error(404, "No posts exist with that topic");
+    error(404, "No posts exist with that topic");
   }
 
   return {

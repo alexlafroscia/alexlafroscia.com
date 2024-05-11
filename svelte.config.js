@@ -48,6 +48,11 @@ const config = {
 
   kit: {
     adapter: vercel({}),
+
+    alias: {
+      "$assets/*": "./src/assets/*",
+      "$data/*": "./src/data/*",
+    },
   },
 };
 
