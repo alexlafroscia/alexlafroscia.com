@@ -1,5 +1,13 @@
 - company: Apple Inc. via PRO Consulting
   role: Software Consultant
+  time: December 2024 - June 2025
+  details:
+    - Improved search-engine optimization of pages on their online book store
+    - Fascilitated a full re-write of an existing application, porting it from Ember.js to Svelte and their custom internal frameworks
+    - Prototyped the adoption of shared internal tooling for web teams trying to collaborate with their native counterparts
+
+- company: Apple Inc. via PRO Consulting
+  role: Software Consultant
   time: January 2022 - July 2023
   details:
     - Developed prototypes for multiple internal applications to support cross-team collaboration
