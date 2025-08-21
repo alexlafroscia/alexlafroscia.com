@@ -44,22 +44,24 @@
   {/each}
 </section>
 
-<section class="w-readable max-w-full mx-auto px-4 sm:px-8 mb-8 space-y-4">
-  <header>
-    <h1 class="text-xl font-bold text-center md:text-left">Open Source</h1>
-  </header>
+{#if openSourceProjects.length}
+  <section class="w-readable max-w-full mx-auto px-4 sm:px-8 mb-8 space-y-4">
+    <header>
+      <h1 class="text-xl font-bold text-center md:text-left">Open Source</h1>
+    </header>
 
-  {#each openSourceProjects as project}
-    <div>
-      <h2><a class="font-bold" href={`https://github.com/${project.name}`}>{project.name}</a></h2>
-      <ul class=" list-disc ml-5 space-y-1">
-        {#each project.details as detail}
-          <li>{detail}</li>
-        {/each}
-      </ul>
-    </div>
-  {/each}
-</section>
+    {#each openSourceProjects as project}
+      <div>
+        <h2><a class="font-bold" href={`https://github.com/${project.name}`}>{project.name}</a></h2>
+        <ul class=" list-disc ml-5 space-y-1">
+          {#each project.details as detail}
+            <li>{detail}</li>
+          {/each}
+        </ul>
+      </div>
+    {/each}
+  </section>
+{/if}
 
 <section class="w-readable max-w-full mx-auto px-4 sm:px-8 mb-8 space-y-4">
   <header>
