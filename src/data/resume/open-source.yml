@@ -1,9 +1,11 @@
 - name: alexlafroscia/qunit-wait-for
+  hide: true
   details:
     - Extends QUnit test runner to allow for convergence on an assertion
     - Featured in the Ember Times newletter, April 2020
 
 - name: alexlafroscia/ember-steps
+  hide: true
   details:
     - Flexibile component for building Wizard-like experiences in Ember.js
     - Can handle manually or dynamically generating steps, allowing for the experience to be data-driven
