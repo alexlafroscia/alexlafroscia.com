@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "vitest",
     "astro": "astro"
   },
   "dependencies": {
@@ -14,5 +15,8 @@
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.13.11",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
   }
 }
