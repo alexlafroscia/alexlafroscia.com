@@ -16,11 +16,11 @@ I am a big fan of the GitHub Command Line tool, [`gh`](https://github.com/cli/cl
 
 By default, this workflow is a _little_ tricky. When you list your PRs you get a list that is passed automatically through your `$PAGER` program (probably `less`). By default, regardless of how much content there is, you have to actively dismiss `less` to go back to the command line.
 
-![Viewing the PR list with the default pager](../../../assets/tech/2021/gh-list-prs/pr-list-default-pager.png)
+![Viewing the PR list with the default pager](../../../../assets/tech/2021/gh-list-prs/pr-list-default-pager.png)
 
 Once you've pressed some key, you end up back at your command line... without the pull requests visible anymore!
 
-![Back at the command line after reviewing the list of pull requests](../../../assets/tech/2021/gh-list-prs/pr-list-after-paging.png)
+![Back at the command line after reviewing the list of pull requests](../../../../assets/tech/2021/gh-list-prs/pr-list-after-paging.png)
 
 The problem lies with the workflow between listing the pull requests and checking one out. Followed the previous steps, you've seen your list and dismissed it. Now, do you remember what the number for the PR you want to check out it? If you're anything like me, you have probably already forgotten it! It would be great if we could keep the list visible in our shell history rather than having it disappear.
 
@@ -34,6 +34,6 @@ gh config set pager "less -FX"
 
 With that in place, the list of pull requests no longer needs any kind of interaction to dismiss it.
 
-![Listing pull requests with the newly-configured pager](../../../assets/tech/2021/gh-list-prs/pr-list-no-interaction.png)
+![Listing pull requests with the newly-configured pager](../../../../assets/tech/2021/gh-list-prs/pr-list-no-interaction.png)
 
 Now it's much easier to reference the list of pull requests when checking one out!

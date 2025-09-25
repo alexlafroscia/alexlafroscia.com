@@ -2,24 +2,25 @@
 import { getCollection } from "astro:content";
 
 import Index, { type BlogPostIndex } from "../layouts/BlogPostIndex.astro";
+import { generateSlugs } from "../utils/path";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
     const map = new Map<string, BlogPostIndex>();
 
     for (const post of posts) {
-        const segments = post.id.split("/");
+        const slugs = generateSlugs(post.id)
+            // Remove the last slug, as it represents an actual post
+            .slice(0, -1)
+            // We don't need the labels; just the URL patterns
+            .map((slug) => slug.path);
 
-        // Remove the last slug, as it belongs to the post
-        // TODO: support deeper nesting than one level
-        const [index] = segments.slice(0, -1);
-
-        if (index) {
-            const blogPostIndex = map.get(index) ?? [];
+        for (const slug of slugs) {
+            const blogPostIndex = map.get(slug) ?? [];
 
             blogPostIndex.push(post);
 
-            map.set(index, blogPostIndex);
+            map.set(slug, blogPostIndex);
         }
     }
 
