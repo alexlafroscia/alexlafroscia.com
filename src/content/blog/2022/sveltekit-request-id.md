@@ -2,8 +2,8 @@
 title: Setting a Request ID in SvelteKit
 date: 2022-05-30
 tags:
-  - sveltejs
-  - sveltekit
+    - sveltejs
+    - sveltekit
 ---
 
 I have been working on a full-stack application in [SvelteKit](https://kit.svelte.dev) recently. As the complexity of the application grew, it started getting harder to understand what was happening during each page render. I knew I needed something to help track down what was happening in my application during each request. The solution to my problem was a familiar one: request IDs!
@@ -46,10 +46,10 @@ The first step, if you're using TypeScript, is to tell SvelteKit the type of you
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare namespace App {
-  // interface Locals {}
-  // interface Platform {}
-  // interface Session {}
-  // interface Stuff {}
+    // interface Locals {}
+    // interface Platform {}
+    // interface Session {}
+    // interface Stuff {}
 }
 ```
 
@@ -61,16 +61,16 @@ This file contains a few different types that, if defined, will help power autoc
 // See https://kit.svelte.dev/docs/types#app
 // for information about these interfaces
 declare namespace App {
-  interface Locals {
-    /**
-     * The unique identifier for this request
-     */
-    requestId: string;
-  }
+    interface Locals {
+        /**
+         * The unique identifier for this request
+         */
+        requestId: string;
+    }
 
-  // interface Platform {}
-  // interface Session {}
-  // interface Stuff {}
+    // interface Platform {}
+    // interface Session {}
+    // interface Stuff {}
 }
 ```
 
@@ -82,11 +82,11 @@ import type { Handle } from "@sveltejs/kit";
 import { randomUUID } from "node:crypto";
 
 export const handle: Handle = async ({ event, resolve }) => {
-  event.locals.requestId = randomUUID();
+    event.locals.requestId = randomUUID();
 
-  const response = await resolve(event);
+    const response = await resolve(event);
 
-  return response;
+    return response;
 };
 ```
 
@@ -102,13 +102,13 @@ import type { Handle } from "@sveltejs/kit";
 import { randomUUID } from "node:crypto";
 
 export const handle: Handle = async ({ event, resolve }) => {
-  event.locals.requestId = randomUUID();
+    event.locals.requestId = randomUUID();
 
-  const response = await resolve(event);
+    const response = await resolve(event);
 
-  response.headers.set("x-request-id", event.locals.requestId);
+    response.headers.set("x-request-id", event.locals.requestId);
 
-  return response;
+    return response;
 };
 ```
 

@@ -2,11 +2,11 @@
 title: Checking Differences Between Commits in Github
 date: 2017-12-20T08:07:52.708Z
 description: >-
-  Chances are you've used software that is stored on Github. if you've ever
-  wanted to check the differences between two commits, here's how to do it.
+    Chances are you've used software that is stored on Github. if you've ever
+    wanted to check the differences between two commits, here's how to do it.
 tags:
-  - git
-  - github
+    - git
+    - github
 legacy: true
 ---
 

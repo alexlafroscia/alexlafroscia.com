@@ -1,37 +1,36 @@
 ---
-import { generateSlugs } from '../utils/path';
+import { generateSlugs } from "../utils/path";
 
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-const slugs = generateSlugs(pathname)
+const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
+const slugs = generateSlugs(pathname);
 ---
 
 <header>
-	<nav>
-		<ul>
-			<li>
-				<a href="/">home</a></h2>
-			</li>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">home</a>
+            </li>
+        </ul>
 
-			{slugs.map(slug => (
-				<li>
-					<a href={`/${slug.path}`}>
-						{slug.label}
-					</a>
-				</li>
-			))}
-		</ul>
-
-	</nav>
+        {
+            slugs.map((slug) => (
+                <li>
+                    <a href={`/${slug.path}`}>{slug.label}</a>
+                </li>
+            ))
+        }
+    </nav>
 </header>
 
 <style>
-	ul {
-		display: flex;
-		list-style: none;
-	}
+    ul {
+        display: flex;
+        list-style: none;
+    }
 
-	li:not(:last-of-type):after {
-		content: "/";
-		padding: 0px .5rem;
-	}
+    li:not(:last-of-type):after {
+        content: "/";
+        padding: 0px 0.5rem;
+    }
 </style>

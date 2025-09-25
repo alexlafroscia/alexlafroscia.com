@@ -2,12 +2,12 @@
 title: "Observables: A Brief Introduction"
 date: 2019-01-27T23:52:35+00:00
 description: >-
-  The basics of observables and how to use them
+    The basics of observables and how to use them
 series:
-  slug: observables
+    slug: observables
 tags:
-  - observables
-  - rxjs
+    - observables
+    - rxjs
 legacy: true
 ---
 
@@ -37,7 +37,7 @@ Much like a you call `then` on a promise to receive a value from it, you can cal
 
 ```javascript
 const subscription = observable.subscribe((value) => {
-  console.log(value);
+    console.log(value);
 });
 ```
 
@@ -45,9 +45,9 @@ The act of subscribing to the observable creates a **subscription**. The callbac
 
 ```javascript
 const subscription = observable.subscribe({
-  next: (value) => {
-    console.log(value);
-  },
+    next: (value) => {
+        console.log(value);
+    },
 });
 ```
 
@@ -57,7 +57,7 @@ Since we do not know how many values we will receive or when we will receive the
 
 ```javascript
 const subscription = observable.subscribe((value) => {
-  console.log(value);
+    console.log(value);
 });
 
 // Some time later...
@@ -84,12 +84,12 @@ While an observable _can_ represent an infinite source of values, it is possible
 
 ```javascript
 const subscription = observable.subscribe({
-  next: (value) => {
-    console.log(value);
-  },
-  complete: () => {
-    console.log("Done producing values!");
-  },
+    next: (value) => {
+        console.log(value);
+    },
+    complete: () => {
+        console.log("Done producing values!");
+    },
 });
 ```
 

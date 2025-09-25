@@ -2,7 +2,7 @@
 title: Print GitHub CLI Pull Requests Without Paging
 date: 2021-02-10
 description: >-
-  The GitHub CLI makes it hard to list your PRs and then select one to check out. Let's make this easier!
+    The GitHub CLI makes it hard to list your PRs and then select one to check out. Let's make this easier!
 legacy: true
 ---
 

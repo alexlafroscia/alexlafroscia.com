@@ -3,8 +3,8 @@ title: Fixing $PATH changes in tmux
 date: 2016-10-18T14:00:54-07:00
 description: Fixing unwanted changed to $PATH in tmux
 tags:
-  - tmux
-  - zsh
+    - tmux
+    - zsh
 legacy: true
 ---
 

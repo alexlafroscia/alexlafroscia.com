@@ -1,42 +1,41 @@
 ---
-import {  getCollection, } from 'astro:content';
+import { getCollection } from "astro:content";
 
-import Index, { type BlogPostIndex } from '../layouts/BlogPostIndex.astro';
+import Index, { type BlogPostIndex } from "../layouts/BlogPostIndex.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+    const posts = await getCollection("blog");
     const map = new Map<string, BlogPostIndex>();
 
     for (const post of posts) {
-        const segments = post.id.split('/')
+        const segments = post.id.split("/");
 
         // Remove the last slug, as it belongs to the post
         // TODO: support deeper nesting than one level
-        const [index] = segments.slice(0, -1)
+        const [index] = segments.slice(0, -1);
 
         if (index) {
-            const blogPostIndex = map.get(index) ?? []
+            const blogPostIndex = map.get(index) ?? [];
 
-            blogPostIndex.push(post)
+            blogPostIndex.push(post);
 
-            map.set(index, blogPostIndex)
+            map.set(index, blogPostIndex);
         }
     }
 
-	return Array.from(map.entries()).map(([indexPath, posts]) => {
+    return Array.from(map.entries()).map(([indexPath, posts]) => {
         return {
             params: {
-                indexPath
+                indexPath,
             },
             props: {
-                posts
-            }
+                posts,
+            },
         };
-    })
+    });
 }
 
 const { posts } = Astro.props;
-
 ---
 
 <Index posts={posts} />

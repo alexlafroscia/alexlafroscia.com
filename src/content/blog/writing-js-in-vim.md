@@ -1,13 +1,13 @@
 ---
 title: Writing JS in Vim
 description: >-
-  Learn about getting some of the best tools in the JavaScript community
-  set up and working great with Vim.
+    Learn about getting some of the best tools in the JavaScript community
+    set up and working great with Vim.
 date: 2017-06-21T08:07:52.708Z
 tags:
-  - Vim
-  - Prettier
-  - ESLint
+    - Vim
+    - Prettier
+    - ESLint
 legacy: true
 ---
 

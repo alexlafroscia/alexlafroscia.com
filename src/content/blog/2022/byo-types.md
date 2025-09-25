@@ -2,7 +2,7 @@
 title: Writing a local @types Package
 date: 2022-01-20
 description: >-
-  Writing your own TypeScript types for a dependency can be hard to configure correctly. Writing your own @types package for a dependency can be a quick and easy way to get your project type-checking again.
+    Writing your own TypeScript types for a dependency can be hard to configure correctly. Writing your own @types package for a dependency can be a quick and easy way to get your project type-checking again.
 ---
 
 I recently worked on a Node.js project in TypeScript that made use of my usual suite of tools:
@@ -29,9 +29,9 @@ Then, in the `package.json` for your project, add the following:
 
 ```json
 {
-  "devDependencies": {
-    "@types/organization__package-name": "file:./types/organization__package-name"
-  }
+    "devDependencies": {
+        "@types/organization__package-name": "file:./types/organization__package-name"
+    }
 }
 ```
 

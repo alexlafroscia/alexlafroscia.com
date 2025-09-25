@@ -2,11 +2,11 @@
 title: Maintaining aspect ratio in CSS
 date: 2017-07-19T16:00:35-07:00
 description: >-
-  How to create a CSS shape that maintains its aspect ratio, and a "gotcha"
-  round doing so with Flexbox.
+    How to create a CSS shape that maintains its aspect ratio, and a "gotcha"
+    round doing so with Flexbox.
 tags:
-  - css
-  - flexbox
+    - css
+    - flexbox
 legacy: true
 ---
 
@@ -14,8 +14,8 @@ I had to use a bit of a hack this week to ensure that a box always appeared at a
 
 ```css
 .box {
-  width: 100%;
-  padding-top: 100%;
+    width: 100%;
+    padding-top: 100%;
 }
 ```
 

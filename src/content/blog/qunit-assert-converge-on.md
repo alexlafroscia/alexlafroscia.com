@@ -2,11 +2,11 @@
 title: Converging on a Condition in QUnit
 date: 2019-03-01T08:07:52.708Z
 description: >-
-  Sometimes it's hard to avoid race conditions in your tests. Writing convergent assertions can help!
+    Sometimes it's hard to avoid race conditions in your tests. Writing convergent assertions can help!
 tags:
-  - testing
-  - qunit
-  - ember
+    - testing
+    - qunit
+    - ember
 legacy: true
 ---
 
@@ -14,12 +14,12 @@ While writing some acceptance tests recently I kept running into slight race con
 
 ```javascript
 test("creating a comment", async function (assert) {
-  assert.equal(Task.comments.messages.length, 5, "Starts with correct number of comments");
+    assert.equal(Task.comments.messages.length, 5, "Starts with correct number of comments");
 
-  await Task.comments.input.fillIn("A new comment");
-  await Task.comments.send();
+    await Task.comments.input.fillIn("A new comment");
+    await Task.comments.send();
 
-  assert.equal(Task.comments.message.length, 6, "Adds a new comment");
+    assert.equal(Task.comments.message.length, 6, "Adds a new comment");
 });
 ```
 
@@ -37,14 +37,14 @@ Ember ships with a useful helper function called `waitUntil`. You can give it a 
 import { waitUntil } from "@ember/test-helpers";
 
 test("creating a comment", async function (assert) {
-  assert.equal(Task.comments.messages.length, 5, "Starts with correct number of comments");
+    assert.equal(Task.comments.messages.length, 5, "Starts with correct number of comments");
 
-  await Task.comments.input.fillIn("A new comment");
-  await Task.comments.send();
+    await Task.comments.input.fillIn("A new comment");
+    await Task.comments.send();
 
-  await waitUntil(() => Task.comments.length === 6);
+    await waitUntil(() => Task.comments.length === 6);
 
-  assert.equal(Task.comments.message.length, 6, "Adds a new comment");
+    assert.equal(Task.comments.message.length, 6, "Adds a new comment");
 });
 ```
 
@@ -60,12 +60,12 @@ The above test can be revised using it like so:
 
 ```javascript
 test("creating a comment", async function (assert) {
-  assert.equal(Task.comments.messages.length, 5, "Starts with correct number of comments");
+    assert.equal(Task.comments.messages.length, 5, "Starts with correct number of comments");
 
-  await Task.comments.input.fillIn("A new comment");
-  await Task.comments.send();
+    await Task.comments.input.fillIn("A new comment");
+    await Task.comments.send();
 
-  await assert.convergeOn(() => Task.comments.length === 6, "Adds a new comment");
+    await assert.convergeOn(() => Task.comments.length === 6, "Adds a new comment");
 });
 ```
 
@@ -78,19 +78,19 @@ import QUnit from "qunit";
 import { waitUntil } from "@ember/test-helpers";
 
 QUnit.extend(QUnit.assert, {
-  async convergeOn(condition, message) {
-    try {
-      await waitUntil(condition);
+    async convergeOn(condition, message) {
+        try {
+            await waitUntil(condition);
 
-      this.pushResult({ result: true, message });
-    } catch (e) {
-      if (e.message === "waitUntil timed out") {
-        this.pushResult({ result: false, message });
-      } else {
-        throw e;
-      }
-    }
-  },
+            this.pushResult({ result: true, message });
+        } catch (e) {
+            if (e.message === "waitUntil timed out") {
+                this.pushResult({ result: false, message });
+            } else {
+                throw e;
+            }
+        }
+    },
 });
 ```
 

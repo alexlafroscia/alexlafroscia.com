@@ -2,8 +2,8 @@
 title: Replace an Unused Dependency
 date: 2020-05-07
 description: >-
-  If you ever run into the need to replace a dependency that is causing problems and that you can safely ignore,
-  here's what to do!
+    If you ever run into the need to replace a dependency that is causing problems and that you can safely ignore,
+    here's what to do!
 legacy: true
 ---
 
@@ -19,8 +19,8 @@ As our application is already using [`yarn` workspaces](https://classic.yarnpkg.
 
 ```json
 {
-  "name": "noop",
-  "version": "1.0.0"
+    "name": "noop",
+    "version": "1.0.0"
 }
 ```
 
@@ -28,9 +28,9 @@ and then used [`yarn` resolutions](https://classic.yarnpkg.com/en/docs/selective
 
 ```json
 {
-  "resolutions": {
-    "**/d3/jsdom": "file:./packages/noop"
-  }
+    "resolutions": {
+        "**/d3/jsdom": "file:./packages/noop"
+    }
 }
 ```
 

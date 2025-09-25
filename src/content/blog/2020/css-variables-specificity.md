@@ -2,8 +2,8 @@
 title: Managing Specificity with CSS Variables
 date: 2020-06-14
 description: >-
-  Have you ever run into issues around overriding properties of your shared CSS
-  classes? Variables can help!
+    Have you ever run into issues around overriding properties of your shared CSS
+    classes? Variables can help!
 legacy: true
 ---
 
@@ -11,11 +11,11 @@ A recent project at work had me defining some shared button styles for us to use
 
 ```css
 .button {
-  color: black;
+    color: black;
 }
 
 .button.type-plain {
-  color: blue;
+    color: blue;
 }
 ```
 
@@ -39,12 +39,12 @@ The fix I found is to use a CSS variable to define the color to apply, and only 
 
 ```css
 .button {
-  --button-text-color: black;
-  color: var(--button-text-color);
+    --button-text-color: black;
+    color: var(--button-text-color);
 }
 
 .button.type-plain {
-  --button-text-color: blue;
+    --button-text-color: blue;
 }
 ```
 

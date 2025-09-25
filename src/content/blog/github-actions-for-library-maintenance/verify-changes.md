@@ -2,13 +2,13 @@
 title: Verifying Changes
 date: 2020-02-15T08:07:52.708Z
 description: >-
-  Some tips on ways that GitHub actions can make your life easier as
-  an Open Source library maintainer.
+    Some tips on ways that GitHub actions can make your life easier as
+    an Open Source library maintainer.
 series:
-  slug: github-actions
+    slug: github-actions
 tags:
-  - Open Source
-  - GitHub Actions
+    - Open Source
+    - GitHub Actions
 legacy: true
 ---
 
@@ -22,33 +22,33 @@ The testing and linting jobs are almost identical, so we'll only go in-depth int
 
 ```yaml
 test:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
-      with:
-        node-version: "12.x"
-    - name: Get yarn cache directory path
-      id: yarn-cache-dir-path
-      run: echo "::set-output name=dir::$(yarn cache dir)"
-    - uses: actions/cache@v1
-      id: yarn-cache
-      with:
-        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-yarn-
-    - run: yarn install
-    - run: yarn test
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v1
+        - uses: actions/setup-node@v1
+          with:
+              node-version: "12.x"
+        - name: Get yarn cache directory path
+          id: yarn-cache-dir-path
+          run: echo "::set-output name=dir::$(yarn cache dir)"
+        - uses: actions/cache@v1
+          id: yarn-cache
+          with:
+              path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+              key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+              restore-keys: |
+                  ${{ runner.os }}-yarn-
+        - run: yarn install
+        - run: yarn test
 ```
 
 The first few lines are pretty typical for all GitHub Actions:
 
 ```yaml
 test:
-  runs-on: ubuntu-latest
-  steps:
-    - uses: actions/checkout@v1
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v1
 ```
 
 These state that:
@@ -66,7 +66,7 @@ The next few step gives us a Node environment with `yarn` installed automaticall
 ```yaml
 - uses: actions/setup-node@v1
   with:
-    node-version: "12.x"
+      node-version: "12.x"
 ```
 
 The `with` key is how we can provide input into an action. It can be thought of like providing arguments to a function call. For the `actions/setup-node` action, we can provide a specific Node version we want to run against. While the action will work without a specific version, I prefer to provide that value to remove some guesswork about the environment we are running inside.
@@ -84,10 +84,10 @@ Since they are a little hard to read, let's break down exactly what's happening 
 - uses: actions/cache@v1
   id: yarn-cache
   with:
-    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-    restore-keys: |
-      ${{ runner.os }}-yarn-
+      path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      restore-keys: |
+          ${{ runner.os }}-yarn-
 ```
 
 The first step sets up a variable that we'll use in the second step through the output of the step. Actions can have an _output_ that can be referenced later on in your configuration file. Note the `id` on that step; it'll be important later on!
@@ -109,10 +109,10 @@ All of that gets us through just the _first_ of the two `yarn`-caching steps, bu
 - uses: actions/cache@v1
   id: yarn-cache
   with:
-    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-    restore-keys: |
-      ${{ runner.os }}-yarn-
+      path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+      key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+      restore-keys: |
+          ${{ runner.os }}-yarn-
 ```
 
 The `with` key here is how we pass input to a GitHub Action. The `actions/cache` action takes three inputs that we care about for our usage case.
@@ -151,9 +151,9 @@ The definition of the job is identical to our `test` job, except that instead of
 - name: Percy Test
   uses: percy/storybook-action@v0.1.1
   with:
-    storybook-flags: "-s dist"
+      storybook-flags: "-s dist"
   env:
-    PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 ```
 
 This covers the testing configuration for our project. Keep an eye out for future posts on changelog generation, file size reports and deployment!
