@@ -49,7 +49,8 @@
 
 <style lang="postcss">
   article :global(h1),
-  article :global(h2) {
+  article :global(h2),
+  article :global(h3) {
     @apply font-bold;
 
     /* For header-link behavior */
@@ -62,6 +63,10 @@
 
   article :global(h2) {
     @apply text-2xl;
+  }
+
+  article :global(h3) {
+    @apply text-xl;
   }
 
   article :global(h1) :global(a),
