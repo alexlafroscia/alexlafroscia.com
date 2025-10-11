@@ -25,6 +25,8 @@ export async function getStaticPaths() {
     }
 
     return Array.from(map.entries()).map(([indexPath, posts]) => {
+        posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
         return {
             params: {
                 indexPath,
