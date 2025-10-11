@@ -16,8 +16,8 @@ const { label, posts } = Astro.props;
 
 <BaseLayout {title} {description}>
     <section class="w-readable mx-auto max-w-full">
-        <h2>{label}</h2>
-        <ul>
+        <h2 class="text-2l">{label}</h2>
+        <ul class="divide-y divide-gray-200">
             {
                 posts.map((post) => (
                     <li>
