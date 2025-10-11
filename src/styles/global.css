@@ -1,5 +1,17 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
     --width-readable: 80ch;
+
+    --animate-wave: wave 0.4s ease-in-out 2;
+    @keyframes wave {
+        0%,
+        100% {
+            transform: rotate(-5deg);
+        }
+        50% {
+            transform: rotate(5deg);
+        }
+    }
 }

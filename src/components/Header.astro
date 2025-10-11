@@ -5,30 +5,25 @@ const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
 const slugs = generateSlugs(pathname);
 ---
 
-<header>
-    <nav>
-        <ul>
+<header class="w-readable mx-auto p-4">
+    <nav class="border-b border-gray-100 pb-4">
+        <ul class="flex">
             <li>
                 <a href="/">home</a>
             </li>
-        </ul>
 
-        {
-            slugs.map((slug) => (
-                <li>
-                    <a href={`/${slug.path}`}>{slug.label}</a>
-                </li>
-            ))
-        }
+            {
+                slugs.map((slug) => (
+                    <li>
+                        <a href={`/${slug.path}`}>{slug.label}</a>
+                    </li>
+                ))
+            }
+        </ul>
     </nav>
 </header>
 
 <style>
-    ul {
-        display: flex;
-        list-style: none;
-    }
-
     li:not(:last-of-type):after {
         content: "/";
         padding: 0px 0.5rem;
