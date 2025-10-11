@@ -10,11 +10,16 @@ interface Props {
 }
 
 const { post } = Astro.props;
+const { title, date, description } = post.data;
 ---
 
-<a href={`/${post.id}`}>
-    <h4 class="title">{post.data.title}</h4>
-    <p class="date">
-        <FormattedDate date={post.data.date} />
+<a
+    class="group flex flex-col gap-2 rounded p-2 transition-colors hover:bg-gray-200"
+    href={`/${post.id}`}
+>
+    <h4 class="text-lg group-hover:text-blue-800">{title}</h4>
+    {description && <p class="text-sm">{post.data.description}</p>}
+    <p>
+        <FormattedDate {date} />
     </p>
 </a>
