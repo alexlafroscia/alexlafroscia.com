@@ -34,7 +34,7 @@ We'll see these two concepts come up again once we're implementing our plugin!
 
 Now that we've covered the two most important parts of the `BasesView` API, let's build a "calendar" plugin together to see how it works. There are a few things that you'll need to get set up if you want to follow along:
 
-1. Access to Obsidian 1.10 through the [Early Access program][catalyst]; this is required for your version of Obsidian to allow for custom Bases views.
+1. Access to Obsidian `1.10` through the [Early Access program][catalyst]; this is required for your version of Obsidian to allow for custom Bases views.
 2. Follow the official ["Build a Plugin" guide](https://docs.obsidian.md/Plugins/Getting+started/Build+a+plugin) through step 4 to set up a fresh plugin for development. We'll pick up with step 5 together, where we'll author the custom view! Make sure to read over the suggestions on how to build and reload the plugin within Obsidian after making any changes to the plugin's source code.
 3. Add a couple of files to your development vault and a Base that can render our custom view. I created a few daily notes within a `Daily/` directory, and then defined my Base using the following configuration:
 
@@ -65,6 +65,7 @@ To start, we can render the calendar inside of the Bases view; once that's in pl
 Follow along in the comments of the code snippet below for an explanation of the important parts!
 
 ```ts
+// main.ts
 import { BasesView, QueryController, Plugin } from "obsidian";
 
 import { Calendar } from "@fullcalendar/core";
@@ -188,9 +189,11 @@ class CalendarView extends BasesView {
 }
 ```
 
-With these additions in place, the `data` property of our Bases view now serves as the event source for the FullCalendar component. The calendar will automatically reflect any changes to the underlying data in real time as well; you can test this out by applying an additional filter to the base, which will be immediately reflected in the visible calendar events.
+With these additions in place, the `data` property of our Bases view now serves as the event source for the FullCalendar component!
 
 ![Bases results displayed as calendar events]({assetPath}/displaying-events-on-the-calendar.png)
+
+The calendar will automatically reflect any changes to the underlying data in real time as well; you can test this out by applying an additional filter to the base, which will be immediately reflected in the visible calendar events.
 
 ### Opening Notes from the Calendar
 
@@ -218,7 +221,7 @@ Adding this `eventClick` handler to our FullCalendar instance is all we need to 
 
 ## Further Reading
 
-This tutorial aimed to serve as an overview of the most fundamental aspects of the Obsidian Bases View API, and there is more to explore if you want a deeper knowledge of what a custom Bases View can do. If you're looking for a little more information, I suggest checking out the [`obsidian-maps`][obsidian-maps] plugin by the Obsidian team. You can also find a repo containing my initial, slightly more complex (and featureful) version of the code in this tutorial [here][calendar-view-repo].
+This tutorial aimed to serve as an overview of the most fundamental aspects of the Obsidian Bases View API, and there is more to explore if you want a deeper knowledge of what a custom Bases View can do. If you're looking for a little more information, you can find a repo containing my initial, slightly-more-featureful version of the code in this tutorial [here][calendar-view-repo].
 
 [obsidian]: https://obsidian.md
 [obsidian-bases]: https://help.obsidian.md/bases
