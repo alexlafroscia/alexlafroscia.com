@@ -140,52 +140,102 @@ Now that we have our calendar rendered, we'll want to add some events. FullCalen
 
 Let's look at how our `CalendarView` class can be updated to render this data. Note that ellipses (`...`) are used to pass over parts of the previous code example that are unchanged, so we can focus on the additions.
 
-```typescript
+```typescript collapse={1-20,23-40,89-95} ins={53,57-88}
+// main.ts
+import { BasesView, QueryController, Plugin } from "obsidian";
+
+import { Calendar } from "@fullcalendar/core";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import listPlugin from "@fullcalendar/list";
+
+export default class CalendarViewPlugin extends Plugin {
+    async onload() {
+        // The `registerBasesView` API is how the Obsidian plugin defines custom views.
+        // The `name` and `icon` properties are used in the view selector, and `factory` is called
+        // to actually populate the view
+        this.registerBasesView("calendar", {
+            name: "Calendar",
+            icon: "calendar",
+            factory: (controller, containerEl) => new CalendarView(controller, containerEl),
+        });
+    }
+}
+
 class CalendarView extends BasesView {
-  ...
+    /**
+     * All `BasesView` subclasses need to have a bespoke `type` property that identifies them
+     */
+    type = "CalendarView";
 
-  constructor(controller: QueryController, containerEl: HTMLElement) {
-    super(controller);
+    private calendar: Calendar;
 
-    this.calendar = new Calendar(containerEl, {
-      ...
-      events: () => this.makeEventsFromData()
-    });
-  }
+    /**
+     * Our `BasesView` sublass receives it's constructor arguments from the `factory` function provided
+     * when registering the custom view
+     *
+     * The `QueryController` manages the data being provided to the view by Obsidian. Our plugin does
+     * not need to interact with it directly; the parent class's own behavior will use this to populate
+     * the `data` property we discussed earlier
+     *
+     * The `HTMLElement` serves as the root element for the view, which we can render our FullCalendar
+     * component into
+     */
+    constructor(controller: QueryController, containerEl: HTMLElement) {
+        super(controller);
 
-  async makeEventsFromData() {
-    // The `data` property, which provides our view with access to the data retreived
-    // by the Base, won't exist initially; we want to exit early in that case
-    if (!this.data?.data) {
-      return [];
+        // Standard basic `Calendar` setup, from the FullCalendar documentation
+        this.calendar = new Calendar(containerEl, {
+            plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
+            initialView: "dayGridMonth",
+            headerToolbar: {
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,listWeek",
+            },
+            events: () => this.makeEventsFromData();
+        });
     }
 
-    // `data.data` reflects the actual query results that the Base provides to our view
-    return this.data.data.map((entry) => {
-      // The `date` formula that we defined in our Base will be used to define where each note
-      // is rendered in the calendar
-      const start = entry.getValue("formula.date");
+    async makeEventsFromData() {
+        // The `data` property, which provides our view with access to the data retreived
+        // by the Base, won't exist initially; we want to exit early in that case
+        if (!this.data?.data) {
+            return [];
+        }
 
-      // The object returned here defines how FullCalendar will render the event
-      return {
-        id: entry.file.path,
-        title: entry.file.basename,
-        start: start.date.toISOString(),
-        allDay: true,
-      };
-    });
-  }
+        // `data.data` reflects the actual query results that the Base provides to our view
+        return this.data.data.map((entry) => {
+            // The `date` formula that we defined in our Base will be used to define where each note
+            // is rendered in the calendar
+            const start = entry.getValue("formula.date");
 
-  // `onDataUpdated` is called automatically by Obsidian when the `data` property changes
-  onDataUpdated(): void {
-    // Calling `refetchEvents` on the calendar instance tells FullCalendar to call the `events`
-    // function again, which regenerates the list of events from our `data` property
-    this.calendar.refetchEvents();
-    // Calling `render` tells the FullCalendar UI to update after it finishes refetching
-    this.calendar.render();
-  }
+            // The object returned here defines how FullCalendar will render the event
+            return {
+                id: entry.file.path,
+                title: entry.file.basename,
+                start: start.date.toISOString(),
+                allDay: true,
+            };
+        });
+    }
 
-  ...
+    // `onDataUpdated` is called automatically by Obsidian when the `data` property changes
+    onDataUpdated(): void {
+        // Calling `refetchEvents` on the calendar instance tells FullCalendar to call the `events`
+        // function again, which regenerates the list of events from our `data` property
+        this.calendar.refetchEvents();
+        // Calling `render` tells the FullCalendar UI to update after it finishes refetching
+        this.calendar.render();
+    }
+
+    /**
+     * The `unload` method is common to all Obsidian view plugins, not just those related to Bases; we
+     * can use this to clean up anything that we created by the view (like the calendar instance)
+     */
+    unload(): void {
+        this.calendar.destroy();
+    }
 }
 ```
 
@@ -199,19 +249,107 @@ The calendar will automatically reflect any changes to the underlying data in re
 
 While viewing the notes on the calendar is neat, it's not exactly useful if we can't click on an event to open the associated note. Let's hook up some basic interactivity so that our calendar view is much more functional!
 
-```typescript
+```typescript collapse={1-20,23-40,46-53,62-100} ins={55-58}
+// main.ts
+import { BasesView, QueryController, Plugin } from "obsidian";
+
+import { Calendar } from "@fullcalendar/core";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import listPlugin from "@fullcalendar/list";
+
+export default class CalendarViewPlugin extends Plugin {
+    async onload() {
+        // The `registerBasesView` API is how the Obsidian plugin defines custom views.
+        // The `name` and `icon` properties are used in the view selector, and `factory` is called
+        // to actually populate the view
+        this.registerBasesView("calendar", {
+            name: "Calendar",
+            icon: "calendar",
+            factory: (controller, containerEl) => new CalendarView(controller, containerEl),
+        });
+    }
+}
+
 class CalendarView extends BasesView {
-  ...
+    /**
+     * All `BasesView` subclasses need to have a bespoke `type` property that identifies them
+     */
+    type = "CalendarView";
 
-  constructor(controller: QueryController, containerEl: HTMLElement) {
-    ...
+    private calendar: Calendar;
 
-    this.calendar.on("eventClick", ({ event }) => {
-      const { id } = event;
+    /**
+     * Our `BasesView` sublass receives it's constructor arguments from the `factory` function provided
+     * when registering the custom view
+     *
+     * The `QueryController` manages the data being provided to the view by Obsidian. Our plugin does
+     * not need to interact with it directly; the parent class's own behavior will use this to populate
+     * the `data` property we discussed earlier
+     *
+     * The `HTMLElement` serves as the root element for the view, which we can render our FullCalendar
+     * component into
+     */
+    constructor(controller: QueryController, containerEl: HTMLElement) {
+        super(controller);
 
-      this.app.workspace.openLinkText(id, "");
-    });
-  }
+        // Standard basic `Calendar` setup, from the FullCalendar documentation
+        this.calendar = new Calendar(containerEl, {
+            plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
+            initialView: "dayGridMonth",
+            headerToolbar: {
+                left: "prev,next today",
+                center: "title",
+                right: "dayGridMonth,timeGridWeek,listWeek",
+            },
+            events: () => this.makeEventsFromData();
+        });
+        this.calendar.on("eventClick", ({ event }) => {
+          const { id } = event;
+
+          this.app.workspace.openLinkText(id, "");
+        });
+    }
+
+    async makeEventsFromData() {
+        // The `data` property, which provides our view with access to the data retreived
+        // by the Base, won't exist initially; we want to exit early in that case
+        if (!this.data?.data) {
+            return [];
+        }
+
+        // `data.data` reflects the actual query results that the Base provides to our view
+        return this.data.data.map((entry) => {
+            // The `date` formula that we defined in our Base will be used to define where each note
+            // is rendered in the calendar
+            const start = entry.getValue("formula.date");
+
+            // The object returned here defines how FullCalendar will render the event
+            return {
+                id: entry.file.path,
+                title: entry.file.basename,
+                start: start.date.toISOString(),
+                allDay: true,
+            };
+        });
+    }
+
+    // `onDataUpdated` is called automatically by Obsidian when the `data` property changes
+    onDataUpdated(): void {
+        // Calling `refetchEvents` on the calendar instance tells FullCalendar to call the `events`
+        // function again, which regenerates the list of events from our `data` property
+        this.calendar.refetchEvents();
+        // Calling `render` tells the FullCalendar UI to update after it finishes refetching
+        this.calendar.render();
+    }
+
+    /**
+     * The `unload` method is common to all Obsidian view plugins, not just those related to Bases; we
+     * can use this to clean up anything that we created by the view (like the calendar instance)
+     */
+    unload(): void {
+        this.calendar.destroy();
+    }
 }
 ```
 
