@@ -1,0 +1,70 @@
+---
+import BlueSky from "simple-icons-astro/Bluesky";
+import GitHub from "simple-icons-astro/Github";
+
+import LinkedIn from "../icons/LinkedIn.svg";
+
+interface Props {
+    title?: string;
+}
+
+const { title = "" } = Astro.props;
+---
+
+<header class="mb-4 bg-gray-200 px-4 pt-4 pb-8">
+    <nav class="w-readable mx-auto mb-8 flex max-w-full flex-col items-start gap-4">
+        <ul class="flex w-full gap-2">
+            <li class="flex-grow">
+                <a class="font-bold" href="/">Alex LaFroscia</a>
+            </li>
+
+            <li>
+                <a
+                    rel="me"
+                    href="https://bsky.app/profile/alexlafroscia.com"
+                    class="transition-colors hover:text-[#01AAFF] focus-visible:text-[#01AAFF]"
+                >
+                    <span class="sr-only">Bluesky Profile for Alex LaFroscia</span>
+                    <BlueSky class="h-3/4" />
+                </a>
+            </li>
+
+            <li>
+                <a
+                    rel="me"
+                    href="https://github.com/alexlafroscia"
+                    class="transition-colors hover:text-[#6cc644] focus-visible:text-[#6cc644]"
+                >
+                    <span class="sr-only">GitHub Profile for Alex LaFroscia</span>
+                    <GitHub class="h-3/4" />
+                </a>
+            </li>
+
+            <li>
+                <a
+                    rel="me"
+                    href="https://www.linkedin.com/in/alexlafroscia/"
+                    class="transition-colors hover:text-[#0A66C2] focus-visible:text-[#0A66C2]"
+                >
+                    <span class="sr-only">LinkedIn Profile for Alex LaFroscia</span>
+                    <LinkedIn class="h-3/4" />
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="w-readable mx-auto flex max-w-full flex-col items-start gap-4">
+        <h1
+            class:list={[
+                "border-gray-300 pb-2 text-3xl",
+                { "border-b": Astro.slots.has("default") },
+            ]}
+        >
+            <slot name="title">
+                {title}
+            </slot>
+        </h1>
+
+        <slot />
+    </div>
+</header>
