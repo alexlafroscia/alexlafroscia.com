@@ -9,12 +9,6 @@ tags:
     - Obsidian Bases
 ---
 
-<script context="module">
-  import { assets } from '$app/paths';
-
-  const assetPath = `${assets}/tech/2025/making-a-custom-obsidian-bases-view`
-</script>
-
 After months of development, [Obsidian][obsidian] recently released support for [Bases][obsidian-bases], a core plugin that allows you to create different kinds of visualizations of the files within your Obsidian vault. While it comes with built-in support for common use-cases like viewing a list of files as a table, the upcoming `1.10` release of Obsidian will allow plugin authors to create their own custom views. This can be used to display your notes in any way that you can imagine, like a map, a Kanban board, or a calendar.
 
 Currently, there is no published documentation for the Bases View API; the feature is still in early access, and I am sure that documentation will be published in due time. That said, I've been excited about the prospect of custom Bases views since starting to use the feature over the summer, so I dug into the one place that you can see the API in action: the official [`obsidian-maps`][obsidian-maps] plugin that will be available alongside the `1.10` release.
@@ -132,7 +126,7 @@ class CalendarView extends BasesView {
 
 With that in place, you should be able to select `Calendar` as the layout type for your view to see a fully interactive calendar UI that we can populate with events.
 
-![Selecting the Calendar layout for the Base](../../../../assets/tech/2025/making-a-custom-obsidian-bases-view/select-calendar-as-layout-type.png)
+![Selecting the Calendar layout for the Base](./select-calendar-as-layout-type.png)
 
 ### Receiving Data from the Base
 
@@ -241,7 +235,7 @@ class CalendarView extends BasesView {
 
 With these additions in place, the `data` property of our Bases view now serves as the event source for the FullCalendar component!
 
-![Bases results displayed as calendar events](../../../../assets/tech/2025/making-a-custom-obsidian-bases-view/displaying-events-on-the-calendar.png)
+![Bases results displayed as calendar events](./displaying-events-on-the-calendar.png)
 
 The calendar will automatically reflect any changes to the underlying data in real time as well; you can test this out by applying an additional filter to the base, which will be immediately reflected in the visible calendar events.
 
@@ -355,7 +349,7 @@ class CalendarView extends BasesView {
 
 Adding this `eventClick` handler to our FullCalendar instance is all we need to allow notes to be opened from the calendar! The `id` property of each event, which we defined based on the full path of each rendered file, can be reused with Obsidian's plugin API for opening a note to handle the behavior we'd expect to see.
 
-![Clicking on a calendar event to open the associated note](../../../../assets/tech/2025/making-a-custom-obsidian-bases-view/event-interactivity.gif)
+![Clicking on a calendar event to open the associated note](./event-interactivity.gif)
 
 ## Further Reading
 
