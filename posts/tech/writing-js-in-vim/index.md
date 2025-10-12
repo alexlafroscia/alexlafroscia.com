@@ -57,7 +57,7 @@ There are many Vim plugins for running linters but the best experience I've had 
 
 With the plugin installed through your method of choice, you're on your way to a great linting experience in Vim. It supports ESLint out of the box and should start working without any additional configuration. If you open a file in your JS project that has a linting error, you'll end up with an experience like this:
 
-![Errors appear as I type. At the end, they all end up in the Location List, making them easy to jump between.](../../../assets/tech/writing-js-in-vim/realtime-errors.gif)
+![Errors appear as I type. At the end, they all end up in the Location List, making them easy to jump between.](./realtime-errors.gif)
 
 Notice the annotations next to erroneous lines, the hint about errors on the current line at the bottom of the screen, and the total number of errors in the bottom-right-hand corner.
 
@@ -125,7 +125,7 @@ nmap <leader>d <Plug>(ale_fix)
 
 To let `<leader>d` fix the current file. For me, that means a quick `SPACE-d` before saving makes sure that everything looks good, but that will depend on what your leader key is.
 
-![Running ALEFix fixes all of the formatting errors automatically. The unused variable is still warned about.](../../../assets/tech/writing-js-in-vim/format-in-buffer.gif)
+![Running ALEFix fixes all of the formatting errors automatically. The unused variable is still warned about.](./format-in-buffer.gif)
 
 ## Autocomplete
 
@@ -137,7 +137,7 @@ My go-to plugin for a richer autocomplete experience is [`deoplete`](https://git
 - [`deoplete-flow`](https://github.com/steelsojka/deoplete-flow)   -- Autocomplete powered by Flow (demonstrated below)
 - [`nvim-typescript`](https://github.com/mhartington/nvim-typescript)  -- Provides Deoplete suggestions plus a bunch of other tools for [TypeScript](https://www.typescriptlang.org/) development
 
-![Flow provides suggestions on methods and properties as I type](../../../assets/tech/writing-js-in-vim/flow-autocomplete.gif)
+![Flow provides suggestions on methods and properties as I type](./flow-autocomplete.gif)
 
 While Vim is certainly usable without this kind of integration, it can be a huge help in preventing runtime errors.
 
