@@ -187,7 +187,7 @@ class CalendarView extends BasesView {
                 center: "title",
                 right: "dayGridMonth,timeGridWeek,listWeek",
             },
-            events: () => this.makeEventsFromData();
+            events: () => this.makeEventsFromData(),
         });
     }
 
@@ -296,12 +296,12 @@ class CalendarView extends BasesView {
                 center: "title",
                 right: "dayGridMonth,timeGridWeek,listWeek",
             },
-            events: () => this.makeEventsFromData();
+            events: () => this.makeEventsFromData(),
         });
         this.calendar.on("eventClick", ({ event }) => {
-          const { id } = event;
+            const { id } = event;
 
-          this.app.workspace.openLinkText(id, "");
+            this.app.workspace.openLinkText(id, "");
         });
     }
 
