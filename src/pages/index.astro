@@ -10,9 +10,9 @@ import me from "../assets/me.webp";
 const title = "home";
 const description = "Homepage for Alex LaFroscia's web site";
 
-const latestPost = (await getCollection("blog")).sort(
-    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-)[0];
+const recentPosts = (await getCollection("blog"))
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 3);
 ---
 
 <BaseLayout {title} {description}>
@@ -34,25 +34,17 @@ const latestPost = (await getCollection("blog")).sort(
         </div>
     </section>
 
-    <section class="w-readable mx-auto mt-10 max-w-full p-4">
-        <h2 class="text-2xl font-bold">Latest Post!</h2>
-        <BlogListEntry post={latestPost} />
-    </section>
-
-    <section class="w-readable mx-auto mt-10 max-w-full p-4">
-        <ul class="flex gap-4">
-            <li class="w-1/4 bg-blue-100 p-4 transition-colors hover:bg-blue-500">
-                <a class="flex aspect-square flex-col justify-between" href="/tech">
-                    <h2 class="text-2xl font-bold">tech</h2>
-                    <p>Posts about tools and code</p>
-                </a>
-            </li>
-            <li class="w-1/4 bg-amber-100 p-4 transition-colors hover:bg-amber-500">
-                <a class="flex aspect-square flex-col justify-between" href="/games">
-                    <h2 class="text-2xl font-bold">games</h2>
-                    <p>Posts about tech, tools and code</p>
-                </a>
-            </li>
+    <section class="w-readable mx-auto mt-10 flex max-w-full flex-col gap-2 p-4">
+        <h2 class="text-2xl font-bold">Latest Posts</h2>
+        <ul class="-mx-2 border-b border-gray-200">
+            {
+                recentPosts.map((post) => (
+                    <li>
+                        <BlogListEntry {post} />
+                    </li>
+                ))
+            }
         </ul>
+        <a href="">See Them All</a>
     </section>
 </BaseLayout>
