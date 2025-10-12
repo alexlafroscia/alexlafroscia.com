@@ -4,7 +4,7 @@ import BaseLayout from "./Base.astro";
 import BlogListEntry from "../components/BlogListEntry.astro";
 import { SITE_TITLE as title, SITE_DESCRIPTION as description } from "../consts";
 
-export type BlogPostIndex = Array<CollectionEntry<"blog">>;
+export type BlogPostIndex = Array<CollectionEntry<"posts">>;
 
 type Props = {
     label: string;

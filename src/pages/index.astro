@@ -10,7 +10,7 @@ import me from "../assets/me.webp";
 const title = "home";
 const description = "Homepage for Alex LaFroscia's web site";
 
-const recentPosts = (await getCollection("blog"))
+const recentPosts = (await getCollection("posts"))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
     .slice(0, 3);
 ---
