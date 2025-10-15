@@ -19,20 +19,22 @@ const recentPosts = (await getCollection("posts"))
             <span class="motion-safe:animate-wave inline-block">👋</span> Hello!
         </Fragment>
 
-        <p>This is a test</p>
+        <p class="mb-8">This is a test</p>
     </Header>
 
-    <section class="w-readable mx-auto mt-10 flex max-w-full flex-col gap-2 p-4">
-        <h2 class="text-2xl font-bold">Latest Posts</h2>
-        <ul class="-mx-2 border-b border-gray-200">
-            {
-                recentPosts.map((post) => (
-                    <li>
-                        <BlogListEntry {post} />
-                    </li>
-                ))
-            }
-        </ul>
-        <a href="">See Them All</a>
-    </section>
+    <div class="px-4">
+        <section class="w-readable mx-auto mt-10 flex max-w-full flex-col gap-2">
+            <h2 class="text-2xl font-bold">Latest Posts</h2>
+            <ul class="-mx-2 border-b border-gray-200">
+                {
+                    recentPosts.map((post) => (
+                        <li>
+                            <BlogListEntry {post} />
+                        </li>
+                    ))
+                }
+            </ul>
+            <a href="">See Them All</a>
+        </section>
+    </div>
 </BaseLayout>
