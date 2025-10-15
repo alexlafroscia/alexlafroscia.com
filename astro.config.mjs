@@ -9,7 +9,7 @@ import expressiveCode from "astro-expressive-code";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://example.com",
+    site: "https://alexlafroscia.com",
     integrations: [expressiveCode(), mdx(), sitemap()],
 
     vite: {
