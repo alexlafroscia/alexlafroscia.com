@@ -243,7 +243,7 @@ The calendar will automatically reflect any changes to the underlying data in re
 
 While viewing the notes on the calendar is neat, it's not exactly useful if we can't click on an event to open the associated note. Let's hook up some basic interactivity so that our calendar view is much more functional!
 
-```typescript collapse={1-20,23-40,46-53,62-100} ins={55-58}
+```typescript collapse={1-20,23-40,46-53,62-100} ins={55-59}
 // main.ts
 import { BasesView, QueryController, Plugin } from "obsidian";
 
