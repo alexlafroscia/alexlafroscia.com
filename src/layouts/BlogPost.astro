@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./Base.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Header from "../components/Header.astro";
+import Topic from "../components/Topic.astro";
 
 type Props = CollectionEntry<"posts">["data"];
 
@@ -25,18 +26,20 @@ const { title, description = "", date, tags = [] } = Astro.props;
                 <FormattedDate date={date} />
             </dd>
             {
-                tags.length && (
+                tags.length ? (
                     <Fragment>
                         <dt class="font-bold lowercase">Topics</dt>
                         <dd>
                             <ul class="flex gap-2">
-                                {tags.map((tag) => (
-                                    <li>{tag}</li>
+                                {tags.map((topic) => (
+                                    <li>
+                                        <Topic {topic} />
+                                    </li>
                                 ))}
                             </ul>
                         </dd>
                     </Fragment>
-                )
+                ) : undefined
             }
         </dl>
     </Header>

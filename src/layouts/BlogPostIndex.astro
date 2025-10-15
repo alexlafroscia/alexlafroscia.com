@@ -19,15 +19,17 @@ const { label, posts } = Astro.props;
 <BaseLayout {title} {description}>
     <Header title={label} />
 
-    <section class="w-readable mx-auto max-w-full">
-        <ul class="divide-y divide-gray-200">
-            {
-                posts.map((post) => (
-                    <li>
-                        <BlogListEntry {post} />
-                    </li>
-                ))
-            }
-        </ul>
-    </section>
+    <div class="px-2">
+        <section class="w-readable mx-auto max-w-full">
+            <ul class="divide-y divide-gray-200">
+                {
+                    posts.map((post) => (
+                        <li>
+                            <BlogListEntry {post} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+    </div>
 </BaseLayout>

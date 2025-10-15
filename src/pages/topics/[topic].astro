@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+import BlogPostIndex from "../../layouts/BlogPostIndex.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+    const topics = new Set<string>();
+
+    for (const post of posts) {
+        for (const topic of post.data.tags ?? []) {
+            topics.add(topic);
+        }
+    }
+
+    return Array.from(topics).map((topic) => ({
+        params: {
+            topic,
+        },
+        props: {
+            posts: posts.filter((post) => {
+                return post.data.tags?.includes(topic) ?? false;
+            }),
+        },
+    }));
+}
+
+const { topic } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<BlogPostIndex label={topic} {posts} />

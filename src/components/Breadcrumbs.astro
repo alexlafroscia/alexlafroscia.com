@@ -16,7 +16,7 @@ slugs.unshift({
             slugs.map((slug) => (
                 <li class="flex">
                     <a class="whitespace-nowrap" href={`/${slug.path}`}>
-                        {slug.label}
+                        {decodeURIComponent(slug.label)}
                     </a>
                 </li>
             ))

@@ -1,0 +1,13 @@
+---
+interface Props {
+    topic: string;
+}
+
+const { topic } = Astro.props;
+---
+
+<a class="rounded-full bg-gray-300 px-2 py-1 text-sm" href={`/topics/${encodeURIComponent(topic)}`}>
+    <slot>
+        {topic}
+    </slot>
+</a>
