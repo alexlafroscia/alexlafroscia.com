@@ -9,7 +9,8 @@
         "test": "vitest",
         "format": "prettier --write .",
         "format:check": "prettier --check .",
-        "astro": "astro"
+        "astro": "astro",
+        "check": "astro check"
     },
     "dependencies": {
         "@astrojs/check": "^0.9.4",

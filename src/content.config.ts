@@ -5,7 +5,7 @@ const posts = defineCollection({
     // Load Markdown and MDX files in the `posts` directory.
     loader: glob({ base: "./posts", pattern: "**/*.{md,mdx}" }),
     // Type-check frontmatter using a schema
-    schema: ({ image }) =>
+    schema: () =>
         z.object({
             title: z.string(),
             description: z.string().optional(),

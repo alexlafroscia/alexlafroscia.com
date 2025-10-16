@@ -13,6 +13,9 @@ export default defineConfig({
     integrations: [expressiveCode(), mdx(), sitemap()],
 
     vite: {
-        plugins: [tailwindcss()],
+        plugins: [
+            // @ts-expect-error some kind of error around the `hotUpdate` properties
+            tailwindcss(),
+        ],
     },
 });
