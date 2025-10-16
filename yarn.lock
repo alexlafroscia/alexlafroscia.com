@@ -1824,9 +1824,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^5.14.4":
-  version: 5.14.4
-  resolution: "astro@npm:5.14.4"
+"astro@npm:^5.14.5":
+  version: 5.14.5
+  resolution: "astro@npm:5.14.5"
   dependencies:
     "@astrojs/compiler": "npm:^2.12.2"
     "@astrojs/internal-helpers": "npm:0.7.4"
@@ -1896,7 +1896,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: f75e969db6bfed9ed0abae14543c239adcbf70ee2df344c7952ae307ad18b7048ee6521f32f3d0173dbb30b4b00ced7227864fd80349cd0fd5c0e8a052d64d48
+  checksum: d433940d369e2904db235795ec892b3eac82d3af974b5dacd96f89e0f62d315c9f11bf26b5ca22046541dd03b9ecbf9fa2391fdba438e47fc08aed8169080439
   languageName: node
   linkType: hard
 
@@ -2808,11 +2808,11 @@ __metadata:
     "@expressive-code/plugin-collapsible-sections": "npm:^0.41.3"
     "@tailwindcss/typography": "npm:^0.5.19"
     "@tailwindcss/vite": "npm:^4.1.14"
-    astro: "npm:^5.14.4"
+    astro: "npm:^5.14.5"
     astro-expressive-code: "npm:^0.41.3"
     prettier: "npm:^3.6.2"
     prettier-plugin-astro: "npm:^0.14.1"
-    prettier-plugin-tailwindcss: "npm:^0.6.14"
+    prettier-plugin-tailwindcss: "npm:^0.7.0"
     sharp: "npm:^0.34.4"
     simple-icons-astro: "npm:^15.16.1"
     tailwindcss: "npm:^4.1.14"
@@ -4740,9 +4740,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.6.14":
-  version: 0.6.14
-  resolution: "prettier-plugin-tailwindcss@npm:0.6.14"
+"prettier-plugin-tailwindcss@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "prettier-plugin-tailwindcss@npm:0.7.0"
   peerDependencies:
     "@ianvs/prettier-plugin-sort-imports": "*"
     "@prettier/plugin-hermes": "*"
@@ -4754,14 +4754,12 @@ __metadata:
     prettier: ^3.0
     prettier-plugin-astro: "*"
     prettier-plugin-css-order: "*"
-    prettier-plugin-import-sort: "*"
     prettier-plugin-jsdoc: "*"
     prettier-plugin-marko: "*"
     prettier-plugin-multiline-arrays: "*"
     prettier-plugin-organize-attributes: "*"
     prettier-plugin-organize-imports: "*"
     prettier-plugin-sort-imports: "*"
-    prettier-plugin-style-order: "*"
     prettier-plugin-svelte: "*"
   peerDependenciesMeta:
     "@ianvs/prettier-plugin-sort-imports":
@@ -4782,8 +4780,6 @@ __metadata:
       optional: true
     prettier-plugin-css-order:
       optional: true
-    prettier-plugin-import-sort:
-      optional: true
     prettier-plugin-jsdoc:
       optional: true
     prettier-plugin-marko:
@@ -4796,11 +4792,9 @@ __metadata:
       optional: true
     prettier-plugin-sort-imports:
       optional: true
-    prettier-plugin-style-order:
-      optional: true
     prettier-plugin-svelte:
       optional: true
-  checksum: 1bf635be28b30b3f171a184497eecf512601d19328e402dd2eb1ede52aa57b4f5b605eae2929f4916de9ba22526f3d730d9afa90334db09d17c59f463f7b26d8
+  checksum: 8a7d7d2f77cd45bbd3b3c8f630da4ee2739def1c88185a74dcf3758b78644d35b6a3d1f2ee562ca177c0f8aec524dab9e88adac4c5999d386cd01527fa51eb77
   languageName: node
   linkType: hard
 
