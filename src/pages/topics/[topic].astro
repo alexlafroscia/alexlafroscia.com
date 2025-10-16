@@ -1,7 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 
 import BlogPostIndex from "../../layouts/BlogPostIndex.astro";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -9,24 +10,40 @@ export async function getStaticPaths() {
 
     for (const post of posts) {
         for (const topic of post.data.topics ?? []) {
-            topics.add(topic);
+            topics.add(topic.id);
         }
     }
 
-    return Array.from(topics).map((topic) => ({
-        params: {
-            topic,
-        },
-        props: {
-            posts: posts.filter((post) => {
-                return post.data.topics?.includes(topic) ?? false;
-            }),
-        },
-    }));
+    return await Promise.all(
+        Array.from(topics).map(async (topic) => ({
+            params: {
+                topic,
+            },
+            props: {
+                topic: await getEntry("topics", topic),
+                posts: posts.filter((post) => {
+                    if (!post.data.topics) {
+                        return false;
+                    }
+
+                    return post.data.topics.map((topic) => topic.id).includes(topic);
+                }),
+            },
+        })),
+    );
 }
 
-const { topic } = Astro.params;
-const { posts } = Astro.props;
+const { posts, topic } = Astro.props;
+
+if (!topic) {
+    return Astro.redirect("/404");
+}
+
+const { Content } = await render(topic);
 ---
 
-<BlogPostIndex label={topic} {posts} />
+<BlogPostIndex label={topic.data.label} {posts}>
+    <Fragment slot="header">
+        <Content />
+    </Fragment>
+</BlogPostIndex>

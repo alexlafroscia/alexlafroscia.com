@@ -5,9 +5,9 @@ description: >-
     set up and working great with Vim.
 date: 2017-06-21T08:07:52.708Z
 topics:
-    - Vim
-    - Prettier
-    - ESLint
+    - vim
+    - prettier
+    - eslint
 legacy: true
 ---
 

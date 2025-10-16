@@ -4,9 +4,9 @@ date: 2025-10-10T14:00Z
 description: >-
     Obsidian is on the brink of allowing developers to write their own custom views. Let's get familiar with the API by building a basic custom view together.
 topics:
-    - Obsidian
-    - Obsidian Plugin
-    - Obsidian Bases
+    - obsidian
+    - obsidian-plugin
+    - obsidian-bases
 ---
 
 After months of development, [Obsidian][obsidian] recently released support for [Bases][obsidian-bases], a core plugin that allows you to create different kinds of visualizations of the files within your Obsidian vault. While it comes with built-in support for common use-cases like viewing a list of files as a table, the upcoming `1.10` release of Obsidian will allow plugin authors to create their own custom views. This can be used to display your notes in any way that you can imagine, like a map, a Kanban board, or a calendar.

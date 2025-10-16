@@ -7,8 +7,8 @@ description: >-
 series:
     slug: github-actions
 topics:
-    - Open Source
-    - GitHub Actions
+    - open-source
+    - github-actions
 legacy: true
 ---
 

@@ -4,8 +4,8 @@ date: 2023-01-29
 description: >-
     ESLint provides some great tools for testing your rules. This post shows how to use Vitest to
 topics:
-    - Vitest
-    - ESLint
+    - vitest
+    - eslint
 ---
 
 I recently needed to write a custom lint rule for a project that uses Vitest to run its tests. ESLint provides great tools for testing custom rules through the [`RuleTester`][ruletester] class, but using it directly would mean that this project needed two different test runners to be run all of the tests. This got me thinking: is there a way to run the tests for the lint rule _using_ Vitest?

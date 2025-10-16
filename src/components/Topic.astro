@@ -1,13 +1,21 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
+type Topic = CollectionEntry<"topics">;
+
 interface Props {
-    topic: string;
+    topic: Topic;
 }
 
 const { topic } = Astro.props;
+const { label } = topic.data;
 ---
 
-<a class="rounded-full bg-gray-300 px-2 py-1 text-sm" href={`/topics/${encodeURIComponent(topic)}`}>
+<a
+    class="rounded-full bg-gray-300 px-2 py-1 text-sm"
+    href={`/topics/${encodeURIComponent(topic.id)}`}
+>
     <slot>
-        {topic}
+        {label}
     </slot>
 </a>

@@ -17,7 +17,9 @@ const { label, posts } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
-    <Header title={label} />
+    <Header title={label}>
+        <slot name="header" />
+    </Header>
 
     <div class="px-2">
         <section class="w-readable mx-auto max-w-full">

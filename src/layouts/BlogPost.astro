@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type CollectionEntry, getEntries } from "astro:content";
 
 import BaseLayout from "./Base.astro";
 import FormattedDate from "../components/FormattedDate.astro";
@@ -8,7 +8,8 @@ import Topic from "../components/Topic.astro";
 
 type Props = CollectionEntry<"posts">["data"];
 
-const { title, description = "", date, topics = [] } = Astro.props;
+const { title, description = "", date, topics: topicRefs = [] } = Astro.props;
+const topics = await getEntries(topicRefs);
 ---
 
 <BaseLayout {title} {description}>
