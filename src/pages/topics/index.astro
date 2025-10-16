@@ -9,7 +9,7 @@ const posts = await getCollection("posts");
 const topics = new Map<string, number>();
 
 for (const post of posts) {
-    for (const topic of post.data.tags ?? []) {
+    for (const topic of post.data.topics ?? []) {
         const currentCount = topics.get(topic) ?? 0;
 
         topics.set(topic, currentCount + 1);

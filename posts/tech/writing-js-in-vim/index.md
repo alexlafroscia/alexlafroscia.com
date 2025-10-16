@@ -4,7 +4,7 @@ description: >-
     Learn about getting some of the best tools in the JavaScript community
     set up and working great with Vim.
 date: 2017-06-21T08:07:52.708Z
-tags:
+topics:
     - Vim
     - Prettier
     - ESLint

@@ -3,7 +3,7 @@ title: Converging on a Condition in QUnit
 date: 2019-03-01T08:07:52.708Z
 description: >-
     Sometimes it's hard to avoid race conditions in your tests. Writing convergent assertions can help!
-tags:
+topics:
     - testing
     - qunit
     - ember

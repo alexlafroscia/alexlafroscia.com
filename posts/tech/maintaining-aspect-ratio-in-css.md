@@ -4,7 +4,7 @@ date: 2017-07-19T16:00:35-07:00
 description: >-
     How to create a CSS shape that maintains its aspect ratio, and a "gotcha"
     round doing so with Flexbox.
-tags:
+topics:
     - css
     - flexbox
 legacy: true

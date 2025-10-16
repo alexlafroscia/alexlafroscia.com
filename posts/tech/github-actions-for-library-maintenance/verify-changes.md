@@ -6,7 +6,7 @@ description: >-
     an Open Source library maintainer.
 series:
     slug: github-actions
-tags:
+topics:
     - Open Source
     - GitHub Actions
 legacy: true

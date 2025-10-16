@@ -8,7 +8,7 @@ import Topic from "../components/Topic.astro";
 
 type Props = CollectionEntry<"posts">["data"];
 
-const { title, description = "", date, tags = [] } = Astro.props;
+const { title, description = "", date, topics = [] } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
@@ -26,12 +26,12 @@ const { title, description = "", date, tags = [] } = Astro.props;
                 <FormattedDate date={date} />
             </dd>
             {
-                tags.length ? (
+                topics.length ? (
                     <Fragment>
                         <dt class="font-bold lowercase">Topics</dt>
                         <dd>
                             <ul class="flex gap-2">
-                                {tags.map((topic) => (
+                                {topics.map((topic) => (
                                     <li>
                                         <Topic {topic} />
                                     </li>

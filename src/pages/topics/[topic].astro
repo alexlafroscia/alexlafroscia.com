@@ -8,7 +8,7 @@ export async function getStaticPaths() {
     const topics = new Set<string>();
 
     for (const post of posts) {
-        for (const topic of post.data.tags ?? []) {
+        for (const topic of post.data.topics ?? []) {
             topics.add(topic);
         }
     }
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
         },
         props: {
             posts: posts.filter((post) => {
-                return post.data.tags?.includes(topic) ?? false;
+                return post.data.topics?.includes(topic) ?? false;
             }),
         },
     }));

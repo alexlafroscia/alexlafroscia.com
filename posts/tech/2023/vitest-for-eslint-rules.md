@@ -3,7 +3,7 @@ title: Testing ESLint Rules with Vitest
 date: 2023-01-29
 description: >-
     ESLint provides some great tools for testing your rules. This post shows how to use Vitest to
-tags:
+topics:
     - Vitest
     - ESLint
 ---

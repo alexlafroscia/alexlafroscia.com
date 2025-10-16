@@ -3,7 +3,7 @@ title: Making a Custom Obsidian Bases View
 date: 2025-10-10T14:00Z
 description: >-
     Obsidian is on the brink of allowing developers to write their own custom views. Let's get familiar with the API by building a basic custom view together.
-tags:
+topics:
     - Obsidian
     - Obsidian Plugin
     - Obsidian Bases
