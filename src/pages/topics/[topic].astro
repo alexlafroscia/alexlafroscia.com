@@ -1,8 +1,10 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-
-import BlogPostIndex from "../../layouts/BlogPostIndex.astro";
 import { render } from "astro:content";
+
+import BaseLayout from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import BlogListEntry from "../../components/BlogListEntry.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -40,10 +42,48 @@ if (!topic) {
 }
 
 const { Content } = await render(topic);
+
+const { label, color: { accent: accentColor, contrast: contrastColor } = {} } = topic.data;
+const title = label;
 ---
 
-<BlogPostIndex label={topic.data.label} {posts}>
-    <Fragment slot="header">
-        <Content />
-    </Fragment>
-</BlogPostIndex>
+<BaseLayout {title}>
+    <div class="header with-light-accent-color contents">
+        <Header {title}>
+            <div class="description contents">
+                <Content />
+            </div>
+        </Header>
+    </div>
+
+    <div class="px-4">
+        <section class="w-readable mx-auto max-w-full">
+            <ul class="divide-y divide-gray-200">
+                {
+                    posts.map((post) => (
+                        <li>
+                            <BlogListEntry {post} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+    </div>
+</BaseLayout>
+
+<style define:vars={{ accentColor, contrastColor }}>
+    .header {
+        --header-background: var(--lightAccentColor);
+        --header-border-color: var(--accentColor);
+    }
+
+    .description :global(p a) {
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    .description :global(ul) {
+        list-style: circle;
+        margin-left: calc(var(--spacing) * 6);
+    }
+</style>

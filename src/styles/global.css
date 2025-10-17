@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@utility with-light-accent-color {
+    --lightAccentColor: oklch(from var(--accentColor) calc(l + 0.25) c h);
+}
+
 @theme {
     --width-readable: 80ch;
 

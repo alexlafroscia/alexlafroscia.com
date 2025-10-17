@@ -8,14 +8,21 @@ interface Props {
 }
 
 const { topic } = Astro.props;
-const { label } = topic.data;
+const { label, color: { accent: accentColor, contrast: contrastColor } = {} } = topic.data;
 ---
 
 <a
-    class="rounded-full bg-gray-300 px-2 py-1 text-sm"
+    class="with-light-accent-color rounded-full px-2 py-1 text-sm"
     href={`/topics/${encodeURIComponent(topic.id)}`}
 >
     <slot>
         {label}
     </slot>
 </a>
+
+<style define:vars={{ accentColor, contrastColor }}>
+    a {
+        background-color: var(--lightAccentColor, var(--color-gray-300));
+        border: 2px solid var(--accentColor, transparent);
+    }
+</style>

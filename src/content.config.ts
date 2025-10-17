@@ -1,6 +1,11 @@
 import { defineCollection, z, reference } from "astro:content";
 import { glob } from "astro/loaders";
 
+const color = z.object({
+    accent: z.string().optional(),
+    contrast: z.string().optional(),
+});
+
 const posts = defineCollection({
     // Load Markdown and MDX files in the `posts` directory.
     loader: glob({ base: "./posts", pattern: "**/*.{md,mdx}" }),
@@ -19,6 +24,7 @@ const topics = defineCollection({
     schema: () =>
         z.object({
             label: z.string(),
+            color: z.optional(color),
         }),
 });
 
