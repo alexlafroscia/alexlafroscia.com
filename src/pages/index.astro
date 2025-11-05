@@ -2,8 +2,11 @@
 import { getCollection } from "astro:content";
 
 import BaseLayout from "../layouts/Base.astro";
-import BlogListEntry from "../components/BlogListEntry.astro";
+
 import Header from "../components/Header.astro";
+import PostList from "../components/PostList.astro";
+
+import ArrowRightIcon from "../icons/ArrowRight.svg";
 
 const title = "home";
 const description = "Homepage for Alex LaFroscia's web site";
@@ -25,16 +28,16 @@ const recentPosts = (await getCollection("posts"))
     <div class="px-4">
         <section class="w-readable mx-auto mt-10 flex max-w-full flex-col gap-2">
             <h2 class="text-2xl font-bold">Latest Posts</h2>
-            <ul class="-mx-2 border-b border-gray-200">
-                {
-                    recentPosts.map((post) => (
-                        <li>
-                            <BlogListEntry {post} />
-                        </li>
-                    ))
-                }
-            </ul>
-            <a href="">See Them All</a>
+
+            <PostList posts={recentPosts} />
+
+            <a class="group flex self-start" href="/posts">
+                See Them All
+
+                <span class="aspect-square h-6 transition-transform group-hover:translate-x-1">
+                    <ArrowRightIcon />
+                </span>
+            </a>
         </section>
     </div>
 </BaseLayout>

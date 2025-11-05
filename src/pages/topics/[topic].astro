@@ -4,7 +4,7 @@ import { render } from "astro:content";
 
 import BaseLayout from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
-import BlogListEntry from "../../components/BlogListEntry.astro";
+import PostList from "../../components/PostList.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("posts");
@@ -43,40 +43,35 @@ if (!topic) {
 
 const { Content } = await render(topic);
 
-const { label, color: { accent: accentColor, contrast: contrastColor } = {} } = topic.data;
+const { label, color: accentColor } = topic.data;
 const title = label;
 ---
 
 <BaseLayout {title}>
-    <div class="header with-light-accent-color contents">
-        <Header {title}>
-            <div class="description contents">
-                <Content />
-            </div>
-        </Header>
+    <div class="header">
+        <Header {title} />
     </div>
 
     <div class="px-4">
-        <section class="w-readable mx-auto max-w-full">
-            <ul class="divide-y divide-gray-200">
-                {
-                    posts.map((post) => (
-                        <li>
-                            <BlogListEntry {post} />
-                        </li>
-                    ))
-                }
-            </ul>
+        <section class="prose w-readable mx-auto max-w-full">
+            <Content />
         </section>
     </div>
+
+    {
+        posts.length === 0 ? null : (
+            <div class="mt-8 px-4">
+                <section class="w-readable mx-auto max-w-full">
+                    <h2 class="mb-4 text-2xl">Related Posts</h2>
+
+                    <PostList {posts} />
+                </section>
+            </div>
+        )
+    }
 </BaseLayout>
 
-<style define:vars={{ accentColor, contrastColor }}>
-    .header {
-        --header-background: var(--lightAccentColor);
-        --header-border-color: var(--accentColor);
-    }
-
+<style define:vars={{ accentColor }}>
     .description :global(p a) {
         font-weight: 500;
         text-decoration: underline;

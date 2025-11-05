@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+import BlogListEntry from "./BlogListEntry.astro";
+
+type Post = CollectionEntry<"posts">;
+
+interface Props {
+    posts: Post[];
+}
+
+const { posts } = Astro.props;
+---
+
+<ul class="divide-y divide-gray-200">
+    {
+        posts.map((post) => (
+            <li class="py-2">
+                <BlogListEntry {post} />
+            </li>
+        ))
+    }
+</ul>

@@ -2,7 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @utility with-light-accent-color {
-    --lightAccentColor: oklch(from var(--accentColor) calc(l + 0.25) c h);
+    /* --lightAccentColor: oklch(from var(--accentColor) calc(l + 0.3) c h); */
+    --lightAccentColor: oklch(from var(--accentColor) l c h / calc(alpha - 0.8));
 }
 
 @theme {

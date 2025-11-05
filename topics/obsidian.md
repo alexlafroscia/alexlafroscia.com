@@ -1,8 +1,6 @@
 ---
 label: Obsidian
-color:
-    accent: "#7E62F7"
-    contrast: white
+color: "#7E62F7"
 ---
 
 [Obsidian][obsidian-md] is a Markdown-based note-taking application with a focus on privacy, flexibility and control over your data.
