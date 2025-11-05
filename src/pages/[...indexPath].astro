@@ -33,18 +33,21 @@ export async function getStaticPaths() {
             },
             props: {
                 posts,
+                indexPath,
             },
         };
     });
 }
 
-const { posts } = Astro.props;
+const { posts, indexPath } = Astro.props;
 
-const label =
+const title =
     Astro.url.pathname
         .replace(import.meta.env.BASE_URL, "")
         .split("/")
         .at(-1) ?? "";
+
+const description = `All posts under ${indexPath}`;
 ---
 
-<Index {label} {posts} />
+<Index {title} {description} {posts} />

@@ -1,37 +1,29 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import BaseLayout from "./Base.astro";
-import BlogListEntry from "../components/BlogListEntry.astro";
-import Header from "../components/Header.astro";
 
-import { SITE_TITLE as title, SITE_DESCRIPTION as description } from "../consts";
+import BaseLayout from "./Base.astro";
+import Header from "../components/Header.astro";
+import PostList from "../components/PostList.astro";
 
 export type BlogPostIndex = Array<CollectionEntry<"posts">>;
 
-type Props = {
-    label: string;
+interface Props {
+    title: string;
+    description: string;
     posts: BlogPostIndex;
-};
+}
 
-const { label, posts } = Astro.props;
+const { title, description, posts } = Astro.props;
 ---
 
 <BaseLayout {title} {description}>
-    <Header title={label}>
+    <Header {title}>
         <slot name="header" />
     </Header>
 
-    <div class="px-2">
+    <div class="px-4">
         <section class="w-readable mx-auto max-w-full">
-            <ul class="divide-y divide-gray-200">
-                {
-                    posts.map((post) => (
-                        <li>
-                            <BlogListEntry {post} />
-                        </li>
-                    ))
-                }
-            </ul>
+            <PostList {posts} />
         </section>
     </div>
 </BaseLayout>
