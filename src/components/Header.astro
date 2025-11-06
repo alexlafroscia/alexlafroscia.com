@@ -1,6 +1,4 @@
 ---
-import type { ImageMetadata } from "astro";
-
 import BlueSky from "simple-icons-astro/Bluesky";
 import GitHub from "simple-icons-astro/Github";
 
@@ -14,7 +12,7 @@ const { title = "" } = Astro.props;
 ---
 
 <header
-    class="with-light-accent-color mb-4 border-b-2 border-[var(--background-gradient-to)] bg-gradient-to-br from-[var(--background-gradient-from)] to-[var(--background-gradient-to)] px-4 pt-4 pb-8"
+    class="mb-4 border-b-2 border-[var(--background-gradient-to)] bg-gradient-to-br from-[var(--background-gradient-from)] to-[var(--background-gradient-to)] px-4 pt-4 pb-8"
 >
     <nav class="w-readable mx-auto mb-8 flex max-w-full flex-col items-start gap-4">
         <ul class="flex w-full gap-2">
@@ -26,10 +24,10 @@ const { title = "" } = Astro.props;
                 <a
                     rel="me"
                     href="https://bsky.app/profile/alexlafroscia.com"
-                    class="transition-colors hover:text-[#01AAFF] focus-visible:text-[#01AAFF]"
+                    class="block transition-transform hover:scale-105 focus-visible:scale-105"
                 >
                     <span class="sr-only">Bluesky Profile for Alex LaFroscia</span>
-                    <BlueSky class="h-3/4" />
+                    <BlueSky class="h-5" />
                 </a>
             </li>
 
@@ -37,10 +35,10 @@ const { title = "" } = Astro.props;
                 <a
                     rel="me"
                     href="https://github.com/alexlafroscia"
-                    class="transition-colors hover:text-[#6cc644] focus-visible:text-[#6cc644]"
+                    class="block transition-transform hover:scale-105 focus-visible:scale-105"
                 >
                     <span class="sr-only">GitHub Profile for Alex LaFroscia</span>
-                    <GitHub class="h-3/4" />
+                    <GitHub class="h-5" />
                 </a>
             </li>
 
@@ -48,10 +46,10 @@ const { title = "" } = Astro.props;
                 <a
                     rel="me"
                     href="https://www.linkedin.com/in/alexlafroscia/"
-                    class="transition-colors hover:text-[#0A66C2] focus-visible:text-[#0A66C2]"
+                    class="block transition-transform hover:scale-105 focus-visible:scale-105"
                 >
                     <span class="sr-only">LinkedIn Profile for Alex LaFroscia</span>
-                    <LinkedIn class="h-3/4" />
+                    <LinkedIn class="h-5" />
                 </a>
             </li>
         </ul>

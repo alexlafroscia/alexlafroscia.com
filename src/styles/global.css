@@ -2,7 +2,6 @@
 @plugin "@tailwindcss/typography";
 
 @utility with-light-accent-color {
-    /* --lightAccentColor: oklch(from var(--accentColor) calc(l + 0.3) c h); */
     --lightAccentColor: oklch(from var(--accentColor) l c h / calc(alpha - 0.8));
 }
 
@@ -19,4 +18,16 @@
             transform: rotate(5deg);
         }
     }
+}
+
+@property --accentColor {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(87.2% 0.01 258.338); /* gray-300 */
+}
+
+@property --lightAccentColor {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: oklch(92.8% 0.006 264.531); /* gray-200 */
 }

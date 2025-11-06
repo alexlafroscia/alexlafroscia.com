@@ -48,7 +48,7 @@ const title = label;
 ---
 
 <BaseLayout {title}>
-    <div class="header">
+    <div class="with-light-accent-color contents">
         <Header {title} />
     </div>
 
@@ -71,14 +71,4 @@ const title = label;
     }
 </BaseLayout>
 
-<style define:vars={{ accentColor }}>
-    .description :global(p a) {
-        font-weight: 500;
-        text-decoration: underline;
-    }
-
-    .description :global(ul) {
-        list-style: circle;
-        margin-left: calc(var(--spacing) * 6);
-    }
-</style>
+<style define:vars={{ accentColor }}></style>

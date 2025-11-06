@@ -14,9 +14,7 @@ const { title, date, description } = post.data;
 ---
 
 <a class="group flex flex-col gap-2" href={`/${post.id}`}>
-    <p
-        class="title text-lg transition-colors group-hover:text-[var(--title-color)] group-focus:text-[var(--title-color)]"
-    >
+    <p class="title text-lg group-hover:text-(--title-color) group-focus:text-(--title-color)">
         {title}
     </p>
     {description && <p class="text-sm">{post.data.description}</p>}
@@ -26,6 +24,12 @@ const { title, date, description } = post.data;
 </a>
 
 <style>
+    @property --title-color {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: oklch(48.8% 0.243 264.376); /* blue-700 */
+    }
+
     a {
         --title-color: var(--accentColor, var(--color-blue-700));
     }

@@ -17,27 +17,52 @@ const recentPosts = (await getCollection("posts"))
 ---
 
 <BaseLayout {title} {description}>
-    <Header>
-        <Fragment slot="title">
-            <span class="motion-safe:animate-wave inline-block">👋</span> Hello!
-        </Fragment>
+    <div class="define-accent-color with-light-accent-color contents">
+        <Header>
+            <Fragment slot="title">
+                <span class="motion-safe:animate-wave inline-block">👋</span> Hello!
+            </Fragment>
 
-        <p class="mb-8">This is a test</p>
-    </Header>
+            <p class="mb-8">This is a test</p>
+        </Header>
 
-    <div class="px-4">
-        <section class="w-readable mx-auto mt-10 flex max-w-full flex-col gap-2">
-            <h2 class="text-2xl font-bold">Latest Posts</h2>
+        <div class="px-4">
+            <section class="w-readable mx-auto mt-10 flex max-w-full flex-col gap-2">
+                <h2 class="text-2xl font-bold">Latest Posts</h2>
 
-            <PostList posts={recentPosts} />
+                <PostList posts={recentPosts} />
 
-            <a class="group flex self-start" href="/posts">
-                See Them All
+                <div class="border-t border-gray-200 pt-2">
+                    <a
+                        class="group flex self-start hover:text-(--accentColor) focus:text-(--accentColor)"
+                        href="/posts"
+                    >
+                        See Them All
 
-                <span class="aspect-square h-6 transition-transform group-hover:translate-x-1">
-                    <ArrowRightIcon />
-                </span>
-            </a>
-        </section>
+                        <span
+                            class="aspect-square h-6 transition-transform group-hover:translate-x-1"
+                        >
+                            <ArrowRightIcon />
+                        </span>
+                    </a>
+                </div>
+            </section>
+        </div>
     </div>
 </BaseLayout>
+
+<style>
+    @keyframes colorShift {
+        0%,
+        100% {
+            --accentColor: var(--color-blue-600);
+        }
+        50% {
+            --accentColor: var(--color-green-600);
+        }
+    }
+
+    .define-accent-color {
+        animation: colorShift 30s ease-in-out infinite;
+    }
+</style>
