@@ -1,11 +1,9 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
 import Topic from "../../components/Topic.astro";
-import { getEntry } from "astro:content";
-import type { ReferenceDataEntry } from "astro:content";
 
 const posts = await getCollection("posts");
 const topics = await getCollection("topics");
