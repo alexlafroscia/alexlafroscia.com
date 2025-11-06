@@ -23,7 +23,16 @@ const recentPosts = (await getCollection("posts"))
                 <span class="motion-safe:animate-wave inline-block">👋</span> Hello!
             </Fragment>
 
-            <p class="mb-8">This is a test</p>
+            <div class="flex w-full flex-col gap-2 rounded-lg bg-white/20 p-4">
+                <p>
+                    I'm Alex LaFroscia, a software engineer from Pittburgh, PA focused on front-end
+                    infrastructure and tooling.
+                </p>
+                <p>
+                    When I'm not building for the web, I'm usually outdoors hiking or walking my dog
+                    or playing games!
+                </p>
+            </div>
         </Header>
 
         <div class="px-4">
@@ -49,22 +58,22 @@ const recentPosts = (await getCollection("posts"))
             </section>
         </div>
     </div>
+
+    <style>
+        @keyframes colorShift {
+            0%,
+            100% {
+                --accentColor: var(--color-blue-600);
+            }
+            50% {
+                --accentColor: var(--color-green-600);
+            }
+        }
+
+        .define-accent-color {
+            animation: colorShift 30s ease-in-out infinite;
+
+            --title-color: var(--accentColor);
+        }
+    </style>
 </BaseLayout>
-
-<style>
-    @keyframes colorShift {
-        0%,
-        100% {
-            --accentColor: var(--color-blue-600);
-        }
-        50% {
-            --accentColor: var(--color-green-600);
-        }
-    }
-
-    .define-accent-color {
-        animation: colorShift 30s ease-in-out infinite;
-
-        --title-color: var(--accentColor);
-    }
-</style>
