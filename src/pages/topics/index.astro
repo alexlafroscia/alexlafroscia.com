@@ -5,18 +5,30 @@ import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
 import Topic from "../../components/Topic.astro";
 import { getEntry } from "astro:content";
+import type { ReferenceDataEntry } from "astro:content";
 
 const posts = await getCollection("posts");
-const topics = new Map<CollectionEntry<"topics">, number>();
+const topics = await getCollection("topics");
+
+const topicPostCount = new Map<string, number>();
 
 for (const post of posts) {
     for (const topic of post.data.topics ?? []) {
-        const topicEntry = await getEntry(topic);
-        const currentCount = topics.get(topicEntry) ?? 0;
+        const topicEntry = topics.find((t) => t.id === topic.id);
 
-        topics.set(topicEntry, currentCount + 1);
+        if (!topicEntry) {
+            throw new Error("Post references topic that does not exist: " + topic.id);
+        }
+
+        const currentCount = topicPostCount.get(topicEntry.id) ?? 0;
+
+        topicPostCount.set(topicEntry.id, currentCount + 1);
     }
 }
+
+topics.sort((a, b) => {
+    return topicPostCount.get(b.id)! - topicPostCount.get(a.id)!;
+});
 
 const title = "Topics";
 ---
@@ -28,15 +40,13 @@ const title = "Topics";
         <section class="w-readable mx-auto max-w-full">
             <ul class="flex flex-wrap gap-3">
                 {
-                    Array.from(topics.entries())
-                        .toSorted(([_aTopic, aCount], [_bTopic, bCount]) => bCount - aCount)
-                        .map(([topic, count]) => (
-                            <li>
-                                <Topic {topic}>
-                                    {topic} ({count})
-                                </Topic>
-                            </li>
-                        ))
+                    topics.map((topic) => (
+                        <li>
+                            <Topic {topic}>
+                                {topic.data.label} ({topicPostCount.get(topic.id) ?? 0})
+                            </Topic>
+                        </li>
+                    ))
                 }
             </ul>
         </section>
