@@ -17,7 +17,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title: pageTitle, description, image = FallbackImage } = Astro.props;
 
-const title = `${pageTitle} | Alex LaFroscia`;
+const title = `${pageTitle} | ${SITE_TITLE}`;
 ---
 
 <!-- Global Metadata -->

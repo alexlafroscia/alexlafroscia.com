@@ -5,6 +5,8 @@ import RSS from "simple-icons-astro/Rss";
 
 import LinkedIn from "../icons/LinkedIn.svg";
 
+import { SITE_TITLE } from "../consts";
+
 interface Props {
     title?: string;
 }
@@ -18,7 +20,7 @@ const { title = "" } = Astro.props;
     <nav class="w-readable mx-auto mb-8 flex max-w-full flex-col items-start gap-4">
         <ul class="flex w-full gap-2">
             <li class="flex-grow">
-                <a class="font-bold" href="/">Alex LaFroscia</a>
+                <a class="font-bold" href="/">{SITE_TITLE}</a>
             </li>
 
             <li>
