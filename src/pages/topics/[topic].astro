@@ -61,7 +61,7 @@ const title = label;
     {
         posts.length === 0 ? null : (
             <div class="mt-8 px-4">
-                <section class="w-readable mx-auto max-w-full">
+                <section class="w-readable related-posts mx-auto max-w-full">
                     <h2 class="mb-4 text-2xl">Related Posts</h2>
 
                     <PostList {posts} />
@@ -71,4 +71,8 @@ const title = label;
     }
 </BaseLayout>
 
-<style define:vars={{ accentColor }}></style>
+<style define:vars={{ accentColor }}>
+    .related-posts {
+        --title-color: var(--accentColor);
+    }
+</style>
