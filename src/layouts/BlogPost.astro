@@ -16,14 +16,14 @@ const topics = await getEntries(topicRefs);
     <Header {title}>
         {description && <p>{description}</p>}
         <dl class="metadata grid gap-x-4 gap-y-2">
-            <dt class="font-bold lowercase">Published</dt>
+            <dt class="font-bold">Published</dt>
             <dd>
                 <FormattedDate date={date} />
             </dd>
             {
                 topics.length ? (
                     <Fragment>
-                        <dt class="font-bold lowercase">Topics</dt>
+                        <dt class="font-bold">Topics</dt>
                         <dd>
                             <ul class="flex gap-2">
                                 {topics.map((topic) => (
