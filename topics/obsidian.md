@@ -5,13 +5,13 @@ color: "#7E62F7"
 
 [Obsidian][obsidian-md] is a Markdown-based note-taking application with a focus on privacy, flexibility and control over your data.
 
-Currently, it's my note-taking tool of choice; I use it for just about anything I want to plan or remember:
+Currently, it's my note-taking tool of choice; I use it for just about everything:
 
 - Daily notes and journaling
-- Planning projects and keeping track of progress
+- Planning and tracking projects
 - Bookmarking links
-- Recording details about friends and family, like gifts I've given them
+- Personal CRM
 
-While I've tried _many_ applications in this space, learning that I really care about owning and controlling the underlying data pushed me to stick with Obsidian. I love that all of the data are in plan text files that live on my devices, and that I have full control to search, edit and interact with them even outside of the Obsidian app itself.
+While I've tried _many_ applications in this space and have learned that I really care about owning and controlling the underlying data. I love everything within Obsidian is a normal file that I can open, edit and backup like anything else, and have found it fun and rewarding to have so much flexibility to customize the tool to the workflows that feel right to me!
 
 [obsidian-md]: https://obsidian.md
