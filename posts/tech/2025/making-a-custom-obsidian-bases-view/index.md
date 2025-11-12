@@ -1,6 +1,6 @@
 ---
 title: Making a Custom Obsidian Bases View
-date: 2025-10-10T14:00Z
+date: 2025-10-22T14:00Z
 description: >-
     Obsidian is on the brink of allowing developers to write their own custom views. Let's get familiar with the API by building a basic custom view together.
 topics:
@@ -9,11 +9,13 @@ topics:
     - obsidian-bases
 ---
 
-After months of development, [Obsidian][obsidian] recently released support for [Bases][obsidian-bases], a core plugin that allows you to create different kinds of visualizations of the files within your Obsidian vault. While it comes with built-in support for common use-cases like viewing a list of files as a table, the upcoming `1.10` release of Obsidian will allow plugin authors to create their own custom views. This can be used to display your notes in any way that you can imagine, like a map, a Kanban board, or a calendar.
+After months of development, [Obsidian][obsidian] recently released support for _[Bases][obsidian-bases]_, a core plugin that allows you to create visualizations of the files within your Obsidian vault. It comes with support for several common _Bases Views_, each of which presents those files in a different way, such as table or list. The upcoming `1.10` release will allow plugin authors to create their own types of views using the _Bases View API_, which can expand Obsidian's options for presenting your files to handle anything you can imagine!
 
-Currently, there is no published documentation for the Bases View API; the feature is still in early access, and I am sure that documentation will be published in due time. That said, I've been excited about the prospect of custom Bases views since starting to use the feature over the summer, so I dug into the one place that you can see the API in action: the official [`obsidian-maps`][obsidian-maps] plugin that will be available alongside the `1.10` release.
+Currently, there is no published documentation for the Bases View API; the feature is still in early access. I've been excited about the prospect of custom Bases views since starting to use the feature over the summer, so I dug into the one place that you can see the API in action: the official [`obsidian-maps`][obsidian-maps] plugin that will be available alongside the `1.10` release.
 
-This post will dig into the basics of the Bases View API, and walk through building a simple calendar view that can display your notes as events on a calendar!
+This post will dig into the basics of the Bases View API to explore what a plugin author needs to implement to support a custom view. We'll then walk through a code example of how this API can be used to build a "calendar" view, where your files can appear like events on a calendar, perfect for browsing your daily notes!
+
+> **Note:** If you want to follow along and build the calendar plugin yourself, you _will_ need access to the Early Access release of Obsidian, at least until `1.10` becomes the public version
 
 ## The Basics of the API
 
@@ -56,9 +58,9 @@ With those packages installed, we can start actually defining our custom Bases v
 
 To start, we can render the calendar inside of the Bases view; once that's in place, we'll populate it with data and add some interactivity. Our `BasesView` subclass will take care of rendering the FullCalendar component when the "Calendar" layout is selected for a Bases view.
 
-Follow along in the comments of the code snippet below for an explanation of the important parts!
+The code snippet below sets up a basic Calendar view that we'll populate with events later; each labeled line will be explained in detail below!
 
-```ts
+```ts {"1":11} {"2":14} {"3":24} {"4":38}
 // main.ts
 import { BasesView, QueryController, Plugin } from "obsidian";
 
@@ -69,9 +71,6 @@ import listPlugin from "@fullcalendar/list";
 
 export default class CalendarViewPlugin extends Plugin {
     async onload() {
-        // The `registerBasesView` API is how the Obsidian plugin defines custom views.
-        // The `name` and `icon` properties are used in the view selector, and `factory` is called
-        // to actually populate the view
         this.registerBasesView("calendar", {
             name: "Calendar",
             icon: "calendar",
@@ -81,28 +80,13 @@ export default class CalendarViewPlugin extends Plugin {
 }
 
 class CalendarView extends BasesView {
-    /**
-     * All `BasesView` subclasses need to have a bespoke `type` property that identifies them
-     */
     type = "CalendarView";
 
     private calendar: Calendar;
 
-    /**
-     * Our `BasesView` sublass receives it's constructor arguments from the `factory` function provided
-     * when registering the custom view
-     *
-     * The `QueryController` manages the data being provided to the view by Obsidian. Our plugin does
-     * not need to interact with it directly; the parent class's own behavior will use this to populate
-     * the `data` property we discussed earlier
-     *
-     * The `HTMLElement` serves as the root element for the view, which we can render our FullCalendar
-     * component into
-     */
     constructor(controller: QueryController, containerEl: HTMLElement) {
         super(controller);
 
-        // Standard basic `Calendar` setup, from the FullCalendar documentation
         this.calendar = new Calendar(containerEl, {
             plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
             initialView: "dayGridMonth",
@@ -114,15 +98,17 @@ class CalendarView extends BasesView {
         });
     }
 
-    /**
-     * The `unload` method is common to all Obsidian view plugins, not just those related to Bases; we
-     * can use this to clean up anything that we created by the view (like the calendar instance)
-     */
     unload(): void {
         this.calendar.destroy();
     }
 }
 ```
+
+The `registerBasesView` API (`1`) is how the Obsidian plugin defines custom views. The `name` and `icon` properties of the configuration object define what a user sees when selecting which type of view to use within a Base. `factory` is called to actually populate the view.
+
+`factory` (`2`) must return an instance of a subclass of `BasesView`, which receives a few important arguments from the Bases View API (`3`). The `QueryController` manages the data being provided to the view by Obsidian; this is used by the parent `BasesView` class to populate the `data` property, so we don't need to interact with it directly. The `HTMLElement` serves as the root element for the view, which we can render our FullCalendar component into.
+
+Finally, the `unload` method (`4`) is used to clean up anything that our view created. This allow us to destroy the FullCalendar instance once it's no longer needed by the view.
 
 With that in place, you should be able to select `Calendar` as the layout type for your view to see a fully interactive calendar UI that we can populate with events.
 
@@ -134,7 +120,7 @@ Now that we have our calendar rendered, we'll want to add some events. FullCalen
 
 Let's look at how our `CalendarView` class can be updated to render this data. Note that ellipses (`...`) are used to pass over parts of the previous code example that are unchanged, so we can focus on the additions.
 
-```typescript collapse={1-20,23-40,89-95} ins={53,57-88}
+```typescript collapse={1-31} ins={"5":35} ins={39-55} ins={"6":56-60}
 // main.ts
 import { BasesView, QueryController, Plugin } from "obsidian";
 
@@ -145,9 +131,6 @@ import listPlugin from "@fullcalendar/list";
 
 export default class CalendarViewPlugin extends Plugin {
     async onload() {
-        // The `registerBasesView` API is how the Obsidian plugin defines custom views.
-        // The `name` and `icon` properties are used in the view selector, and `factory` is called
-        // to actually populate the view
         this.registerBasesView("calendar", {
             name: "Calendar",
             icon: "calendar",
@@ -157,28 +140,13 @@ export default class CalendarViewPlugin extends Plugin {
 }
 
 class CalendarView extends BasesView {
-    /**
-     * All `BasesView` subclasses need to have a bespoke `type` property that identifies them
-     */
     type = "CalendarView";
 
     private calendar: Calendar;
 
-    /**
-     * Our `BasesView` sublass receives it's constructor arguments from the `factory` function provided
-     * when registering the custom view
-     *
-     * The `QueryController` manages the data being provided to the view by Obsidian. Our plugin does
-     * not need to interact with it directly; the parent class's own behavior will use this to populate
-     * the `data` property we discussed earlier
-     *
-     * The `HTMLElement` serves as the root element for the view, which we can render our FullCalendar
-     * component into
-     */
     constructor(controller: QueryController, containerEl: HTMLElement) {
         super(controller);
 
-        // Standard basic `Calendar` setup, from the FullCalendar documentation
         this.calendar = new Calendar(containerEl, {
             plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
             initialView: "dayGridMonth",
@@ -192,19 +160,13 @@ class CalendarView extends BasesView {
     }
 
     async makeEventsFromData() {
-        // The `data` property, which provides our view with access to the data retreived
-        // by the Base, won't exist initially; we want to exit early in that case
         if (!this.data?.data) {
             return [];
         }
 
-        // `data.data` reflects the actual query results that the Base provides to our view
         return this.data.data.map((entry) => {
-            // The `date` formula that we defined in our Base will be used to define where each note
-            // is rendered in the calendar
             const start = entry.getValue("formula.date");
 
-            // The object returned here defines how FullCalendar will render the event
             return {
                 id: entry.file.path,
                 title: entry.file.basename,
@@ -214,24 +176,20 @@ class CalendarView extends BasesView {
         });
     }
 
-    // `onDataUpdated` is called automatically by Obsidian when the `data` property changes
     onDataUpdated(): void {
-        // Calling `refetchEvents` on the calendar instance tells FullCalendar to call the `events`
-        // function again, which regenerates the list of events from our `data` property
         this.calendar.refetchEvents();
-        // Calling `render` tells the FullCalendar UI to update after it finishes refetching
         this.calendar.render();
     }
 
-    /**
-     * The `unload` method is common to all Obsidian view plugins, not just those related to Bases; we
-     * can use this to clean up anything that we created by the view (like the calendar instance)
-     */
     unload(): void {
         this.calendar.destroy();
     }
 }
 ```
+
+When defining our FullCalendar instance, we can provide an `events` function to return the list of events to populate the calendar with (`5`). This will be used to translate the results of our Bases query into the format that FullCalendar requires. While the query results are accessible through the `data` property, be _do_ need to be careful to make sure that it exists before reading from it, returning an empty array of events if it hasn't been populated yet!
+
+Our custom view will be populated with results _after_ the view is constructed, so we need to implement `onDataUpdated` to update our calendar to reflect those changes (`6`). This method will be called when the initial query results become available, as well as any time the user updates the configuration of the Base. In either case, by telling our FullCalendar instance to `refetchEvents` and `render` we can instruct it to call the `events` function again to read from the updated `data` value, rendering the results!
 
 With these additions in place, the `data` property of our Bases view now serves as the event source for the FullCalendar component!
 
@@ -243,7 +201,7 @@ The calendar will automatically reflect any changes to the underlying data in re
 
 While viewing the notes on the calendar is neat, it's not exactly useful if we can't click on an event to open the associated note. Let's hook up some basic interactivity so that our calendar view is much more functional!
 
-```typescript collapse={1-20,23-40,46-53,62-100} ins={55-59}
+```typescript collapse={1-33,44-68} ins={"7":37-41}
 // main.ts
 import { BasesView, QueryController, Plugin } from "obsidian";
 
@@ -254,9 +212,6 @@ import listPlugin from "@fullcalendar/list";
 
 export default class CalendarViewPlugin extends Plugin {
     async onload() {
-        // The `registerBasesView` API is how the Obsidian plugin defines custom views.
-        // The `name` and `icon` properties are used in the view selector, and `factory` is called
-        // to actually populate the view
         this.registerBasesView("calendar", {
             name: "Calendar",
             icon: "calendar",
@@ -266,28 +221,13 @@ export default class CalendarViewPlugin extends Plugin {
 }
 
 class CalendarView extends BasesView {
-    /**
-     * All `BasesView` subclasses need to have a bespoke `type` property that identifies them
-     */
     type = "CalendarView";
 
     private calendar: Calendar;
 
-    /**
-     * Our `BasesView` sublass receives it's constructor arguments from the `factory` function provided
-     * when registering the custom view
-     *
-     * The `QueryController` manages the data being provided to the view by Obsidian. Our plugin does
-     * not need to interact with it directly; the parent class's own behavior will use this to populate
-     * the `data` property we discussed earlier
-     *
-     * The `HTMLElement` serves as the root element for the view, which we can render our FullCalendar
-     * component into
-     */
     constructor(controller: QueryController, containerEl: HTMLElement) {
         super(controller);
 
-        // Standard basic `Calendar` setup, from the FullCalendar documentation
         this.calendar = new Calendar(containerEl, {
             plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
             initialView: "dayGridMonth",
@@ -306,19 +246,13 @@ class CalendarView extends BasesView {
     }
 
     async makeEventsFromData() {
-        // The `data` property, which provides our view with access to the data retreived
-        // by the Base, won't exist initially; we want to exit early in that case
         if (!this.data?.data) {
             return [];
         }
 
-        // `data.data` reflects the actual query results that the Base provides to our view
         return this.data.data.map((entry) => {
-            // The `date` formula that we defined in our Base will be used to define where each note
-            // is rendered in the calendar
             const start = entry.getValue("formula.date");
 
-            // The object returned here defines how FullCalendar will render the event
             return {
                 id: entry.file.path,
                 title: entry.file.basename,
@@ -328,26 +262,18 @@ class CalendarView extends BasesView {
         });
     }
 
-    // `onDataUpdated` is called automatically by Obsidian when the `data` property changes
     onDataUpdated(): void {
-        // Calling `refetchEvents` on the calendar instance tells FullCalendar to call the `events`
-        // function again, which regenerates the list of events from our `data` property
         this.calendar.refetchEvents();
-        // Calling `render` tells the FullCalendar UI to update after it finishes refetching
         this.calendar.render();
     }
 
-    /**
-     * The `unload` method is common to all Obsidian view plugins, not just those related to Bases; we
-     * can use this to clean up anything that we created by the view (like the calendar instance)
-     */
     unload(): void {
         this.calendar.destroy();
     }
 }
 ```
 
-Adding this `eventClick` handler to our FullCalendar instance is all we need to allow notes to be opened from the calendar! The `id` property of each event, which we defined based on the full path of each rendered file, can be reused with Obsidian's plugin API for opening a note to handle the behavior we'd expect to see.
+Adding this `eventClick` handler (`6`) to our FullCalendar instance is all we need to allow notes to be opened from the calendar! The `id` property of each event, which we defined based on the full path of each rendered file, can be reused with Obsidian's plugin API for opening a note to handle the behavior we'd expect to see.
 
 ![Clicking on a calendar event to open the associated note](./event-interactivity.gif)
 
