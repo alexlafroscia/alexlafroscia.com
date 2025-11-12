@@ -25,7 +25,7 @@ const topics = await getEntries(topicRefs);
                     <Fragment>
                         <dt class="font-bold">Topics</dt>
                         <dd>
-                            <ul class="flex gap-2">
+                            <ul class="flex flex-wrap gap-2">
                                 {topics.map((topic) => (
                                     <li>
                                         <Topic {topic} />

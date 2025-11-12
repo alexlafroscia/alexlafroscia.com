@@ -11,7 +11,7 @@ const { topic } = Astro.props;
 const { label } = topic.data;
 ---
 
-<a class="underline" href={`/topics/${encodeURIComponent(topic.id)}`}>
+<a class="whitespace-nowrap underline" href={`/topics/${encodeURIComponent(topic.id)}`}>
     <slot>
         {label}
     </slot>
