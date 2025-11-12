@@ -23,13 +23,15 @@ export async function getStaticPaths() {
             },
             props: {
                 topic: await getEntry("topics", topic),
-                posts: posts.filter((post) => {
-                    if (!post.data.topics) {
-                        return false;
-                    }
+                posts: posts
+                    .filter((post) => {
+                        if (!post.data.topics) {
+                            return false;
+                        }
 
-                    return post.data.topics.map((topic) => topic.id).includes(topic);
-                }),
+                        return post.data.topics.map((topic) => topic.id).includes(topic);
+                    })
+                    .toSorted((a, b) => b.data.date.valueOf() - a.data.date.valueOf()),
             },
         })),
     );
