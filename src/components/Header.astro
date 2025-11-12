@@ -12,59 +12,57 @@ interface Props {
 }
 
 const { title = "" } = Astro.props;
+
+const links = [
+    {
+        href: "/rss.xml",
+        label: "RSS Feed",
+        icon: RSS,
+    },
+    {
+        href: "https://bsky.app/profile/alexlafroscia.com",
+        label: "Bluesky Profile for Alex LaFroscia",
+        rel: "me",
+        icon: BlueSky,
+    },
+    {
+        href: "https://github.com/alexlafroscia",
+        label: "GitHub Profile for Alex LaFroscia",
+        rel: "me",
+        icon: GitHub,
+    },
+    {
+        href: "https://www.linkedin.com/in/alexlafroscia/",
+        label: "LinkedIn Profile for Alex LaFroscia",
+        rel: "me",
+        icon: LinkedIn,
+    },
+];
 ---
 
 <header
     class="mb-4 border-b-2 border-[var(--background-gradient-to)] bg-gradient-to-br from-[var(--background-gradient-from)] to-[var(--background-gradient-to)] px-4 pt-4 pb-8"
 >
     <nav class="w-readable mx-auto mb-8 flex max-w-full flex-col items-start gap-4">
-        <ul class="flex w-full gap-2">
+        <ul class="flex w-full items-center gap-2">
             <li class="flex-grow">
                 <a class="font-bold" href="/">{SITE_TITLE}</a>
             </li>
 
-            <li>
-                <a
-                    href="/rss.xml"
-                    class="block transition-transform hover:scale-105 focus-visible:scale-105"
-                >
-                    <span class="sr-only">RSS Feed</span>
-                    <RSS class="h-5 w-5" />
-                </a>
-            </li>
-
-            <li>
-                <a
-                    rel="me"
-                    href="https://bsky.app/profile/alexlafroscia.com"
-                    class="block transition-transform hover:scale-105 focus-visible:scale-105"
-                >
-                    <span class="sr-only">Bluesky Profile for Alex LaFroscia</span>
-                    <BlueSky class="h-5 w-5" />
-                </a>
-            </li>
-
-            <li>
-                <a
-                    rel="me"
-                    href="https://github.com/alexlafroscia"
-                    class="block transition-transform hover:scale-105 focus-visible:scale-105"
-                >
-                    <span class="sr-only">GitHub Profile for Alex LaFroscia</span>
-                    <GitHub class="h-5 w-5" />
-                </a>
-            </li>
-
-            <li>
-                <a
-                    rel="me"
-                    href="https://www.linkedin.com/in/alexlafroscia/"
-                    class="block transition-transform hover:scale-105 focus-visible:scale-105"
-                >
-                    <span class="sr-only">LinkedIn Profile for Alex LaFroscia</span>
-                    <LinkedIn class="h-5 w-5" />
-                </a>
-            </li>
+            {
+                links.map((link) => (
+                    <li>
+                        <a
+                            rel={link.rel}
+                            href={link.href}
+                            class="block transition-transform hover:scale-105 focus-visible:scale-105"
+                        >
+                            <span class="sr-only">{link.label}</span>
+                            <link.icon class="h-4 w-4" />
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </nav>
 
