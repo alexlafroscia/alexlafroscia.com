@@ -1,0 +1,88 @@
+==================================================================
+https://keybase.io/alexlafroscia
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://alexlafroscia.com
+  * I am alexlafroscia (https://keybase.io/alexlafroscia) on keybase.
+  * I have a public key with fingerprint 3F23 F172 477E 30E0 6374  60F2 EA2B A3F9 72C6 9A1F
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101850cc77aa1aae08cb340f7476ced8492d84836f3f34da052d8fd9309a31d8dd90a",
+      "fingerprint": "3f23f172477e30e0637460f2ea2ba3f972c69a1f",
+      "host": "keybase.io",
+      "key_id": "ea2ba3f972c69a1f",
+      "kid": "01010730d9f22d7950c0c3ecab4851a8d638f843a2987b0e09d89bc2e4f4db28bf330a",
+      "uid": "f99afea988db584889ba422c8417a619",
+      "username": "alexlafroscia"
+    },
+    "merkle_root": {
+      "ctime": 1638195654,
+      "hash_meta": "d0214f342ee8988b66790877007dd81735d75cbed5d7faa64277e32f631f0ec2",
+      "seqno": 21322593
+    },
+    "revoke": {
+      "sig_ids": [
+        "e35f0afdb361765d8a752ffa7977b2ad2e453083e56729d7680c90592f3fd2f80f"
+      ]
+    },
+    "service": {
+      "hostname": "alexlafroscia.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1638195660,
+  "expire_in": 157680000,
+  "prev": "1a5f8711cf5baf22e260c458ce7986185d5b9530ac9452fe88a1230eb8e285f1",
+  "seqno": 84,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMP/AnicbVNrbBVFFG6hvYVKAYliaiDGBSKPS9md3Z2ZvUAMiokV7A8IFFvMdXZn
+pl16e7fdu61tmhpaaUQepQaFQlKgBTS8CoKGN0QKRCpqEUSCoQHBAha1TYXysK2z
+jYbEMD92Mjvf+c53vnPmZMrAuOT43yZtfuCeXv9C/DcnKoriyJZrZ8sk06GlUqhM
+ymP9G4tQFvPCeTaVQpKsyArWZctCiBCFECZjy1Q1mSMNQYtRrBlAfLAKucpVjRJZ
+F2dODVU2iKpQTKkhEykocTuaw9wC1456glblQOUKAhpCTJWZDFWkQZkDRoBJVG4g
+YEGDKFwE5joxP0KIM0mMpdmO+CcO4X55T8A/1i0jVaYGB4AiQ5QgWyqziKlhXSGY
+QhVzrKkEGBiZQoFBsWFagGlcoybAJlfVft1F/XTcMAhnxMCYmrooV2CJBoCFNQUR
+qBg+MMbcKMlnAk0irCRCuOvELJtI5UEpn7l5ERZ2HcfzHbY828cpQoNi6FDXRJUk
+lhvOZx4R4VQGiibMBIxhkdGEEBkyRkiWEaVYQapOkW6ZjIqdEwI14LsIOFQVLjML
+CDExVhh1pBBQVAB0QxUSXFbs5DE/e8zOEebFpFC2xFSdy4RTU4UKgjrFBOmAc4IM
+hExAqLBDV2WsMh0iYFAEsWwZsm4A0WwKOJa59Ha5n80ttq1+cr9bT3IhzXLyha4C
+1/Ecy4mI61zPK4iFfHe80gIf/y4zw/8yhU07SsXAiIhi5sZsJyrcEsj/GQfloMRK
+CmyXhW0fofsCxfLzsGJBqRCdY6QoFtdNIgaBAShbmo4thgwMxWBT3TREhcQyNFE4
+w5goQMyjiRnAOlceO4lFjzySIziFfVHiFblMKj/x1cKEuPjkuEDiAP8lxSUPHv7f
++7qwalifuz5+Q0v29jc76sceru8ZGRx/8JC9cx2eecA7M3PW6eUfpv39Uuady9Nv
+r188dXfeiJaMNaNHBwqSpg6anxi0ly88dvzAwSHPLZ59ZOvG4X9OG/JZTd2i/adP
+nfv4hxHzrsJRq7f/cS/c90XOz9rsi8Fzg6d5Pxm/K7dvXpiamnqn87UHjy51rmzd
+s694z5n7zTuXnL+pZcE9l57Oil8a9+PoysUNE6Zk7Giqutu3tvZOVReERQktX37w
++azMznFnW++9+GvdU7nSnOQ3Vr2X2PhJyqQJj7oDt3a93xy4tS2glbD6qsNddR3l
+vbvQtrl17FFh+EjliJ6jVWuyJyZtqk2orqkdeePrZWjo5kWdiRdr0iZUft/0Vqg6
+PSn4Turx24eWNM/ta+wuAzPa53jfdkeGbOzZUKR8lNHUuLm742FJbVNLuC8r5+WR
+LVC9m9HI046uOP9LaHfhwPQdazOHOYGr7u7mleyhkz699cR39xsSE1nDMLL/3PML
+VrTvDQ169eKMAbs+TYifl3pr7yuHq7Ok9ta97knQMKMzu6qque3Y1fHrlu/bNOlm
+pTZmXMepnvbipCtLK/ZnSWMjpWNTF3SNGZfTeOXGUJAPt16bH5usp2wJljqjVqd7
+kba2U6G117uut4GUzIqyAcuOwN6/eqoPzF93tP7Ks3cnTrxfsSLQe/nCMz0g2js9
+5fXyOVMK903urV1Q8w+2aA/t
+=9uvf
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/alexlafroscia
+
+==================================================================
